@@ -1,0 +1,29 @@
+- search box OK
+- navbar header OK
+- navbar responsive design OK
+- navbar margin OK
+- dump isolates to .sql OK
+- decide the PHP framework OK
+- migrate database to non-root user OK
+- securely connect to mysql using pymysql OK
+- fuzzy search NO NEED FOR THAT
+
+- render all pages using view OK
+
+- extract common part of pages OK
+
+- implement search title and active across diff pages OK
+
+- choose BS element for showing search result OK
+
+- search with prompts (ajax)
+
+- design the frontend of search result (tsv part only)
+
+- let lumen take all requests, but in 2 router groups:
+  One takes rendering requests, the other takes api requests
+  "semi-frond-backend-seperation" OK
+
+- design the search temp page
+- design the frontend of fasta & whole genome
+- design the frontend of other external links

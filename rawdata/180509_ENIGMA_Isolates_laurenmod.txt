@@ -1,0 +1,970 @@
+Isolate ID	Isolation conditions	Phylogenetic Order	Closest relative in NCBI: 16S rRNA Gene Database	Similarity (%)	Date sampled	Well/Sample ID	Lab isolated	Campaign or Set
+FW305-130	"Sediment extract to 1/25 LB, aerobic, 30C "	Actinomycetales	Nocardia coeliaca strain DSM 44595	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-BF6	"filter on  1/25 R2A, aerobic, aphotic, 25C"	Bacillales	Bacillus acidicelar strain CBD 119	99	3/2/15	FW305	Chakraborty	Biofilm Campaign
+FW104-L1	"LB, aerobic, 30C"	Bacillales	Bacillus anthracis str. Ames	99	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+FW507-19G05	"Eugon, aerobic, 30C"	Bacillales	Bacillus cereus ATCC 14579	99	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW507-4D12	"R2A, aerobic, 30C"	Bacillales	Bacillus cereus strain ATCC 14579	99	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW602-L4	"LB, aerobic, 30C"	Bacillales	Bacillus cereus strain JCM 2152	99	6/10/14	FW602	Chakraborty	Microbiome Campaign Isolates
+FW021-L7	"LB+Mn, aerobic, 30C"	Bacillales	Bacillus circulans	99	11/27/12	FW021	Chakraborty	Oak Ridge Isolates
+FW602-R5	"R2A, aerobic, 30C"	Bacillales	Bacillus drentensis strain NBRC 102427	99	6/10/14	FW602	Chakraborty	Microbiome Campaign Isolates
+FW602-T3	"TSA, aerobic, 30C"	Bacillales	Bacillus korlensis strain ZLC-26	99	6/10/14	FW602	Chakraborty	Microbiome Campaign Isolates
+FW507-14D1A	"LB, aerobic, 30C"	Bacillales	Bacillus megaterium strain HT-Z56	99	11/26/12	FW507	Chakraborty	Revived Isolates
+FW602-L3	"LB, aerobic, 30C"	Bacillales	Bacillus megaterium strain NBRC 15308	99	6/10/14	FW602	Chakraborty	Microbiome Campaign Isolates
+FW507-14D01	"LB, aerobic, 30C"	Bacillales	Bacillus megaterium strain NBRC 15308	100	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW305-BF1	"filter on  1/25 R2A, aerobic, aphotic, 25C"	Bacillales	Bacillus niacini strain NBRC 155566	97	3/2/15	FW305	Chakraborty	Biofilm Campaign
+FW507-AN2TSA	"TSA, anaerobic, 30C"	Bacillales	Bacillus pseudomycoides strain NBRC 101232	99.5	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW104-L2	"LB, aerobic, 30C"	Bacillales	Bacillus safensis	100	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+FW104-R13	"R2A+Mn+Mo, aerobic, 30C"	Bacillales	Bacillus safensis	100	7/26/12	FW104	Chakraborty	Oak Ridge Isolates
+FW104-T1	"TSA, aerobic, 30C"	Bacillales	Bacillus safensis	100	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+FW510-T9	"TSA+Mn, aerobic, 30C"	Bacillales	Bacillus shackletonii	98	11/26/12	FW510	Chakraborty	Oak Ridge Isolates
+FW507-5R2A	"R2A, aerobic, 30C"	Bacillales	Bacillus sp.	99.75	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW507-6R2A	"R2A, aerobic, 30C"	Bacillales	Bacillus sp.	99.44	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW507-8R2A	"R2A, aerobic, 30C"	Bacillales	Bacillus sp.	99.7	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW507-AN1	"TSA, anaerobic, 30C"	Bacillales	Bacillus sp.	99.22	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW104-15D2A	"LB, aerobic, 30C"	Bacillales	Bacillus sp. DB14570	94	11/14/12	FW104	Chakraborty	Revived Isolates
+FW301-21C12A	"R2A, aerobic, 30C"	Bacillales	Brevibacillus agri strain 2112	98	4/20/14	FW301	Chakraborty	Revived Isolates
+FW306-2-1A-C05A	"25C, aerobic, R2A from 96 well carbon plates"	Bacillales	Brevibacillus agri strain DSM 6348	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2B-E08CA	"25C, aerobic, R2A from 96 well carbon plates"	Bacillales	Brevibacillus agri strain DSM 6348	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-3B-F07A	"25C, aerobic, R2A from 96 well carbon plates"	Bacillales	Brevibacillus agri strain DSM 6348	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW301-21D09	"R2A, aerobic, 30C"	Bacillales	Brevibacillus agri strain DSM 6348	99	4/20/14	FW301	Chakraborty	Oak Ridge Isolates
+FW301-21C12B	"R2A, aerobic, 30C"	Bacillales	Brevibacillus agri strain Z1-12	99	4/20/14	FW301	Chakraborty	Revived Isolates
+FW301-21B8A	"R2A, aerobic, 30C"	Bacillales	Brevibacillus agri strain ZJY-275	98	4/20/14	FW301	Chakraborty	Revived Isolates
+FW301-21D9B	"R2A, aerobic, 30C"	Bacillales	Brevibacillus sp. AMBR2	98	4/20/14	FW301	Chakraborty	Revived Isolates
+FW305-BF15	"filter on  1/25 R2A, aerobic, aphotic, 25C"	Bacillales	Brevibacterium frigoritolerans strain DSM 8801	99	3/2/15	FW305	Chakraborty	Biofilm Campaign
+FW305-BF2	"filter on  1/25 R2A, aerobic, aphotic, 25C"	Bacillales	Brevibacterium frigoritolerans strain DSM 8801	99	3/2/15	FW305	Chakraborty	Biofilm Campaign
+FW126-L8	"LB+Mn, aerobic, 30C"	Bacillales	Cohnella phaseoli	99	7/25/12	FW126	Chakraborty	Oak Ridge Isolates
+GW247-5R2A	"R2A, aerobic, 30C"	Bacillales	Lysinibacillus fusiformis strain NBRC15717	99	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-6R2A	"R2A, aerobic, 30C"	Bacillales	Lysinibacillus fusiformis strain NBRC15717	99	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+FW306-2-1A-B10AA	"25C, aerobic, R2A from 96 well carbon plates"	Bacillales	Paenibacillus aestuarii strain CJ25	88	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-1A-B10AB	"25C, aerobic, R2A from 96 well carbon plates"	Bacillales	Paenibacillus aestuarii strain CJ25	93	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-1A-B10BA	"25C, aerobic, R2A from 96 well carbon plates"	Bacillales	Paenibacillus aestuarii strain CJ25	97	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-1A-B10BB	"25C, aerobic, R2A from 96 well carbon plates"	Bacillales	Paenibacillus aestuarii strain CJ25	96	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW126-R14	"R2A+Mn, aerobic, 30C"	Bacillales	Paenibacillus alginolyticus	98	7/25/12	FW126	Chakraborty	Oak Ridge Isolates
+FW306-02-E	"25C, aerobic, Potato Dextrose agar"	Bacillales	Paenibacillus alginolyticus strain DSM 5050	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-03-G04-AA	"Casamino acids 10mg/mL, aerobic, 25C"	Bacillales	Paenibacillus alginolyticus strain DSM 5050	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-03-G04-AB	"Casamino acids 10mg/mL, aerobic, 25C"	Bacillales	Paenibacillus alginolyticus strain DSM 5050	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-PDAC2	"Potato Dextrose agar to LB, 25C, aerobic"	Bacillales	Paenibacillus alginolyticus strain DSM 5050	98	6/10/15	FW306	Chakraborty	Core Campaign
+FW306-2-2C-A10BB	"25C, aerobic, R2A from 96 well carbon plates"	Bacillales	Paenibacillus alginolyticus strain DSM 5050	97	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2C-A10BC	"25C, aerobic, R2A from 96 well carbon plates"	Bacillales	Paenibacillus alginolyticus strain DSM 5050	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2C-B10BB	"25C, aerobic, R2A from 96 well carbon plates"	Bacillales	Paenibacillus alginolyticus strain DSM 5050	97	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-PDAC1	"Potato Dextrose agar to LB, 25C, aerobic"	Bacillales	Paenibacillus contaiminans strain CKOBP-6	99	6/10/15	FW306	Chakraborty	Core Campaign
+FW104-T2	"TSA, aerobic, 30C"	Bacillales	Paenibacillus illinoisensis	99	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+FW507-14B1A	"TSA, aerobic, 30C"	Bacillales	Paenibacillus sp. YN08-04	98	11/26/12	FW507	Chakraborty	Revived Isolates
+FW507-14B1B	"TSA, aerobic, 30C"	Bacillales	Paenibacillus uliginis strain KK20	98	11/26/12	FW507	Chakraborty	Revived Isolates
+FW507-14B01	"LB, aerobic, 30C"	Bacillales	Paenibacillus uliginis strain N3/975	97	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW104-15G4D	"LB, aerobic, 30C"	Bacillales	Staphylococcus capitis strain AYP1020	99	11/14/12	FW104	Chakraborty	Revived Isolates
+GW101-3E06	"R2A, aerobic, 30C"	Burkholderiales	Acidovorax defluvii strain BSB411	97	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+MPBD7-1	"Humic acid coupon, Lactate, aerobic, 30C"	Burkholderiales	Acidovorax delafieldii strain 133	99		Matthew Fields Bioreactor	Chakraborty	Oak Ridge Bioreactor Coupon Isolates
+MPBD7-2	"Humic acid coupon, Lactate, aerobic, 30C"	Burkholderiales	Acidovorax delafieldii strain 133	99		Matthew Fields Bioreactor	Chakraborty	Oak Ridge Bioreactor Coupon Isolates
+GW101-11A03	"Eugon, aerobic, 30C"	Burkholderiales	Acidovorax delafieldii strain 133	98	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+GW101-3F01	"R2A, aerobic, 30C"	Burkholderiales	Acidovorax delafieldii strain 133	98.01	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+GW456-A1A	"Basal + Nitrate + Acetate, anaerobic, 30C"	Burkholderiales	Acidovorax delafildii	98	11/19/13	GW456	Chakraborty	Time Series Campaign
+GW456-A1B	"Basal + Nitrate + Acetate, anaerobic, 30C"	Burkholderiales	Acidovorax delafildii	98	11/19/13	GW456	Chakraborty	Time Series Campaign
+GW456-A8	"Basal + Nitrate + Fumarate, anaerobic, 30C"	Burkholderiales	Acidovorax delafildii	98	11/19/13	GW456	Chakraborty	Time Series Campaign
+GW101-11D10	"Eugon, aerobic, 30C"	Burkholderiales	Acidovorax soli strain BL21	98.29	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+GW101-20D03	"LB, aerobic, 30C"	Burkholderiales	Acidovorax soli strain BL21	99	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+GW101-3H11	"R2A, aerobic, 30C"	Burkholderiales	Acidovorax soli strain BL21	99	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+GW456-11-11-14-TSB5	aerobic 10dil TSB 30C	Burkholderiales	Acidovorax sp.	99.9	11/11/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW456-12-1-14-LB3	aerobic 10dil LB 30C	Burkholderiales	Acidovorax sp.	99.9	12/1/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW458-11-26-14-TSB4	aerobic 10dil TSB 30C	Burkholderiales	Acidovorax sp.	100	11/26/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW460-11-11-14-LB4	aerobic 10dil LB 30C	Burkholderiales	Acidovorax sp.	99.9	11/11/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW460-11-11-14-TSB7	aerobic 10dil TSB 30C	Burkholderiales	Acidovorax sp.	100	11/11/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW460-12-1-14-LB2	aerobic 10dil LB 30C	Burkholderiales	Acidovorax sp.	100	12/1/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW460-12-1-14-TSB1	aerobic 10dil TSB 30C	Burkholderiales	Acidovorax sp.	99.9	12/1/14	GW460	Chakraborty	FRC Time Series Campaign Second
+FW305-3-2-15-A-TSA2	aerobic 10dil TSA 30C	Burkholderiales	Acidovorax sp.	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-F-R2A2	aerobic R2A 30C	Burkholderiales	Acidovorax sp.	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW303-C2	"20mM Propionate, 10mM Nitrate, anaerobic, 30C"	Burkholderiales	Acidovorax sp.	98.62	10/23/12	FW303	Chakraborty	Oak Ridge Isolates
+DP16D-R6	"R2A, aerobic, 30C"	Burkholderiales	Acidovorax valerianellae strain CFBP 4730	99	6/17/14	DP16D	Chakraborty	Microbiome Campaign Isolates
+GW247-26LB	"LB, aerobic, 30C"	Burkholderiales	Alcaligenes sp.	97.1	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+FW507-E7	"Noble, PH7- 10mM Pyruvate, 10mM Nitrate, anaerobic, 30C"	Burkholderiales	Aquaspirillum psychrophilum str. LMG 5408	99.37	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+GW247-D7	"Noble, PH7- 10mM Pyruvate, 100mM Nitrate, anaerobic, 30C"	Burkholderiales	Aquaspirillum sp. str. EMB325	99.06	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-E2	"Noble, PH7- 20mM Lactate, 10mM Nitrate, anaerobic, 30C"	Burkholderiales	Aquaspirillum sp. str. EMB325	99.58	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-E3	"Noble, PH7- 10mM Glycerol, 10mM Nitrate, anaerobic, 30C"	Burkholderiales	Aquaspirillum sp. str. EMB325	99.56	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-E7	"Noble, PH7- 10mM Pyruvate, 10mM Nitrate, anaerobic, 30C"	Burkholderiales	Aquaspirillum sp. str. EMB325	98.43	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+FW306-1C-G01A	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Burkholderia ambifaira strain AMMD	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-1C-G01B	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Burkholderia ambifaira strain AMMD	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-02-C	"25C, aerobic, Potato Dextrose agar"	Burkholderiales	Burkholderia ambifaria strain AMMD	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-2-2A-F12	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Burkholderia bryophila strain 1S18	97	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2C-D06C	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Burkholderia bryophila strain 1S18	96	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-4A-A06C	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Burkholderia phytofirmans strain PsJN 	94	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-02-B	"25C, aerobic, Potato Dextrose agar"	Burkholderiales	Burkholderia rhynchosiae strain WSM3937	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW104-12G02	"Eugon, aerobic, 30C"	Burkholderiales	Castellaniella caeni strain Ho-11	97.28	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+FW104-7C03	"TSA, aerobic, 30C"	Burkholderiales	Castellaniella caeni strain Ho-11	97	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+GW247-6E4	"TSA, aerobic, 30C"	Burkholderiales	Castellaniella defragrans 	99	11/14/12	GW247	Chakraborty	Revived Isolates
+FW104-16D08	"LB, aerobic, 30C"	Burkholderiales	Castellaniella hirudinis strain E103	98	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+FW104-7G2B	"TSA, aerobic, 30C"	Burkholderiales	Castellaniella hirudinis strain E103	98	11/14/12	FW104	Chakraborty	Revived Isolates
+FW104-7C8	"TSA, aerobic, 30C"	Burkholderiales	Castellaniella sp. 7.5A2	98	11/14/12	FW104	Chakraborty	Revived Isolates
+FW305-3-2-15-E-R2A2	aerobic R2A 30C	Burkholderiales	Cupriavidus basilensis	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-F-LB3	aerobic LB 30C	Burkholderiales	Cupriavidus basilensis	99.6	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-F-TSA1	aerobic TSA 30C	Burkholderiales	Cupriavidus basilensis	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-F-TSA3	aerobic TSA 30C	Burkholderiales	Cupriavidus basilensis	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-F-TSA4	aerobic 10dil TSA 30C	Burkholderiales	Cupriavidus basilensis	99.8	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+GW531-R2	"R2A, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis	99	11/28/12	GW531	Chakraborty	Oak Ridge Isolates
+GW531-T5	"TSA, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis	99	11/28/12	GW531	Chakraborty	Oak Ridge Isolates
+FW216-B2	"Potato Dextrose agar, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis DSM 11853	99	5/1/15	FW216	Chakraborty	Memory Response
+FW216-B3	"Potato Dextrose agar, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis DSM 11853	99	5/1/15	FW216	Chakraborty	Memory Response
+FW216-B4	"Potato Dextrose agar, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis DSM 11853	99	5/1/15	FW216	Chakraborty	Memory Response
+FW305-103	"1/25 LB, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-11	"1/10 TSA, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-125	"1/10 R2A, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	95	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-131	"1/25 R2A, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	96	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-132	"1/25 R2A, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-14	"1/10 TSA, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	94	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-146	"1/25 R2A, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-18	"1/10 TSA, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-21	"Benzoate to 1/10 TSA, aerobic, 30C "	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-31	"1/10 LB, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-41	"1/25 TSA, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	93	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-64	"1/10 R2A, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-71	"1/10 LB, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-79	"1/25 TSA, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-8	"1/10 LB, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-82C	"Glucose to 1/25 LB, aerobic, 30C "	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-84	"1/10 R2A, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-88	"1/25 LB, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-91	"1/25 LB, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-97A	"Lysed cells to 1/25 TSA, aerobic, 30C "	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-3-2-15-E-R2A3	aerobic R2A 30C	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+DP16D-E2	"Eugon, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	6/17/14	DP16D	Chakraborty	Microbiome Campaign Isolates
+MPR-AND1C	"bulk groundwater TOP, anaerobic AQDS to AHDS, restreak on LB"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	6/10/14	Matthew Fields Bioreactor	Chakraborty	Microparticles Campaign
+MPBC1-4	"Humic acid coupon, Glucose, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99		Matthew Fields Bioreactor	Chakraborty	Oak Ridge Bioreactor Coupon Isolates
+MPBC4-3	"Fulvic acid coupon, Glucose, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99		Matthew Fields Bioreactor	Chakraborty	Oak Ridge Bioreactor Coupon Isolates
+MPBC4-4	"Fulvic acid coupon, Glucose, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99		Matthew Fields Bioreactor	Chakraborty	Oak Ridge Bioreactor Coupon Isolates
+MPBE1-2	"Fulvic acid coupon, Propionate, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99		Matthew Fields Bioreactor	Chakraborty	Oak Ridge Bioreactor Coupon Isolates
+MPBE1-4	"Humic acid coupon, Propionate, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99		Matthew Fields Bioreactor	Chakraborty	Oak Ridge Bioreactor Coupon Isolates
+FW507-14F12	"LB, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW507-19B05	"Eugon, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW507-4G11	"R2A, aerobic, 30C"	Burkholderiales	Cupriavidus basilensis strain DSM 11853	99	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW305-3-2-15-B-TSA3	aerobic 10dil TSA 30C	Burkholderiales	Cupriavidus necator	99.7	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-C-LB2	aerobic 10dil LB 30C	Burkholderiales	Cupriavidus necator	99.6	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-C-TSA1	aerobic TSA 30C	Burkholderiales	Cupriavidus necator	99.5	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-D-LB2	aerobic 10dil LB 30C	Burkholderiales	Cupriavidus necator	99.6	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+GW460-10A	"Phosphate Basal + Propionate, anaerobic, 30C"	Burkholderiales	Cupriavidus necator str. N-1	99	11/6/13	GW460	Chakraborty	Time Series Campaign
+GW460-10B	"Phosphate Basal + Propionate, anaerobic, 30C"	Burkholderiales	Cupriavidus necator str. N-1	99	11/6/13	GW460	Chakraborty	Time Series Campaign
+GW460-11	"Phosphate Basal + Propionate, anaerobic, 30C"	Burkholderiales	Cupriavidus necator str. N-1	99	11/6/13	GW460	Chakraborty	Time Series Campaign
+GW460-LB6	"Oakridge Groundwater + Benzoate, anaerobic, 30C"	Burkholderiales	Cupriavidus necator str. N-1	99	11/6/13	GW460	Chakraborty	Time Series Campaign
+FW306-01-1C-F10C	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-01-F10A	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-01-F10AA	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-01-F10AB	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-01-F10B	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-01-F10C	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-04-F10B	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-04-F10C	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-1B-B10A	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	97	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-1B-B10B	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-1B-B10D	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-1B-B10FA	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-1B-F04AB	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-1B-F04AC	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-1B-F04DA	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-1B-F12B	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Cupriavidus necator strain N-1	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW305-115	"1/10 R2A, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-119	"1/25 R2A, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-13	"1/10 TSA, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-137	"1/10 R2A, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-15	"1/10 TSA, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	95	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-16	"1/10 LB, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	95	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-19	"Acetate to 1/10 TSA, aerobic, 30C "	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-20A	"Carbon mixture to 1/10 LB, aerobic, 30C "	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-23	"Acetate to 1/10 TSA, aerobic, 30C "	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-26	"1/10 LB, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	96	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-27	"1/10 LB, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	87	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-32	"1/10 TSA, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	93	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-35	"Acetate to 1/10 LB, aerobic, 30C "	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-43	"Glucose to 1/25 TSA, aerobic, 30C "	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-45	"Benzoate to 1/10 LB, aerobic, 30C "	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-46	"1/10 LB, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	97	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-47A	"Glucose to 1/10 LB, aerobic, 30C "	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-52	"1/10 R2A, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-54	"1/25 TSA, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-58	"1/25 TSA, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	94	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-61	"1/25 TSA, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-77	"1/25 LB, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	90	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-82A	"Glucose to 1/25 LB, aerobic, 30C "	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-82B	"Glucose to 1/25 LB, aerobic, 30C "	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-83	"1/25 LB, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-94	"1/10 R2A, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	97	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-F7	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Burkholderiales	Cupriavidus necator strain N-1	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+MPR-ANC1	"bulk groundwater TOP, anaerobic AHDS, restreak on LB"	Burkholderiales	Cupriavidus necator strain N-1	99	6/10/14	Matthew Fields Bioreactor	Chakraborty	Microparticles Campaign
+FW216-B1	"Potato Dextrose agar, aerobic, 30C"	Burkholderiales	Cupriavidus numazuensis NBRC 100056	99	5/1/15	FW216	Chakraborty	Memory Response
+FW305-22	"Glucose to 1/10 TSA, aerobic, 30C "	Burkholderiales	Cupriavidus numazuensis strain NBRC 100056	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-72	"1/10 LB, aerobic, 30C"	Burkholderiales	Cupriavidus numazuensis strain NBRC 100056	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-3-2-15-D-LB1	aerobic LB 30C	Burkholderiales	Cupriavidus sp.	99.7	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW507-11TSA	"TSA, aerobic, 30C"	Burkholderiales	Cupriavidus sp. str. JB1B4	99.95	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW507-15TSA	"TSA, aerobic, 30C"	Burkholderiales	Cupriavidus sp. str. JB1B4	99.8	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW507-29LB	"LB, aerobic, 30C"	Burkholderiales	Cupriavidus sp. str. JB1B4	99.85	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW507-30LB	"LB, aerobic, 30C"	Burkholderiales	Cupriavidus sp. str. JB1B4	99.95	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW306-03-F10B	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Curvibacter fontanus strain AQ9	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-04-F10A	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Curvibacter fontanus strain AQ9	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2A-F10B	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Curvibacter fontanus strain AQ9	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2B-E08	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Curvibacter fontanus strain AQ9	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2B-E08CB	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Curvibacter fontanus strain AQ9	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2C-A10A	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Curvibacter fontanus strain AQ9	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-3B-F07B	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Curvibacter fontanus strain AQ9	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-3C-E09BA	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Curvibacter fontanus strain AQ9	94	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-3C-E09BB	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Curvibacter fontanus strain AQ9	97	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-4A-A06A	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Curvibacter fontanus strain AQ9	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-4A-A06B	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Curvibacter fontanus strain AQ9	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-4A-A06D	"25C, aerobic, R2A from 96 well carbon plates"	Burkholderiales	Curvibacter fontanus strain AQ9	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+GW456-E5	"Eugon, anaerobic, 30C"	Burkholderiales	Delftia acidovorans	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+GW456-R20	"R2A, anaerobic, 30C"	Burkholderiales	Delftia acidovorans	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+DP16D-L5	"LB, aerobic, 30C"	Burkholderiales	Delftia lacustris strain 332	100	6/17/14	DP16D	Chakraborty	Microbiome Campaign Isolates
+GW456-E4	"Eugon, anaerobic, 30C"	Burkholderiales	Delftia tsuruhatensis	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+GW456-R19	"R2A, anaerobic, 30C"	Burkholderiales	Delftia tsuruhatensis	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+FW300-N2A6	"Acetate & Nitrate: Bubbles and Chunky Cream growth, anaerobic, 30C"	Burkholderiales	Duganella sp. str. HMD2171	97.81	7/25/12	FW300	Chakraborty	Oak Ridge Isolates
+FW300-N2E4	"Propionate & Nitrate: Bubbles and Transparent Cream Growth, anaerobic, 30C"	Burkholderiales	Duganella zoogloeoides strain IAM 12670	98	7/25/12	FW300	Chakraborty	Oak Ridge Isolates
+FW303-A3	"20mM Acetate, 10mM Nitrate, anaerobic, 30C"	Burkholderiales	Herbaspirillum massiliense strain JC206	97	10/23/12	FW303	Chakraborty	Oak Ridge Isolates
+FW305-3-2-15-F-R2A3	aerobic R2A 30C	Burkholderiales	Hydrogenophaga palleronii strain NBRC 102513	99	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+GW456-11-11-14-TSB8	aerobic 10dil TSB 30C	Burkholderiales	Hydrogenophaga sp.	99.9	11/11/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW456-12-10-14-TSB4	aerobic 10dil TSB 30C	Burkholderiales	Hydrogenophaga sp.	99.9	12/10/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW460-11-11-14-LB1	aerobic 10dil LB 30C	Burkholderiales	Hydrogenophaga sp.	99.9	11/11/14	GW460	Chakraborty	FRC Time Series Campaign Second
+FW305-3-2-15-A-LB1	aerobic LB 30C	Burkholderiales	Hydrogenophaga sp.	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-F-LB1	aerobic LB 30C	Burkholderiales	Hydrogenophaga sp.	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-F-LB4	aerobic 10dil LB 30C	Burkholderiales	Hydrogenophaga sp.	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-F-R2A1	aerobic R2A 30C	Burkholderiales	Hydrogenophaga sp.	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-F-TSA6	aerobic 10dil TSA 30C	Burkholderiales	Hydrogenophaga sp.	99.7	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+GW101-3F04	"R2A, aerobic, 30C"	Burkholderiales	Hydrogenophaga taeniospiralis strain 2K1	98.91	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+GW101-3F08	"R2A, aerobic, 30C"	Burkholderiales	Hydrogenophaga taeniospiralis strain 2K1	99.2	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+FW305-145	"1/10 TSA, aerobic, 30C"	Burkholderiales	Ideonella azotifigens strain 1a22	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-141	"Carbon mixture to 1/25 R2A, aerobic, 30C "	Burkholderiales	Ideonella dechloratans strain Anox B	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-24	"1/10 LB, aerobic, 30C"	Burkholderiales	Ideonella dechloratans strain Anox B	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-93	"1/10 R2A, aerobic, 30C"	Burkholderiales	Ideonella dechloratans strain Anox B	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-85	"1/25 TSA, aerobic, 30C"	Burkholderiales	Janthinobacterium agaricidamnosum strain W1r3	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-128	"Glucose to 1/25 R2A, aerobic, 30C "	Burkholderiales	Janthinobacterium lividum strain DSM 1522	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-129	"1/25 R2A, aerobic, 30C"	Burkholderiales	Janthinobacterium lividum strain DSM 1522	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+GW456-11-11-14-LB3	aerobic 10dil LB 30C	Burkholderiales	Janthinobacterium lividum strain DSM 1522	99	11/11/14	GW456	Chakraborty	FRC Time Series Campaign Second
+DP16D-E3	"Eugon, aerobic, 30C"	Burkholderiales	Janthinobacterium lividum strain DSM 1522	99	6/17/14	DP16D	Chakraborty	Microbiome Campaign Isolates
+GW458-11-11-14-TSB3	aerobic 10dil TSB 30C	Burkholderiales	Janthinobacterium sp.	99.9	11/11/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW460-11-11-14-LB6	aerobic 10dil LB 30C	Burkholderiales	Janthinobacterium sp.	99.9	11/11/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW460-11-11-14-TSB1	aerobic 10dil TSB 30C	Burkholderiales	Janthinobacterium sp.	100	11/11/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW460-12-1-14-LB5	aerobic 10dil LB 30C	Burkholderiales	Janthinobacterium sp.	100	12/1/14	GW460	Chakraborty	FRC Time Series Campaign Second
+FW305-9	"1/10 TSA, aerobic, 30C"	Burkholderiales	Leptothrix discophora strain SS-1	94	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+GW460-12-1-14-TSB5	aerobic 10dil TSB 30C	Burkholderiales	Massilia sp.	99.7	12/1/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW458-11-26-14-LB2	aerobic 10dil LB 30C	Burkholderiales	Massilia timonae	96.5	11/26/14	GW458	Chakraborty	FRC Time Series Campaign Second
+FW305-36	"1/10 LB, aerobic, 30C"	Burkholderiales	Pelomonas aquatica strain CCUG 52575	91	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-140	"1/25 R2A, aerobic, 30C"	Burkholderiales	Pelomonas saccharophila strain NBRC 103037	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-143	"1/10 R2A, aerobic, 30C"	Burkholderiales	Pelomonas saccharophila strain NBRC 103037	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-29A	"Benzoate to 1/10 TSA, aerobic, 30C "	Burkholderiales	Pelomonas saccharophila strain NBRC 103037	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-29B	"Benzoate to 1/10 TSA, aerobic, 30C "	Burkholderiales	Pelomonas saccharophila strain NBRC 103037	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-75	"1/10 R2A, aerobic, 30C"	Burkholderiales	Pelomonas saccharophila strain NBRC 103037	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW300-E2	"O-P 10mM Formate, 10mM Nitrate, anaerobic, 30C"	Burkholderiales	Pelomonas sp. str. TSA64	97.74	7/25/12	FW300	Chakraborty	Oak Ridge Isolates
+FW301-B2	"20mM Lactate, 10mM Nitrate, anaerobic, 30C"	Burkholderiales	Pelomonas sp. str. TSA64	97.8	7/25/12	FW301	Chakraborty	Oak Ridge Isolates
+GW460-C2	"Basal + Nitrate + Lactate, anaerobic, 30C"	Burkholderiales	Polaromonas sp. str. JS666	99	11/19/13	GW460	Chakraborty	Time Series Campaign
+FW305-100	"1/25 LB , aerobic, 30C"	Burkholderiales	Pseudacidovorax intermedius strain CC-21	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-108	"1/25 LB, aerobic, 30C"	Burkholderiales	Pseudacidovorax intermedius strain CC-21	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-120	"1/10 LB, aerobic, 30C"	Burkholderiales	Pseudacidovorax intermedius strain CC-21	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+GW247-17A02	"LB, aerobic, 30C"	Burkholderiales	Ralstonia insidiosa strain AU2944	99.2	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-4R2A	"R2A, aerobic, 30C"	Burkholderiales	Simplicispira sp. str. R-22835	98.64	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW456-12-10-14-LB1	aerobic 10dil LB 30C	Burkholderiales	Uncultured Acidovorax	99.8	12/10/14	GW456	Chakraborty	FRC Time Series Campaign Second
+FW305-1	"1/10 TSA, aerobic, 30C"	Burkholderiales	Undibacterium pigrum strain CCUG 49009	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-107	"1/25 TSA, aerobic, 30C"	Burkholderiales	Undibacterium pigrum strain CCUG 49009	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-114	"Glucose to 1/25 R2A, aerobic, 30C "	Burkholderiales	Undibacterium pigrum strain CCUG 49009	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-99	"1/10 R2A, aerobic, 30C"	Burkholderiales	Undibacterium pigrum strain CCUG 49009	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+MPR-R1B	"aerobic R2A, bulk groundwater bottom, restreak"	Burkholderiales	Undibacterium pigrum strain CCUG 49009	81	6/10/14	Matthew Fields Bioreactor	Chakraborty	Microparticles Campaign
+MPR-R1C	"aerobic R2A, bulk groundwater bottom, restreak"	Burkholderiales	Undibacterium pigrum strain CCUG 49009	99	6/10/14	Matthew Fields Bioreactor	Chakraborty	Microparticles Campaign
+GW460-12-1-14-TSB3	aerobic 10dil TSB 30C	Burkholderiales	Variovorax boronicumulans	100	12/1/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW531-E2	"Eugon, aerobic, 30C"	Burkholderiales	Variovorax boronicumulans	99	11/28/12	GW531	Chakraborty	Oak Ridge Isolates
+GW531-L3	"LB, aerobic, 30C"	Burkholderiales	Variovorax boronicumulans	99	11/28/12	GW531	Chakraborty	Oak Ridge Isolates
+GW531-T3	"TSA, aerobic, 30C"	Burkholderiales	Variovorax boronicumulans	99	11/28/12	GW531	Chakraborty	Oak Ridge Isolates
+GW456-E8	"Eugon, anaerobic, 30C"	Burkholderiales	Variovorax boronicumulans	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+GW456-E9	"Eugon, anaerobic, 30C"	Burkholderiales	Variovorax boronicumulans	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+GW456-L11	"LB, anaerobic, 30C"	Burkholderiales	Variovorax boronicumulans	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+GW456-R18	"R2A, anaerobic, 30C"	Burkholderiales	Variovorax boronicumulans	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+GW456-R23	"R2A, anaerobic, 30C"	Burkholderiales	Variovorax boronicumulans	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+GW460-E10	"Eugon, anaerobic, 30C"	Burkholderiales	Variovorax boronicumulans	99	11/6/13	GW460	Chakraborty	Time Series Campaign
+GW460-E11	"Eugon, anaerobic, 30C"	Burkholderiales	Variovorax boronicumulans	99	11/6/13	GW460	Chakraborty	Time Series Campaign
+GW460-L17	"LB, anaerobic, 30C"	Burkholderiales	Variovorax boronicumulans	99	11/6/13	GW460	Chakraborty	Time Series Campaign
+GW460-R16	"R2A, anaerobic, 30C"	Burkholderiales	Variovorax boronicumulans	99	11/6/13	GW460	Chakraborty	Time Series Campaign
+GW460-1A	"Oakridge Groundwater + Glycerol, anaerobic, 30C"	Burkholderiales	Variovorax boronicumulans str. NBRC 103145	99	11/19/13	GW460	Chakraborty	Time Series Campaign
+GW460-1B	"Oakridge Groundwater + Glycerol, anaerobic, 30C"	Burkholderiales	Variovorax boronicumulans str. NBRC 103145	99	11/19/13	GW460	Chakraborty	Time Series Campaign
+FW305-F2	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Burkholderiales	Variovorax boronicumulans strain NBRC	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-F3	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Burkholderiales	Variovorax boronicumulans strain NBRC	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-116	"Casamino Acids to 1/10 R2A, aerobic, 30C "	Burkholderiales	Variovorax boronicumulans strain NBRC 103145	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-F5	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Burkholderiales	Variovorax ginsengisoli strain Gsoil 3165	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+GW458-11-11-14-LB2	aerobic 10dil LB 30C	Burkholderiales	Variovorax paradoxus	99.9	11/11/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-11-11-14-TSB2	aerobic 10dil TSB 30C	Burkholderiales	Variovorax paradoxus	99.7	11/11/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-11-17-14-R2A1	aerobic R2A 30C	Burkholderiales	Variovorax paradoxus	99.9	11/17/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-11-17-14-TSB2	aerobic TSB 30C	Burkholderiales	Variovorax paradoxus	99.9	11/17/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-11-26-14-LB1	aerobic 10dil LB 30C	Burkholderiales	Variovorax paradoxus	99.9	11/26/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-11-26-14-TSB2	aerobic 10dil TSB 30C	Burkholderiales	Variovorax paradoxus	99.9	11/26/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-12-2-14-LB1	aerobic 10dil LB 30C	Burkholderiales	Variovorax paradoxus	99.9	12/2/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-12-2-14-TSB3	aerobic 10dil TSB 30C	Burkholderiales	Variovorax paradoxus	99.9	12/2/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-12-9-14-LB2	aerobic 10dil LB 30C	Burkholderiales	Variovorax paradoxus	99.9	12/9/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-12-9-14-TSB1	aerobic 10dil TSB 30C	Burkholderiales	Variovorax paradoxus	99.9	12/9/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW460-12-1-14-LB1	aerobic 10dil LB 30C	Burkholderiales	Variovorax paradoxus	100	12/1/14	GW460	Chakraborty	FRC Time Series Campaign Second
+FW305-3-2-15-B-LB1	aerobic LB 30C	Burkholderiales	Variovorax paradoxus	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-B-TSA1	aerobic TSA 30C	Burkholderiales	Variovorax paradoxus	100	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-B-TSA2	aerobic 10dil TSA 30C	Burkholderiales	Variovorax paradoxus	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-12	"Lysed cells to 1/10 TSA, aerobic, 30C "	Burkholderiales	Variovorax paradoxus EPS	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-133	"1/25 R2A, aerobic, 30C"	Burkholderiales	Variovorax paradoxus EPS	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-138	"1/25 R2A, aerobic, 30C"	Burkholderiales	Variovorax paradoxus EPS	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-20B	"Carbon mixture to 1/10 LB, aerobic, 30C "	Burkholderiales	Variovorax paradoxus EPS	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-65	"1/25 LB, aerobic, 30C"	Burkholderiales	Variovorax paradoxus EPS	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-92	"1/10 LB, aerobic, 30C"	Burkholderiales	Variovorax paradoxus EPS	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-102	"1/25 LB, aerobic, 30C"	Burkholderiales	Variovorax paradoxus S110	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-139	"1/25 R2A, aerobic, 30C"	Burkholderiales	Variovorax paradoxus S110	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-144	"1/25 R2A, aerobic, 30C"	Burkholderiales	Variovorax paradoxus S110	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-2	"1/10 TSA, aerobic, 30C"	Burkholderiales	Variovorax paradoxus S110	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-80	"1/10 R2A, aerobic, 30C"	Burkholderiales	Variovorax paradoxus S110	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-97B	"Lysed cells to 1/25 TSA, aerobic, 30C "	Burkholderiales	Variovorax paradoxus S110	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-E3	"5% Lysed Cells, Noble agar, aerobic, 30C"	Burkholderiales	Variovorax paradoxus strain EPS 	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-F1	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Burkholderiales	Variovorax paradoxus strain EPS 	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-F12	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Burkholderiales	Variovorax paradoxus strain EPS 	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-F8	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Burkholderiales	Variovorax paradoxus strain EPS 	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-F9	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Burkholderiales	Variovorax paradoxus strain EPS 	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-98	"Sediment extract to 1/10 R2A, aerobic, 30C "	Burkholderiales	Variovorax paradoxus strain NBRC 15149	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-F4	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Burkholderiales	Variovorax paradoxus strain S110	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+MPBD4-3	"Fulvic acid coupon, Lactate, aerobic, 30C"	Burkholderiales	Variovorax paradoxus strain S110	99		Matthew Fields Bioreactor	Chakraborty	Oak Ridge Bioreactor Coupon Isolates
+MPBD4-4	"Fulvic acid coupon, Lactate, aerobic, 30C"	Burkholderiales	Variovorax paradoxus strain S110	99		Matthew Fields Bioreactor	Chakraborty	Oak Ridge Bioreactor Coupon Isolates
+FW305-3-2-15-B-LB2	aerobic 10dil LB 30C	Burkholderiales	Variovorax sp.	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-D-TSA1	aerobic TSA 30C	Burkholderiales	Variovorax sp.	99.8	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-D-TSA2	aerobic 10dil TSA 30C	Burkholderiales	Variovorax sp.	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-E-TSA3	aerobic 10dil TSA 30C	Burkholderiales	Variovorax sp.	99.8	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW303-B3	"20mM Lactate, 10mM Nitrate, anaerobic, 30C"	Burkholderiales	Wautersia sp. str. BFXJ-6	99.35	10/23/12	FW303	Chakraborty	Oak Ridge Isolates
+FW305-110	"1/25 TSA, aerobic, 30C"	Burkholderiales	Xylophilus ampelinus strain BPIC 48	97	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+GW456-12-10-14-LB3	aerobic 10dil LB 30C	Caulobacterales	Brevundimonas sp.	100	12/10/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW456-12-10-14-TSB2	aerobic 10dil TSB 30C	Caulobacterales	Brevundimonas sp.	99.8	12/10/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW458-11-26-14-TSB5	aerobic 10dil TSB 30C	Caulobacterales	Brevundimonas sp.	100	11/26/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW460-12-10-14-TSB2	aerobic 10dil TSB 30C	Caulobacterales	Brevundimonas sp.	99.9	12/10/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW460-12-10-14-LB2	aerobic 10dil LB 30C	Caulobacterales	Brevundimonas vesicularis	100	12/10/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW456-12-1-14-TSB4	aerobic 10dil TSB 30C	Caulobacterales	Caulobacter sp.	99.6	12/1/14	GW456	Chakraborty	FRC Time Series Campaign Second
+FW104-15C04	"LB, aerobic, 30C"	Caulobacterales	Phenylobacterium falsum strain AC-49	99	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+GW123-5E06	"TSA, aerobic, 30C"	Caulobacterales	Phenylobacterium falsum strain AC-49	99	11/14/12	GW123	Chakraborty	Oak Ridge Isolates
+GW123-8A04	"R2A, aerobic, 30C"	Caulobacterales	Phenylobacterium falsum strain AC-49	99	11/14/12	GW123	Chakraborty	Oak Ridge Isolates
+GW123-8A10	"R2A, aerobic, 30C"	Caulobacterales	Phenylobacterium falsum strain AC-49	99	11/14/12	GW123	Chakraborty	Oak Ridge Isolates
+FW104-15D2B	"LB, aerobic, 30C"	Caulobacterales	Phenylobacterium falsum strain AC-49	99	11/14/12	FW104	Chakraborty	Revived Isolates
+FW507-AN12LB	"LB, anaerobic, 30C"	Clostridiales	Clostridium bifermentans strain JCM1386	99	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW507-AN13LB	"LB, anaerobic, 30C"	Clostridiales	Clostridium bifermentans strain JCM1386	99	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW507-AN11LB	"LB, anaerobic, 30C"	Clostridiales	Clostridium huakuii strain LAM1030	98.02	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW507-AN21R2A	"R2A, anaerobic, 30C"	Clostridiales	Clostridium puniceum str. BL 70/20	98	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW104-R4	"R2A, aerobic, 30C"	Corynebacteriales	Corynebacterium ilicis strain ICMP 2608	99	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+GW531-T6	"TSA, aerobic, 30C"	Corynebacteriales	Corynebacterium ilicis strain ICMP 2608	99	11/28/12	GW531	Chakraborty	Oak Ridge Isolates
+FW305-A1	"5% Sediment Extract, Noble agar, aerobic, 30C"	Corynebacteriales	Mycobacterium llatzerense strain MG13	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-E1	"5% Lysed Cells, Noble agar, aerobic, 30C"	Corynebacteriales	Mycobacterium llatzerense strain MG13	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+GW460-12-10-14-LB6	aerobic 10dil LB 30C	Corynebacteriales	Mycobacterium sp.	100	12/10/14	GW460	Chakraborty	FRC Time Series Campaign Second
+FW305-104	"1/10 R2A, aerobic, 30C"	Corynebacteriales	Rhodococcus erythropolis PR4	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-106	"1/25 LB, aerobic, 30C"	Corynebacteriales	Rhodococcus erythropolis PR4	97	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-44A	"Benzoate to 1/10 LB, aerobic, 30C "	Corynebacteriales	Rhodococcus erythropolis PR4	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-44B	"Benzoate to 1/10 LB, aerobic, 30C "	Corynebacteriales	Rhodococcus erythropolis PR4	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-5	"1/10 TSA, aerobic, 30C"	Corynebacteriales	Rhodococcus erythropolis PR4	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-74	"Sediment extract to 1/10 LB, aerobic, 30C "	Corynebacteriales	Rhodococcus erythropolis PR4	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-F10	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Corynebacteriales	Rhodococcus erythropolis PR4	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-F14	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Corynebacteriales	Rhodococcus erythropolis PR4	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+MPR-R1A	"aerobic R2A, bulk groundwater bottom, restreak"	Corynebacteriales	Rhodococcus erythropolis PR4	99	6/10/14	Matthew Fields Bioreactor	Chakraborty	Microparticles Campaign
+FW305-F11	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Corynebacteriales	Rhodococcus jialingiae strain djl-6-2	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+MPR-R3A	"aerobic R2A, bulk groundwater bottom, restreak"	Corynebacteriales	Rhodococcus jialingiae strain djl-6-2	99	6/10/14	Matthew Fields Bioreactor	Chakraborty	Microparticles Campaign
+GW458-12-2-14-TSB2	aerobic 10dil TSB 30C	Cytophagales	Arcicella aquatica	99.2	12/2/14	GW458	Chakraborty	FRC Time Series Campaign Second
+FW104-12A02	"Eugon, aerobic, 30C"	Enterobacteriales	Serratia quinivorans strain 4364	97.79	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+GW456-11-11-14-LB4	aerobic 10dil LB 30C	Flavobacteriales	Flavobacterium sp.	99.9	11/11/14	GW456	Chakraborty	FRC Time Series Campaign Second
+FW305-123	"1/25 R2A, aerobic, 30C"	Micrococcales	Arthrobacter aurescens TC1	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW306-04-A	"25C, aerobic, Potato Dextrose agar"	Micrococcales	Arthrobacter bambusae strain THG-GM18	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-1B-F12A	"25C, aerobic, R2A from 96 well carbon plates"	Micrococcales	Arthrobacter bambusae strain THG-GM18	96	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-1B-G06A	"25C, aerobic, R2A from 96 well carbon plates"	Micrococcales	Arthrobacter bambusae strain THG-GM18	95	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2C-A10BA	"25C, aerobic, R2A from 96 well carbon plates"	Micrococcales	Arthrobacter bambusae strain THG-GM18	97	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2C-A10C	"25C, aerobic, R2A from 96 well carbon plates"	Micrococcales	Arthrobacter bambusae strain THG-GM18	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2C-B10A	"25C, aerobic, R2A from 96 well carbon plates"	Micrococcales	Arthrobacter bambusae strain THG-GM18	96	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2C-B10BA	"25C, aerobic, R2A from 96 well carbon plates"	Micrococcales	Arthrobacter bambusae strain THG-GM18	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2C-D06B	"25C, aerobic, R2A from 96 well carbon plates"	Micrococcales	Arthrobacter bambusae strain THG-GM18	96	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2C-D06F	"25C, aerobic, R2A from 96 well carbon plates"	Micrococcales	Arthrobacter bambusae strain THG-GM18	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-2-2C-G01	"25C, aerobic, R2A from 96 well carbon plates"	Micrococcales	Arthrobacter bambusae strain THG-GM18	99	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+GW531-E1	"Eugon, aerobic, 30C"	Micrococcales	Arthrobacter bambusae strain THG-GM18	99	11/28/12	GW531	Chakraborty	Oak Ridge Isolates
+FW306-04-B	"25C, aerobic, Potato Dextrose agar"	Micrococcales	Arthrobacter bambusae strain THG-GM19	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-05-B	"25C, aerobic, MMN agar"	Micrococcales	Arthrobacter defluvii strain 4C1-a	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW305-BF8	"filter on  1/25 R2A, aerobic, aphotic, 25C"	Micrococcales	Arthrobacter globiformis strain JCM 1332	99	3/2/15	FW305	Chakraborty	Biofilm Campaign
+FW507-14A6	"LB, aerobic, 30C"	Micrococcales	Arthrobacter globiformis strain JCM1332	99	11/26/12	FW507	Chakraborty	Revived Isolates
+FW305-BF11	"filter on  1/25 R2A, aerobic, aphotic, 25C"	Micrococcales	Arthrobacter humicola strain KV-653	99	3/2/15	FW305	Chakraborty	Biofilm Campaign
+FW305-BF4	"filter on  1/25 R2A, aerobic, aphotic, 25C"	Micrococcales	Arthrobacter humicola strain KV-653	99	3/2/15	FW305	Chakraborty	Biofilm Campaign
+FW305-BF5	"filter on  1/25 R2A, aerobic, aphotic, 25C"	Micrococcales	Arthrobacter humicola strain KV-653	99	3/2/15	FW305	Chakraborty	Biofilm Campaign
+FW306-05-C	"25C, aerobic, Potato Dextrose agar"	Micrococcales	Arthrobacter liuii strain DSXY973	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-06-B	"25C, aerobic, Rose Bengal (with choramphenicol suppl) agar"	Micrococcales	Arthrobacter liuii strain DSXY973	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-07-I	"25C, aerobic, Potato Dextrose agar"	Micrococcales	Arthrobacter liuii strain DSXY973	98	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-07-K	"25C, aerobic, Potato Dextrose agar"	Micrococcales	Arthrobacter liuii strain DSXY973	98	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-07-J	"25C, aerobic, Potato Dextrose agar"	Micrococcales	Arthrobacter oryzae strain KV-651	98	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-05-E	"25C, aerobic, Potato Dextrose agar"	Micrococcales	Arthrobacter siccitolerans strain 4J27	99	1/29/16	FW306	Chakraborty	Core Campaign
+GW460-12-1-14-TSB2	aerobic 10dil TSB 30C	Micrococcales	Arthrobacter sp.	100	12/1/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW460-12-10-14-TSB4	aerobic 10dil TSB 30C	Micrococcales	Arthrobacter sp.	100	12/10/14	GW460	Chakraborty	FRC Time Series Campaign Second
+FW306-06-A	"25C, aerobic, Potato Dextrose agar"	Micrococcales	Arthrobacter sp. FB24 strain FB24	98	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-1B-G01A	"25C, aerobic, R2A from 96 well carbon plates"	Micrococcales	Dermacoccus nishinomiyaensis strain DSM 20448	85	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+MPR-E5	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid acid to eugon, aerobic, 30C"	Micrococcales	Dermacoccus nishinomiyaensis strain DSM 20448	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+GW247-B1	"Noble, PH7- 10mM Acetate, 140mM Nitrate, anaerobic, 30C"	Micrococcales	Intrasporangium calvum str. DSM 43043	99.31	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-B3	"Noble, PH7- 10mM Glycerol, 140mM Nitrate, anaerobic, 30C"	Micrococcales	Intrasporangium calvum str. DSM 43043	99	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-C2	"Noble, PH7- 20mM Lactate, 100mM Nitrate, anaerobic, 30C"	Micrococcales	Intrasporangium calvum str. DSM 43043	100	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-C5	"Noble, PH7- 10mM Glucose, 100mM Nitrate, anaerobic, 30C"	Micrococcales	Intrasporangium calvum str. DSM 43043	98.67	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-E5	"Noble, PH7- 10mM Glucose, 10mM Nitrate, anaerobic, 30C"	Micrococcales	Intrasporangium calvum str. DSM 43043	96.84	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-2A05	"Eugon, aerobic, 30C"	Micrococcales	Intrasporangium calvum strain DSM 43043	96.09	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-2H02	"Eugon, aerobic, 30C"	Micrococcales	Intrasporangium calvum strain DSM 43043	98	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-2H08	"Eugon, aerobic, 30C"	Micrococcales	Intrasporangium calvum strain DSM 43043	94.79	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-6G07	"TSA, aerobic, 30C"	Micrococcales	Intrasporangium calvum strain DSM 43043	91	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-6A04	"TSA, aerobic, 30C"	Micrococcales	Leifsonia bigeumensis strain MSL-27	97	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+FW104-15G4A	"LB, aerobic, 30C"	Micrococcales	Microbacterium arthrosphaerae strain JM-R34	99	11/14/12	FW104	Chakraborty	Revived Isolates
+FW305-3-2-15-F-LB2	aerobic LB 30C	Micrococcales	Microbacterium hominis	99.7	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+MPR-R2A1	"bulk groundwater TOP, anaerobic basal w/AQDS to R2A, aerobic, 30C"	Micrococcales	Microbacterium hominis strain DSM 12509	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-R2A2	"bulk groundwater TOP, anaerobic basal w/AQDS to R2A, aerobic, 30C"	Micrococcales	Microbacterium hominis strain DSM 12509	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-TSA5	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid to TSA, aerobic, 30C"	Micrococcales	Microbacterium hominis strain DSM 12509	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-TSA6	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid to TSA, aerobic, 30C"	Micrococcales	Microbacterium hominis strain DSM 12509	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-AND1B	"bulk groundwater BOTTOM, anaerobic AHDS, restreak on LB"	Micrococcales	Microbacterium hominis strain DSM 12509	99	6/10/14	Matthew Fields Bioreactor	Chakraborty	Microparticles Campaign
+FW305-3-2-15-F-R2A4	aerobic R2A 30C	Micrococcales	Microbacterium sp.	99.7	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-F-TSA2	aerobic TSA 30C	Micrococcales	Microbacterium sp.	99.8	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-F-TSA5	aerobic 10dil TSA 30C	Micrococcales	Microbacterium sp.	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+MPR-LB2	"bulk groundwater TOP, anaerobic basal w/AQDS to LB, aerobic, 30C"	Micrococcales	Micrococcus yunnanensis strain YIM 65004	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+FW510-T10	"TSA+Mn, aerobic, 30C"	Micrococcales	Micrococcus yunnanensis strain YIM 65004	99	11/26/12	FW510	Chakraborty	Oak Ridge Isolates
+FW104-7B9B	"TSA, aerobic, 30C"	Micrococcales	Rathayibacter festucae strain 3A6-2009	99	11/14/12	FW104	Chakraborty	Revived Isolates
+FW306-07-F	"25C, aerobic, Potato Dextrose agar"	Micrococcales	Rathayibacter festucae strain UCM Ac-619	100	1/29/16	FW306	Chakraborty	Core Campaign
+FW104-15G4B	"LB, aerobic, 30C"	Micrococcales	Terrabacter caryboxydiverans strain PY2 	99	11/14/12	FW104	Chakraborty	Revived Isolates
+FW507-E2	"Noble, PH7- 20mM Lactate, 10mM Nitrate, anaerobic, 30C"	Neisseriales	Chromobacterium sp. str. 2002	99.16	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW507-F1	"Noble, PH7- 10mM Acetate, 20mM Nitrate, anaerobic, 30C"	Neisseriales	Chromobacterium sp. str. 2002	99.79	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+FW106-LB	"STREAKED ON LB PLATE ANAEROBIC, 30C"	Propionibacteriales	Propionibacterium acnes KPA171202	99	12/17/12	FW106	Chakraborty	Oak Ridge Isolates
+GW460-3	"Phosphate Basal + Benzoate, anaerobic, 30C"	Pseudomonadales	Acinetobacter soli str. B1	97	11/19/13	GW460	Chakraborty	Time Series Campaign
+GW460-4	"Phosphate Basal + Benzoate, anaerobic, 30C"	Pseudomonadales	Acinetobacter soli str. B1	97	11/19/13	GW460	Chakraborty	Time Series Campaign
+FW305-117	"1/10 R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas azotoformans strain NBRC 12693	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-124	"1/10 R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas azotoformans strain NBRC 12693	97	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-136	"1/25 LB, aerobic, 30C"	Pseudomonadales	Pseudomonas azotoformans strain NBRC 12693	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-34	"1/10 LB, aerobic, 30C"	Pseudomonadales	Pseudomonas azotoformans strain NBRC 12693	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-90	"1/25 LB, aerobic, 30C"	Pseudomonadales	Pseudomonas azotoformans strain NBRC 12693	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-7	"1/10 TSA, aerobic, 30C"	Pseudomonadales	Pseudomonas baetica strain a390	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-28	"1/10 LB, aerobic, 30C"	Pseudomonadales	Pseudomonas brassicacearum subsp. brassicacearum NFM421	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW306-02-F02-AB	"L-Valine 20mM, aerobic, 25C"	Pseudomonadales	Pseudomonas brassicacearum subsp. Neoaurantiaca strain CIP 109457	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-02-H05-AB	"Glucuronamide 20mM, aerobic, 25C"	Pseudomonadales	Pseudomonas brassicacearum subsp. Neoaurantiaca strain CIP 109457	99	1/29/16	FW306	Chakraborty	Core Campaign
+GP01-A1	"Potato Dextrose agar, aerobic, 30C"	Pseudomonadales	Pseudomonas brenneri CFML 97-391	99	5/1/15	GP01	Chakraborty	Memory Response
+GP01-A11	"Potato Dextrose agar, aerobic, 30C"	Pseudomonadales	Pseudomonas brenneri CFML 97-391	99	5/1/15	GP01	Chakraborty	Memory Response
+GP01-A13	"Potato Dextrose agar, aerobic, 30C"	Pseudomonadales	Pseudomonas brenneri CFML 97-391	99	5/1/15	GP01	Chakraborty	Memory Response
+GP01-A14	"Potato Dextrose agar, aerobic, 30C"	Pseudomonadales	Pseudomonas brenneri CFML 97-391	99	5/1/15	GP01	Chakraborty	Memory Response
+GP01-A15	"Potato Dextrose agar, aerobic, 30C"	Pseudomonadales	Pseudomonas brenneri CFML 97-391	99	5/1/15	GP01	Chakraborty	Memory Response
+GP01-A3	"Potato Dextrose agar, aerobic, 30C"	Pseudomonadales	Pseudomonas brenneri CFML 97-391	99	5/1/15	GP01	Chakraborty	Memory Response
+GP01-A4	"Potato Dextrose agar, aerobic, 30C"	Pseudomonadales	Pseudomonas brenneri CFML 97-391	99	5/1/15	GP01	Chakraborty	Memory Response
+GP01-A5	"Potato Dextrose agar, aerobic, 30C"	Pseudomonadales	Pseudomonas brenneri CFML 97-391	99	5/1/15	GP01	Chakraborty	Memory Response
+GP01-A8	"Potato Dextrose agar, aerobic, 30C"	Pseudomonadales	Pseudomonas brenneri CFML 97-391	99	5/1/15	GP01	Chakraborty	Memory Response
+GP01-A9	"Potato Dextrose agar, aerobic, 30C"	Pseudomonadales	Pseudomonas brenneri CFML 97-391	99	5/1/15	GP01	Chakraborty	Memory Response
+GP01-A6	"Potato Dextrose agar, aerobic, 30C"	Pseudomonadales	Pseudomonas brenneri strain CFML 97-391	99	5/1/15	GP01	Chakraborty	Memory Response
+GW458-11-26-14-LB4	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas chlororaphis	99.9	11/26/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-11-26-14-TSB1	aerobic 10dil TSB 30C	Pseudomonadales	Pseudomonas chlororaphis	99.9	11/26/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW460-12-10-14-TSB1	aerobic 10dil TSB 30C	Pseudomonadales	Pseudomonas chlororaphis	100	12/10/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW456-L12	"LB, anaerobic, 30C"	Pseudomonadales	Pseudomonas chlororaphis	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+GW456-L14	"LB, anaerobic, 30C"	Pseudomonadales	Pseudomonas chlororaphis	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+FW305-25	"Casamino Acids to 1/10 LB, aerobic, 30C "	Pseudomonadales	Pseudomonas chlororaphis strain NBRC 3904	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-3	"Lysed cells to 1/10 TSA, aerobic, 30C "	Pseudomonadales	Pseudomonas chlororaphis strain NBRC 3904	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-38	"1/25 LB, aerobic, 30C"	Pseudomonadales	Pseudomonas chlororaphis strain NBRC 3904	94	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-76	"1/10 LB, aerobic, 30C"	Pseudomonadales	Pseudomonas chlororaphis strain NBRC 3904	94	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-70	"1/25 LB, aerobic, 30C"	Pseudomonadales	Pseudomonas corrugata	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-113	"1/10 R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas entomophila strain L48	91	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+MPR-E3	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid acid to eugon, aerobic, 30C"	Pseudomonadales	Pseudomonas extremaustralis strain 14-3	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-R2A3	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid to R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas extremaustralis strain 14-3	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+FW305-3-2-15-A-LB2	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas extremorientalis	100	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-A-R2A2	aerobic R2A 30C	Pseudomonadales	Pseudomonas extremorientalis	100	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-A-TSA1	aerobic TSA 30C	Pseudomonadales	Pseudomonas extremorientalis	100	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-A-TSA3	aerobic 10dil TSA 30C	Pseudomonadales	Pseudomonas extremorientalis	100	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-C-LB1	aerobic LB 30C	Pseudomonadales	Pseudomonas extremorientalis	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-C-LB3	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas extremorientalis	100	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-C-R2A1	aerobic R2A 30C	Pseudomonadales	Pseudomonas extremorientalis	99.4	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-C-TSA2	aerobic TSA 30C	Pseudomonadales	Pseudomonas extremorientalis	99.9	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-C-TSA3	aerobic 10dil TSA 30C	Pseudomonadales	Pseudomonas extremorientalis	100	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-55	"1/25 TSA, aerobic, 30C"	Pseudomonadales	Pseudomonas extremorientalis strain KMM 3447	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+GW460-11-11-14-LB11	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas ficuserectae	99.9	11/11/14	GW460	Chakraborty	FRC Time Series Campaign Second
+FW300-N1B4	"Acetate & Sulfate: Bubbles, but no visible growth in tube, anaerobic, 30C"	Pseudomonadales	Pseudomonas fluorescens	99.24	7/25/12	FW300	Chakraborty	Oak Ridge Isolates
+FW300-N2E2	"Propionate & Nitrate: Bubbles, but no visible growth in tube, anaerobic, 30C"	Pseudomonadales	Pseudomonas fluorescens	99.13	7/25/12	FW300	Chakraborty	Oak Ridge Isolates
+FW300-N2E3	"Propionate & Nitrate: Bubbles, but no visible growth in tube, anaerobic, 30C"	Pseudomonadales	Pseudomonas fluorescens	99.22	7/25/12	FW300	Chakraborty	Oak Ridge Isolates
+GW456-R21	"R2A, anaerobic, 30C"	Pseudomonadales	Pseudomonas fluorescens	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+FW301-21D1A	"R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas fluorescens bv. I strain A-Tom2	99	4/20/14	FW301	Chakraborty	Revived Isolates
+FW215-E1	"Eugon, aerobic, 30C"	Pseudomonadales	Pseudomonas fluorescens strain Pf0-1	99	6/9/14	FW215	Chakraborty	Microbiome Campaign Isolates
+FW215-L1	"LB, aerobic, 30C"	Pseudomonadales	Pseudomonas fluorescens strain Pf0-1	99	6/9/14	FW215	Chakraborty	Microbiome Campaign Isolates
+FW215-R2	"R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas fluorescens strain Pf0-1	99	6/9/14	FW215	Chakraborty	Microbiome Campaign Isolates
+FW305-121	"1/25 R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-122	"1/25 R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	97	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-20	"Carbon mixture to 1/10 LB, aerobic, 30C "	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-37	"1/25 TSA, aerobic, 30C"	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	96	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-47B	"Glucose to 1/10 LB, aerobic, 30C "	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-53	"Benzoate to 1/10 LB, aerobic, 30C "	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-56	"1/25 TSA, aerobic, 30C"	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-57	"Carbon mixture to 1/25 TSA, aerobic, 30C "	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-6	"1/10 LB, aerobic, 30C"	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	95	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-60	"1/25 TSA, aerobic, 30C"	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-62	"Carbon mixture to 1/25 TSA, aerobic, 30C "	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-67	"Benzoate to 1/25 TSA, aerobic, 30C "	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-78	"1/25 LB, aerobic, 30C"	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW300-N2C3	"Butyrate & Nitrate: No Visible Growth, anaerobic, 30C"	Pseudomonadales	Pseudomonas frederiksbergensis strain DSM 13022	98.92	7/25/12	FW300	Chakraborty	Oak Ridge Isolates
+FW305-33	"1/10 LB, aerobic, 30C"	Pseudomonadales	Pseudomonas helmanticensis strain OHA11	95	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+GW458-11-11-14-TSB1	aerobic 10dil TSB 30C	Pseudomonadales	Pseudomonas jessenii	100	11/11/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW456-E7	"Eugon, anaerobic, 30C"	Pseudomonadales	Pseudomonas jessenii	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+GW456-L13	"LB, anaerobic, 30C"	Pseudomonadales	Pseudomonas jessenii	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+FW300-N1A5	"Acetate & Nitrate: Transparent Cream Growth, anaerobic, 30C"	Pseudomonadales	Pseudomonas lini strain DLE411J	99	7/25/12	FW300	Chakraborty	Oak Ridge Isolates
+GW456-11-11-14-LB1	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	11/11/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW456-11-11-14-TSB2	aerobic 10dil TSB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	11/11/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW456-12-1-14-LB1	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	12/1/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW456-12-1-14-TSB1	aerobic 10dil TSB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	12/1/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW456-12-10-14-LB2	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	12/10/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW456-12-10-14-TSB6	aerobic 10dil TSB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	12/10/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW458-11-11-14-LB1	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	11/11/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-11-17-14-LB2	aerobic LB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	11/17/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-11-17-14-TSB1	aerobic TSB 30C	Pseudomonadales	Pseudomonas mandelii	99.7	11/17/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-11-26-14-TSB3	aerobic 10dil TSB 30C	Pseudomonadales	Pseudomonas mandelii	99.8	11/26/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-12-2-14-LB2	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	12/2/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-12-2-14-TSB1	aerobic 10dil TSB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	12/2/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-12-9-14-LB1	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	12/9/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-12-9-14-TSB2	aerobic 10dil TSB 30C	Pseudomonadales	Pseudomonas mandelii	99.7	12/9/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW460-12-1-14-LB3	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	12/1/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW460-12-1-14-TSB6	aerobic 10dil TSB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	12/1/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW460-12-10-14-LB1	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas mandelii	99.9	12/10/14	GW460	Chakraborty	FRC Time Series Campaign Second
+FW305-3-2-15-A-R2A1	aerobic R2A 30C	Pseudomonadales	Pseudomonas mandelii	99.8	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+GW456-E6	"Eugon, anaerobic, 30C"	Pseudomonadales	Pseudomonas mandelii	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+GW460-C3	"Basal + Nitrate + Glycerol, anaerobic, 30C"	Pseudomonadales	Pseudomonas mandelii	99	11/19/13	GW460	Chakraborty	Time Series Campaign
+GW460-C8	"Basal + Nitrate + Fumarate, anaerobic, 30C"	Pseudomonadales	Pseudomonas mandelii	99	11/19/13	GW460	Chakraborty	Time Series Campaign
+GW460-E12	"Eugon, anaerobic, 30C"	Pseudomonadales	Pseudomonas mandelii	99	11/6/13	GW460	Chakraborty	Time Series Campaign
+GW460-E13	"Eugon, anaerobic, 30C"	Pseudomonadales	Pseudomonas mandelii	99	11/6/13	GW460	Chakraborty	Time Series Campaign
+GW460-R15	"R2A, anaerobic, 30C"	Pseudomonadales	Pseudomonas mandelii	99	11/6/13	GW460	Chakraborty	Time Series Campaign
+GW460-7	"Phosphate Basal + Benzoate, anaerobic, 30C"	Pseudomonadales	Pseudomonas mandelii str. CIP 105273	99	11/19/13	GW460	Chakraborty	Time Series Campaign
+GW460-8	"Phosphate Basal + Benzoate, anaerobic, 30C"	Pseudomonadales	Pseudomonas mandelii str. CIP 105273	99	11/19/13	GW460	Chakraborty	Time Series Campaign
+GW460-13	"Phosphate Basal + Sucrose, anaerobic, 30C"	Pseudomonadales	Pseudomonas mandelii str. NBRC 103147	99	11/6/13	GW460	Chakraborty	Time Series Campaign
+MPR-LB3	"bulk groundwater TOP, anaerobic basal w/AQDS to LB, aerobic, 30C"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-LB5	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid to LB, aerobic, 30C"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-LB6	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid to LB, aerobic, 30C"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-R2A4	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid to R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-R2A5	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid to R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-R2A6	"bulk groundwater TOP, anaerobic basal w/AQDS to R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-R2A7	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid to R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-WIN1	"bulk groundwater TOP, anaerobic basal w/AQDS to Winogradsky medium, aerobic, 30C"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-ANA1	"bulk groundwater TOP, anaerobic AHDS to AQDS, restreak on LB"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	6/10/14	Matthew Fields Bioreactor	Chakraborty	Microparticles Campaign
+MPR-ANB1	"bulk groundwater BOTTOM, anaerobic AQDS, restreak on LB"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	6/10/14	Matthew Fields Bioreactor	Chakraborty	Microparticles Campaign
+MPR-AND1A	"bulk groundwater BOTTOM, anaerobic AHDS, restreak on LB"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	6/10/14	Matthew Fields Bioreactor	Chakraborty	Microparticles Campaign
+MPR-R5A	"aerobic R2A, bulk groundwater top, restreak"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	6/10/14	Matthew Fields Bioreactor	Chakraborty	Microparticles Campaign
+MPR-R5B	"aerobic R2A, bulk groundwater top, restreak"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	6/10/14	Matthew Fields Bioreactor	Chakraborty	Microparticles Campaign
+FW301-21B01	"R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas marginalis strain ICMP 3553	99	4/20/14	FW301	Chakraborty	Oak Ridge Isolates
+FW300-N1A1	"Acetate & Nitrate: Transparent cream growth, anaerobic, 30C"	Pseudomonadales	Pseudomonas migulae str. T19	97.48	7/25/12	FW300	Chakraborty	Oak Ridge Isolates
+FW300-N2C1	"Butyrate & Nitrate: Bubbles and Transparent Cream Growth, anaerobic, 30C"	Pseudomonadales	Pseudomonas migulae strain CIP 105470	99	7/25/12	FW300	Chakraborty	Oak Ridge Isolates
+FW300-N2A2	"Acetate & Nitrate: Bubbles and transparent cream growth, anaerobic, 30C"	Pseudomonadales	Pseudomonas migulae strain NBRC 103157	99.72	7/25/12	FW300	Chakraborty	Oak Ridge Isolates
+FW300-N2C2	"Butyrate & Nitrate: Bubbles and Transparent Cream Growth, anaerobic, 30C"	Pseudomonadales	Pseudomonas migulae strain NBRC 103157	99	7/25/12	FW300	Chakraborty	Oak Ridge Isolates
+FW305-127	"Casamino Acids to 1/25 LB, aerobic, 30C "	Pseudomonadales	Pseudomonas mosselii strain CFML 90-83	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-17	"Benzoate to 1/10 TSA, aerobic, 30C "	Pseudomonadales	Pseudomonas mosselii strain CFML 90-83	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-42	"Casamino Acids to 1/10 LB, aerobic, 30C "	Pseudomonadales	Pseudomonas mosselii strain CFML 90-83	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-50	"1/25 TSA, aerobic, 30C"	Pseudomonadales	Pseudomonas mosselii strain CFML 90-83	88	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-96	"1/10 LB, aerobic, 30C"	Pseudomonadales	Pseudomonas mosselii strain CFML 90-83	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+GW456-L15	"LB, anaerobic, 30C"	Pseudomonadales	Pseudomonas protegens	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+FW507-14TSA	"TSA, aerobic, 30C"	Pseudomonadales	Pseudomonas putida F1	99.9	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+GW460-LB5	"Oakridge Groundwater + Glycerol, anaerobic, 30C"	Pseudomonadales	Pseudomonas putida str. NBRC 14164	99	11/19/13	GW460	Chakraborty	Time Series Campaign
+FW305-E2	"5% Lysed Cells, Noble agar, aerobic, 30C"	Pseudomonadales	Pseudomonas putida strain KT2440	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+GW531-R1	"R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas rhodesiae	99	11/28/12	GW531	Chakraborty	Oak Ridge Isolates
+FW306-02-D09A	"Tween 20 1%, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-02-D09B	"Tween 20 1%, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-02-F02-AA	"L-Valine 20mM, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-02-F04-AA	"L-Leucine 20mM, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-02-F04-BA	"L-Leucine 20mM, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-02-F08-AA	"L-Tyrosine 20mM, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-02-H05-AA	"Glucuronamide 20mM, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-02-H05-BA	"Glucuronamide 20mM, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-02-H06A	"Salicin 20mM, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-02-H06B	"Salicin 20mM, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-02-H06C	"Salicin 20mM, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-2-11AA	"Casamino acids 10mg/mL, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	6/10/15	FW306	Chakraborty	Core Campaign
+FW306-2-11AB	"Casamino acids 10mg/mL, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	6/10/15	FW306	Chakraborty	Core Campaign
+FW306-2-11AC	"Casamino acids 10mg/mL, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	6/10/15	FW306	Chakraborty	Core Campaign
+FW306-2-11AD	"Casamino acids 10mg/mL, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	6/10/15	FW306	Chakraborty	Core Campaign
+FW306-2-11BA	"Casamino acids 10mg/mL, aerobic, 25C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	6/10/15	FW306	Chakraborty	Core Campaign
+GW531-T4	"TSA, aerobic, 30C"	Pseudomonadales	Pseudomonas rhodesiae strain CIP 104664	99	11/28/12	GW531	Chakraborty	Oak Ridge Isolates
+GW123-5C08	"TSA, aerobic, 30C"	Pseudomonadales	Pseudomonas sabulinigri	96	11/14/12	GW123	Chakraborty	Oak Ridge Isolates
+GW456-11-11-14-LB2	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas sp.	100	11/11/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW456-12-1-14-LB2	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas sp.	99.7	12/1/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW456-12-1-14-TSB6	aerobic 10dil TSB 30C	Pseudomonadales	Pseudomonas sp.	100	12/1/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW458-11-17-14-LB1	aerobic LB 30C	Pseudomonadales	Pseudomonas sp.	99.9	11/17/14	GW458	Chakraborty	FRC Time Series Campaign Second
+GW458-11-26-14-LB3	aerobic 10dil LB 30C	Pseudomonadales	Pseudomonas sp.	99.9	11/26/14	GW458	Chakraborty	FRC Time Series Campaign Second
+FW305-3-2-15-E-TSA2	aerobic TSA 30C	Pseudomonadales	Pseudomonas sp.	100	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-E-TSA4	aerobic 10dil TSA 30C	Pseudomonadales	Pseudomonas sp.	100	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW300-N2A3	"Acetate & Nitrate: Transparent cream growth, anaerobic, 30C"	Pseudomonadales	Pseudomonas sp. str. CHNCT21	97.69	7/25/12	FW300	Chakraborty	Oak Ridge Isolates
+FW507-12TSA	"TSA, aerobic, 30C"	Pseudomonadales	Pseudomonas sp. str. HMPB1	99.95	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+GW101-3H06	"R2A, aerobic, 30C"	Pseudomonadales	Pseudomonas vancouverensis strain DhA-51	99	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+GW704-E2	"Noble, PH7- 20mM Lactate, 40mM Nitrate, anaerobic, 30C"	Pseudomonadales	Pseudomonas veronii	99.58	12/17/12	GW704	Chakraborty	Oak Ridge Isolates
+GW704-F2	"Noble, PH7- 20mM Lactate, 60mM Nitrate, anaerobic, 30C"	Pseudomonadales	Pseudomonas veronii	99.69	12/17/12	GW704	Chakraborty	Oak Ridge Isolates
+GW704-F5	"Noble, PH7- 10mM Glucose, 60mM Nitrate, anaerobic, 30C"	Pseudomonadales	Pseudomonas veronii	99.79	12/17/12	GW704	Chakraborty	Oak Ridge Isolates
+GW704-E3	"Noble, PH7- 10mM Glycerol, 40mM Nitrate, anaerobic, 30C"	Pseudomonadales	Pseudomonas veronii CIP 104663	99.79	12/17/12	GW704	Chakraborty	Oak Ridge Isolates
+GW460-12	"Phosphate Basal + Formate, anaerobic, 30C"	Pseudomonadales	Pseudomonas veronii str. CIP 104663	99	11/19/13	GW460	Chakraborty	Time Series Campaign
+GW460-5	"Oakridge Groundwater + Glycerol, anaerobic, 30C"	Pseudomonadales	Pseudomonas veronii str. CIP 104663	99	11/6/13	GW460	Chakraborty	Time Series Campaign
+GW460-LB2	"Oakridge Groundwater + Sucrose, anaerobic, 30C"	Pseudomonadales	Pseudomonas veronii str. CIP 104663	99	11/19/13	GW460	Chakraborty	Time Series Campaign
+GW704-F3	"Noble, PH7- 10mM Glycerol, 60mM Nitrate, anaerobic, 30C"	Pseudomonadales	Pseudomonas veronii strain CIP 104663	99	12/17/12	GW704	Chakraborty	Oak Ridge Isolates
+FW305-105	"1/25 LB, aerobic, 30C"	Pseudomonadales	Rugamonas rubra strain MOM 28/2/79	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-112	"1/25 R2A, aerobic, 30C"	Pseudomonadales	Rugamonas rubra strain MOM 28/2/79	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-118	"1/25 R2A, aerobic, 30C"	Pseudomonadales	Rugamonas rubra strain MOM 28/2/79	96	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-51	"1/10 LB, aerobic, 30C"	Pseudomonadales	Rugamonas rubra strain MOM 28/2/79	96	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-63	"Lysed cells to 1/10 R2A, aerobic, 30C "	Pseudomonadales	Rugamonas rubra strain MOM 28/2/79	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-69	"1/10 R2A, aerobic, 30C"	Pseudomonadales	Rugamonas rubra strain MOM 28/2/79	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW305-89A	"Lysed cells to 1/10 R2A, aerobic, 30C "	Pseudomonadales	Rugamonas rubra strain MOM 28/2/79	98	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW215-R4	"R2A, aerobic, 30C"	Pseudomonadales 	Pseudomonas fluorescens strain Pf0-1	99	6/9/14	FW215	Chakraborty	Microbiome Campaign Isolates
+FW215-L2	"LB, aerobic, 30C"	Pseudomonadales 	Pseudomonas jessenii strain CIP 105274	99	6/9/14	FW215	Chakraborty	Microbiome Campaign Isolates
+FW215-R3	"R2A, aerobic, 30C"	Pseudomonadales 	Pseudomonas jessenii strain CIP 105274	99	6/9/14	FW215	Chakraborty	Microbiome Campaign Isolates
+FW215-T2	"TSA, aerobic, 30C"	Pseudomonadales 	Pseudomonas jessenii strain CIP 105274	99	6/9/14	FW215	Chakraborty	Microbiome Campaign Isolates
+DP16D-T1	"TSA, aerobic, 30C"	Pseudomonadales 	Pseudomonas putida strain NBRC 14164	99	6/17/14	DP16D	Chakraborty	Microbiome Campaign Isolates
+DP16D-R1	"R2A, aerobic, 30C"	Pseudomonadales 	Pseudomonas vancouverensis strain DhA-51	99	6/17/14	DP16D	Chakraborty	Microbiome Campaign Isolates
+FW305-F6	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Rhizobiales	Bradyrhizobium japonicum strain 3I1b6	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+GW101-20A05	"LB, aerobic, 30C"	Rhizobiales	Ensifer adhaerens	99	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+GW101-20A5	"LB, aerobic, 30C"	Rhizobiales	Ensifer adhaerens	99	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+GW101-20A5A	"LB, aerobic, 30C"	Rhizobiales	Ensifer adhaerens strain NBRC 100387 	97	11/13/12	GW101	Chakraborty	Revived Isolates
+GW101-20C05	"LB, aerobic, 30C"	Rhizobiales	Ensifer adhaerens strain NBRC 100388	99	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+GW101-20C5	"LB, aerobic, 30C"	Rhizobiales	Ensifer adhaerens strain NBRC 100388	99	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+GW123-5D08	"TSA, aerobic, 30C"	Rhizobiales	Mesorhizobium australicum strain WSM2073	96.25	11/14/12	GW123	Chakraborty	Oak Ridge Isolates
+FW510-R7	"R2A + Mn, pH 5, aerobic, 30C"	Rhizobiales	Mesorhizobium ciceri	98	11/26/12	FW510	Chakraborty	Oak Ridge Isolates
+FW104-15H09	"LB, aerobic, 30C"	Rhizobiales	Mesorhizobium sangaii strain SCAU7	97	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+FW104-15H12	"LB, aerobic, 30C"	Rhizobiales	Mesorhizobium sangaii strain SCAU7	98	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+GW123-5F06	"TSA, aerobic, 30C"	Rhizobiales	Mesorhizobium sangaii strain SCAU7	97	11/14/12	GW123	Chakraborty	Oak Ridge Isolates
+FW104-15A12	"LB, aerobic, 30C"	Rhizobiales	Mesorhizobium shangrilense strain CCBAU 65327	98	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+GW460-12-10-14-LB3	aerobic 10dil LB 30C	Rhizobiales	Methylobacterium fujisawaense	100	12/10/14	GW460	Chakraborty	FRC Time Series Campaign Second
+FW306-05-D	"25C, aerobic, Potato Dextrose agar"	Rhizobiales	Methylobacterium goesingense strain iEll3	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-07-O	"25C, aerobic, Potato Dextrose agar"	Rhizobiales	Methylobacterium tardum strain RB677	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW510-R11	"R2A+Mn, aerobic, 30C"	Rhizobiales	Nitrobacter hamburgensis	99	11/26/12	FW510	Chakraborty	Oak Ridge Isolates
+GW101-3B10	"R2A, aerobic, 30C"	Rhizobiales	Rhizobium selenitireducens strain B1	99	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+FW306-07-B	"25C, aerobic, Potato Dextrose agar"	Rhizobiales	Rhizobium skierniewicense strain CH11	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-07-C	"25C, aerobic, Potato Dextrose agar"	Rhizobiales	Rhizobium skierniewicense strain CH11	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-07-G	"25C, aerobic, Potato Dextrose agar"	Rhizobiales	Rhizobium skierniewicense strain CH11	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-07-M	"25C, aerobic, Potato Dextrose agar"	Rhizobiales	Rhizobium skierniewicense strain CH11	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW507-F4	"R2A, PH7- 10mM Ethanol, 20mM Nitrate, anaerobic, 30C"	Rhodocyclales	Azoarcus evansii strain KB740	98	11/26/12	FW507	Chakraborty	Oak Ridge Isolates
+MPR-TSA3	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid to TSA, aerobic, 30C"	Rhodocyclales	Azospira oryzae strain 6a3	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-TSA4	"bulk groundwater TOP, anaerobic basal w/AQDS to TSA, aerobic, 30C"	Rhodocyclales	Azospira oryzae strain 6a3	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+GW456-A2	"Basal + Nitrate + Lactate, anaerobic, 30C"	Rhodocyclales	Dechloromonas aromatica str. RCB	99	11/19/13	GW456	Chakraborty	Time Series Campaign
+MPR-E1	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid acid acid to eugon, aerobic, 30C"	Rhodocyclales	Dechlorosoma suillum PS	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-E2	"bulk groundwater TOP, anaerobic basal w/AQDS  to eugon, aerobic, 30C"	Rhodocyclales	Dechlorosoma suillum PS	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-E4	"bulk groundwater TOP, anaerobic basal w/AQDS  to eugon, aerobic, 30C"	Rhodocyclales	Dechlorosoma suillum PS	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-LB1	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid to LB, aerobic, 30C"	Rhodocyclales	Dechlorosoma suillum PS	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-LB4	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid to LB, aerobic, 30C"	Rhodocyclales	Dechlorosoma suillum PS	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-LB8	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid to LB, aerobic, 30C"	Rhodocyclales	Dechlorosoma suillum PS	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-TSA1	"bulk groundwater BOTTOM, anaerobic basal w/fulvic acid to TSA, aerobic, 30C"	Rhodocyclales	Dechlorosoma suillum PS	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-TSA2	"bulk groundwater TOP, anaerobic basal w/AQDS to TSA, aerobic, 30C"	Rhodocyclales	Dechlorosoma suillum PS	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+MPR-TSA7	"bulk groundwater TOP, anaerobic basal w/AQDS to TSA, aerobic, 30C"	Rhodocyclales	Dechlorosoma suillum PS	99	12/24/14	Bioreactor Coupon	Chakraborty	Micro Particles Campaign
+GW101-1A09	"TSA, aerobic, 30C"	Rhodocyclales	Dechlorosoma suillum PS	99	11/13/12	GW101	Chakraborty	Oak Ridge Isolates
+GW460-11-11-14-TSB3	aerobic 10dil TSB 30C	Rhodospirillales	Reyranella sp.	98.6	11/11/14	GW460	Chakraborty	FRC Time Series Campaign Second
+FW306-07-L	"25C, aerobic, Potato Dextrose agar"	Sphingobacteriales	Mucilaginibacter defluvii strain A5 	99	1/29/16	FW306	Chakraborty	Core Campaign
+GW456-11-11-14-TSB4	aerobic 10dil TSB 30C	Sphingobacteriales	Pedobacter koreensis	99.8	11/11/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW460-11-11-14-LB5	aerobic 10dil LB 30C	Sphingobacteriales	Pedobacter soli strain 15-51	98	11/11/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW460-11-11-14-TSB4	aerobic 10dil TSB 30C	Sphingobacteriales	Pedobacter soli strain 15-51	98	11/11/14	GW460	Chakraborty	FRC Time Series Campaign Second
+FW305-3-2-15-E-R2A1	aerobic R2A 30C	Sphingobacteriales	Pedobacter sp.	99.4	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+GW460-11-11-14-TSB6	aerobic 10dil TSB 30C	Sphingomonadales	Sphingobium amiense	100	11/11/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW456-12-10-14-TSB1	aerobic 10dil TSB 30C	Sphingomonadales	Sphingobium sp.	99.9	12/10/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW456-12-10-14-TSB8	aerobic 10dil TSB 30C	Sphingomonadales	Sphingobium sp.	100	12/10/14	GW456	Chakraborty	FRC Time Series Campaign Second
+FW306-1B-F04DB	"25C, aerobic, R2A from 96 well carbon plates"	Sphingomonadales	Sphingomonas alpina strain S8-3	96	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+MPR-R3B	"aerobic R2A, bulk groundwater bottom, restreak"	Sphingomonadales	Sphingomonas echinoides strain NBRC 15742	99	6/10/14	Matthew Fields Bioreactor	Chakraborty	Microparticles Campaign
+FW306-07-E	"25C, aerobic, Potato Dextrose agar"	Sphingomonadales	Sphingomonas faeni strain MA-olki	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-07-H	"25C, aerobic, Potato Dextrose agar"	Sphingomonadales	Sphingomonas faeni strain MA-olki	99	1/29/16	FW306	Chakraborty	Core Campaign
+FW306-1B-B10E	"25C, aerobic, R2A from 96 well carbon plates"	Sphingomonadales	Sphingomonas gei strain ZFGT-11	97	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-1B-B10FB	"25C, aerobic, R2A from 96 well carbon plates"	Sphingomonadales	Sphingomonas gei strain ZFGT-11	97	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-1B-F04AA	"25C, aerobic, R2A from 96 well carbon plates"	Sphingomonadales	Sphingomonas gei strain ZFGT-11	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW306-05-A	"25C, aerobic, MMN agar"	Sphingomonadales	Sphingomonas glacialis strain C16y	99	1/29/16	FW306	Chakraborty	Core Campaign
+GW460-11-11-14-TSB5	aerobic 10dil TSB 30C	Sphingomonadales	Sphingomonas sp.	99.8	11/11/14	GW460	Chakraborty	FRC Time Series Campaign Second
+GW460-12-10-14-LB4	aerobic 10dil LB 30C	Sphingomonadales	Sphingomonas sp.	99.7	12/10/14	GW460	Chakraborty	FRC Time Series Campaign Second
+FW305-3-2-15-F-TSA7	aerobic 10dil TSA 30C	Sphingomonadales	Sphingomonas sp.	99	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+GW456-R22	"R2A, anaerobic, 30C"	Sphingomonadales	Sphingopyxis chilensis	99	11/6/13	GW456	Chakraborty	Time Series Campaign
+FW507-9B05	"R2A, aerobic, 30C"	Sphingomonadales	Sphingopyxis ginsengisoli str. Gsoil 250	99	11/26/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-1R2A	"R2A, aerobic, 30C"	Sphingomonadales	Sphingopyxis ginsengisoli str. Gsoil 250	99.8	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-27LB	"LB, aerobic, 30C"	Sphingomonadales	Sphingopyxis ginsengisoli str. Gsoil 250	99.75	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-28LB	"LB, aerobic, 30C"	Sphingomonadales	Sphingopyxis ginsengisoli str. Gsoil 250	99.9	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-2R2A	"R2A, aerobic, 30C"	Sphingomonadales	Sphingopyxis ginsengisoli str. Gsoil 250	99.75	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-3R2A	"R2A, aerobic, 30C"	Sphingomonadales	Sphingopyxis ginsengisoli str. Gsoil 250	99.6	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-6D09	"TSA, aerobic, 30C"	Sphingomonadales	Sphingopyxis ginsengisoli strain Gsoil 250	99	11/14/12	GW247	Chakraborty	Oak Ridge Isolates
+GW247-6B8B	"TSA, aerobic, 30C"	Sphingomonadales	Sphingopyxis ginsengisoli strain GYB22	99	11/14/12	GW247	Chakraborty	Revived Isolates
+GW456-12-10-14-TSB7	aerobic 10dil TSB 30C	Sphingomonadales	Sphingopyxis sp.	99	12/10/14	GW456	Chakraborty	FRC Time Series Campaign Second
+GW247-6B8A	"TSA, aerobic, 30C"	Sphingomonadales	Sphingopyxis sp. VA12	98	11/14/12	GW247	Chakraborty	Revived Isolates
+GW247-6H6	"TSA, aerobic, 30C"	Sphingomonadales	Sphingopyxis sp. VA12	99	11/14/12	GW247	Chakraborty	Revived Isolates
+FW305-F13	"5% Casamino Acids (100mg/ml), Noble agar, aerobic, 30C"	Streptomycetales	Streptomyces globisporus strain KCTC 9026	99	3/2/15	FW305	Chakraborty	Different Carbon Input Enrichment Isolates
+FW306-1B-D06B	"25C, aerobic, R2A from 96 well carbon plates"	Xanthomonadales	Lysobacter soli strain DCY21	98	1/29/16	FW306	Chakraborty	Core Isolates Campaign
+FW104-10F02	"R2A, aerobic, 30C"	Xanthomonadales	Rhodanobacter denitrificans strain 2APBS1	99.27	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+FW104-7B9A	"TSA, aerobic, 30C"	Xanthomonadales	Rhodanobacter denitrificans strain 2APBS1	99	11/14/12	FW104	Chakraborty	Revived Isolates
+FW510-R10	"R2A+Mn, aerobic, 30C"	Xanthomonadales	Rhodanobacter fulvus	96	11/26/12	FW510	Chakraborty	Oak Ridge Isolates
+FW104-L5	"LB, aerobic, 30C"	Xanthomonadales	Rhodanobacter sp.	100	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+FW104-R3	"R2A, aerobic, 30C"	Xanthomonadales	Rhodanobacter sp.	99	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+FW104-R5	"R2A, aerobic, 30C"	Xanthomonadales	Rhodanobacter sp.	100	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+FW104-R8	"R2A, aerobic, 30C"	Xanthomonadales	Rhodanobacter sp.	99	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+FW510-T8	"TSA + Mn, pH 5, aerobic, 30C"	Xanthomonadales	Rhodanobacter sp.	99	11/26/12	FW510	Chakraborty	Oak Ridge Isolates
+GW531-L4	"LB, aerobic, 30C"	Xanthomonadales	Rhodanobacter sp.	100	11/28/12	GW531	Chakraborty	Oak Ridge Isolates
+FW104-T7	"TSA, aerobic, 30C"	Xanthomonadales	Rhodanobacter thiooxydans	100	11/14/12	FW104	Chakraborty	Oak Ridge Isolates
+FW510-R12	"R2A+Mn, aerobic, 30C"	Xanthomonadales	Rhodanobacter thiooxydans	99	11/26/12	FW510	Chakraborty	Oak Ridge Isolates
+FW305-3-2-15-E-LB1	aerobic 10dil LB 30C	Xanthomonadales	Stenotrophomonas maltophilia R551-3	99	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+FW305-3-2-15-E-TSA1	aerobic TSA 30C	Xanthomonadales	Stenotrophomonas sp.	99.5	3/2/15	FW305	Chakraborty	FW305 Groundwater Different C Enrichments First Round
+MT058	"anaerobic, glucose, nitrate (20 mM), metal mix, pH5.5"	Enterobacteriales	Pantoea ananatis LMG 5342	99	1/29/16	FWB-306 Sat	Adams	Metals
+MT049	"anaerobic, lactate/fumarate, nitrate (20 mM), metal mix, pH5.5"	Enterobacteriales	Serratia proteamaculans 568	100	2/20/13	GW066	Adams	Metals
+MT078	"anaerobic, compost, nitrate (20 mM), metal mix, pH5.5"	Lactobacillales	Leuconostoc mesenteroides	100	2/20/13	GW066	Adams	Metals
+MT094	"aerobic, compost, nitrate (20 mM), 0.1 x metal mix, pH5.5"	Bacillales	Bacillus cereus ATCC 14579	100	11/14/12	FW104	Adams	Metals
+MT066	"anaerobic, compost, nitrate (20 mM), metal mix, pH5.5"	Bacillales	Bacillus sp. FJAT-18043 super7	99	7/25/12	FW106	Adams	Metals
+MT124	"aerobic, formate, uranium (200 µM), pH7.0"	Bacillales	Paenibacillus sp. Root52 	99	7/25/12	FW126	Adams	Metals
+MT123	"aerobic, ethanol, nitrate (50 mM), 0.1 x metal mix, pH6.5"	Burkholderiales	Castellaniella defragrans 65Phen 	99	11/14/12	FW104	Adams	Metals
+MT086	"anaerobic, compost, nitrate (20 mM), metal mix, pH5.5"	Bacillales	Paenibacillus lactis	100	7/25/12	FW126	Adams	Metals
+MT068	"aerobic, cellulobiose, uranium (200 µM), pH7.0"	Pseudomonadales	Pseudomonas fluorescens SBW25	100	4/20/14	FW301	Adams	Metals
+MT073	"aerobic, cellulobiose, uranium (200 µM), pH7.0"	Caulobacterales	Brevundimonas sp. BAL3	99	4/20/14	FW301	Adams	Metals
+MT062	"anaerobic, glucose, nitrate (20 mM), metal mix, pH5.5"	Burkholderiales	Burkholderia cenocepacia J2315 	100	2/20/13	GW066	Adams	Metals
+MT064	"anaerobic, lactate/fumarate, sulfate (20 mM), metal mix, pH5.5"	Burkholderiales	Burkholderia cenocepacia J2315 	99	2/20/13	GW066	Adams	Metals
+MT085	"aerobic, compost, nitrate (20 mM), 0.1 x metal mix, pH3.0"	Bacillales	Bacillus butanolivorans strain DSM 18926	100	7/25/12	FW126	Adams	Metals
+MT082	"anaerobic, compost, nitrate (20 mM), 0.1 x metal mix, pH3.0"	Bacillales	Bacillus sp. OxB-1	100	11/14/12	FW104	Adams	Metals
+MT092	"aerobic, ethanol, uranium (200 µM), pH4.7"	Pseudomonadales	Pseudomonas fluorescens F113	99	7/26/12	FW021	Adams	Metals
+MT028	"aerobic, xylan/cellulobiose, nitrate (20 mM), 0.1 x metal mix, pH5.5"	Actinomycetales	Rhodococcus erythropolis PR4	99	11/14/12	FW104	Adams	Metals
+MT020	"aerobci, lactate/fumarate, nitrate (20 mM), metal mix, pH 3.0"	Xanthomonadales	Rhodanobacter sp. 115	99	7/26/12	FW021	Adams	Metals
+MT042	"anaerobic, compost, nitrate (20 mM), metal mix, pH5.5"	Xanthomonadales	Rhodanobacter denitrificans strain 2APBS1	99	11/14/12	FW104	Adams	Metals
+MT110	"aerobic, lactate/fumarate, sulfate (20 mM), 0.1 x metal mix, pH3.0"	Rhizobiales	Phyllobacterium sp. YR531 PMI41	100	7/25/12	FW126	Adams	Metals
+MT113	"aerobic, lactate/fumarate, sulfate (20 mM), 0.1 x metal mix, pH3.0"	Burkholderiales	Ralstonia pickettii strain CW2	100	7/25/12	FW126	Adams	Metals
+MT109	"aerobic, lactate/fumarate, nitrate (20 mM), 0.1 x metal mix, pH5.5"	Burkholderiales	Pusillimonas noertemannii BS8 	99	11/14/12	FW104	Adams	Metals
+FW106-XG1	"Basal with fumarate, anaerobic, 25 C"	Bacillales	Bacillus cereus strain MadaFrogSkinBac.DB-.3201	98	3/20/17	FW106	"Adams, UGA"	ENIGMA Pilot
+FW115-XG2	"Basal with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus fonticola strain KLBMP 4817	93	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW271-XG3	"Basal with carbon mix, anaerobic, 25 C"	Burkholderiales	Acidovorax sp. ALBL_031	92	3/20/17	FW271	"Adams, UGA"	ENIGMA Pilot
+FW271-XG4	"LB, anaerobic, 25 C"	Rhizobiales	Sinorhizobium sp. bD51(2011)	96	3/20/17	FW271	"Adams, UGA"	ENIGMA Pilot
+FW271-XG5	"Basal with fumarate, anaerobic, 25 C"	Rhizobiales	Rhizobiaceae bacterium CC10I1A	98	3/20/17	FW271	"Adams, UGA"	ENIGMA Pilot
+FW271-XG6	"Basal with fumarate, anaerobic, 25 C"	Rhizobiales	Ensifer adhaerens strain R 14	96	3/20/17	FW271	"Adams, UGA"	ENIGMA Pilot
+FW271-XG7	"Basal with fumarate, anaerobic, 25 C"	Burkholderiales	Acidovorax defluvii strain DT46	90	3/20/17	FW271	"Adams, UGA"	ENIGMA Pilot
+FW271-XG8	"Basal with fumarate, anaerobic, 25 C"	Rhizobiales	Sinorhizobium sp. IK-A2 	97	3/20/17	FW271	"Adams, UGA"	ENIGMA Pilot
+FW115-XG9	"Basal with fumarate, anaerobic, 25 C"	Bacillales	Paenibacillus fonticola strain KLBMP 4817	99	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG10	"Basal with fumarate, anaerobic, 25 C"	Bacillales	Lysinibacillus fusiformis strain FeSDHC0-261	98	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG11	"Basal with fumarate, anaerobic, 25 C"	Bacillales	Paenibacillus fonticola strain KLBMP 4817	98	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG12	"Basal with fumarate, anaerobic, 25 C"	Bacillales	Paenibacillus fonticola strain KLBMP 4817	88	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG13	"LB, anaerobic, 25 C"	Bacillales	Lysinibacillus sphaericus strain AK4T19.IIPR	99	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG15	"LB, anaerobic, 25 C"	Bacillales	Paenibacillus fonticola strain KLBMP 4817	95	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG16	"LB, anaerobic, 25 C"	Bacillales	Bacillus sp. strain ASF 03	99	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG21	"Basal with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus fonticola strain KLBMP 4817	"99,"	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG22	"Basal with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus sp. JN20	99	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG23	"Basal with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus fonticola strain KLBMP 4817 	99	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG24	"Basal with fumarate, anaerobic, 25 C"	Bacillales	Lysinibacillus sphaericus strain PD2	99	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG25	"Basal with fumarate, anaerobic, 25 C"	Bacillales	Sporosarcina ginsengisoli  	98	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG26	"Basal with fumarate, anaerobic, 25 C"	Bacillales	Paenibacillus fonticola strain KLBMP 4817  	90	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG28	"Basal with carbon mix, anaerobic, 25 C"	Bacillales	Lysinibacillus sp. KSD-3	97	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG29	"Basal with carbon mix, anaerobic, 25 C"	Bacillales	Oceanobacillus sojae strain: NBRC 105379	99	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG30	"Basal with carbon mix, anaerobic, 25 C"	Bacillales	 Lysinibacillus sphaericus strain AK4T19.IIPR  	99	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG31	"LB, anaerobic, 25 C"	Burkholderiales	Burkholderia sp. Z80	95	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+FW115-XG32	"LB, anaerobic, 25 C"	Bacillales	Bacillus safensis isolate KJS24	98	3/20/17	FW115	"Adams, UGA"	ENIGMA Pilot
+EB106-08-02-XG33	"Basal with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus thuringiensis strain FMH28	100	3/20/17	EB106-08-02	"Adams, UGA"	ENIGMA Pilot
+EB106-02-02-XG36	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. ACT001	99	3/20/17	EB106-02-02	"Adams, UGA"	ENIGMA Pilot
+EB106-02-03-XG37	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Lysinibacillus fusiformis strain 6880	99	3/20/17	EB106-02-03	"Adams, UGA"	ENIGMA Pilot
+EB106-02-03-XG38	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus weihenstephanensis strain NIOER238	99	3/20/17	EB106-02-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-01-XG40	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus thuringiensis strain: S32	99	3/20/17	EB106-03-01	"Adams, UGA"	ENIGMA Pilot
+EB106-03-02-XG41	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus thuringiensis strain CS-9  	99	3/20/17	EB106-03-02	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG42	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Micrococcales	Paenarthrobacter nitroguajacolicus strain BF-R19	99	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-06-XG43	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Paenibacillus jamilae strain FJAT-hcl-23	99	3/20/17	EB106-03-06	"Adams, UGA"	ENIGMA Pilot
+EB106-03-06-XG44	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Paenibacillus polymyxa strain HGPJ-5	99	3/20/17	EB106-03-06	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG52	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus thuringiensis strain Eca10	98	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG53	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Lysinibacillus fusiformis strain NLAAB_16	99	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG54	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Lysinibacillus fusiformis strain Z1-R10	98	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-09-04-XG55	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus altitudinis strain P-10	99	3/20/17	EB106-09-04	"Adams, UGA"	ENIGMA Pilot
+EB106-03-01-XG56	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus weihenstephanensis strain NIOER238	99	3/20/17	EB106-03-01	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG57	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Actinomycetales	Microbacterium sp. strain d3	99	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-02-03-XG59	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus cereus strain MRBI5	99	3/20/17	EB106-02-03	"Adams, UGA"	ENIGMA Pilot
+EB106-02-02-XG60	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. strain 9F10	99	3/20/17	EB106-02-02	"Adams, UGA"	ENIGMA Pilot
+EB106-02-03-XG61	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Actinomycetales	Microbacterium TCA2-11_Pa	100	3/20/17	EB106-02-03	"Adams, UGA"	ENIGMA Pilot
+EB106-02-03-XG62	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus coreaensis strain TSDHB0-211	99	3/20/17	EB106-02-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-01-XG63	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Stenotrophomonas	Stenotrophomonas sp. JCM 28649	99	3/20/17	EB106-03-01	"Adams, UGA"	ENIGMA Pilot
+EB106-03-01-XG64	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Actinomycetales	Microbacterium sp. HP8G	99	3/20/17	EB106-03-01	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG65	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Actinomycetales	Microbacterium sp. HP5G	99	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG66	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Actinomycetales	Microbacterium sp. strain MadaFrogSkinBac.DB-.2785 	99	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG67	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus toyonensis	99	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-04-01-XG68	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. ACT001 	99	3/20/17	EB106-04-01	"Adams, UGA"	ENIGMA Pilot
+EB106-04-02-XG70	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus sp. strain 26-13	99	3/20/17	EB106-04-02	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG76	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Paenibacillus uliginis strain FJAT-45928	99	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG77	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus cereus strain ES103	99	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-09-04-XG81	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus altitudinis strain P-10	99	3/20/17	EB106-09-04	"Adams, UGA"	ENIGMA Pilot
+EB106-02-03-XG86	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus cereus	99	3/20/17	EB106-02-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-01-XG87	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Stenotrophomonas	Stenotrophomonas maltophilia strain MadaFrogSkinBac.DB-.3917	99	3/20/17	EB106-03-01	"Adams, UGA"	ENIGMA Pilot
+EB106-03-01-XG88	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Actinomycetales	Microbacterium sp. HP8G  	99	3/20/17	EB106-03-01	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG89	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Lysinibacillus parviboronicapiens strain FJAT-45871  	96	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG90	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus sp. strain VLSWB-1  	100	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-04-02-XG92	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus sp. Y249_1  	99	3/20/17	EB106-04-02	"Adams, UGA"	ENIGMA Pilot
+EB106-05-05-XG95	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus sp. strain F-10	99	3/20/17	EB106-05-05	"Adams, UGA"	ENIGMA Pilot
+EB106-07-06-XG99	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Lysinibacillus fusiformis strain NLAAB_16  	99	3/20/17	EB106-07-06	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG100	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Pseudomonadales	Pseudomonas chlororaphis strain 48R-P9	100	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG101	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus sp. strain SC-Apr-C5	100	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG102	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus sp. strain HNS6  	99	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG103	"Basal with 5% compost with 1% LB, anaerobic, 25 C"	Bacillales	Bacillus thuringiensis strain HlS2200909	100	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-02-02-XG105	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus uliginis strain FJAT-45928; 	99	3/20/17	EB106-02-02	"Adams, UGA"	ENIGMA Pilot
+EB106-02-03-XG106	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus thuringiensis strain a32	99	3/20/17	EB106-02-03	"Adams, UGA"	ENIGMA Pilot
+EB106-02-03-XG107	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus lautus strain VBN22	99	3/20/17	EB106-02-03	"Adams, UGA"	ENIGMA Pilot
+EB106-02-03-XG109	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus beringensis strain PF24A.2.1	87	3/20/17	EB106-02-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-01-XG110	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus cereus strain FORT 87	98	3/20/17	EB106-03-01	"Adams, UGA"	ENIGMA Pilot
+EB106-03-01-XG111	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Actinomycetales	Cellulosimicrobium sp. strain 127266	99	3/20/17	EB106-03-01	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG112	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus toyonensis strain FORT 40	99	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG114	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus sp. strain DK1 	88	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG115	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. ACT001	99	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG116	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Actinomycetales	Cellulomonas sp. JCM 28268	99	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG117	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus cereus strain FORT 178	99	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG118	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Brevibacillus brevis strain AS5-10	99	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-04-01-XG119	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus toyonensis strain TAGEM15-70-B3	99	3/20/17	EB106-04-01	"Adams, UGA"	ENIGMA Pilot
+EB106-04-02-XG120	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus cereus strain FORT 154l	99	3/20/17	EB106-04-02	"Adams, UGA"	ENIGMA Pilot
+EB106-04-02-XG122	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus toyonensis strain FORT 119	99; 	3/20/17	EB106-04-02	"Adams, UGA"	ENIGMA Pilot
+EB106-04-04-XG123	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus pumilus strain KBL37	100	3/20/17	EB106-04-04	"Adams, UGA"	ENIGMA Pilot
+EB106-05-02-XG124	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus coreaensis	97	3/20/17	EB106-05-02	"Adams, UGA"	ENIGMA Pilot
+EB106-05-05-XG125	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus sp. strain F-10	99	3/20/17	EB106-05-05	"Adams, UGA"	ENIGMA Pilot
+EB106-05-05-XG126	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus oceanisediminis strain HQB337	99	3/20/17	EB106-05-05	"Adams, UGA"	ENIGMA Pilot
+EB106-06-01-XG127	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus sp. strain BacI61	99	3/20/17	EB106-06-01	"Adams, UGA"	ENIGMA Pilot
+EB106-06-01-XG128	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus sp. OS_002	99	3/20/17	EB106-06-01	"Adams, UGA"	ENIGMA Pilot
+EB106-08-01-XG129	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus cereus isolate RB-5	99	3/20/17	EB106-08-01	"Adams, UGA"	ENIGMA Pilot
+EB106-08-02-XG130	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Stenotrophomonas	Stenotrophomonas maltophilia strain YHNG7	99	3/20/17	EB106-08-02	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG132	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus sp. LSD88	99	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG133	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus korlensis isolate OTU-a52	99	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG134	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacterium strain 7BL_7	99	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG135	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus sp. FSL R5-0345; 	99	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG137	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus sp. strain FA2-186	99	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG138	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus sp. FSL H7-0737	99	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG139	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus sp. FSL H7-0737	99	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-04-XG140	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus anthracis strain HQB343	99	3/20/17	EB106-08-04	"Adams, UGA"	ENIGMA Pilot
+EB106-08-04-XG141	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus thuringiensis strain FJAT-hcl-33	100	3/20/17	EB106-08-04	"Adams, UGA"	ENIGMA Pilot
+EB106-09-01-XG142	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus toyonensis strain FORT 119	100	3/20/17	EB106-09-01	"Adams, UGA"	ENIGMA Pilot
+EB106-10-01-XG143	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus cereus strain FORT 178	100	3/20/17	EB106-10-01	"Adams, UGA"	ENIGMA Pilot
+EB106-03-01-XG145	"Basal with 5% compost with 1% LB with carbon mix with metal mix, anaerobic, 25 C"	Rhizobiales	Sinorhizobium sp. strain MRF-35	99	3/20/17	EB106-03-01	"Adams, UGA"	ENIGMA Pilot
+EB106-05-01-XG146	"Basal with 5% compost with 1% LB with carbon mix with metal mix, anaerobic, 25 C"	Rhizobiales	Ensifer adhaerens strain WJB133	99	3/20/17	EB106-05-01	"Adams, UGA"	ENIGMA Pilot
+EB106-05-01-XG147	"Basal with 5% compost with 1% LB with carbon mix with metal mix, anaerobic, 25 C"	Burkholderiales	Ralstonia sp. SK1	99	3/20/17	EB106-05-01	"Adams, UGA"	ENIGMA Pilot
+EB106-07-01-XG149	"Basal with 5% compost with 1% LB with carbon mix with metal mix, anaerobic, 25 C"	Bacillales	Bacillus thuringiensis strain EI-18	99	3/20/17	EB106-07-01	"Adams, UGA"	ENIGMA Pilot
+EB106-07-01-XG150	"Basal with 5% compost with 1% LB with carbon mix with metal mix, anaerobic, 25 C"	Bacillales	Bacillus thuringiensis strain 104XG46	99	3/20/17	EB106-07-01	"Adams, UGA"	ENIGMA Pilot
+EB106-08-01-XG153	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus cereus strain FORT 178	99	3/20/17	EB106-08-01	"Adams, UGA"	ENIGMA Pilot
+EB106-08-04-XG154	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus cereus strain FORT 178 	99	3/20/17	EB106-08-04	"Adams, UGA"	ENIGMA Pilot
+EB106-03-06-XG156	"LB with metal mix, anaerobic, 25 C"	Bacillales	Bacillus sp. FJAT-22472	99	3/20/17	EB106-03-06	"Adams, UGA"	ENIGMA Pilot
+EB106-04-02-XG157	"LB with metal mix, anaerobic, 25 C"	 Clostridiales	 Clostridium mangenotii	99	3/20/17	EB106-04-02	"Adams, UGA"	ENIGMA Pilot
+EB106-04-02-XG158	"LB with metal mix, anaerobic, 25 C"	Bacillales	 Bacillus sp. ST21	99	3/20/17	EB106-04-02	"Adams, UGA"	ENIGMA Pilot
+EB106-04-04-XG159	"LB with metal mix, anaerobic, 25 C"	Bacillales	Paenibacillus marinisediminis strain LHW35	99	3/20/17	EB106-04-04	"Adams, UGA"	ENIGMA Pilot
+EB106-05-06-XG162	"LB with metal mix, anaerobic, 25 C"	Bacillales	Paenibacillus terrigena	99	3/20/17	EB106-05-06	"Adams, UGA"	ENIGMA Pilot
+EB106-06-01-XG163	"LB with metal mix, anaerobic, 25 C"	Bacillales	Bacillus amyloliquefaciens strain BUZ14	100	3/20/17	EB106-06-01	"Adams, UGA"	ENIGMA Pilot
+EB106-07-01-XG164	"LB with metal mix, anaerobic, 25 C"	Bacillales	Bacillus pumilus strain Rc-3c	100	3/20/17	EB106-07-01	"Adams, UGA"	ENIGMA Pilot
+EB106-09-01-XG167	"LB with metal mix, anaerobic, 25 C"	Bacillales	Bacillus sp. L4	99	3/20/17	EB106-09-01	"Adams, UGA"	ENIGMA Pilot
+EB106-09-02-XG168	"LB with metal mix, anaerobic, 25 C"	Bacillales	Lysinibacillus sp. strain Brt-P	99	3/20/17	EB106-09-02	"Adams, UGA"	ENIGMA Pilot
+EB106-10-01-XG169	"LB with metal mix, anaerobic, 25 C"	Bacillales	Paenibacillus polymyxa strain VNRM48	99	3/20/17	EB106-10-01	"Adams, UGA"	ENIGMA Pilot
+EB106-05-01-XG170	"LB, anaerobic, 25 C"	Bacillales	 Bacillus sp. Cb9	99	3/20/17	EB106-05-01	"Adams, UGA"	ENIGMA Pilot
+EB106-05-01-XG171	"LB, anaerobic, 25 C"	Enterobacteriales	Enterobacter sp. HL-9	94	3/20/17	EB106-05-01	"Adams, UGA"	ENIGMA Pilot
+EB106-06-01-XG173	"LB, anaerobic, 25 C"	Bacillales	Bacillus sp. 1NLA3E	99	3/20/17	EB106-06-01	"Adams, UGA"	ENIGMA Pilot
+EB106-06-01-XG174	"LB, anaerobic, 25 C"	Bacillales	Bacillus sp. strain RKMT_172	100	3/20/17	EB106-06-01	"Adams, UGA"	ENIGMA Pilot
+EB106-07-01-XG175	"LB, anaerobic, 25 C"	Bacillales	Bacillus cereus strain FORT 178	99	3/20/17	EB106-07-01	"Adams, UGA"	ENIGMA Pilot
+EB106-02-02-XG177	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Actinomycetales	Cellulosimicrobium sp. strain RB18	100	3/20/17	EB106-02-02	"Adams, UGA"	ENIGMA Pilot
+EB106-02-02-XG178	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus sp. XYY-2015	100	3/20/17	EB106-02-02	"Adams, UGA"	ENIGMA Pilot
+EB106-02-02-XG179	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus sp. strain M-21	99	3/20/17	EB106-02-02	"Adams, UGA"	ENIGMA Pilot
+EB106-02-02-XG180	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus cereus strain FORT 178	100	3/20/17	EB106-02-02	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG181	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus sp. HA48	100	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-03-03-XG182	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus sp. FSL R5-0345	99	3/20/17	EB106-03-03	"Adams, UGA"	ENIGMA Pilot
+EB106-04-02-XG183	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus sp. WP09-2	99	3/20/17	EB106-04-02	"Adams, UGA"	ENIGMA Pilot
+EB106-05-01-XG184	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Enterobacteriales	Enterobacter amnigenus strain PY23	92	3/20/17	EB106-05-01	"Adams, UGA"	ENIGMA Pilot
+EB106-06-01-XG185	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus cereus strain ANP221	99	3/20/17	EB106-06-01	"Adams, UGA"	ENIGMA Pilot
+EB106-06-04-XG186	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus licheniformis strain PASS26	99	3/20/17	EB106-06-04	"Adams, UGA"	ENIGMA Pilot
+EB106-06-04-XG187	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus licheniformis strain MSL_3033	99	3/20/17	EB106-06-04	"Adams, UGA"	ENIGMA Pilot
+EB106-07-01-XG188	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus thuringiensis strain LCK10	99	3/20/17	EB106-07-01	"Adams, UGA"	ENIGMA Pilot
+EB106-08-02-XG189	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus sp. strain 30.1	99	3/20/17	EB106-08-02	"Adams, UGA"	ENIGMA Pilot
+EB106-08-02-XG190	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Stenotrophomonas	Stenotrophomonas sp. SEPRK11	99	3/20/17	EB106-08-02	"Adams, UGA"	ENIGMA Pilot
+EB106-09-01-XG191	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus thuringiensis strain HlS2200909	99	3/20/17	EB106-09-01	"Adams, UGA"	ENIGMA Pilot
+EB106-09-02-XG192	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus sp. strain FA1-184' 	99	3/20/17	EB106-09-02	"Adams, UGA"	ENIGMA Pilot
+EB106-09-02-XG193	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Bacillus cereus strain HM1	99	3/20/17	EB106-09-02	"Adams, UGA"	ENIGMA Pilot
+EB106-02-02-XG194	"Basal with 5% compost with 1% LB with carbon mix with metal mix, anaerobic, 25 C"	Bacillales	Bacillus coreaensis	99	3/20/17	EB106-02-02	"Adams, UGA"	ENIGMA Pilot
+EB106-06-04-XG195	"Basal with 5% compost with 1% LB with carbon mix with metal mix, anaerobic, 25 C"	Bacillales	Paenibacillus xylanexedens strain S5B	99	3/20/17	EB106-06-04	"Adams, UGA"	ENIGMA Pilot
+EB106-08-02-XG196	"Basal with 5% compost with 1% LB with carbon mix with metal mix, anaerobic, 25 C"	Bacillales	Bacillus sp. strain 30.1	99	3/20/17	EB106-08-02	"Adams, UGA"	ENIGMA Pilot
+EB106-08-03-XG197	"Basal with 5% compost with 1% LB with carbon mix with metal mix, anaerobic, 25 C"	Bacillales	Bacillus cereus strain WUS16; 	100	3/20/17	EB106-08-03	"Adams, UGA"	ENIGMA Pilot
+EB106-08-02-XG198	"Basal with 5% compost with 1% LB with carbon mix with metal mix, anaerobic, 25 C"	Bacillales	Lysinibacillus fusiformis strain FJAT-46006	98	3/20/17	EB106-08-02	"Adams, UGA"	ENIGMA Pilot
+EB106-06-01-XG199	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus taohuashanense strain DUCC3741	99	3/20/17	EB106-06-01	"Adams, UGA"	ENIGMA Pilot
+EB106-04-02-XG200	"Basal with 5% compost with 1% LB with carbon mix, anaerobic, 25 C"	Bacillales	Paenibacillus sp. 23cp 	99	3/20/17	EB106-04-02	"Adams, UGA"	ENIGMA Pilot
+EB106-05-01-XG201	"Basal with 5% compost with 1% LB with carbon mix with metal mix, anaerobic, 25 C"	Enterobacteriales	Enterobacter amnigenus strain PY23	97	3/20/17	EB106-05-01	"Adams, UGA"	ENIGMA Pilot
+EB271-A1-10A	"Basal with acetate, anaerobic, 25 C"	Bacillales	Paenibacillus sp. strain 1FB16 	97.4	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-10B	"Basal with acetate, anaerobic, 25 C"	Bacillales	Lysinibacillus sphaericus strain Hass 1 	99.6	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-10C	"Basal with acetate, anaerobic, 25 C"	Bacillales	Lysinibacillus sphaericus strain Hass 1 	99.2	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-1A	"Basal with acetate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	99	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-1B	"Basal with acetate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	98.7	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-2A	"Basal with acetate, anaerobic, 25 C"	Bacillales	Paenibacillus sp. strain 1FB16 	98.9	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-4	"Basal with acetate, anaerobic, 25 C"	Bacillales	Paenibacillus sp. strain 1FB16 	98.8	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-5A	"Basal with acetate, anaerobic, 25 C"	Bacillales	Lysinibacillus sphaericus strain Hass 1 	99.3	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-5B	"Basal with acetate, anaerobic, 25 C"	Bacillales	Lysinibacillus xylanilyticus strain FJAT-29968 	99.7	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-6A	"Basal with acetate, anaerobic, 25 C"	Bacillales	Lysinibacillus sphaericus strain Hass 1 	99.6	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-6B	"Basal with acetate, anaerobic, 25 C"	Bacillales	Lysinibacillus sphaericus strain Hass 1 	99.4	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-6C	"Basal with acetate, anaerobic, 25 C"	Bacillales	Lysinibacillus sphaericus strain Hass 1 	99.4	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-7A	"Basal with acetate, anaerobic, 25 C"	Bacillales	Lysinibacillus sphaericus strain Hass 1 	99.6	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-7B	"Basal with acetate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	99.1	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-7C	"Basal with acetate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	99	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-8A	"Basal with acetate, anaerobic, 25 C"	Bacillales	Paenibacillus sp. DB14815 	96.9	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-8B	"Basal with acetate, anaerobic, 25 C"	Bacillales	Paenibacillus sp. DB14815 	97.1	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-8C	"Basal with acetate, anaerobic, 25 C"	Bacillales	Lysinibacillus sphaericus strain Hass 1 	98.9	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-9A	"Basal with acetate, anaerobic, 25 C"	Bacillales	Paenibacillus sp. strain 1FB16 	95.3	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A1-9B	"Basal with acetate, anaerobic, 25 C"	Bacillales	Lysinibacillus sphaericus strain Hass 1 	99.9	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-A3-1A	"Basal with acetate, anaerobic, 25 C"	Bacillales	Bacillus sp. Ult-42 	98.5	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-A3-1B	"Basal with acetate, anaerobic, 25 C"	Bacillales	Bacillus sp. Ult-42 	97.8	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-A3-3	"Basal with acetate, anaerobic, 25 C"	Bacillales	Bacillus asahii strain UFLA WFC770 	98.8	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-A3-4	"Basal with acetate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain NA-14 	99.9	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-A4-1	"Basal with acetate, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. strain AL163 	98.9	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-A4-2	"Basal with acetate, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. Gwa3-10 	98.6	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-A4-3A	"Basal with acetate, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. strain AL163 	98.7	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-A4-3B	"Basal with acetate, anaerobic, 25 C"	Burkholderiales	Paraburkholderia fungorum strain OX1313 	98.9	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-A4-4	"Basal with acetate, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. CC8P 	99.4	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-A4-5A	"Basal with acetate, anaerobic, 25 C"	Burkholderiales	Acidovorax sp. SEPRH9 	99.6	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-A4-7A	"Basal with acetate, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. strain AL163 	99.7	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-A4-7B	"Basal with acetate, anaerobic, 25 C"	Rhizobiales	Rhizobium selenitireducens strain B1 	97.3	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-A4-8A	"Basal with acetate, anaerobic, 25 C"	Flavobacteriales	Flavobacterium sp. CN14 	99.3	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-B1-1A	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus nealsonii strain FJAT-46656 	97.7	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-1B	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus sp. CL2-1 	98	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-1C	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus sp. CL2-1 	98.2	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-2A	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	99.2	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-2B	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	99	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-3A	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	98.8	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-3B	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	98.3	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-4A	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	99.1	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-4B	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	99.1	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-5	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus sp. strain FJAT-29868 	99.7	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-6A	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus sp. strain ZJ-7 	97.7	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-6B	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus sp. strain ZJ-7 	98.2	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-6C	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus sp. CL2-1 	97.9	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-6D	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus sp. strain ZJ-7 	98	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-7A	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus sp. CL2-1 	97.4	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-7B	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus sp. strain ZJ-7 	97.6	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-7C	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus sp. CL2-1 	98	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-8	"Basal with benzoate, anaerobic, 25 C"	Micrococcales	Paenarthrobacter nitroguajacolicus strain BBSNAI36 	98.7	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-9A	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	99.1	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B1-9B	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	98.9	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-B2-1A	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus sp. CL2-1 	97.6	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-B2-1B	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus sp. CL2-1 	98.3	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-B2-1C	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus nealsonii strain H28 	98.7	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-B2-2	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus sp. CL2-1 	98.2	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-B3-1	"Basal with benzoate, anaerobic, 25 C"	Micrococcales	Arthrobacter sp. CSA22 	99.4	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-B3-2	"Basal with benzoate, anaerobic, 25 C"	Micrococcales	Arthrobacter sp. CSA22 	99	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-B3-3A	"Basal with benzoate, anaerobic, 25 C"	Micrococcales	Arthrobacter sp. Cr-29 	99.3	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-B3-3B	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus soli strain 50 	99.2	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-B3-4	"Basal with benzoate, anaerobic, 25 C"	Micrococcales	Arthrobacter sp. CSA22 	100	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-B3-5	"Basal with benzoate, anaerobic, 25 C"	Bacillales	Bacillus asahii strain V63.17 	98.5	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-B3-6	"Basal with benzoate, anaerobic, 25 C"	Micrococcales	Arthrobacter sp. CSA22 	99.6	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-B4-1	"Basal with benzoate, anaerobic, 25 C"	Pseudomonadales	Pseudomonas helmanticensis strain 28C6 	99	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-B4-1A	"Basal with benzoate, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. B122(2014) 	99.6	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-B4-1B	"Basal with benzoate, anaerobic, 25 C"	Rhizobiales	Rhizobium selenitireducens strain BFHC1 4 	99.5	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-B4-2A	"Basal with benzoate, anaerobic, 25 C"	Pseudomonadales	Pseudomonas helmanticensis strain 28C6 	99.4	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-B4-2B	"Basal with benzoate, anaerobic, 25 C"	Burkholderiales	Paraburkholderia fungorum strain OX1313 	99.6	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-B4-3A	"Basal with benzoate, anaerobic, 25 C"	Rhizobiales	Rhizobium selenitireducens strain BFHC1 4 	99.5	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-B4-3B	"Basal with benzoate, anaerobic, 25 C"	Micrococcales	Janibacter sp. TS20 	99.4	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-G1-1A	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	98.7	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-G1-1B	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	99	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-G1-2A	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	98.6	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-G1-2B	"Basal with glutamate, anaerobic, 25 C"	Burkholderiales	Acidovorax facilis strain DSS6 	99.5	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-G1-2C	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	98.5	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-G1-3	"Basal with glutamate, anaerobic, 25 C"	Micrococcales	Arthrobacter sp. CSA22 	99.6	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-G1-4	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	98.8	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-G1-5A	"Basal with glutamate, anaerobic, 25 C"	Rhodospirillales	Roseomonas gilardii strain NA-14 	99.4	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-G1-5B	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain BF-R7 	97.8	3/20/17	EB271-02-02	Chakraborty	ENIGMA Pilot
+EB271-G2-1	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus sp. DB14320 	98.4	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-G2-2	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus sp. DB14320 	98.4	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-G2-3	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus sp. DB14320 	98.6	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-G2-4	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus sp. DB14320 	98.4	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-G3-1A	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain NA-14 	99.7	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-G3-1B	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain NA-14 	99.7	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-G3-2A	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain NA-14 	99.8	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-G3-2B	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain NA-14 	99.5	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-G3-3	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain NA-14 	99.6	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-G3-4	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain NA-14 	99.6	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-G3-5	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Paenibacillus sp. CC-SAS5 	96.8	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-G3-6	"Basal with glutamate, anaerobic, 25 C"	Micrococcales	Arthrobacter sp. CSA22 	99.3	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-G3-7	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain NA-14 	99.5	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-G3-8	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain NA-14 	99.9	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-G3-9A	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus cucumis strain LA111 	98.2	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-G3-9B	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Bacillus drentensis strain NA-14 	99.9	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-G4-1	"Basal with glutamate, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. strain AL163 	99.6	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-G4-2	"Basal with glutamate, anaerobic, 25 C"	Burkholderiales	Acidovorax sp. strain K-123-1 	98.7	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-G4-3	"Basal with glutamate, anaerobic, 25 C"	Burkholderiales	Janthinobacterium sp. KH2 gene for 	99	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-G4-4	"Basal with glutamate, anaerobic, 25 C"	Bacillales	Paenibacillus amylolyticus strain OV2121 	98.2	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-G4-5	"Basal with glutamate, anaerobic, 25 C"	Burkholderiales	Acidovorax sp. strain K-123-1 	96.4	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-G4-6	"Basal with glutamate, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. Gwa3-10 	99.6	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-G4-7A	"Basal with glutamate, anaerobic, 25 C"	Burkholderiales	Janthinobacterium sp. E107 partial 	99.1	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-L2-1	"Basal with lactate, anaerobic, 25 C"	Bacillales	Bacillus asahii strain UFLA WFC770 	98.9	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-L2-2A	"Basal with lactate, anaerobic, 25 C"	Bacillales	Bacillus sp. strain S31 	98.8	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-L2-2B	"Basal with lactate, anaerobic, 25 C"	Bacillales	Bacillus asahii strain UFLA WFC770 	98.2	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-L2-3	"Basal with lactate, anaerobic, 25 C"	Bacillales	Bacillus sp. strain S31 	98.8	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-L2-4	"Basal with lactate, anaerobic, 25 C"	Bacillales	Bacillus asahii strain UFLA WFC770 	98.7	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-L2-5	"Basal with lactate, anaerobic, 25 C"	Bacillales	Bacillus asahii strain UFLA WFC770 	98.8	3/20/17	EB271-03-03	Chakraborty	ENIGMA Pilot
+EB271-L3-1	"Basal with lactate, anaerobic, 25 C"	Micrococcales	Arthrobacter sp. CSA22 	99.3	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-L3-2	"Basal with lactate, anaerobic, 25 C"	Bacillales	Bacillus asahii strain UFLA WFC770 	98.8	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-L3-3	"Basal with lactate, anaerobic, 25 C"	Bacillales	Bacillus sp. Ult-108 	95.6	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-L3-4	"Basal with lactate, anaerobic, 25 C"	Micrococcales	Arthrobacter sp. CSA22 	99	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-L3-5	"Basal with lactate, anaerobic, 25 C"	Bacillales	Bacillus asahii strain UFLA WFC770 	98.8	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-L3-6A	"Basal with lactate, anaerobic, 25 C"	Bacillales	Bacillus asahii strain UFLA WFC770 	98.9	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-L3-6B	"Basal with lactate, anaerobic, 25 C"	Bacillales	Paenibacillus sp. CC-SAS5 	96.6	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-L3-6C	"Basal with lactate, anaerobic, 25 C"	Bacillales	Bacillus asahii strain UFLA WFC770 	98.6	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-L3-7A	"Basal with lactate, anaerobic, 25 C"	Bacillales	Bacillus asahii strain UFLA WFC770 	98.5	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-L3-7B	"Basal with lactate, anaerobic, 25 C"	Bacillales	Bacillus asahii strain UFLA WFC770 	98.7	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-L3-7C	"Basal with lactate, anaerobic, 25 C"	Bacillales	Paenibacillus sp. CC-SAS5 	97.2	3/20/17	EB271-04-01	Chakraborty	ENIGMA Pilot
+EB271-L4-1	"Basal with lactate, anaerobic, 25 C"	Pseudomonadales	Pseudomonas helmanticensis strain 28C6 	99.3	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-L4-2A	"Basal with lactate, anaerobic, 25 C"	Rhizobiales	Rhizobium selenitireducens strain B1 	99.5	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-L4-2AB	"Basal with lactate, anaerobic, 25 C"	Micrococcales	Microbacterium sp. FQ-57-2 	99.2	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-L4-2B	"Basal with lactate, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. CC8P 	99.3	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
+EB271-L4-3	"Basal with lactate, anaerobic, 25 C"	Pseudomonadales	Pseudomonas sp. B122(2014) 	99.1	3/20/17	EB271-05-01	Chakraborty	ENIGMA Pilot
