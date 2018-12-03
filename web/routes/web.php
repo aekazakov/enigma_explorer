@@ -28,6 +28,8 @@ $router->group(['prefix' => 'api/v1'], function() use ($router) {
     $router->get('isolates/keyword/{keyword}', 'IsolatesController@selectByKeyword');
     // get match number by keyword
     $router->get('isolates/count/{keyword}', 'IsolatesController@countByKeyword');
+    // get 16s rrna seq by id
+    $router->get('isolates/rrna/{id}', 'IsolatesController@rrnaById');
 });
 
 // Frontend routers
@@ -40,7 +42,14 @@ $router->get('/index', function() {
 $router->get('/isolates', function() {
     return view('isolates', ['activeLink' => 'isolatesLink']);
 });
-$router->get('/search', function(Request $request) {
-    $tag = $request->input('tag');
-    return view('search', ['activeLink' => '', 'tag' => $tag]);
+$router->get('/search/{page}', function(Request $request, $page) {
+    // check whether page is integer
+    if (!is_numeric($page)) {
+        abort(404);
+    }
+    $keyword = $request->input('keyword');
+    return view('search', ['activeLink' => 'nonExistingEle', 'keyword' => $keyword, 'page' => $page]);
+});
+$router->get('/isolates/id/{id}', function($id) {
+    return view('detail', ['activeLink' => 'isolatesLink', 'id' => $id]);
 });

@@ -16,14 +16,37 @@
 
 - choose BS element for showing search result OK
 
-- search with prompts (ajax)
+- search with prompts (ajax) PARTIAL OK
 
-- design the frontend of search result (tsv part only)
-
-- let lumen take all requests, but in 2 router groups:
   One takes rendering requests, the other takes api requests
   "semi-frond-backend-seperation" OK
 
-- design the search temp page
-- design the frontend of fasta & whole genome
-- design the frontend of other external links
+- design the search temp page OK
+
+1. split search results into pages OK
+
+2. tweak search temperal page ok
+
+3. design detailed info page OK
+
+4. add 16s rrna into database OK
+
+5. add 16s rrna into info page OK
+
+6. if only 1 search result, go to info page directly
+
+7. add links to main page
+
+8. choose a theme image
+
+9. add main search box on isolate page & search page
+
+10. design advance search frontend page
+
+11. design according api
+
+12. edit api documentation
+
+13. implement advance search
+
+14. highlight search page

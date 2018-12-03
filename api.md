@@ -99,6 +99,8 @@ curl -i -X GET http://localhost:8000/api/v1/isolates/id/1
 
 Accepts **isolate id**, **order** and **closest relative** (include the binomial name) as URL parameter, but not id. The keyword is NOT case sensitive. Partial keyword is accepted, but too short keyword (less than 3 letters) will be filtered out for they are too vague.
 
+Note this API do NOT return 16s rRNA sequence, to save data. Use `isoid`, `id` or `16s` API for 16s rRNA sequence.
+
 ----
 
 - **URL**

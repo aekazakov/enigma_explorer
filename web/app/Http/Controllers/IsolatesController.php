@@ -41,9 +41,12 @@ class IsolatesController extends Controller {
             return -1;
         }
         # search by isolate id, phylogenic order, or closest relative
+        $keyword = urldecode($keyword);
         $isoList = Isolates::where('isolate_id', 'LIKE', '%'.$keyword.'%')
             ->orWhere('order', 'LIKE', '%'.$keyword.'%')
-            ->orWhere('closest_relative', 'LIKE', '%'.$keyword.'%')->get();
+            ->orWhere('closest_relative', 'LIKE', '%'.$keyword.'%')
+            ->select('id','isolate_id','condition','order','closest_relative',
+                'similarity','date_sampled','sample_id','lab','campaign')->get();
         # return all, in sequence
         return $isoList->toArray();
     }
@@ -64,5 +67,12 @@ class IsolatesController extends Controller {
         } else {
             return response()->json(['count' => count($isoList)]);
         }
+    }
+    public function rrnaById($id) {
+       $iso = Isolates::where('id', $id)->select('isolate_id', 'rrna')->first();
+       $response = response()->make('> '.$iso->isolate_id."\n".$iso->rrna, 200);
+       $response->header('Content-Type', 'text/plain')
+           ->header('Content-Disposition', 'attachment;filename='.$iso->isolate_id.'.fa');
+       return $response;
     }
 }

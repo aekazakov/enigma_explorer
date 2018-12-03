@@ -3,6 +3,9 @@
 @section('title', 'Isolates')
 
 @section('content')
+    @component('mainSearch')
+      Search isolates
+    @endcomponent
     <div class="row my-4">
       <h1>Isolates</h1>
     </div>
