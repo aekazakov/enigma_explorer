@@ -8,6 +8,15 @@
   <link rel="stylesheet" type="text/css" href="/css/loading.css" />
   <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
+  <style>
+    /* set mark padding 0 */
+    mark {
+      padding: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -18,7 +27,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbar-nav w-50 nav-justified mx-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/index" id="mainLink">Main</a>
+          <a class="nav-link" href="/index" id="mainLink">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/isolates" id="isolatesLink">Isolates</a>
@@ -33,7 +42,7 @@
           <a class="nav-link" href="#" id="enrichmentLink">Enrichments</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="sitemapLink">Sitemap</a>
+          <a class="nav-link" href="#" id="apiLink">API</a>
         </li>
       </ul>
       <!-- redirect to the first page of search -->

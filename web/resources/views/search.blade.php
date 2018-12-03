@@ -5,7 +5,7 @@ Search: {{ $keyword }}
 @endsection
 
 @section('content')
-  @component('mainSearch')
+  @component('searchBox')
     Search again?
   @endcomponent
   <div class="row my-2">

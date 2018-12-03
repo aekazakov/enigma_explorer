@@ -24,12 +24,14 @@ $router->group(['prefix' => 'api/v1'], function() use ($router) {
     $router->get('isolates/isoid/{isoid}', 'IsolatesController@selectByIsoid');
     // select isolates by id
     $router->get('isolates/id/{id}', 'IsolatesController@selectById');
-    // select isolates by multiple keywords
+    // select isolates by keyword
     $router->get('isolates/keyword/{keyword}', 'IsolatesController@selectByKeyword');
     // get match number by keyword
     $router->get('isolates/count/{keyword}', 'IsolatesController@countByKeyword');
     // get 16s rrna seq by id
     $router->get('isolates/rrna/{id}', 'IsolatesController@rrnaById');
+    // select isolates by multiple keywords
+    $router->post('isolates/multiKeywords', 'IsolatesController@selectByMultiKeywords');
 });
 
 // Frontend routers
@@ -52,4 +54,10 @@ $router->get('/search/{page}', function(Request $request, $page) {
 });
 $router->get('/isolates/id/{id}', function($id) {
     return view('detail', ['activeLink' => 'isolatesLink', 'id' => $id]);
+});
+$router->get('/advSearch', function() {
+    return view('advSearch', ['activeLink' => 'nonExistingEle']);
+});
+$router->post('/advSearch/{page}', function(Request $request, $page) {
+    return view('advSearchList', ['activeLink' => 'nonExistingEle', 'page' => $page, 'postData' => json_encode($request->all())]);
 });

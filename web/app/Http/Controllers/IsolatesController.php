@@ -75,4 +75,35 @@ class IsolatesController extends Controller {
            ->header('Content-Disposition', 'attachment;filename='.$iso->isolate_id.'.fa');
        return $response;
     }
+
+    public function selectByMultiKeywords(Request $request) {
+        $input = $request->all();
+        $eqSet = array(); $likeSet = array();
+        foreach ($input['isEqual'] as $key => $val) {
+            // ignore all empty forms
+            // not necessary. empty forms will not be posted
+            if (!array_key_exists($key, $input) || $input[$key] == '') {
+                continue;
+            }
+            // map real db columns:
+            $dbMap = [
+                'isoid' => 'isolate_id',
+                'order' => 'order',
+                'relative' => 'closest_relative',
+                'lab' => 'lab'
+            ];
+            if ($val == 'true') {
+                $eqSet[$dbMap[$key]] = $input[$key];
+            } else {
+                $likeSet[$dbMap[$key]] = $input[$key];
+            }
+        }
+        $query = Isolates::where($eqSet);
+        foreach ($likeSet as $key => $val) {
+            $query->where($key, 'LIKE', '%'.$val.'%')
+                ->select('id','isolate_id','condition','order','closest_relative',
+                'similarity','date_sampled','sample_id','lab','campaign');
+        }
+        return response()->json($query->get());
+    }
 }
