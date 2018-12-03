@@ -42,7 +42,7 @@
           <a class="nav-link" href="#" id="enrichmentLink">Enrichments</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="apiLink">API</a>
+          <a class="nav-link" href="https://github.com/RainLiuX/enigma_docs/blob/master/api.md" id="apiLink">API</a>
         </li>
       </ul>
       <!-- redirect to the first page of search -->
