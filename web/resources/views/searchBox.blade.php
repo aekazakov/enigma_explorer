@@ -27,7 +27,7 @@
             window.location.href = '/isolates/id/'+data[0].id;
           });
         } else {
-          window.location.href = '/search/1?keyword='+keyword;
+          window.location.href = '/search?keyword='+keyword;
         }
       });
     }; 

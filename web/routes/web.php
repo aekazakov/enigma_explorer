@@ -32,6 +32,10 @@ $router->group(['prefix' => 'api/v1'], function() use ($router) {
     $router->get('isolates/rrna/{id}', 'IsolatesController@rrnaById');
     // select isolates by multiple keywords
     $router->post('isolates/multiKeywords', 'IsolatesController@selectByMultiKeywords');
+    // get a list of relative genome by id
+    $router->get('isolates/relativeGenome/{id}', 'IsolatesController@genomeList');
+    // get a genome fasta file by NCBI id
+    $router->get('ncbi/genome/{id}', 'IsolatesController@genomeByNcbiId');
 });
 
 // Frontend routers
@@ -44,13 +48,9 @@ $router->get('/index', function() {
 $router->get('/isolates', function() {
     return view('isolates', ['activeLink' => 'isolatesLink']);
 });
-$router->get('/search/{page}', function(Request $request, $page) {
-    // check whether page is integer
-    if (!is_numeric($page)) {
-        abort(404);
-    }
+$router->get('/search', function(Request $request) {
     $keyword = $request->input('keyword');
-    return view('search', ['activeLink' => 'nonExistingEle', 'keyword' => $keyword, 'page' => $page]);
+    return view('search', ['activeLink' => 'nonExistingEle', 'keyword' => $keyword]);
 });
 $router->get('/isolates/id/{id}', function($id) {
     return view('detail', ['activeLink' => 'isolatesLink', 'id' => $id]);
@@ -58,6 +58,6 @@ $router->get('/isolates/id/{id}', function($id) {
 $router->get('/advSearch', function() {
     return view('advSearch', ['activeLink' => 'nonExistingEle']);
 });
-$router->post('/advSearch/{page}', function(Request $request, $page) {
-    return view('advSearchList', ['activeLink' => 'nonExistingEle', 'page' => $page, 'postData' => json_encode($request->all())]);
+$router->post('/advSearchList', function(Request $request) {
+    return view('advSearchList', ['activeLink' => 'nonExistingEle', 'postData' => json_encode($request->all())]);
 });

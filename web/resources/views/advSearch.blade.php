@@ -80,7 +80,7 @@
         formObj['isEqual'] = checkObj;
 
         // post form object
-        $.redirect('/advSearch/1', formObj, 'POST');    
+        $.redirect('/advSearchList', formObj, 'POST');    
       });
     </script>
 @endsection

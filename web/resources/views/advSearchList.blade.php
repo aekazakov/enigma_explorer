@@ -22,156 +22,106 @@
   <nav aria-label="pagination nav">
     <ul class="pagination justify-content-center" id="pagination">
       <li class="page-item" id="firstPage">
-        <a class="page-link" href="#" aria-label="previous">&laquo;</a>
+        <a class="page-link" id="pageLinkFirst" href="javascript:void(0)" aria-label="previous">&laquo;</a>
       </li>
       <li class="page-item" id="prevPage">
-        <a class="page-link" href="#" aria-label="previous">&lt;</a>
+        <a class="page-link" id="pageLinkPrev" href="javascript:void(0)" aria-label="previous">&lt;</a>
       </li>
       <li class="page-item" id="nextPage">
-        <a class="page-link" href="#" aria-label="previous">&gt;</a>
+        <a class="page-link" id="pageLinkNext" href="javascript:void(0)" aria-label="previous">&gt;</a>
       </li>
       <li class="page-item" id="lastPage">
-        <a class="page-link" href="#" aria-label="next">&raquo;</a>
+        <a class="page-link" id="pageLinkLast" href="javascript:void(0)" aria-label="next">&raquo;</a>
       </li>
     </ul>
   </nav>
 
-  <script src="/js/jquery.redirect.js"></script>
+  <script src="/js/search.js"></script>
   <script>
-    $(document).ready(function() {
-      // get number of results
+
+    // assign display numbers per page
+    const PER_PAGE = 10;
+    const MAX_PAGE = 7;
+    
+    // Set initial parameters (prob from template)
+    function initialize() {
+      // initially set page 1. Changed by FE
+      var page = 1;
+
+      // get post data
       var postData = JSON.parse(@json($postData));
+      // get number of results
       $.post('/api/v1/isolates/multiKeywords', postData, function(data) {
-        $('#resNumber').html(data.length);
+        var resLen = data.length;
+        $('#resNumber').html(resLen);
+        if (resLen == 0) {
+          emptyDataView();
+          return;
+        }
       });
 
-      // assign display numbers per page
-      const PER_PAGE = 10;
-      // get page number from template
-      // note this must be a integer. If not, it will be filtered by router
-      var page = parseInt('{{ $page }}');
+      return [postData, page];
+    };
 
-      // get list of isolates
+    // Fetch list of isolates by API
+    function fetchIsolates(postData, page) {
       $.ajax({
         url: '/api/v1/isolates/multiKeywords',
         type: 'POST',
         dataType: 'json',
         data: postData,
         success: function(data) {
-          // remove loading icon
-          $('#loadingIcon').remove();
-
-          //handle no results
-          if (data.length == 0) {
-            $('#dataList').append(`
-              <div class="list-group-item">
-                <p><strong>
-                  Nothing found. Try another keyword?
-                </p></strong>
-              </div>
-            `);
-            return;
-          }
-
-          // first get entire list from BE, display only a part
-          // TODO: his would cause trouble if too many results
-
-          for (entry=(page-1)*PER_PAGE; entry<Math.min(data.length,page*PER_PAGE); entry++) {
-            $('#dataList').append(`
-              <div class="list-group-item">
-                <div class="row">
-                  <div class="col">
-                    <p><strong>
-                      <a href="/isolates/id/${data[entry].id}">${data[entry].isolate_id}</a>
-                    </strong></p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-3">
-                    <p><i>ID:</i> ${data[entry].id}</p>
-                  </div>
-                  <div class="col-3">
-                    <p><i>Order:</i> ${data[entry].order}</p>
-                  </div>
-                  <div class="col-6">
-                    <p><i>Closest relative:</i> ${data[entry].closest_relative}</p>
-                  </div>
-                </div>
-              </div>
-            `);
-          }
-
-          const MAX_PAGE = 7;
-          // count how may page is needed 
-          var pageNum = Math.ceil(data.length / PER_PAGE);
-          // url: page exceed
-          if (page > pageNum || page <= 0) {
-            $('#dataList').append(`
-              <div class="list-group-item">
-                <p><strong>
-                  Unexpected url encontered
-                </p></strong>
-              </div>
-            `);
-            return;
-          }
-          // generate pagination
-          var pageStart = 1;
-          if (pageNum <= MAX_PAGE) {
-            for (i=1; i<= pageNum; i++) {
-              $('#nextPage').before(`
-                <li class="page-item">
-                  <a class="page-link" href="#">${i}</a>
-                </li>
-              `);
-            }
+          appendDataView(data, page, postData);
+          genPagination(data, page, postData);
+        },
+        error: function(jqXHR, text, code) {
+          if (jqXHR.status == 400) {
+            var errorHint = "Something went wrong :( Please check your keyword.";
           } else {
-            if (page < MAX_PAGE) {
-              pageStart = 1;
-            } else if (pageNum - page < MAX_PAGE-1) {
-              pageStart = pageNum - MAX_PAGE + 1;
-            } else {
-              pageStart = page - Math.floor(MAX_PAGE/2);
-            }
-            for (i=pageStart; i<pageStart+MAX_PAGE; i++) {
-              $('#nextPage').before(`
-                <li class="page-item">
-                  <a class="page-link" href="#">${i}</a>
-                </li>
-              `);
-            }
+            var errorHint = "Unknown error. Please contact admin!";
           }
-          // assign active page item
-          // note first 2 are non-numeric
-          $(`#pagination>.page-item:nth-child(${page-pageStart+3})`).addClass('active');
-          // disable previous or next link if needed
-          if (page == 1) {
-            $('#prevPage').addClass('disabled');
-            $('#firstPage').addClass('disabled');
-          }
-          if (page == pageNum) {
-            $('#nextPage').addClass('disabled');
-            $('#lastPage').addClass('disabled');
-          }
-
-          // add link for every pagination 
-          $('#pagination .page-link').click(function() {
-            console.log('pagelink clicked');
-            if ($(this).html() == '«') {
-              var pageTo = 1;
-            } else if ($(this).html() == '»') {
-              var pageTo = pageNum;
-            } else if ($(this).html() == '&lt;') {
-              var pageTo = page - 1;
-            } else if ($(this).html() == '&gt;') {
-              var pageTo = page + 1;
-            } else {
-              var pageTo = parseInt($(this).html());
-            }
-            $.redirect('/advSearch/'+pageTo, postData, 'POST');
-          });
+          errorDataView(errorHint);
         }
       });
+    };
+
+    // Append isolates (main data view) list
+    function appendDataView(data, page, postData) {
+      // iterate the range in current page
+      var startEntry = (page-1)*PER_PAGE;
+      var endEntry = Math.min(data.length,page*PER_PAGE);
+      for (entry = startEntry; entry < endEntry; entry++) {
+        // format html string for every data entry
+        var dataEntry = `
+          <div class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <p class="my-1"><strong>
+                  <a href="/isolates/id/${data[entry].id}">${data[entry].isolate_id}</a>
+                </strong></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <p class="my-0"><i>ID:</i> ${data[entry].id}</p>
+              </div>
+              <div class="col-3">
+                <p class="my-0"><i>Order:</i> ${data[entry].order}</p>
+              </div>
+              <div class="col-6">
+                <p class="my-0"><i>Closest relative:</i> ${data[entry].closest_relative}</p>
+              </div>
+            </div>
+          </div>
+        `;
+        $('#dataList').append(dataEntry);
+      }
+    };
+
+    $(document).ready(function() {
+      var [postData, page] = initialize();
+      fetchIsolates(postData, page);
+      $('#loadingIcon').remove();
     });
   </script>
 @endsection

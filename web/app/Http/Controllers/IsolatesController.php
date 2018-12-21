@@ -68,6 +68,7 @@ class IsolatesController extends Controller {
             return response()->json(['count' => count($isoList)]);
         }
     }
+
     public function rrnaById($id) {
        $iso = Isolates::where('id', $id)->select('isolate_id', 'rrna')->first();
        $response = response()->make('> '.$iso->isolate_id."\n".$iso->rrna, 200);
@@ -105,5 +106,28 @@ class IsolatesController extends Controller {
                 'similarity','date_sampled','sample_id','lab','campaign');
         }
         return response()->json($query->get());
+    }
+
+    public function genomeList($id) {
+        $iso = Isolates::where('id', $id)->select('closest_relative')->first();
+        $relList = explode(' ', $iso->closest_relative);
+        $species = implode(' ', array_slice($relList, 0, 2));
+        $strain = implode(' ', array_slice($relList, 2));
+        $cmd = implode(' ', [base_path("scripts/fetchGenome.py"), "-s", "\"$species\"", "\"$strain\""]);
+        $genomeList = shell_exec($cmd);
+        if (is_null($genomeList)) {
+            return response()->json(["message" => "Unexpected internal error"], 400);
+        } else {
+            return response()->json(json_decode($genomeList));
+        }
+    }
+
+    public function genomeByNcbiId($id) {
+        $cmd = implode(' ', [base_path("scripts/fetchGenome.py"), "-i", $id]);
+        $genome = shell_exec($cmd);
+        $response = response()->make($genome, 200);
+        $response->header('Content-Type', 'text/plain')
+           ->header('Content-Disposition', 'attachment;filename='.$id.'.fa');
+        return $response;
     }
 }
