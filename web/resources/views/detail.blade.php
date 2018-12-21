@@ -94,13 +94,8 @@
         },
       
         error: function() {
-          let errorString = `
-            <tr>
-              <p>Error occured during query NCBI. Try again later.</p>
-            </tr>`;
-          $("#genomeTable>tbody").append(errorString);
-
-          // remove loading icon
+          let errorString = "<p>Unexpected server error encountered.</p>";
+          $("#genomeCollapse>.card").append(errorString);
           $("#loadingIcon2").remove();
         }
       });
