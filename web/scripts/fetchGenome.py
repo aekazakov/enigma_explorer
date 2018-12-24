@@ -40,17 +40,13 @@ def fetchG(speciesName, strain="") :
     ##########################
     
     Entrez.email = EMAIL
-    searchRet = Entrez.esearch(db='genome', term=speciesName+'[orgn]'+strain)
+    searchRet = Entrez.esearch(db='genome', term=speciesName+'[orgn]')
     searchRet = Entrez.read(searchRet)
-    # if no such specific strain, try only the species
-    if len(searchRet['IdList']) == 0:
-        searchRet = Entrez.esearch(db='genome', term=speciesName+'[orgn]')
-        searchRet = Entrez.read(searchRet)
     try :
         linkId = searchRet['IdList'][0]
     except IndexError :
         return "", ""
-    linkList = Entrez.elink(dbfrom='genome', db='nuccore', id=linkId)
+    linkList = Entrez.elink(dbfrom='genome', db='nuccore', id=linkId, term="gene+in+chromosome[prop]")
     genomeList = Entrez.read(linkList)[0]['LinkSetDb'][0]['Link']
     genomeList = [entry['Id'] for entry in genomeList]
 
@@ -63,9 +59,6 @@ def fetchG(speciesName, strain="") :
     for entry in genomeList :
         summary = Entrez.esummary(db='nuccore', id=entry)
         genomeTitle = Entrez.read(summary)[0]['Title']
-        # any title with "shotgun" is a master entry and contains no seq
-        if len(re.findall(r"(shotgun|plasmid)", genomeTitle)) > 0 :
-            continue
         genomeSpecies = ""
         for segment in re.split(', | ', genomeTitle) :
             if segment in ['whole', 'complete', 'genome', 'chromosome'] :
@@ -75,8 +68,15 @@ def fetchG(speciesName, strain="") :
                     genomeSpecies = segment
                 else :
                     genomeSpecies = genomeSpecies + ' ' + segment
-        genomeSpeciesList.append(genomeSpecies)
-        genomeIdList.append(entry)
+        if genomeSpecies in genomeSpeciesList :
+            continue
+        # if genome matches specific strain, insert this entry to the head
+        if len(strain) > 0 and len(re.findall(strain, genomeSpecies, re.IGNORECASE)) > 0 :
+            genomeSpeciesList.insert(0, genomeSpecies)
+            genomeIdList.insert(0, entry)
+        else :
+            genomeSpeciesList.append(genomeSpecies)
+            genomeIdList.append(entry)
         # Considering the delay, trancate top 5 if the list is long!
         if (len(genomeIdList) >= MAX_GENOME_LIST) :
             break

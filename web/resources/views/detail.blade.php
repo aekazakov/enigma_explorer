@@ -39,7 +39,7 @@
         </tr>
       </tbody>
     </table>
-    <h3 class="h3">Genome of closest relative from NCBI</h3>
+    <h3 class="h3">Relative genomes from NCBI</h3>
     <hr />
     <button id="genomeButton" class="btn btn-outline-success mb-2" type="button" data-toggle="collapse" data-target="#genomeCollapse">Download FASTA</button>
     <div id="genomeCollapse" class="collapse">
@@ -121,10 +121,7 @@
 
           $('#loadingIcon').remove();
 
-          $("#genomeButton").click(function() {
-            // fetch NCBI related genomes
-            fetchGenome(data.id);
-          });
+          fetchGenome(data.id);
         }
       });
 
