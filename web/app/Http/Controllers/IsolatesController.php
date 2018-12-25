@@ -130,4 +130,44 @@ class IsolatesController extends Controller {
            ->header('Content-Disposition', 'attachment;filename='.$id.'.fa');
         return $response;
     }
+
+    public function blastRidById($id) {
+        // fasta string of 16s
+        $iso = Isolates::where('id', $id)->select('isolate_id', 'rrna')->first();
+        $queryString = '>'.$iso->isolate_id."\n".$iso->rrna;
+        // NCBI BLAST url
+        $ncbiUrl = 'https://blast.ncbi.nlm.nih.gov/Blast.cgi';
+        $postData = [
+            'CMD' => 'Put',
+            'PROGRAM' => 'blastn',
+            'MEGABLAST' => 'on',
+            'DATABASE' => 'nr',
+            'QUERY' => $queryString
+        ];
+        $options = [
+            'http' => [
+                'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method' => 'POST',
+                'content' => http_build_query($postData)
+            ]
+        ];
+        $context = stream_context_create($options);
+        $result = file_get_contents($ncbiUrl, false, $context);
+
+        // parse html & get RID
+        preg_match('/<input.+name="RID".+value="(\w+)".+id="rid".+>/', $result, $matches);
+        try {
+            $rid = $matches[1];
+        } catch (Exception $err) {
+            return response()->json(['message', $err->getMessage()]);
+        }
+        // return form data necessary for ncbi blast
+        $retData = [
+            'CMD' => 'Get',
+            'FORMAT_TYPE' => 'HTML',
+            'RID' => $rid,
+            'SHOW_OVERVIEW' => 'on'
+        ];
+        return response()->json($retData);
+    }
 }

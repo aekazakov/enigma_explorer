@@ -89,5 +89,5 @@ def fetchS(genomeId) :
     return genomeSeq
 
 EMAIL = 'rainl199922@berkeley.edu'
-MAX_GENOME_LIST = 7
+MAX_GENOME_LIST = 12
 main()

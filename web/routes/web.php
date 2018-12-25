@@ -36,6 +36,8 @@ $router->group(['prefix' => 'api/v1'], function() use ($router) {
     $router->get('isolates/relativeGenome/{id}', 'IsolatesController@genomeList');
     // get a genome fasta file by NCBI id
     $router->get('ncbi/genome/{id}', 'IsolatesController@genomeByNcbiId');
+    // get a ncbi blast RID along with other form data
+    $router->get('ncbi/blast/rid/{id}', 'IsolatesController@blastRidById');
 });
 
 // Frontend routers
@@ -60,4 +62,7 @@ $router->get('/advSearch', function() {
 });
 $router->post('/advSearchList', function(Request $request) {
     return view('advSearchList', ['activeLink' => 'nonExistingEle', 'postData' => json_encode($request->all())]);
+});
+$router->get('/test', function() {
+    return view('test', ['activeLink' => 'mainLink']);
 });

@@ -44,17 +44,20 @@
     <button id="genomeButton" class="btn btn-outline-success mb-2" type="button" data-toggle="collapse" data-target="#genomeCollapse">Download FASTA</button>
     <div id="genomeCollapse" class="collapse">
       <div class="card card-body">
-      <div id="loadingIcon2" class="sk-wave">
-        <div class="sk-rect sk-rect1"></div>
-        <div class="sk-rect sk-rect2"></div>
-        <div class="sk-rect sk-rect3"></div>
-        <div class="sk-rect sk-rect4"></div>
-        <div class="sk-rect sk-rect5"></div>
-      </div>
+        <div id="loadingIcon2" class="sk-wave">
+          <div class="sk-rect sk-rect1"></div>
+          <div class="sk-rect sk-rect2"></div>
+          <div class="sk-rect sk-rect3"></div>
+          <div class="sk-rect sk-rect4"></div>
+          <div class="sk-rect sk-rect5"></div>
+        </div>
         <table id="genomeTable" class="table table-sm">
           <tbody>
           </tbody>
         </table>
+        <div id="genomeError"></div>
+        <p class="small text-muted mt-4">Need more information?</p>
+        <button id="blastBtn" class="btn btn-outline-primary mb-4" type="button">Go BLAST</button>
       </div>
     </div>
     <h3 class="h3 mt-2">16s rRNA sequence</h3>
@@ -63,15 +66,15 @@
       <button class="btn btn-outline-success mb-4" type="button">Download FASTA</button>
     </a>
 
+    <script src="/js/jquery.redirect.js"></script>
     <script>
     function fetchGenome(id) {
       $.ajax({
         url: "/api/v1/isolates/relativeGenome/"+id, 
         success: function(data) {
-          console.log(data);
           if (data.id == "") {
             let errorString = "<p>No related genome found in NCBI</p>";
-            $("#genomeCollapse>.card").append(errorString);
+            $("#genomeError").append(errorString);
             $("#loadingIcon2").remove();
             return;
           }
@@ -94,9 +97,27 @@
         },
       
         error: function() {
-          let errorString = "<p>Unexpected server error encountered.</p>";
-          $("#genomeCollapse>.card").append(errorString);
+          let errorString = '<p class="bg-danger">Unexpected server error encountered.</p>';
+          $("#genomeError").append(errorString);
           $("#loadingIcon2").remove();
+        }
+      });
+    };
+
+    function goBlast(id) {
+      $.ajax({
+        url: "/api/v1/ncbi/blast/rid/" + id,
+        success: function(data) {
+          ncbiUrl = "https://blast.ncbi.nlm.nih.gov/Blast.cgi";
+          $.redirect(ncbiUrl, data, 'POST', '_blank');
+          $("#blastBtn").html("Go BLAST");
+          $("#blastBtn").removeClass("disabled");
+        },
+        error: function() {
+          let errorString = '<p class="bg-danger">Unexpected error: cannot submit NCBI BLAST request</P>';
+          $("#genomeError").append(errorString);
+          $("#blastBtn").html("Go BLAST");
+          $("#blastBtn").removeClass("disabled");
         }
       });
     };
@@ -120,11 +141,18 @@
           $('#campaignInfo').html(data.campaign);
 
           $('#loadingIcon').remove();
-
-          fetchGenome(data.id);
         }
       });
 
+      // get genome list
+      fetchGenome(id);
+
+      // assign go blast button func
+      $("#blastBtn").click(function() {
+        $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Go BLAST');
+        $(this).addClass('disabled');
+        goBlast(id);
+      });
     });
     </script>
 @endsection
