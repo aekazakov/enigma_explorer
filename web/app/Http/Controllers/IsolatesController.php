@@ -170,4 +170,38 @@ class IsolatesController extends Controller {
         ];
         return response()->json($retData);
     }
+    
+    public function taxaHint($keyword) {
+        // filter out too short query
+        if (strlen($keyword) < 3) {
+            return response()->json(["message" => "Keyword too short"], 400);
+        }
+        // search by phylogenic order only (FOR NOW)
+        $keyword = urldecode($keyword);
+        $isoList = Isolates::where('order', 'LIKE', '%'.$keyword.'%')->select('order')->get();
+        $orderList = [];
+        foreach ($isoList as $entry) {
+            $orderList[] = trim($entry->order);
+        }
+        $orderList = array_unique($orderList);
+        // search by phylogenic genius
+        $isoList = Isolates::where('closest_relative', 'LIKE', "%".$keyword.'%')->select('closest_relative')->get();
+        $geniusList = [];
+        foreach ($isoList as $entry) {
+            $tmp = explode(' ', trim($entry->closest_relative));
+            if (preg_match('/'.$keyword.'/i', $tmp[0])) {
+                $geniusList[] = $tmp[0];
+            } else {
+                $geniusList[] = $tmp[1];
+            }
+        }
+        $geniusList = array_unique($geniusList);
+        // return, not too long
+        define("MAX_HINT_LEN", 5);
+        $hintList = array_merge($geniusList, $orderList);
+        if (count($hintList) > MAX_HINT_LEN) {
+            $hintList = array_slice($hintList, 0, MAX_HINT_LEN);
+        }
+        return response()->json($hintList);
+    }
 }

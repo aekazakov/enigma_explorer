@@ -2,7 +2,7 @@
   <input style="display:none;" />
   <div class="form-group row">
     <div class="col-sm-12 col-lg-8">
-      <input name="keyword" class="form-control align-baseline my-2" id="mainSearchInput" type="search" placeholder="{{ $slot }}" aria-label="Search" />
+      <input name="keyword" class="typeahead form-control align-baseline my-2" id="mainSearchInput" type="search" data-provide="typeahead" autocomplete="off" placeholder="{{ $slot }}" aria-label="Search" />
     </div>
     <div class="col-sm-6 col-lg-2">
       <button class="btn btn-outline-primary my-2 d-block mx-auto" id="mainSearchButton" type="button">Search</button>
@@ -12,6 +12,8 @@
     </div>
   </div>
 </form>
+
+<script src="/js/typeahead.bundle.js"></script>
 <script>
   $(document).ready(function() {
     // ajax form submission
@@ -38,5 +40,19 @@
         conditionRedirect();
       }
     });
+
+    // search hint
+    $('#mainSearchInput').typeahead({
+        highlight: true,
+        minLength: 3
+      }, {
+        limit: 10,
+        source: function(query, processSync, processAsync) { 
+          return $.get('/api/v1/isolates/hint/' + encodeURI(query), function(data) {
+            return processAsync(data);
+          });
+        }
+      }
+    );
   });
 </script>

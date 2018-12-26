@@ -28,6 +28,8 @@ $router->group(['prefix' => 'api/v1'], function() use ($router) {
     $router->get('isolates/keyword/{keyword}', 'IsolatesController@selectByKeyword');
     // get match number by keyword
     $router->get('isolates/count/{keyword}', 'IsolatesController@countByKeyword');
+    // get hints by kerword
+    $router->get('isolates/hint/{keyword}', 'IsolatesController@taxaHint');
     // get 16s rrna seq by id
     $router->get('isolates/rrna/{id}', 'IsolatesController@rrnaById');
     // select isolates by multiple keywords
