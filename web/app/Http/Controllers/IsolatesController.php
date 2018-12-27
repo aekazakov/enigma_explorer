@@ -101,10 +101,10 @@ class IsolatesController extends Controller {
         }
         $query = Isolates::where($eqSet);
         foreach ($likeSet as $key => $val) {
-            $query->where($key, 'LIKE', '%'.$val.'%')
-                ->select('id','isolate_id','condition','order','closest_relative',
-                'similarity','date_sampled','sample_id','lab','campaign');
+            $query->where($key, 'LIKE', '%'.$val.'%');
         }
+        $query->select('id','isolate_id','condition','order','closest_relative',
+            'similarity','date_sampled','sample_id','lab','campaign');
         return response()->json($query->get());
     }
 
