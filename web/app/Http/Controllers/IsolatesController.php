@@ -91,6 +91,7 @@ class IsolatesController extends Controller {
                 'isoid' => 'isolate_id',
                 'order' => 'order',
                 'relative' => 'closest_relative',
+                'wellnum' => 'sample_id',
                 'lab' => 'lab'
             ];
             if ($val == 'true') {

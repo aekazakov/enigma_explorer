@@ -15,7 +15,16 @@
           <input type="text" aria-label="Isolate ID" class="form-control" id="isoidForm" name="isoid" placeholder="Isolate ID" />
         </div>
         <div class="col-sm-3 col-md-1">
-          <button type="button" class="btn btn-outline-light checkButton" id="isoidCheck">=</button>
+          <button type="button" class="btn btn-outline-light checkButton" id="isoidCheck" style="font-size:1.4rem;padding:0.125rem 0.7rem;"><strong>=</strong></button>
+        </div>
+      </div>
+      <div class="form-group row my-4">
+        <label for="isoidForm" class="text-white col-form-label col-sm-12 col-md-3 text-center">Well Number</label>
+        <div class="col-sm-9 col-md-8">
+          <input type="text" aria-label="Well Number" class="form-control" id="wellnumForm" name="wellnum" placeholder="Well Number" />
+        </div>
+        <div class="col-sm-3 col-md-1">
+          <button type="button" class="btn btn-outline-light checkButton" id="wellnumCheck" style="font-size:1.4rem;padding:0.125rem 0.7rem;" disabled><strong>=</strong></button>
         </div>
       </div>
       <div class="form-group row my-4">
@@ -24,7 +33,7 @@
           <input type="text" aria-label="Phylogenic Order" class="form-control" id="orderForm" name="order" placeholder="Phylogenic Order" />
         </div>
         <div class="col-sm-3 col-md-1">
-          <button type="button" class="btn btn-outline-light checkButton" id="orderCheck">=</button>
+          <button type="button" class="btn btn-outline-light checkButton" id="orderCheck" style="font-size:1.4rem;padding:0.125rem 0.7rem;"><strong>=</strong></button>
         </div>
       </div>
       <div class="form-group row my-4">
@@ -33,7 +42,7 @@
           <input type="text" aria-label="Closest Relative" class="form-control" id="relativeForm" name="relative" placeholder="Closest Relative" />
         </div>
         <div class="col-sm-3 col-md-1">
-          <button type="button" class="btn btn-outline-light checkButton" id="relativeCheck">~</button>
+          <button type="button" class="btn btn-outline-light checkButton" id="relativeCheck" style="font-size:1.4rem;padding:0.125rem 0.7rem;"><strong>≈</strong></button>
         </div>
       </div>
       <div class="form-group row my-4">
@@ -42,10 +51,10 @@
           <input type="text" aria-label="Lab Isolated" class="form-control" id="labForm" name="lab" placeholder="Lab Isolated" />
         </div>
         <div class="col-sm-3 col-md-1">
-          <button type="button" class="btn btn-outline-light checkButton" id="labCheck">~</button>
+          <button type="button" class="btn btn-outline-light checkButton" id="labCheck" style="font-size:1.4rem;padding:0.125rem 0.7rem;"><strong>≈</strong></button>
         </div>
       </div>
-      <button type='button' class="btn btn-outline-light btn-lg float-right" id="submitButton">Submit</button>
+      <button type='button' class="btn btn-outline-light btn-lg float-right" id="submitButton" style="font-size:1.4rem;padding:0.125rem 0.7rem;">Submit</button>
     </form>
     
     <script src='/js/jquery.redirect.js'></script>
