@@ -73,6 +73,9 @@
         success: function(data) {
           appendDataView(data, page, postData);
           genPagination(data, page, postData);
+
+          // remove loading icon
+          $('#loadingIcon').remove();
         },
         error: function(jqXHR, text, code) {
           if (jqXHR.status == 400) {
@@ -81,6 +84,9 @@
             var errorHint = "Unknown error. Please contact admin!";
           }
           errorDataView(errorHint);
+
+          // remove loading icon
+          $('#loadingIcon').remove();
         }
       });
     };
@@ -121,7 +127,6 @@
     $(document).ready(function() {
       var [postData, page] = initialize();
       fetchIsolates(postData, page);
-      $('#loadingIcon').remove();
     });
   </script>
 @endsection
