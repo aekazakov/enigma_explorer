@@ -82,6 +82,9 @@ Search: {{ $keyword }}
         success: function(data) {
           appendDataView(data, page, keyword);
           genPagination(data, page, keyword);
+
+          // remove loading icon
+          $('#loadingIcon').remove();
         },
         error: function(jqXHR, text, code) {
           if (jqXHR.status == 400) {
@@ -90,6 +93,9 @@ Search: {{ $keyword }}
             var errorHint = "Unknown error. Please contact admin!";
           }
           errorDataView(errorHint);
+
+          // remove loading icon
+          $('#loadingIcon').remove();
         }
       });
     };
@@ -139,7 +145,6 @@ Search: {{ $keyword }}
     $(document).ready(function() {
       var [keyword, page] = initialize();
       fetchIsolates(keyword, page);
-      $('#loadingIcon').remove();
     });
   </script>
 @endsection
