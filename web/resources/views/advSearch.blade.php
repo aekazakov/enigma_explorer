@@ -54,7 +54,7 @@
           <button type="button" class="btn btn-outline-light checkButton" id="labCheck" style="font-size:1.4rem;padding:0.125rem 0.7rem;"><strong>≈</strong></button>
         </div>
       </div>
-      <button type='button' class="btn btn-outline-light btn-lg float-right" id="submitButton" style="font-size:1.4rem;padding:0.125rem 0.7rem;">Submit</button>
+      <button type='button' class="btn btn-info btn-lg float-right" id="submitButton" style="font-size:1.4rem;padding:0.125rem 0.7rem;">Submit</button>
     </form>
     
     <script src='/js/jquery.redirect.js'></script>
@@ -66,10 +66,10 @@
       // describe checkButton behaviour
       $('.checkButton').click(function() {
         console.log('checkButton clicked');
-        if ($(this).html() == '=') {
-          $(this).html('~');
-        } else if ($(this).html() == '~') {
-          $(this).html('=');
+        if ($(this).children("strong").html() == '=') {
+          $(this).children("strong").html('≈');
+        } else if ($(this).children("strong").html() == '≈') {
+          $(this).children("strong").html('=');
         }
       });
 
@@ -84,7 +84,7 @@
         var checkList = Object.keys(formObj);
         var checkObj = {};
         for (i=0; i<checkList.length; i++) {
-          checkObj[checkList[i]] = ($('#'+checkList[i]+'Check').html() == '=');
+          checkObj[checkList[i]] = ($('#'+checkList[i]+'Check').children("strong").html() == '=');
         };
         formObj['isEqual'] = checkObj;
 

@@ -12,7 +12,7 @@ Search: {{ $keyword }}
     <h3>Search results</h3>
   </div>
   <div class="row">
-    <p><span id="resNumber"></span> <strong>Results</strong></p>
+    <p><span id="resNumber"></span> <strong>Result(s)</strong></p>
   </div>
   <div class="row my-2">
     <div class="col">

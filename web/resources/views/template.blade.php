@@ -49,7 +49,7 @@
       <!-- redirect to the first page of search -->
       <form class="form-inline my-2 my-lg-0" id="searchForm" action="#">
         <input style="display:none;" />
-        <input name="keyword" class="form-control mr-sm-2" id="searchInput" type="search" placeholder="Enter keywords" aria-label="Search">
+        <input name="keyword" class="typeahead form-control mr-sm-2" id="searchInput" autocomplete="off" type="search" data-provide="typeahead" placeholder="Enter keywords" aria-label="Search" />
         <button class="btn btn-outline-primary my-2 my-sm-0" id="searchButton" type="button">Search</button>
       </form>
     </div>
@@ -57,6 +57,7 @@
   <div class="container">
     @yield('content')
   </div>
+  <script src="/js/typeahead.bundle.js"></script>
   <script>
     $(document).ready(function() {
       $('#{{ $activeLink }}').addClass('active');
@@ -85,6 +86,22 @@
           conditionRedirect();
         }
       });
+
+      // typeahead (search hint)
+      $('#searchInput').typeahead({
+          highlight: true,
+          minLength: 3
+        }, {
+          limit: 10,
+          source: function(query, processSync, processAsync) { 
+            return $.get('/api/v1/isolates/hint/' + encodeURI(query), function(data) {
+              return processAsync(data);
+            });
+          }
+        }
+      );
+      // hack to avoid typeahead break inline-form
+      $('.twitter-typeahead').css('width', "75%");
     });
   </script>
 </body>
