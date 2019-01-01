@@ -101,7 +101,7 @@
         }
       );
       // hack to avoid typeahead break inline-form
-      $('.twitter-typeahead').css('width', "75%");
+      $('.twitter-typeahead').css('width', "74.5%");
     });
   </script>
 </body>
