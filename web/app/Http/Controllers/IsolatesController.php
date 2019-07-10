@@ -114,7 +114,7 @@ class IsolatesController extends Controller {
         $relList = explode(' ', $iso->closest_relative);
         $species = implode(' ', array_slice($relList, 0, 2));
         $strain = implode(' ', array_slice($relList, 2));
-        $cmd = implode(' ', [base_path("scripts/fetchGenome.py"), "-s", "\"$species\"", "\"$strain\""]);
+        $cmd = implode(' ', [base_path("scripts/fetchGenome.py"), "-s", "\"$species\"", "\"$strain\"", "2>&1"]);
         $genomeList = shell_exec($cmd);
         if (is_null($genomeList)) {
             return response()->json(["message" => "Unexpected internal error"], 400);
