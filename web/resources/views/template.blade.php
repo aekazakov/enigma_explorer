@@ -17,6 +17,10 @@
     a {
       text-decoration: none;
     }
+    /* style for button-like items */
+    .myitems {
+      border-radius: 0.75em;
+    }
   </style>
 </head>
 <body>

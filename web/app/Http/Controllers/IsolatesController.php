@@ -109,6 +109,30 @@ class IsolatesController extends Controller {
         return response()->json($query->get());
     }
 
+    public function getOrders() {
+        // We assume the db is well stripped
+        $orders = Isolates::select('order')->get();
+        $orderArray = [];
+        foreach ($orders as $ele) {
+            $orderArray[] = $ele->order;
+        }
+        $orderArray = array_count_values($orderArray);    // Returning both the unique order and frequency
+        ksort($orderArray);
+        return response()->json($orderArray);
+    }
+
+    public function getGenera() {
+        $relatives = Isolates::select('closest_relative')->get();
+        $genusArray = [];
+        foreach ($relatives as $ele) {
+            $genus = explode(' ', $ele->closest_relative)[0];    // First of Latin name is genus
+            $genusArray[] = $genus;
+        }
+        $genusArray = array_count_values($genusArray);
+        ksort($genusArray);    // Also sorted
+        return response()->json($genusArray);
+    }
+
     public function genomeList($id) {
         $iso = Isolates::where('id', $id)->select('closest_relative')->first();
         $relList = explode(' ', $iso->closest_relative);

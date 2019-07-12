@@ -37,10 +37,10 @@ with fr :
             db.begin()
             for line in fr.readlines()[1:] :
                 linfo = line.split('\t')
-                linfo = [s.strip('"') for s in linfo]
+                linfo = [s.strip('"').strip() for s in linfo]
                 linfo[4] = re.findall("[0-9\.]+", linfo[4])[0]
                 sqlStr = '''\
-INSERT INTO `isolates` (`isolate_id`,`condition`,`phylogeny`,\
+INSERT INTO `isolates` (`isolate_id`,`condition`,`order`,\
 `closest_relative`,`similarity`,`date_sampled`,`sample_id`,\
 `lab`,`campaign`) VALUES ("%s","%s","%s","%s",%s,"%s","%s","%s","%s");\
 ''' % tuple(linfo)

@@ -32,6 +32,10 @@ $router->group(['prefix' => 'api/v1'], function() use ($router) {
     $router->get('isolates/hint/{keyword}', 'IsolatesController@taxaHint');
     // get 16s rrna seq by id
     $router->get('isolates/rrna/{id}', 'IsolatesController@rrnaById');
+    // retrieve a full list of orders
+    $router->get('isolates/orders', 'IsolatesController@getOrders');
+    // retrieve a list of genera
+    $router->get('isolates/genera', 'IsolatesController@getGenera');
     // select isolates by multiple keywords
     $router->post('isolates/multiKeywords', 'IsolatesController@selectByMultiKeywords');
     // get a list of relative genome by id
@@ -61,6 +65,9 @@ $router->get('/isolates/id/{id}', function($id) {
 });
 $router->get('/advSearch', function() {
     return view('advSearch', ['activeLink' => 'nonExistingEle']);
+});
+$router->get('/browse', function() {
+    return view('browse', ['activeLink' => 'nonExistingEle']);
 });
 $router->post('/advSearchList', function(Request $request) {
     return view('advSearchList', ['activeLink' => 'nonExistingEle', 'postData' => json_encode($request->all())]);

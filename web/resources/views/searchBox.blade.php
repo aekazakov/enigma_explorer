@@ -1,14 +1,17 @@
 <form class="my-5" id="mainSearchForm" action="#">
   <input style="display:none;" />
   <div class="form-group row">
-    <div class="col-sm-12 col-lg-8">
+    <div class="col-sm-12 col-lg-6" id="inputWrapper">
       <input name="keyword" class="typeahead form-control align-baseline my-2" id="mainSearchInput" type="search" data-provide="typeahead" autocomplete="off" placeholder="{{ $slot }}" aria-label="Search" />
     </div>
     <div class="col-sm-6 col-lg-2">
       <button class="btn btn-outline-primary my-2 d-block mx-auto" id="mainSearchButton" type="button">Search</button>
     </div>
     <div class="col-sm-6 col-lg-2">
-      <a href="/advSearch" class="btn btn-outline-secondary my-2 d-block mx-auto" id="advSearchButton">Advance Search</a>
+      <a href="/advSearch" class="btn btn-outline-secondary my-2 d-block mx-auto">Advance Search</a>
+    </div>
+    <div class="col-sm-6 col-lg-2">
+      <a href="/browse" class="btn btn-outline-success my-2 d-block mx-auto">Browse</a>
     </div>
   </div>
 </form>
@@ -54,5 +57,7 @@
         }
       }
     );
+    // hack to make the inputbox 100%
+    $('.twitter-typeahead').attr('style', 'width:100% !important;');
   });
 </script>

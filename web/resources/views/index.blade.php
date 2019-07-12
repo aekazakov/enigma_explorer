@@ -5,7 +5,9 @@
 @section('content')
     <img class="img-fluid" src="/pics/isolates-banner.jpg" />
     <div class="row my-5">
-      <h1 class="diaplay-1 text-white">ENIGMA</h1>
+      <div class="col">
+        <h1 class="diaplay-1 text-white">ENIGMA</h1>
+      </div>
     </div>
     <div class="row my-4">
       <div class="col text-white" style="font-size:1.2em;"> 

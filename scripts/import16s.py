@@ -33,7 +33,7 @@ with db :
     try :
         db.begin()
         for rec in records :
-            sqlStr = 'UPDATE `isolates` SET `16s` = "%s" WHERE `isolate_id` = "%s";'\
+            sqlStr = 'UPDATE `isolates` SET `rrna` = "%s" WHERE `isolate_id` = "%s";'\
                 % (rec.seq, rec.name)
             cursor.execute(sqlStr)
         db.commit()

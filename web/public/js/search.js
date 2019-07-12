@@ -4,7 +4,7 @@ function emptyDataView() {
     <div class="list-group-item">
       <p><strong>
         Nothing found. Try another keyword?
-      </p></strong>
+      </strong></p>
     </div>
   `);
 };
@@ -16,7 +16,7 @@ function errorDataview(errorHint) {
     <div class="list-group-item">
       <p><strong>
         ${errorHint}
-      </p></strong>
+      </strong></p>
     </div>
   `);
 };

@@ -4,10 +4,12 @@
 
 @section('content')
     @component('searchBox')
-      Search isolates
+      Search for isolates
     @endcomponent
     <div class="row my-4">
-      <h1>Isolates</h1>
+      <div class="col"> 
+        <h1>Isolates</h1>
+      </div>
     </div>
     <div class="row my-4" style="font-size:1.2em;">
       <div class="col">
