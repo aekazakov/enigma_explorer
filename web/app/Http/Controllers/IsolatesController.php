@@ -133,12 +133,58 @@ class IsolatesController extends Controller {
         return response()->json($genusArray);
     }
 
+    public function getSpecies($genus) {
+    }
+
+    public function getTaxa() {
+        // Retrieve order & relative columns
+        $ordernGenus = Isolates::select('order', 'closest_relative')->get();
+        $ret = [];
+        foreach ($ordernGenus as $ele) {
+            // Return a list of orders:
+            // order { nSpecies, nGenera, genera }
+            // Get order and genus from query
+            $order = $ele->order;
+            $genus = explode(' ', $ele->closest_relative)[0];
+            if (!isset($ret[$order])) {
+                // Order first time
+                $ret[$order] = new \stdClass(); // notice namespace
+                $ret[$order]->genera = [$genus];
+            } else {
+                // Not first time
+                $ret[$order]->genera[] = $genus;
+            }
+        }
+        // Add # species & # genus within the order
+        foreach ($ret as $order) {
+            // # of species
+            $order->nSpecies = count($order->genera);
+            // make unique and sort genus list
+            $order-> genera = array_unique($order->genera);
+            sort($order->genera);
+            // # of genus
+            $order->nGenera = count($order->genera);
+        }
+        // Return JSON
+        return response()->json($ret);
+    }
+
     public function genomeList($id) {
         $iso = Isolates::where('id', $id)->select('closest_relative')->first();
         $relList = explode(' ', $iso->closest_relative);
         $species = implode(' ', array_slice($relList, 0, 2));
         $strain = implode(' ', array_slice($relList, 2));
-        $cmd = implode(' ', [base_path("scripts/fetchGenome.py"), "-s", "\"$species\"", "\"$strain\"", "2>&1"]);
+
+        // if PYTHON user is set in env, use it, otherwise use default
+        // In order to avoid strange user-related package issues
+        if (!empty(env('PYTHON_PASSWORD', '')) && !empty(env('PYTHON_USER', ''))) {
+            // Notice we are not accepting user with empty pwd
+            $cmd = implode(' ', ["echo", env('PYTHON_PASSWORD'), "|","su", env('PYTHON_USERNAME'), "-c",
+                "\"".base_path("scripts/fetchGenome.py"), "-s", "'$species'", "'$strain'"."\""]);
+        } else {
+            $cmd = implode(' ', [base_path("scripts/fetchGenome.py"), "-s", "'$species'", "'$strain'"]);
+        }   // If debug is needed, add 2>&1
+
         $genomeList = shell_exec($cmd);
         if (is_null($genomeList)) {
             return response()->json(["message" => "Unexpected internal error"], 400);
@@ -148,7 +194,14 @@ class IsolatesController extends Controller {
     }
 
     public function genomeByNcbiId($id) {
-        $cmd = implode(' ', [base_path("scripts/fetchGenome.py"), "-i", $id]);
+        // if PYTHON user is set in env, use it, otherwise use default
+        // In order to avoid strange user-related package issues
+        if (!empty(env('PYTHON_PASSWORD', '')) && !empty(env('PYTHON_USER', ''))) {
+            $cmd = implode(' ', ["echo", env('PYTHON_PASSWORD'), "|","su", env('PYTHON_USERNAME'), "-c",
+                    "\"".base_path("scripts/fetchGenome.py"), "-i", $id."\""]);
+        } else {
+            $cmd = implode(' ', [base_path("scripts/fetchGenome.py"), "-i", $id]);
+        }
         $genome = shell_exec($cmd);
         $response = response()->make($genome, 200);
         $response->header('Content-Type', 'text/plain')
