@@ -177,7 +177,7 @@ class IsolatesController extends Controller {
 
         // if PYTHON user is set in env, use it, otherwise use default
         // In order to avoid strange user-related package issues
-        if (!empty(env('PYTHON_PASSWORD', '')) && !empty(env('PYTHON_USER', ''))) {
+        if (!empty(env('PYTHON_PASSWORD', '')) && !empty(env('PYTHON_USERNAME', ''))) {
             // Notice we are not accepting user with empty pwd
             $cmd = implode(' ', ["echo", env('PYTHON_PASSWORD'), "|","su", env('PYTHON_USERNAME'), "-c",
                 "\"".base_path("scripts/fetchGenome.py"), "-s", "'$species'", "'$strain'"."\""]);
@@ -196,7 +196,7 @@ class IsolatesController extends Controller {
     public function genomeByNcbiId($id) {
         // if PYTHON user is set in env, use it, otherwise use default
         // In order to avoid strange user-related package issues
-        if (!empty(env('PYTHON_PASSWORD', '')) && !empty(env('PYTHON_USER', ''))) {
+        if (!empty(env('PYTHON_PASSWORD', '')) && !empty(env('PYTHON_USERNAME', ''))) {
             $cmd = implode(' ', ["echo", env('PYTHON_PASSWORD'), "|","su", env('PYTHON_USERNAME'), "-c",
                     "\"".base_path("scripts/fetchGenome.py"), "-i", $id."\""]);
         } else {
