@@ -26,6 +26,8 @@ $router->group(['prefix' => 'api/v1'], function() use ($router) {
     $router->get('isolates/id/{id}', 'IsolatesController@selectById');
     // select isolates by keyword
     $router->get('isolates/keyword/{keyword}', 'IsolatesController@selectByKeyword');
+    // select a list of isolates by genus
+    $router->get('isolates/genus/{genus}', 'IsolatesController@selectByGenus');
     // get match number by keyword
     $router->get('isolates/count/{keyword}', 'IsolatesController@countByKeyword');
     // get hints by kerword
@@ -33,9 +35,13 @@ $router->group(['prefix' => 'api/v1'], function() use ($router) {
     // get 16s rrna seq by id
     $router->get('isolates/rrna/{id}', 'IsolatesController@rrnaById');
     // retrieve a full list of orders
+    // OBSOLETE not used by FE
     $router->get('isolates/orders', 'IsolatesController@getOrders');
     // retrieve a list of genera
+    // OBSOLETE not used by FE
     $router->get('isolates/genera', 'IsolatesController@getGenera');
+    // get hierarchical taxonomy
+    $router->get('isolates/taxa', 'IsolatesController@getTaxa');
     // select isolates by multiple keywords
     $router->post('isolates/multiKeywords', 'IsolatesController@selectByMultiKeywords');
     // get a list of relative genome by id

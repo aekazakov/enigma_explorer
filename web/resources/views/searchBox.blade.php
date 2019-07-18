@@ -58,6 +58,7 @@
       }
     );
     // hack to make the inputbox 100%
-    $('.twitter-typeahead').attr('style', 'width:100% !important;');
+    // It seems the hack will ruin hintbox
+    //$('.twitter-typeahead').attr('style', 'width:100% !important;');
   });
 </script>

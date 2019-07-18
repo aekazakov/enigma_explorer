@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="/css/loading.css" />
   <link rel="stylesheet" type="text/css" href="/css/typeaheadjs.css" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   <style>
@@ -17,9 +18,27 @@
     a {
       text-decoration: none;
     }
-    /* style for button-like items */
-    .myitems {
-      border-radius: 0.75em;
+    
+    /* Styles for browse page table */
+    .orderRow {
+      font-size: 120%;
+    }
+    .genusRow {
+      font-size: 100%;
+    }
+    .speciesRow {
+      font-size: 90%;
+    }
+    /* In order not to get too long td */
+    #taxaDataView {
+      word-wrap: break-word;
+    }
+    #taxaDataView td {
+      max-width: 150px;
+    }
+    /* To remove thick border of tbody */
+    #taxaDataView>tbody {
+      border-top-width: 1px;
     }
   </style>
 </head>

@@ -35,6 +35,14 @@ class IsolatesController extends Controller {
         return response()->json($iso);
     }
 
+    // Select by genus
+    public function selectByGenus($genus) {
+        // Query DB
+        $isolates = Isolates::where('closest_relative', 'LIKE', $genus.' %')->get();
+        // not unique, a direct return
+        return response()->json($isolates);
+    }
+
     private function fuzzySelect($keyword) {
         # filter out too short query
         if (strlen($keyword) < 3) {
@@ -158,10 +166,10 @@ class IsolatesController extends Controller {
         // Add # species & # genus within the order
         foreach ($ret as $order) {
             // # of species
-            $order->nSpecies = count($order->genera);
-            // make unique and sort genus list
-            $order-> genera = array_unique($order->genera);
-            sort($order->genera);
+            $order->tSpecies = count($order->genera);
+            // Unique genus and # of species in each genus
+            $order->genera = array_count_values($order->genera);
+            ksort($order->genera);
             // # of genus
             $order->nGenera = count($order->genera);
         }
