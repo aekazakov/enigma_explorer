@@ -39,8 +39,9 @@
     #taxaDataView {
       word-wrap: break-word;
     }
-    #taxaDataView td {
+    #taxaDataView td, #taxaDataView th {
       max-width: 150px;
+      padding: .45rem;
     }
     /* To remove thick border of tbody */
     #taxaDataView>tbody {

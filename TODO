@@ -55,8 +55,14 @@
 
 1. Design the "genus list page"  OK
 
-2. Fix python package error
+2. Fix python package error OK
 
 3. Work out genus & orders backend  OK
 
 4. Turn on errorlog in PHP  OK
+
+5. Implement taxa browser and batch download OK
+
+6. Get the expand, collapse and all button
+
+7. fix selection bug (browse)

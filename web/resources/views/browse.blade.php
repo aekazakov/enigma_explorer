@@ -18,12 +18,19 @@
   <div class="col-lg-12 text-left" id="genusData"></div>
   <div class="col-lg-12"><hr /></div>
 </div> -->
-<div class="row my-2">
-  <div class="col-sm-12">
-    <button class="btn btn-success disabled" role="submit" id="downloadBtn">Download</button>
+<div class="row">
+  <div class="col-md-4">
+    <button class="btn btn-sm btn-info my-2" role="button" id="expandBtn">Expand</button>
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-sm btn-info my-2" role="button" id="collapseBtn">Collapse</button>
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-sm btn-success disabled my-2" role="submit" id="downloadBtn">Download</button>
+    <button class="btn btn-sm btn-primary" role="button" id="allBtn">All</button>
   </div>
 </div>
-<div class="row my-4">
+<div class="row my-2">
   <div class="col-sm-12">
     <table class="table" id="taxaDataView">
       <thead>
@@ -223,6 +230,20 @@
           $('#taxaDataView').before(errorString);    // Show msg before main table
         }
       });
+    });
+
+    // Expand all to genus level
+    $('#expandBtn').click(function() {
+      $('tbody.collapse').addClass('show');
+      $('.orderRow>th').trigger('click');    //also trigger species level loading
+    });
+    // Collapse all to order level
+    $('#collapseBtn').click(function() {
+      $('tbody.collapse').removeClass('show');
+    });
+    // Select all
+    $('#allBtn').click(function() {
+      $('.orderRow .checkBtn').trigger('deactivate').trigger('click');
     });
 
     // Checkbox events Note checkBtns are not loaded at this time
