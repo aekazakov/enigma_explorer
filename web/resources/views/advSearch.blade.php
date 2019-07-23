@@ -57,7 +57,6 @@
       <button type='button' class="btn btn-info btn-lg float-right" id="submitButton" style="font-size:1.4rem;padding:0.125rem 0.7rem;">Submit</button>
     </form>
     
-    <script src='/js/jquery.redirect.js'></script>
     <script>
       $(document).ready(function() {
         $('body').addClass('bg-secondary');

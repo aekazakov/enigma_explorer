@@ -42,6 +42,8 @@ $router->group(['prefix' => 'api/v1'], function() use ($router) {
     $router->get('isolates/genera', 'IsolatesController@getGenera');
     // get hierarchical taxonomy
     $router->get('isolates/taxa', 'IsolatesController@getTaxa');
+    // download multiple 16s
+    $router->post('isolates/taxa/rrna', 'IsolatesController@download16s');
     // select isolates by multiple keywords
     $router->post('isolates/multiKeywords', 'IsolatesController@selectByMultiKeywords');
     // get a list of relative genome by id

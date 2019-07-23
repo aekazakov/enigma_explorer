@@ -7,9 +7,12 @@
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="/css/loading.css" />
   <link rel="stylesheet" type="text/css" href="/css/typeaheadjs.css" />
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/css/fontawesome-all.css" rel="stylesheet">
+  <!--<link href="/css/fontawesome.min.css" rel="stylesheet">-->
   <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
+  <!-- Friendly redirect, expeciall POST request -->
+  <script src='/js/jquery.redirect.js'></script>
   <style>
     /* set mark padding 0 */
     mark {
@@ -28,6 +31,9 @@
     }
     .speciesRow {
       font-size: 90%;
+    }
+    .checkBtn {
+      padding: .1rem .3rem;
     }
     /* In order not to get too long td */
     #taxaDataView {

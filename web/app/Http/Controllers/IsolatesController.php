@@ -141,12 +141,9 @@ class IsolatesController extends Controller {
         return response()->json($genusArray);
     }
 
-    public function getSpecies($genus) {
-    }
-
     public function getTaxa() {
         // Retrieve order & relative columns
-        $ordernGenus = Isolates::select('order', 'closest_relative')->get();
+        $ordernGenus = Isolates::select('id', 'order', 'closest_relative')->get();
         $ret = [];
         foreach ($ordernGenus as $ele) {
             // Return a list of orders:
@@ -289,5 +286,65 @@ class IsolatesController extends Controller {
             $hintList = array_slice($hintList, 0, MAX_HINT_LEN);
         }
         return response()->json($hintList);
+    }
+
+    public function download16s(Request $request) {
+        $isos = $request->all();    // parse the POST
+        $hash = md5(json_encode($isos));
+        $hash = substr($hash, 0, 8);
+        $fpath = base_path("public/downloads/$hash");
+        // if tarball existed, return immediately
+        if (is_file("$fpath.tar.gz")) {
+            return response()->json([ 'path' => "/downloads/$hash.tar.gz" ]);
+        }
+        // make dir
+        if (!is_dir($fpath)) {
+            $err = mkdir($fpath, 0777, false);    // public permissions
+            if (!$err) {
+                return response()->json([ "message" => "Cannot make dir. Abort" ], 400);
+            }
+            foreach ($isos as $order => $genera) {
+                $err = mkdir("$fpath/$order", 0777, false);
+                if (!$err) {
+                    return response()->json([ "message" => "Cannot make order dir. Abort" ], 400);
+                }
+                foreach ($genera as $genus => $ids) {
+                    $cpath = "$fpath/$order/$genus";
+                    $err = mkdir($cpath, 0777, false);
+                    if (!$err) {
+                        return response()->json([ "message" => "Cannot make genus dir. Abort" ], 400);
+                    }
+                    foreach ($ids as $isoid) {
+                        // get 16s seq && write file
+                        $resp = $this->rrnaById($isoid)->getOriginalContent();
+                        //error_log($resp);    // log 16s seq
+                        try {
+                            $fo = fopen("$cpath/$isoid.fa", 'w');
+                        } catch (Exception $err) {
+                            return response()->json([ "message" => "Cannot create file with error $err" ], 400);
+                        }
+                        try {
+                            fwrite($fo, $resp);
+                        } catch (Exception $err) {
+                            return response()->json([ "message" => "Cannot write file with error $err" ], 400);
+                        }
+                        fclose($fo);    // Not need to catch file close errors
+                    }
+                }
+            }
+        } else {
+            // Temp dir is removed immediately. Should not conflict
+            return response()->json([ "message" => "Dir already existed unexpectedly" ], 400);
+        }
+
+        // zip files
+        $zipCommand = "tar -czf $fpath.tar.gz -C ".base_path('public/downloads')." $hash";
+        shell_exec($zipCommand);    // No need to catch stdout
+        // clean dir
+        shell_exec("rm -r $fpath");
+
+        // response
+        // Not reponse in *download response* to get static url 
+        return response()->json([ 'path' => "/downloads/$hash.tar.gz" ]);
     }
 }
