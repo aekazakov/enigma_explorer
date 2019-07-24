@@ -82,11 +82,11 @@
         for (let order in data) {
           // Build order string. The group of genus will be in tbody named $order
           let orderString = `
-            <tbody id="head_${order}">
-              <tr class="orderRow" id="${order}">
+            <tbody id="row_o_${order}">
+              <tr class="orderRow">
               <!-- order level text will be bigger -->
                 <!-- Below pr-4 compensates the pl-4 indent in genus level to avoid jitter -->
-                <th class="pr-4"><a class="text-dark" data-toggle="collapse" href="#group_${order}"><span class="fa fa-chevron-down"></span></a></th>
+                <th class="pr-4"><a class="text-dark" data-toggle="my-collapse" my-href=".group_o_${order}"><span class="fa fa-chevron-down"></span></a></th>
                 <td class="pr-4"><a class="text-dark" href="/search?keyword=${order}">${order}</a></td>
                 <td><span class="text-secondary">order</span></td>
                 <td>
@@ -100,30 +100,43 @@
               </tr>
             </tbody>`;
           $('#taxaDataView').append(orderString);
+
+          // hack to accelerate class collapse/expand
+          $('#row_o_'+order+' [data-toggle="my-collapse"]').click(function() {
+            $($(this).attr('my-href')).each(function() {
+              // also collapse species rows
+              // since genus->species is no more nested. This is a dirty hack
+              if ($(this).hasClass('show')) {
+                genus = $(this).attr('id').slice(6);
+                $('#group_g_'+genus).removeClass('show');
+              }
+              $(this).toggleClass('show');
+            });
+          });
+
           // Build genus string by ele.genera
-          // all genus are grouped by a tbody named by the order
-          let genusGroupString = `
-            <tbody class="collapse" id="group_${order}"></tbody>`;
-          $('#taxaDataView').append(genusGroupString);
           // Iterate all genus
           let cGenera = data[order].genera;
-          for (let genus in cGenera) {
+          for (let i=Object.keys(cGenera).length-1; i>=0; i--) {
+            let genus = Object.keys(cGenera)[i];
             let genusString = `
-              <tr class="bg-light genusRow" id="${genus}">
-                <th class="pl-4"><a class="text-dark" data-toggle="collapse" href=".group_${genus}"><span class="fa fa-chevron-down"></span></a></th>
-                <td class="pl-4"><em><a class="text-dark" href="/search?keyword=${genus}">${genus}</a></em></td>
-                <td><span class="text-secondary">genus</span></td>
-                <td><span class="badge badge-success">${cGenera[genus]}</span></td>
-                <td>
-                  <button class="btn btn-sm btn-light checkBtn" id="cb_${genus}" role="checkbox">&nbsp&nbsp&nbsp</button>
-                </td>
-              </tr>`;
-            $('#group_' + order).append(genusString);
+              <tbody class="collapse group_o_${order}" id="row_g_${genus}">
+                <tr class="bg-light genusRow">
+                  <th class="pl-4"><a class="text-dark" data-toggle="collapse" href="#group_g_${genus}"><span class="fa fa-chevron-down"></span></a></th>
+                  <td class="pl-4"><em><a class="text-dark" href="/search?keyword=${genus}">${genus}</a></em></td>
+                  <td><span class="text-secondary">genus</span></td>
+                  <td><span class="badge badge-success">${cGenera[genus]}</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-light checkBtn" id="cb_${genus}" role="checkbox">&nbsp&nbsp&nbsp</button>
+                  </td>
+                </tr>
+              </tbody>`;
+            $('#row_o_' + order).after(genusString);
           }
 
           // Hook to load species
           // Notice the lazy loading here: only when order is expanded the species will be loaded
-          $('#head_'+order+' th').click(function() {
+          $('#row_o_'+order+'>.orderRow>th').click(function() {
             for (let genus in cGenera) {
               fetchSpecies(genus);
             }
@@ -141,17 +154,21 @@
 
   function fetchSpecies(genus) {
     // Fetch isolates from given genus
-    // Assume a <tr> named by the genus already exists
-    if ($('#'+genus).length > 0) {
+    // Assume a <tbody> named by the genus already exists
+    if ($('#row_g_'+genus).length > 0) {    // test existence
       $.ajax({
         url: "/api/v1/isolates/genus/" + genus,
         success: function(data) {
+          // all isolates are grouped by a tbody named group_g_$genus
+          let genusGroupString = `
+            <tbody class="collapse" id="group_g_${genus}"></tbody>`;
+          $('#row_g_'+genus).after(genusGroupString);
           // Iterate all isolates, reversed
           for (let i=data.length-1; i>=0; i--) {
             // Build species string, should have class of genus
             let species = data[i];
             let speciesString = `
-              <tr class="collapse speciesRow group_${genus}" id="${species.id}">
+              <tr class="speciesRow" id="row_s_${species.id}">
                 <th></th>
                 <td class="pl-4"><a class="text-dark" href="/isolates/id/${species.id}">${species.isolate_id}</td>
                 <td></td>
@@ -161,7 +178,7 @@
                 </td>
               </tr>`;
             // Notice the genus level has id of $genus
-            $('#'+genus).after(speciesString);
+            $('#group_g_'+genus).append(speciesString);
           }
           // If genus is checked, propogate
           let isSelected = $('#cb_'+genus).hasClass('btn-primary');
@@ -178,7 +195,7 @@
       });
     } else {
       // Force log error if genus does not exist
-      console.log('<tr> ' + genus + 'does not exist. Invalid append of isolates');
+      console.log('<tbody> row_g_' + genus + ' does not exist. Invalid append of isolates');
     }
   }
 

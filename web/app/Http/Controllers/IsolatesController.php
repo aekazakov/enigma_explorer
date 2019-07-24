@@ -160,6 +160,24 @@ class IsolatesController extends Controller {
                 $ret[$order]->genera[] = $genus;
             }
         }
+        // reverse array
+        $reverse = [];
+        foreach ($ordernGenus as $ele) {
+            $order = $ele->order;
+            $genus = explode(' ', $ele->closest_relative)[0];
+            if (!isset($reverse[$genus])) {
+                $reverse[$genus] = [ $order ];
+            } else {
+                $reverse[$genus][] = $order;
+            }
+        }
+        foreach ($reverse as $genus => $orders) {
+            $orders = array_unique($orders);
+            if (count($orders) > 1) {
+                error_log(var_export([ $genus => $orders ], TRUE));
+            }
+        }
+
         // Add # species & # genus within the order
         foreach ($ret as $order) {
             // # of species
