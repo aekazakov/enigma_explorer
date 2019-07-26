@@ -108,7 +108,8 @@
               // since genus->species is no more nested. This is a dirty hack
               if ($(this).hasClass('show')) {
                 genus = $(this).attr('id').slice(6);
-                $('#group_g_'+genus).removeClass('show');
+                // specify both order & genus, to be unique
+                $('.group_o'+order+'+#group_g_'+genus).removeClass('show');
               }
               $(this).toggleClass('show');
             });
@@ -122,7 +123,7 @@
             let genusString = `
               <tbody class="collapse group_o_${order}" id="row_g_${genus}">
                 <tr class="bg-light genusRow">
-                  <th class="pl-4"><a class="text-dark" data-toggle="collapse" href="#group_g_${genus}"><span class="fa fa-chevron-down"></span></a></th>
+                  <th class="pl-4"><a class="text-dark" data-toggle="my-collapse" my-href="#group_g_${genus}"><span class="fa fa-chevron-down"></span></a></th>
                   <td class="pl-4"><em><a class="text-dark" href="/search?keyword=${genus}">${genus}</a></em></td>
                   <td><span class="text-secondary">genus</span></td>
                   <td><span class="badge badge-success">${cGenera[genus]}</span></td>
@@ -132,13 +133,18 @@
                 </tr>
               </tbody>`;
             $('#row_o_' + order).after(genusString);
+            // hack bs collapse
+            $('.group_o_'+order+'#row_g_'+genus+' [data-toggle="my-collapse"]').click(function() {
+              // specify both order & genus to be unique
+              $('.group_o_'+order+'+'+$(this).attr('my-href')).toggleClass('show');
+            });
           }
 
           // Hook to load species
           // Notice the lazy loading here: only when order is expanded the species will be loaded
           $('#row_o_'+order+'>.orderRow>th').click(function() {
             for (let genus in cGenera) {
-              fetchSpecies(genus);
+              fetchSpecies(order, genus);
             }
             $(this).unbind();
           });
@@ -152,17 +158,17 @@
     });
   }
 
-  function fetchSpecies(genus) {
+  function fetchSpecies(order, genus) {
     // Fetch isolates from given genus
     // Assume a <tbody> named by the genus already exists
-    if ($('#row_g_'+genus).length > 0) {    // test existence
+    if ($('[id=row_g_'+genus+']').length == 1) {    // test existence
       $.ajax({
         url: "/api/v1/isolates/genus/" + genus,
         success: function(data) {
           // all isolates are grouped by a tbody named group_g_$genus
           let genusGroupString = `
             <tbody class="collapse" id="group_g_${genus}"></tbody>`;
-          $('#row_g_'+genus).after(genusGroupString);
+          $('.group_o_'+order+'#row_g_'+genus).after(genusGroupString);
           // Iterate all isolates, reversed
           for (let i=data.length-1; i>=0; i--) {
             // Build species string, should have class of genus
@@ -178,13 +184,13 @@
                 </td>
               </tr>`;
             // Notice the genus level has id of $genus
-            $('#group_g_'+genus).append(speciesString);
+            $('.group_o_'+order+'+#group_g_'+genus).append(speciesString);
           }
           // If genus is checked, propogate
           let isSelected = $('#cb_'+genus).hasClass('btn-primary');
           if (isSelected) {
             // at this time species ele are rendered
-            $('.group_'+genus+' .checkBtn').trigger('click');
+            $('.group_o_'+order+'+#group_g_'+genus+' .checkBtn').trigger('activate');
           }
         },
         error: function() {
@@ -195,7 +201,7 @@
       });
     } else {
       // Force log error if genus does not exist
-      console.log('<tbody> row_g_' + genus + ' does not exist. Invalid append of isolates');
+      console.log('<tbody> row_g_' + genus + ' does not exist or exists multiple. Invalid append of isolates');
     }
   }
 
@@ -205,9 +211,10 @@
     let ret = {};
     $('.speciesRow .checkBtn.btn-primary').each(function() {
       let isoid = $(this).attr('id').slice(3);
-      let speciesRow = $(this).parents('tr.speciesRow');
-      let genus = $(speciesRow).attr('class').match(/group_\w+/)[0].slice(6);    //2nd class is group_$genus
-      let order = $(speciesRow).parent().attr('id').slice(6);    // id is group_$order
+      let genusGroup = $(this).parents('tbody');
+      let genus = $(genusGroup).attr('id').slice(8);
+      let orderString = $(genusGroup).prev().attr('class');
+      let order = orderString.match(/group_o_\w+/)[0].slice(8);
       // push into ret
       if (order in ret) {
         if (genus in ret[order]) {
@@ -221,6 +228,7 @@
       }
     });
     // yeild taxa json
+    console.log(ret);
     return ret;
   }
 
@@ -251,7 +259,7 @@
 
     // Expand all to genus level
     $('#expandBtn').click(function() {
-      $('tbody.collapse').addClass('show');
+      $('tbody[id^=row_g_]').addClass('show');
       $('.orderRow>th').trigger('click');    //also trigger species level loading
     });
     // Collapse all to order level
@@ -260,20 +268,25 @@
     });
     // Select all
     $('#allBtn').click(function() {
-      $('.orderRow .checkBtn').trigger('deactivate').trigger('click');
+      if (!($(this).attr('toggle') == 'on')) {
+        $('.orderRow .checkBtn').trigger('activate');
+        $(this).attr('toggle', 'on');
+      } else {
+        $('.orderRow .checkBtn').trigger('deactivate');
+        $(this).attr('toggle', 'off');
+      }
     });
 
     // Checkbox events Note checkBtns are not loaded at this time
     $('#taxaDataView').on('click', '.checkBtn', function() {
       let isSelected = $(this).hasClass('btn-primary');
       // Swith between grey and blue with a tick
-      let name = $(this).attr('id').slice(3);
       if (!isSelected) {
         // Activate
-        $('#cb_'+name).trigger('activate');
+        $(this).trigger('activate');
       } else {
         // Deactivate
-        $('#cb_'+name).trigger('deactivate');
+        $(this).trigger('deactivate');
       }
     });
 
@@ -293,17 +306,29 @@
       // Trigger class change to activate/deactivate the download btn
       $(this).trigger('classChanged');
     });
+
     // species level specific deactivate
     $('#taxaDataView').on('deactivate', '.speciesRow .checkBtn', function() {
       // up propogate deactivation
-      let classes = $(this).parents('tr').attr('class');
-      let genus = classes.match(/group_\w+/)[0].slice(6);    // like group_$genus. always be 2nd class
-      $("#cb_"+genus).trigger('deactivate');
+      let btn = $(this).parents('tbody').prev().find('.checkBtn');
+      $(btn).html('&nbsp&nbsp&nbsp');
+      $(btn).removeClass('btn-primary');
+      $(btn).addClass('btn-light');
+      let orderString = $(this).parents('tbody').prev().attr('class');
+      let order = orderString.match(/group_o_\w+/)[0].slice(8);
+      let parentBtn = $('#row_o_'+order+' .checkBtn');
+      $(parentBtn).html('&nbsp&nbsp&nbsp');
+      $(parentBtn).removeClass('btn-primary');
+      $(parentBtn).addClass('btn-light');
     });
+    // genus level deactivation
     $('#taxaDataView').on('deactivate', '.genusRow .checkBtn', function() {
-      let genusGroup = $(this).parents('tbody');    // indirect parent is tbody
-      let order = $(genusGroup).attr('id').slice(6);    // like group_$order
-      $('#cb_'+order).trigger('deactivate');
+      let orderString = $(this).parents('tbody').attr('class');
+      let order = orderString.match(/group_o_\w+/)[0].slice(8);
+      let btn = $('#row_o_'+order+' .checkBtn');
+      $(btn).html('&nbsp&nbsp&nbsp');
+      $(btn).removeClass('btn-primary');
+      $(btn).addClass('btn-light');
     });
 
     $('#taxaDataView').on('classChanged', '.checkBtn', function() {
@@ -318,29 +343,26 @@
     });
 
     // If order level check button
-    $('#taxaDataView').on('click', '.orderRow .checkBtn', function() {
+    $('#taxaDataView').on('activate', '.orderRow .checkBtn', function() {
       let order = $(this).attr('id').slice(3);    // Named as #cd-$order
       // propogate the click
-      let isSelect = $(this).hasClass('btn-primary');
-      if (isSelect) {
-        $('#group_'+order+' .checkBtn').trigger('activate');
-      } else {
-        $('#group_'+order+' .checkBtn').trigger('deactivate');
-      }
+      $('.group_o_'+order+' .checkBtn').trigger('activate');
       // Force to expand. Because detailed species have to be loaded
       // If one only triggers th, then species will be loaded but not to expand
       $(this).parents('.orderRow').children('th').trigger('click');
     });
+    $('#taxaDataView').on('deactivate', '.orderRow .checkBtn', function() {
+      let order = $(this).attr('id').slice(3);    // Named as #cd-$order
+      // propogate the click
+      $('.group_o_'+order+' .checkBtn').trigger('deactivate');
+    });
 
     // If genus level check button
-    $('#taxaDataView').on('click', '.genusRow .checkBtn', function() {
-      let genus = $(this).attr('id').slice(3);
-      let isSelect = $(this).hasClass('btn-primary');
-      if(isSelect) {
-        $('.group_'+genus+' .checkBtn').trigger('activate');
-      } else {
-        $('.group_'+genus+' .checkBtn').trigger('deactivate');
-      }
+    $('#taxaDataView').on('activate', '.genusRow .checkBtn', function() {
+      $(this).parents('tbody').next('[id^=group_g]').find('.checkBtn').trigger('activate');
+    });
+    $('#taxaDataView').on('deactivate', '.genusRow .checkBtn', function() {
+      $(this).parents('tbody').next('[id^=group_g]').find('.checkBtn').trigger('deactivate');
     });
   });
 </script>
