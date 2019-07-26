@@ -107,9 +107,7 @@
               // also collapse species rows
               // since genus->species is no more nested. This is a dirty hack
               if ($(this).hasClass('show')) {
-                genus = $(this).attr('id').slice(6);
-                // specify both order & genus, to be unique
-                $('.group_o'+order+'+#group_g_'+genus).removeClass('show');
+                $(this).next('[id^=group_g_]').removeClass('show');
               }
               $(this).toggleClass('show');
             });
