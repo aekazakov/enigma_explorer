@@ -52,6 +52,12 @@ $router->group(['prefix' => 'api/v1'], function() use ($router) {
     $router->get('ncbi/genome/{id}', 'IsolatesController@genomeByNcbiId');
     // get a ncbi blast RID along with other form data
     $router->get('ncbi/blast/rid/{id}', 'IsolatesController@blastRidById');
+    // perform local blast against isolates 16s
+    $router->get('ncbi/blast/isolates/{id}', 'IsolatesController@blastFromIso');
+    // perform cmd blast against NCBI nt
+    $router->get('ncbi/blast/ncbi/{id}', 'IsolatesController@blastFromNcbi');
+    // perform cmd blast against SILVA SSU Ref
+    $router->get('ncbi/blast/silva/{id}', 'IsolatesController@blastFromSilva');
 });
 
 // Frontend routers

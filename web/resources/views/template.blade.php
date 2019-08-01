@@ -7,47 +7,13 @@
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="/css/loading.css" />
   <link rel="stylesheet" type="text/css" href="/css/typeaheadjs.css" />
-  <link href="/css/fontawesome-all.css" rel="stylesheet">
+  <link type="text/css" href="/css/fontawesome-all.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/main.css" />
   <!--<link href="/css/fontawesome.min.css" rel="stylesheet">-->
   <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   <!-- Friendly redirect, expeciall POST request -->
   <script src='/js/jquery.redirect.js'></script>
-  <style>
-    /* set mark padding 0 */
-    mark {
-      padding: 0;
-    }
-    a {
-      text-decoration: none;
-    }
-    
-    /* Styles for browse page table */
-    .orderRow {
-      font-size: 120%;
-    }
-    .genusRow {
-      font-size: 100%;
-    }
-    .speciesRow {
-      font-size: 90%;
-    }
-    .checkBtn {
-      padding: .1rem .3rem;
-    }
-    /* In order not to get too long td */
-    #taxaDataView {
-      word-wrap: break-word;
-    }
-    #taxaDataView td, #taxaDataView th {
-      max-width: 150px;
-      padding: .45rem;
-    }
-    /* To remove thick border of tbody */
-    #taxaDataView>tbody {
-      border-top-width: 1px;
-    }
-  </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -64,7 +30,7 @@
           <a class="nav-link" href="/isolates" id="isolatesLink">Isolates</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="communitiesLink">Synthetic Communities</a>
+          <a class="nav-link" href="#" id="communitiesLink">SynCommunities</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" id="interactionLink">Interactions</a>

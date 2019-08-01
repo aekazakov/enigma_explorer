@@ -95,7 +95,7 @@
                   <!-- Blue for #genus and green for #species -->
                 </td>
                 <td>
-                  <button class="btn btn-sm btn-light checkBtn" id="cb_${order}" role="checkbox">&nbsp&nbsp&nbsp</button>
+                  <button class="btn btn-sm btn-light checkBtn" id="cb_${order}" role="checkbox">&nbsp;&nbsp;&nbsp;</button>
                 </td>
               </tr>
             </tbody>`;
@@ -126,7 +126,7 @@
                   <td><span class="text-secondary">genus</span></td>
                   <td><span class="badge badge-success">${cGenera[genus]}</span></td>
                   <td>
-                    <button class="btn btn-sm btn-light checkBtn" id="cb_${genus}" role="checkbox">&nbsp&nbsp&nbsp</button>
+                    <button class="btn btn-sm btn-light checkBtn" id="cb_${genus}" role="checkbox">&nbsp;&nbsp;&nbsp;</button>
                   </td>
                 </tr>
               </tbody>`;
@@ -178,7 +178,7 @@
                 <td></td>
                 <td><em>${species.closest_relative}</em></td>
                 <td>
-                  <button class="btn btn-sm btn-light checkBtn" id="cb_${species.id}" role="checkbox">&nbsp&nbsp&nbsp</button>
+                  <button class="btn btn-sm btn-light checkBtn" id="cb_${species.id}" role="checkbox">&nbsp;&nbsp;&nbsp;</button>
                 </td>
               </tr>`;
             // Notice the genus level has id of $genus
@@ -298,7 +298,7 @@
       $(this).trigger('classChanged');
     });
     $('#taxaDataView').on('deactivate', '.checkBtn', function() {
-      $(this).html('&nbsp&nbsp&nbsp');
+      $(this).html('&nbsp;&nbsp;&nbsp;');
       $(this).removeClass('btn-primary');    // Will not panic if the class inexist
       $(this).addClass('btn-light');
       // Trigger class change to activate/deactivate the download btn
@@ -309,13 +309,13 @@
     $('#taxaDataView').on('deactivate', '.speciesRow .checkBtn', function() {
       // up propogate deactivation
       let btn = $(this).parents('tbody').prev().find('.checkBtn');
-      $(btn).html('&nbsp&nbsp&nbsp');
+      $(btn).html('&nbsp;&nbsp;&nbsp;');
       $(btn).removeClass('btn-primary');
       $(btn).addClass('btn-light');
       let orderString = $(this).parents('tbody').prev().attr('class');
       let order = orderString.match(/group_o_\w+/)[0].slice(8);
       let parentBtn = $('#row_o_'+order+' .checkBtn');
-      $(parentBtn).html('&nbsp&nbsp&nbsp');
+      $(parentBtn).html('&nbsp;&nbsp;&nbsp;');
       $(parentBtn).removeClass('btn-primary');
       $(parentBtn).addClass('btn-light');
     });
@@ -324,7 +324,7 @@
       let orderString = $(this).parents('tbody').attr('class');
       let order = orderString.match(/group_o_\w+/)[0].slice(8);
       let btn = $('#row_o_'+order+' .checkBtn');
-      $(btn).html('&nbsp&nbsp&nbsp');
+      $(btn).html('&nbsp;&nbsp;&nbsp;');
       $(btn).removeClass('btn-primary');
       $(btn).addClass('btn-light');
     });

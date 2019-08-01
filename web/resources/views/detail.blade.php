@@ -3,6 +3,8 @@
 @section('title', 'Detail')
 
 @section('content')
+  <div class="row">
+    <div class="col-sm-12">
     <div class="sk-rotating-plane" id="loadingIcon"></div>
     <h1 class="h1 my-4" id="isoidInfo"></h1>
     <table class="table table-sm table-striped">
@@ -39,120 +41,212 @@
         </tr>
       </tbody>
     </table>
-    <h3 class="h3">Relative genomes from NCBI</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+    <h3 class="h3">Find relatives</h3>
     <hr />
-    <button id="genomeButton" class="btn btn-outline-success mb-2" type="button" data-toggle="collapse" data-target="#genomeCollapse">Download FASTA</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <p class="text-muted my-1">With NCBI Bacteria & Archaea 16S rRNA</p>
+      <button id="matchButton" class="btn btn-outline-success mr-2 my-2 g-button" data-target="#genomeTable" hide-target="#lbTable,#silvaTable,#ncbiTable" type="button">Match name</button>
+      <button id="ncbiButton" class="btn btn-outline-success mx-2 my-2 g-button" data-target="#ncbiTable" hide-target="#lbTable,#silvaTable,#genomeTable" type="button">BLAST</button>
+    </div>
+    <div class="col-md-4">
+      <p class="text-muted my-1">With <a href="https://www.arb-silva.de">SILVA</a> SSU dataset</p>
+      <button id="silvaButton" class="btn btn-outline-warning my-2 g-button" data-target="#silvaTable" hide-target="#lbTable,#genomeTable,#ncbiTable" type="button">BLAST</button>
+    </div>
+    <div class="col-md-4">
+      <p class="text-muted my-1">With ENIGMA isolates 16s rRNA</p>
+      <button id="lbButton" class="btn btn-outline-primary my-2 g-button" data-target="#lbTable" hide-target="#genomeTable,#silvaTable,#ncbiTable" type="button">BLAST</button>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-sm-12">
     <div id="genomeCollapse" class="collapse">
       <div class="card card-body">
-        <div id="loadingIcon2" class="sk-wave">
-          <div class="sk-rect sk-rect1"></div>
-          <div class="sk-rect sk-rect2"></div>
-          <div class="sk-rect sk-rect3"></div>
-          <div class="sk-rect sk-rect4"></div>
-          <div class="sk-rect sk-rect5"></div>
+        <div id="genomeTable" class="d-none">
+          <div class="g-hint my-4">
+            <p>
+            The program trys to find genomes within NCBI genome database which belongs to the organism same as the one annotated as "closet Relative in NCBI" of the current isolate. Only genome sequence, other than 16s rRNA nor metagenomic sequences, will be found.<br />
+            The queries to NCBI is performed via <a href="https://www.ncbi.nlm.nih.gov/books/NBK25497/">Entrez Programming Utilities</a>. Due to NCBI restrictions, no more than 3 requests can be posted to NCBI server per second, which slows down the program. Thus, hits are limited to 10 arbitrary genomes among all possible related genomes.
+            </p>
+          </div>
+          <div class="g-loading sk-wave">
+            <div class="sk-rect sk-rect1"></div>
+            <div class="sk-rect sk-rect2"></div>
+            <div class="sk-rect sk-rect3"></div>
+            <div class="sk-rect sk-rect4"></div>
+            <div class="sk-rect sk-rect5"></div>
+          </div>
+          <table class="table table-sm">
+            <tbody>
+            </tbody>
+          </table>
+          <div id="genomeError"></div>
         </div>
-        <table id="genomeTable" class="table table-sm">
-          <tbody>
-          </tbody>
-        </table>
-        <div id="genomeError"></div>
+        @component('blastTable', [ 'id' => 'lbTable' ])
+          <p>
+          The program performs a local BLAST against 16s rRNA sequences all ENIGMA isolates.</br>
+          Identity is defined as (# of matched letters) / (length of query seq).
+          Coverage is defined as (length of alignement) / max((length of query seq), (length of alignment)).</br>
+          </p>
+        @endcomponent
+        @component('blastTable', [ 'id' => 'silvaTable' ])
+          <p>
+          The program BLASTs 16s rRNA of the current isolate against <a href="https://www.arb-silva.de/projects/ssu-ref-nr/">SILVA SSU Ref NR 99</a> database.</br>
+          <strong>Identity</strong> is defined as (# of matched letters) / (length of query seq).
+          <strong>Coverage</strong> is defined as (length of alignement) / max((length of query seq), (length of alignment)).</br>
+          The number of hits is limited to 50.
+          </p>
+        @endcomponent
+        @component('blastTable', [ 'id' => 'ncbiTable' ])
+          <p>
+          The program BLASTs 16s rRNA of the current isolate against NCBI 16SMicrobial database. See <a href="ftp://ftp.ncbi.nlm.nih.gov/blast/">NCBI FTP server</a> for more information.</br>
+          <strong>Identity</strong> is defined as (# of matched letters) / (length of query seq).
+          <strong>Coverage</strong> is defined as (length of alignement) / max((length of query seq), (length of alignment)).</br>
+          The number of hits is limited to 50.
+          </p>
+        @endcomponent
         <p class="small text-muted mt-4">Need more information?</p>
         <button id="blastBtn" class="btn btn-outline-primary mb-4" type="button">Go BLAST</button>
       </div>
     </div>
-    <h3 class="h3 mt-2">16s rRNA sequence</h3>
+    </div>
+  </div>
+  <div class="row my-2">
+    <div class="col-sm-12">
+    <h3 class="h3">16s rRNA sequence</h3>
     <hr />
+    </div>
+  </div>
+  <div class="row my-2">
+    <div class="col-sm-12">
     <a href="/api/v1/isolates/rrna/{{ $id }}">
-      <button class="btn btn-outline-success mb-4" type="button">Download FASTA</button>
+      <button class="btn btn-outline-success" type="button">Download FASTA</button>
     </a>
+    </div>
+  </div>
 
-    <script src="/js/jquery.redirect.js"></script>
-    <script>
-    function fetchGenome(id) {
-      $.ajax({
-        url: "/api/v1/isolates/relativeGenome/"+id, 
-        success: function(data) {
-          if (data.id == "") {
-            let errorString = "<p>No related genome found in NCBI</p>";
-            $("#genomeError").append(errorString);
-            $("#loadingIcon2").remove();
-            return;
-          }
-          for (let i = 0; i < data['id'].length; i++) {
-            let tableRowString = `
-              <tr>
-                <th scope="row">${data['strain'][i]}</span></th>
-                <td class="align-middle">
-                  <a class="badge badge-pill badge-success" href="https://www.ncbi.nlm.nih.gov/nuccore/${data['id'][i]}">NCBI page</a>
-                </td>
-                <td class="align-middle">
-                  <a class="badge badge-pill badge-primary" href="/api/v1/ncbi/genome/${data.id[i]}">Download</span>
-                </td>
-              </tr>`;
-            $("#genomeTable>tbody").append(tableRowString);
-          }
+  <!-- include functions necessary to build blast table -->
+  <script src="/js/blastTable.js"></script>
 
-          // remove loading icon
-          $("#loadingIcon2").remove();
-        },
-      
-        error: function() {
-          let errorString = '<p class="bg-danger">Unexpected server error encountered.</p>';
+  <script>
+  function fetchGenome(id) {
+    $.ajax({
+      url: "/api/v1/isolates/relativeGenome/"+id, 
+      success: function(data) {
+        if (data.id == "") {
+          let errorString = "<p>No related genome found in NCBI</p>";
           $("#genomeError").append(errorString);
-          $("#loadingIcon2").remove();
+          $("#genomeTable>.g-loading").remove();
+          return;
         }
-      });
-    };
-
-    function goBlast(id) {
-      $.ajax({
-        url: "/api/v1/ncbi/blast/rid/" + id,
-        success: function(data) {
-          ncbiUrl = "https://blast.ncbi.nlm.nih.gov/Blast.cgi";
-          $.redirect(ncbiUrl, data, 'POST', '_blank');
-          $("#blastBtn").html("Go BLAST");
-          $("#blastBtn").removeClass("disabled");
-        },
-        error: function() {
-          let errorString = '<p class="bg-danger">Unexpected error: cannot submit NCBI BLAST request</P>';
-          $("#genomeError").append(errorString);
-          $("#blastBtn").html("Go BLAST");
-          $("#blastBtn").removeClass("disabled");
+        for (let i = 0; i < data['id'].length; i++) {
+          let tableRowString = `
+            <tr>
+              <th scope="row">${data['strain'][i]}</span></th>
+              <td class="align-middle">
+                <a class="badge badge-pill badge-success" href="https://www.ncbi.nlm.nih.gov/nuccore/${data['id'][i]}">NCBI page</a>
+              </td>
+              <td class="align-middle">
+                <a class="badge badge-pill badge-primary" href="/api/v1/ncbi/genome/${data.id[i]}">Download</span>
+              </td>
+            </tr>`;
+          $("#genomeTable>table>tbody").append(tableRowString);
         }
-      });
-    };
 
-    $(document).ready(function() {
-      // get id
-      var id = '{{ $id }}';
-
-      // get details
-      $.ajax({
-        url: '/api/v1/isolates/id/' + id,
-        success: function(data) {
-          $('#isoidInfo').html(data.isolate_id);
-          $('#conditionInfo').html(data.condition);
-          $('#orderInfo').html(data.order);
-          $('#relativeInfo').html(data.closest_relative);
-          $('#similarityInfo').html(data.similarity);
-          $('#dateInfo').html(data.date_sampled);
-          $('#sampleidInfo').html(data.sample_id);
-          $('#labInfo').html(data.lab);
-          $('#campaignInfo').html(data.campaign);
-
-          $('#loadingIcon').remove();
-        }
-      });
-
-      // get genome list
-      fetchGenome(id);
-
-      // assign go blast button func
-      $("#blastBtn").click(function() {
-        $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Go BLAST');
-        $(this).addClass('disabled');
-        goBlast(id);
-      });
+        // remove loading icon
+        $("#genomeTable>.g-loading").remove();
+      },
+    
+      error: function() {
+        let errorString = '<p class="bg-danger">Unexpected server error encountered.</p>';
+        $("#genomeError").append(errorString);
+        $("#genomeTable>.g-loading").remove();
+      }
     });
-    </script>
+  };
+
+  function goBlast(id) {
+    $.ajax({
+      url: "/api/v1/ncbi/blast/rid/" + id,
+      success: function(data) {
+        ncbiUrl = "https://blast.ncbi.nlm.nih.gov/Blast.cgi";
+        $.redirect(ncbiUrl, data, 'POST', '_blank');
+        $("#blastBtn").html("Go BLAST");
+        $("#blastBtn").removeClass("disabled");
+      },
+      error: function() {
+        let errorString = '<p class="bg-danger">Unexpected error: cannot submit NCBI BLAST request</P>';
+        $("#genomeError").append(errorString);
+        $("#blastBtn").html("Go BLAST");
+        $("#blastBtn").removeClass("disabled");
+      }
+    });
+  };
+
+  $(document).ready(function() {
+    // get id
+    var id = '{{ $id }}';
+
+    // get details
+    $.ajax({
+      url: '/api/v1/isolates/id/' + id,
+      success: function(data) {
+        $('#isoidInfo').html(data.isolate_id);
+        $('#conditionInfo').html(data.condition);
+        $('#orderInfo').html(data.order);
+        $('#relativeInfo').html(data.closest_relative);
+        $('#similarityInfo').html(data.similarity);
+        $('#dateInfo').html(data.date_sampled);
+        $('#sampleidInfo').html(data.sample_id);
+        $('#labInfo').html(data.lab);
+        $('#campaignInfo').html(data.campaign);
+
+        // remove loading icon
+        $('#loadingIcon').remove();
+      }
+    });
+
+    // get genome list
+    fetchGenome(id);
+
+    // accomodate multiple buttons
+    $('.g-button').click(function() {
+      if(!$('#genomeCollapse').hasClass('show')) {
+        $('#genomeCollapse').addClass('show');
+      }
+      $($(this).attr('data-target')).removeClass('d-none');
+      $($(this).attr('hide-target')).addClass('d-none');
+    });
+
+    // implement local blast button
+    $('#lbButton').one('click', function() {
+      // createBlastObj() is defined in external js
+      let lb = createBlastObj('lbTable', 'primary', 'isolates');
+      lb.fetchBlast(id);
+    });
+
+    $('#silvaButton').one('click', function() {
+      let silva = createBlastObj('silvaTable', 'warning', 'silva');
+      silva.fetchBlast(id);
+    });
+
+    $('#ncbiButton').one('click', function() {
+      let ncbib = createBlastObj('ncbiTable', 'success', 'ncbi');
+      ncbib.fetchBlast(id);
+    });
+
+    // assign go blast button func
+    $("#blastBtn").click(function() {
+      $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Go BLAST');
+      $(this).addClass('disabled');
+      goBlast(id);
+    });
+  });
+  </script>
 @endsection

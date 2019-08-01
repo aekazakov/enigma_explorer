@@ -200,7 +200,7 @@ class IsolatesController extends Controller {
 
         // if PYTHON user is set in env, use it, otherwise use default
         // In order to avoid strange user-related package issues
-        if (!empty(env('PYTHON_PASSWORD', '')) && !empty(env('PYTHON_USERNAME', ''))) {
+        if (!empty(env('PYTHON_PASSWORD', '')) || !empty(env('PYTHON_USERNAME', ''))) {
             // Notice we are not accepting user with empty pwd
             $cmd = implode(' ', ["echo", env('PYTHON_PASSWORD'), "|","su", env('PYTHON_USERNAME'), "-c",
                 "\"".base_path("scripts/fetchGenome.py"), "-s", "'$species'", "'$strain'"."\""]);
@@ -219,7 +219,7 @@ class IsolatesController extends Controller {
     public function genomeByNcbiId($id) {
         // if PYTHON user is set in env, use it, otherwise use default
         // In order to avoid strange user-related package issues
-        if (!empty(env('PYTHON_PASSWORD', '')) && !empty(env('PYTHON_USERNAME', ''))) {
+        if (!empty(env('PYTHON_PASSWORD', '')) || !empty(env('PYTHON_USERNAME', ''))) {
             $cmd = implode(' ', ["echo", env('PYTHON_PASSWORD'), "|","su", env('PYTHON_USERNAME'), "-c",
                     "\"".base_path("scripts/fetchGenome.py"), "-i", $id."\""]);
         } else {
@@ -230,6 +230,66 @@ class IsolatesController extends Controller {
         $response->header('Content-Type', 'text/plain')
            ->header('Content-Disposition', 'attachment;filename='.$id.'.fa');
         return $response;
+    }
+
+    protected function localBlast($seq, $db) {
+        // Build cmd. Use python user
+        // Notice BLASTDB set in .env
+        if (!empty(env('PYTHON_PASSWORD', '')) || !empty(env('PYTHON_USERNAME', ''))) {
+            // implode() is a good idea in constructing the cmd
+            // Assume no space in $db
+            $blastCmd = "echo ".env('PYTHON_PASSWORD')." | su ".env('PYTHON_USERNAME').' -c "'
+                .base_path("scripts/localBlast.py")." $db ".'\"'.$seq.'\""';
+        } else {
+            $blastCmd = base_path("scripts/localBlast.py")." $db ".'"'.$seq.'"';
+        }
+        $blastStr = shell_exec($blastCmd);
+        $blastArr = json_decode($blastStr);
+        return $blastArr;
+    }
+
+    public function blastFromIso($id) {
+        // acquire 16s seq from id
+        $seq = $this->rrnaById($id)->getOriginalContent();
+        // Then perform blast
+        $ret = $this->localBlast($seq, 'enigma_isolates');
+        // Note invalide json returns NULL but throughs no error
+        if (empty($ret)) {
+            return response()->json([ 'message' => 'Unexpected local blast error.' ], 400);
+        } else {
+            return response()->json($ret);
+        }
+    }
+
+    public function blastFromSilva($id) {
+        // acquire 16s seq from id
+        $seq = $this->rrnaById($id)->getOriginalContent();
+        $ret = $this->localBlast($seq, 'silva_ssuref_nr99');
+        foreach ($ret as $hit) {
+            $titleArr = explode(';', $hit->title);
+            $hit->title = $titleArr[count($titleArr) - 1];
+        }
+        // Note invalide json returns NULL but throughs no error
+        if (empty($ret)) {
+            return response()->json([ 'message' => 'Unexpected local blast error.' ], 400);
+        } else {
+            return response()->json($ret);
+        }
+    }
+
+    public function blastFromNcbi($id) {
+        // acquire 16s seq from id
+        $seq = $this->rrnaById($id)->getOriginalContent();
+        $ret = $this->localBlast($seq, '16SMicrobial');
+        foreach ($ret as $hit) {
+            $hit->isoid = '';    // like gi|num|ref|NR_num, ditched
+        }
+        // Note invalide json returns NULL but throughs no error
+        if (empty($ret)) {
+            return response()->json([ 'message' => 'Unexpected local blast error.' ], 400);
+        } else {
+            return response()->json($ret);
+        }
     }
 
     public function blastRidById($id) {

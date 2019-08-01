@@ -1,0 +1,43 @@
+/* set mark padding 0 */
+mark {
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+
+/* Styles for browse page table */
+.orderRow {
+  font-size: 120%;
+}
+.genusRow {
+  font-size: 100%;
+}
+.speciesRow {
+  font-size: 90%;
+}
+.checkBtn {
+  padding: .1rem .3rem;
+}
+/* In order not to get too long td */
+#taxaDataView {
+  word-wrap: break-word;
+}
+#taxaDataView td, #taxaDataView th {
+  max-width: 150px;
+  padding: .45rem;
+}
+/* To remove thick border of tbody */
+#taxaDataView>tbody {
+  border-top-width: 1px;
+}
+
+/* monospace font */
+@font-face {
+  font-family: "roboto-mono";
+  src: url("/fonts/RobotoMono-Regular.tff");
+}
+.alignBox {
+  font-family: roboto-mono, monospace;
+  text-align: center;
+}

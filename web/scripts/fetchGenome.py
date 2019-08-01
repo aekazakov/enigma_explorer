@@ -5,7 +5,7 @@ Maintainer Yujia Liu rainl199922@berkeley.edu
 Fetch genome from NCBI by species name
 '''
 
-import sys, re, json
+import sys, re, json, time
 from Bio import Entrez, SeqIO
 
 def main() :
@@ -57,6 +57,7 @@ def fetchG(speciesName, strain="") :
     genomeSpeciesList = []
     genomeIdList = []
     for entry in genomeList :
+        time.sleep(0.1)
         summary = Entrez.esummary(db='nuccore', id=entry)
         genomeTitle = Entrez.read(summary)[0]['Title']
         genomeSpecies = ""
@@ -89,5 +90,5 @@ def fetchS(genomeId) :
     return genomeSeq
 
 EMAIL = 'rainl199922@berkeley.edu'
-MAX_GENOME_LIST = 12
+MAX_GENOME_LIST = 10
 main()
