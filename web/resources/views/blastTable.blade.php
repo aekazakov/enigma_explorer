@@ -1,7 +1,7 @@
 <div id="{{ $id }}" class="d-none">
   <!-- A blastTable is defined to be a component the contain 3 divs -->
   <!-- The loading, the table, and the error div -->
-  <div class="g-hint m-4">
+  <div class="g-hint my-4">
     {{ $slot }}
   </div>
   <div class="g-loading sk-wave">

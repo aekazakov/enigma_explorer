@@ -319,7 +319,7 @@ class IsolatesController extends Controller {
         try {
             $rid = $matches[1];
         } catch (Exception $err) {
-            return response()->json(['message', $err->getMessage()]);
+            return response()->json(['message' => $err->getMessage()]);
         }
         // return form data necessary for ncbi blast
         $retData = [

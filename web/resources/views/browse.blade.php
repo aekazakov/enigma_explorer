@@ -131,22 +131,24 @@
                 </tr>
               </tbody>`;
             $('#row_o_' + order).after(genusString);
-            // hack bs collapse
-            $('.group_o_'+order+'#row_g_'+genus+' [data-toggle="my-collapse"]').click(function() {
-              // specify both order & genus to be unique
-              $('.group_o_'+order+'+'+$(this).attr('my-href')).toggleClass('show');
-            });
           }
 
           // Hook to load species
           // Notice the lazy loading here: only when order is expanded the species will be loaded
           $('#row_o_'+order+'>.orderRow>th').click(function() {
             for (let genus in cGenera) {
-              fetchSpecies(order, genus);
+              fetchSpecies(genus);
             }
             $(this).unbind();
           });
         }
+
+        // hack bs collapse
+        $('.genusRow [data-toggle="my-collapse"]').click(function() {
+          // specify both position & genus to be unique
+          $(this).parents('tbody').next($(this).attr('my-href')).toggleClass('show');
+          console.log('genus hit');
+        });
       },
       error: function() {
         var errorString = `
@@ -156,7 +158,7 @@
     });
   }
 
-  function fetchSpecies(order, genus) {
+  function fetchSpecies(genus) {
     // Fetch isolates from given genus
     // Assume a <tbody> named by the genus already exists
     if ($('[id=row_g_'+genus+']').length == 1) {    // test existence
@@ -166,7 +168,7 @@
           // all isolates are grouped by a tbody named group_g_$genus
           let genusGroupString = `
             <tbody class="collapse" id="group_g_${genus}"></tbody>`;
-          $('.group_o_'+order+'#row_g_'+genus).after(genusGroupString);
+          $('#row_g_'+genus).after(genusGroupString);
           // Iterate all isolates, reversed
           for (let i=data.length-1; i>=0; i--) {
             // Build species string, should have class of genus
@@ -182,24 +184,39 @@
                 </td>
               </tr>`;
             // Notice the genus level has id of $genus
-            $('.group_o_'+order+'+#group_g_'+genus).append(speciesString);
+            $('#group_g_'+genus).append(speciesString);
           }
           // If genus is checked, propogate
           let isSelected = $('#cb_'+genus).hasClass('btn-primary');
           if (isSelected) {
             // at this time species ele are rendered
-            $('.group_o_'+order+'+#group_g_'+genus+' .checkBtn').trigger('activate');
+            $('#group_g_'+genus+' .checkBtn').trigger('activate');
           }
         },
         error: function() {
           var errorString = `
             <p class="bg-danger">Unexpected server error. Please try again.</p>`;
-          $('#'+genus).append(errorString);
+          $('#row_g_'+genus).append(errorString);
         }
       });
     } else {
       // Force log error if genus does not exist
       console.log('<tbody> row_g_' + genus + ' does not exist or exists multiple. Invalid append of isolates');
+      // if the genus belong to more than 1 order, show error
+      if ($('[id=row_g_'+genus+']').length > 1) {
+        let errString = `
+          <tbody class="collapse" id="group_g_${genus}">
+            <tr class="speciesRow">
+              <td colspan="5">
+                <p class="bg-danger">The genus ${genus} exists in more than 1 order. Species fail to load due to such ambiguity.</p>
+              </td> 
+            </tr>
+          </tbody>
+        `;
+        if ($('[id=group_g_'+genus+']').length == 0) {
+          $('#row_g_'+genus).after(errString);
+        }
+      }
     }
   }
 

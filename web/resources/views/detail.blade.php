@@ -70,7 +70,7 @@
       <div class="card card-body">
         <div id="genomeTable" class="d-none">
           <div class="g-hint my-4">
-            <p>
+            <p class="small">
             The program trys to find genomes within NCBI genome database which belongs to the organism same as the one annotated as "closet Relative in NCBI" of the current isolate. Only genome sequence, other than 16s rRNA nor metagenomic sequences, will be found.<br />
             The queries to NCBI is performed via <a href="https://www.ncbi.nlm.nih.gov/books/NBK25497/">Entrez Programming Utilities</a>. Due to NCBI restrictions, no more than 3 requests can be posted to NCBI server per second, which slows down the program. Thus, hits are limited to 10 arbitrary genomes among all possible related genomes.
             </p>
@@ -89,45 +89,48 @@
           <div id="genomeError"></div>
         </div>
         @component('blastTable', [ 'id' => 'lbTable' ])
-          <p>
+          <p class="small">
           The program performs a local BLAST against 16s rRNA sequences all ENIGMA isolates.</br>
-          Identity is defined as (# of matched letters) / (length of query seq).
-          Coverage is defined as (length of alignement) / max((length of query seq), (length of alignment)).</br>
+          <strong>Identity</strong> is defined as (# of matched letters) / (length of query seq).<br />
+          <strong>Coverage</strong> is defined as (length of alignement) / max((length of query seq), (length of alignment)).</br>
+          Hits are sorted by identity. E value threshold: 1E-10. Hits below the threshold are filtered out. Showing 50 hits at a maximum.
           </p>
         @endcomponent
         @component('blastTable', [ 'id' => 'silvaTable' ])
-          <p>
+          <p class="small">
           The program BLASTs 16s rRNA of the current isolate against <a href="https://www.arb-silva.de/projects/ssu-ref-nr/">SILVA SSU Ref NR 99</a> database.</br>
-          <strong>Identity</strong> is defined as (# of matched letters) / (length of query seq).
+          <strong>Identity</strong> is defined as (# of matched letters) / (length of query seq).<br />
           <strong>Coverage</strong> is defined as (length of alignement) / max((length of query seq), (length of alignment)).</br>
-          The number of hits is limited to 50.
+          Hits are sorted by identity. E value threshold: 1E-10. Hits below the threshold are filtered out. Showing 50 hits at a maximum.
           </p>
         @endcomponent
         @component('blastTable', [ 'id' => 'ncbiTable' ])
-          <p>
+          <p class="small">
           The program BLASTs 16s rRNA of the current isolate against NCBI 16SMicrobial database. See <a href="ftp://ftp.ncbi.nlm.nih.gov/blast/">NCBI FTP server</a> for more information.</br>
-          <strong>Identity</strong> is defined as (# of matched letters) / (length of query seq).
+          <strong>Identity</strong> is defined as (# of matched letters) / (length of query seq).<br />
           <strong>Coverage</strong> is defined as (length of alignement) / max((length of query seq), (length of alignment)).</br>
-          The number of hits is limited to 50.
+          Hits are sorted by identity. E value threshold: 1E-10. Hits below the threshold are filtered out. Showing 50 hits at a maximum.
           </p>
         @endcomponent
-        <p class="small text-muted mt-4">Need more information?</p>
-        <button id="blastBtn" class="btn btn-outline-primary mb-4" type="button">Go BLAST</button>
+        <p class="small text-muted mt-4">
+        Need more information?<br />
+        The button directs to NCBI BLAST website, BLASTing the 16s rRNA sequence of the current isolate against nr/nt (non-redundent nucleotide) database. One can go back and tweak the parameter once the BLAST is done.
+        </p>
+        <button id="blastBtn" class="btn btn-outline-primary mb-4" type="button">Go to NCBI Website</button>
       </div>
     </div>
     </div>
   </div>
   <div class="row my-2">
     <div class="col-sm-12">
-    <h3 class="h3">16s rRNA sequence</h3>
-    <hr />
+      <h3 class="h3">16s rRNA sequence</h3>
+      <hr />
     </div>
-  </div>
-  <div class="row my-2">
     <div class="col-sm-12">
-    <a href="/api/v1/isolates/rrna/{{ $id }}">
-      <button class="btn btn-outline-success" type="button">Download FASTA</button>
-    </a>
+      <a href="/api/v1/isolates/rrna/{{ $id }}">
+        <button class="btn btn-outline-success" type="button">Download FASTA</button>
+      </a>
+      <div class="card card-body my-3" id="16sBox"></div>
     </div>
   </div>
 
@@ -206,7 +209,11 @@
         $('#sampleidInfo').html(data.sample_id);
         $('#labInfo').html(data.lab);
         $('#campaignInfo').html(data.campaign);
-
+        if (data.rrna) {
+          $('#16sBox').html(`<p class="small">> ${data.isolate_id}<br />${data.rrna}</p>`);
+        } else {
+          $('#16sBox').html('<p class="bg-danger">16s rRNA sequence not found</p>');
+        }
         // remove loading icon
         $('#loadingIcon').remove();
       }

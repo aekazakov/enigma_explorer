@@ -16,6 +16,10 @@ Environment Variables:
 from __future__ import print_function
 import sys, json, subprocess, os
 
+# constants
+MAX_HIT = 50
+E_THRESHOLD = 1e-10
+
 # check cmdline parameters
 if len(sys.argv) != 3 or sys.argv[1] == '-h' or sys.argv[1] == '--help' :
     print('Usage: localBlast.py blast-db nt-sequence-or-file')
@@ -58,7 +62,6 @@ blastOut, _ = pro.communicate()    #communicate() blocks the process
 
 #parse json
 blastObj = json.loads(blastOut)['BlastOutput2'][0]['report']    #unwrap the 1st layer
-MAX_HIT = 50
 blastRet = blastObj['results']['search']['hits']
 queryLen = float(blastObj['results']['search']['query_len'])
 myout = []
@@ -69,6 +72,9 @@ for i, hit in enumerate(blastRet) :
     # upperbound
     if i > MAX_HIT :
         break
+    # filter according to evalue
+    if float(hit['hsps'][0]['evalue']) >= E_THRESHOLD :
+        continue
     myobj = { \
             'isoid': hit['description'][0]['id'], \
             'title': hit['description'][0]['title'], \
