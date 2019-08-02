@@ -1,4 +1,18 @@
-#!/bin/python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+"""
+localBlast.py
+
+Author: Yujia Liu rainl199922@berkeley.edu
+
+The script performs nucleotide commandline blast against custom database (be it local or remote) and returns JSON. Input can be a sequence or a file.
+
+Environment Variables:
+    BLASTDB: the path of blast db. If not set, all sequences will be blast with remote db
+    BLASTPATH: the path of blast binaries. If not set, the script uses system $PATH
+"""
+
 from __future__ import print_function
 import sys, json, subprocess, os
 
@@ -7,10 +21,15 @@ if len(sys.argv) != 3 or sys.argv[1] == '-h' or sys.argv[1] == '--help' :
     print('Usage: localBlast.py blast-db nt-sequence-or-file')
     exit()
 
+# Use blast binary path if assigned
+cmdPrefix = os.getenv('BLASTPATH', '')
+if cmdPrefix != '' :
+    cmdPrefix += '/'
+
 # Acquire the list of local blastdb
-dbPaths = os.environ['BLASTDB']
-dbPath = dbPaths.split(';')[0]    # in case for multiple paths, choose only 1st
-listCmd = 'blastdbcmd -list "%s" -recursive' % (dbPath)
+dbPaths = os.getenv('BLASTDB', '')
+dbPath = dbPaths.strip().split(';')[0]    # in case for multiple paths, choose only 1st
+listCmd = cmdPrefix + 'blastdbcmd -list "%s" -recursive' % (dbPath)
 listProc = subprocess.Popen(listCmd, stdout=subprocess.PIPE, shell=True)
 listOut, _ = listProc.communicate()
 # the output is like $BLASTDB/mydb nucleotide
@@ -23,9 +42,10 @@ db, seq = sys.argv[1], sys.argv[2]
 # output fmt 15: single file JSON
 # check is file or seq
 if len(seq) < 128 and os.path.isfile(seq) :
-    blastCmd = 'blastn -db %s -query "%s" -outfmt 15' % (db, seq)    #in case isoid contains space
+    blastCmd = '%sblastn -db %s -query "%s" -outfmt 15' % (cmdPrefix, db, seq)    #in case isoid contains space
 else :
-    blastCmd = 'echo "%s" | blastn -db %s -outfmt 15' % (seq, db)
+    blastCmd = 'echo "%s" | %sblastn -db %s -outfmt 15' % (seq, cmdPrefix, db)
+# Judge whether DB is remote
 if db not in dbSet :
     blastCmd += ' -remote'
     # hint to stderr in order not to tangle with output

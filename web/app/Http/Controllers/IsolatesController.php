@@ -265,31 +265,30 @@ class IsolatesController extends Controller {
         // acquire 16s seq from id
         $seq = $this->rrnaById($id)->getOriginalContent();
         $ret = $this->localBlast($seq, 'silva_ssuref_nr99');
+        // Note invalide json returns NULL but throughs no error
+        if (empty($ret)) {
+            return response()->json([ 'message' => 'Unexpected local blast error.' ], 400);
+        }
+
         foreach ($ret as $hit) {
             $titleArr = explode(';', $hit->title);
             $hit->title = $titleArr[count($titleArr) - 1];
         }
-        // Note invalide json returns NULL but throughs no error
-        if (empty($ret)) {
-            return response()->json([ 'message' => 'Unexpected local blast error.' ], 400);
-        } else {
-            return response()->json($ret);
-        }
+        return response()->json($ret);
     }
 
     public function blastFromNcbi($id) {
         // acquire 16s seq from id
         $seq = $this->rrnaById($id)->getOriginalContent();
         $ret = $this->localBlast($seq, '16SMicrobial');
+        if (empty($ret)) {
+            return response()->json([ 'message' => 'Unexpected local blast error.' ], 400);
+        }
+
         foreach ($ret as $hit) {
             $hit->isoid = '';    // like gi|num|ref|NR_num, ditched
         }
-        // Note invalide json returns NULL but throughs no error
-        if (empty($ret)) {
-            return response()->json([ 'message' => 'Unexpected local blast error.' ], 400);
-        } else {
-            return response()->json($ret);
-        }
+        return response()->json($ret);
     }
 
     public function blastRidById($id) {
