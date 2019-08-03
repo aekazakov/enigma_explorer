@@ -40,7 +40,7 @@ let createBlastObj = function(id, tColor, blastDb) {
             `;
           $('#'+this.divId+' tbody').append(trStr);
           // get the link href for isos
-          $.get('/api/v1/isolates/isoid/'+hit.isoid, function(data) {
+          $.get('/api/v1/isolates/isoid/'+hit.isoid, (data) => {
             // assuming isoid is unique
             $('#'+this.divId+' #a-'+data.isolate_id).attr('href', '/isolates/id/'+data.id);
           });

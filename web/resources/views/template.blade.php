@@ -23,7 +23,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="nav navbar-nav w-50 nav-justified mx-auto">
+      <ul class="nav navbar-nav nav-justified col-lg-6 mx-auto">
         <li class="nav-item">
           <a class="nav-link" href="/index" id="mainLink">Home</a>
         </li>
@@ -44,7 +44,7 @@
         </li>
       </ul>
       <!-- redirect to the first page of search -->
-      <form class="form-inline my-2 my-lg-0" id="searchForm" action="#">
+      <form class="form-inline my-2 my-lg-0 col-lg-4 col-md-12" id="searchForm" action="#">
         <input style="display:none;" />
         <input name="keyword" class="typeahead form-control mr-sm-2" id="searchInput" autocomplete="off" type="search" data-provide="typeahead" placeholder="Enter keywords" aria-label="Search" />
         <button class="btn btn-outline-primary my-2 my-sm-0" id="searchButton" type="button">Search</button>
@@ -98,7 +98,7 @@
         }
       );
       // hack to avoid typeahead break inline-form
-      $('.twitter-typeahead').css('width', "74.5%");
+      $('.twitter-typeahead').css('width', "60%");
     });
   </script>
 </body>
