@@ -11,33 +11,33 @@
       <tbody>
         <tr>
           <th scope="row"><h5><span class="badge badge-pill badge-secondary">Isolation Condition</span></h5></th>
-          <td class="align-middle" id="conditionInfo"></td>
+          <td class="align-middle" id="conditionInfo" colspan="3"></td>
         </tr>
         <tr>
           <th scope="row"><h5><span class="badge badge-pill badge-secondary">Order</span></h5></th>
-          <td class="align-middle" id="orderInfo"></td>
+          <td class="align-middle" id="orderInfo" colspan="3"></td>
         </tr>
         <tr>
           <th scope="row"><h5><span class="badge badge-pill badge-secondary">Closest Relative in NCBI</span></h5></th>
           <td class="align-middle" id="relativeInfo"></td>
-          <td><h5><span class="badge badge-pill badge-secondary">Similarity</span></h5></td>
+          <td><h5><span class="badge badge-pill badge-secondary">% Similarity</span></h5></td>
           <td class="align-middle" id="similarityInfo"></td>
         </tr>
         <tr>
           <th scope="row"><h5><span class="badge badge-pill badge-secondary">Date Sampled</span></h5></th>
-          <td class="align-middle" id="dateInfo"></td>
+          <td class="align-middle" id="dateInfo" colspan="3"></td>
         </tr>
         <tr>
           <th scope="row"><h5><span class="badge badge-pill badge-secondary">Well/Sample ID</span></h5></th>
-          <td class="align-middle" id="sampleidInfo"></td>
+          <td class="align-middle" id="sampleidInfo" colspan="3"></td>
         </tr>
         <tr>
           <th scope="row"><h5><span class="badge badge-pill badge-secondary">Lab Isolated</span></h5></th>
-          <td class="align-middle" id="labInfo"></td>
+          <td class="align-middle" id="labInfo" colspan="3"></td>
         </tr>
         <tr>
           <th scope="row"><h5><span class="badge badge-pill badge-secondary">Campaign or Set</span></h5></th>
-          <td class="align-middle" id="campaignInfo"></td>
+          <td class="align-middle" id="campaignInfo" colspan="3"></td>
         </tr>
       </tbody>
     </table>

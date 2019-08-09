@@ -17,7 +17,7 @@
   <script src='/js/jquery.redirect.js'></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-2">
     <a class="navbar-brand" href="/index">ENIGMA</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -31,10 +31,10 @@
           <a class="nav-link" href="/isolates" id="isolatesLink">Isolates</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="communitiesLink">SynCommunities</a>
+          <a class="nav-link" href="/growthcurve" id="interactionLink">Interactions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="interactionLink">Interactions</a>
+          <a class="nav-link" href="#" id="communitiesLink">SynCommunities</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#" id="enrichmentLink">Enrichments</a>

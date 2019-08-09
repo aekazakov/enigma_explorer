@@ -38,7 +38,11 @@ with fr :
             for line in fr.readlines()[1:] :
                 linfo = line.split('\t')
                 linfo = [s.strip('"').strip() for s in linfo]
-                linfo[4] = re.findall("[0-9\.]+", linfo[4])[0]
+                simi = re.findall("[0-9\.]+", linfo[4])
+                if (len(simi) > 0) :
+                    linfo[4] = re.findall("[0-9\.]+", linfo[4])[0]
+                else :
+                    linfo[4] = 0
                 sqlStr = '''\
 INSERT INTO `isolates` (`isolate_id`,`condition`,`order`,\
 `closest_relative`,`similarity`,`date_sampled`,`sample_id`,\

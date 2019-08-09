@@ -20,44 +20,54 @@ $router->group(['prefix' => 'api/v1'], function() use ($router) {
         return response()->json(['message' => 'pong'], 200);
     });
 
-    // select isolates by isolate id
-    $router->get('isolates/isoid/{isoid}', 'IsolatesController@selectByIsoid');
-    // select isolates by id
-    $router->get('isolates/id/{id}', 'IsolatesController@selectById');
-    // select isolates by keyword
-    $router->get('isolates/keyword/{keyword}', 'IsolatesController@selectByKeyword');
-    // select a list of isolates by genus
-    $router->get('isolates/genus/{genus}', 'IsolatesController@selectByGenus');
-    // get match number by keyword
-    $router->get('isolates/count/{keyword}', 'IsolatesController@countByKeyword');
-    // get hints by kerword
-    $router->get('isolates/hint/{keyword}', 'IsolatesController@taxaHint');
-    // get 16s rrna seq by id
-    $router->get('isolates/rrna/{id}', 'IsolatesController@rrnaById');
-    // retrieve a full list of orders
-    // OBSOLETE not used by FE
-    $router->get('isolates/orders', 'IsolatesController@getOrders');
-    // retrieve a list of genera
-    // OBSOLETE not used by FE
-    $router->get('isolates/genera', 'IsolatesController@getGenera');
-    // get hierarchical taxonomy
-    $router->get('isolates/taxa', 'IsolatesController@getTaxa');
-    // download multiple 16s
-    $router->post('isolates/taxa/rrna', 'IsolatesController@download16s');
-    // select isolates by multiple keywords
-    $router->post('isolates/multiKeywords', 'IsolatesController@selectByMultiKeywords');
-    // get a list of relative genome by id
-    $router->get('isolates/relativeGenome/{id}', 'IsolatesController@genomeList');
-    // get a genome fasta file by NCBI id
-    $router->get('ncbi/genome/{id}', 'IsolatesController@genomeByNcbiId');
-    // get a ncbi blast RID along with other form data
-    $router->get('ncbi/blast/rid/{id}', 'IsolatesController@blastRidById');
-    // perform local blast against isolates 16s
-    $router->get('ncbi/blast/isolates/{id}', 'IsolatesController@blastFromIso');
-    // perform cmd blast against NCBI nt
-    $router->get('ncbi/blast/ncbi/{id}', 'IsolatesController@blastFromNcbi');
-    // perform cmd blast against SILVA SSU Ref
-    $router->get('ncbi/blast/silva/{id}', 'IsolatesController@blastFromSilva');
+    $router->group([ 'prefix' => 'isolates' ], function() use ($router) {
+        // select isolates by isolate id
+        $router->get('isoid/{isoid}', 'IsolatesController@selectByIsoid');
+        // select isolates by id
+        $router->get('id/{id}', 'IsolatesController@selectById');
+        // select isolates by keyword
+        $router->get('keyword/{keyword}', 'IsolatesController@selectByKeyword');
+        // select a list of isolates by genus
+        $router->get('genus/{genus}', 'IsolatesController@selectByGenus');
+        // get match number by keyword
+        $router->get('count/{keyword}', 'IsolatesController@countByKeyword');
+        // get hints by kerword
+        $router->get('hint/{keyword}', 'IsolatesController@taxaHint');
+        // get 16s rrna seq by id
+        $router->get('rrna/{id}', 'IsolatesController@rrnaById');
+        // retrieve a full list of orders
+        // OBSOLETE not used by FE
+        $router->get('orders', 'IsolatesController@getOrders');
+        // retrieve a list of genera
+        // OBSOLETE not used by FE
+        $router->get('genera', 'IsolatesController@getGenera');
+        // get hierarchical taxonomy
+        $router->get('taxa', 'IsolatesController@getTaxa');
+        // download multiple 16s
+        $router->post('taxa/rrna', 'IsolatesController@download16s');
+        // select isolates by multiple keywords
+        $router->post('multiKeywords', 'IsolatesController@selectByMultiKeywords');
+        // get a list of relative genome by id
+        $router->get('relativeGenome/{id}', 'IsolatesController@genomeList');
+    });
+
+    $router->group([ 'prefix' => 'ncbi' ], function() use ($router) {
+        // get a genome fasta file by NCBI id
+        $router->get('genome/{id}', 'IsolatesController@genomeByNcbiId');
+        // get a ncbi blast RID along with other form data
+        $router->get('blast/rid/{id}', 'IsolatesController@blastRidById');
+        // perform local blast against isolates 16s
+        $router->get('blast/{blastDb}/{id}', 'IsolatesController@blastById');
+        // blast against local db, using seq instead of id of isolates
+        $router->post('blast/{blastDb}', 'IsolatesController@blastBySeq');
+    });
+
+    $router->group([ 'prefix' => 'growth' ], function() use ($router) {
+        // get plate meta by id
+        $router->get('meta/id/{id}', 'GrowthController@metaById');
+        // get actuall plate value by id
+        $router->get('wells/id/{id}', 'GrowthController@wellDataById');
+    });
 });
 
 // Frontend routers
@@ -69,6 +79,13 @@ $router->get('/index', function() {
 });
 $router->get('/isolates', function() {
     return view('isolates', ['activeLink' => 'isolatesLink']);
+});
+// Router for growth curve page
+$router->get('/growthcurve', function() {
+    return view('growthCurve', ['activeLink' => 'interactionLink']);
+});
+$router->get('/growthcurve/id/{id}', function($id) {
+    return view('growthDetail', [ 'activeLink' => 'interactionLink', 'id' => $id ]);
 });
 $router->get('/search', function(Request $request) {
     $keyword = $request->input('keyword');

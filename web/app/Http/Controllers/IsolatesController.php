@@ -232,6 +232,28 @@ class IsolatesController extends Controller {
         return $response;
     }
 
+    public function blastById($id, $blastDb) {
+        // acquire 16s seq from id
+        $seq = $this->rrnaById($id)->getOriginalContent();
+        // return
+        return $this->blastBySeq($blastDb, new Request([ 'seq' => $seq ]));
+    }
+
+    public function blastBySeq($blastDb, Request $request) {
+        // Parse sequence
+        $seq = $request->input()['seq'];
+        // choose blast func
+        if ($blastDb == 'ncbi') {
+            return $this->blastFromNcbi($seq);
+        } else if ($blastDb == 'silva') {
+            return $this->blastFromSilva($seq);
+        } else if ($blastDb == 'isolates') {
+            return $this->blastFromIso($seq);
+        } else {
+            return response()->json([ 'message' => 'BLAST database not supported' ], 400);
+        }
+    }
+
     protected function localBlast($seq, $db) {
         // Build cmd. Use python user
         // Notice BLASTDB set in .env
@@ -248,9 +270,7 @@ class IsolatesController extends Controller {
         return $blastArr;
     }
 
-    public function blastFromIso($id) {
-        // acquire 16s seq from id
-        $seq = $this->rrnaById($id)->getOriginalContent();
+    protected function blastFromIso($seq) {
         // Then perform blast
         $ret = $this->localBlast($seq, 'enigma_isolates');
         // Note invalide json returns NULL but throughs no error
@@ -261,9 +281,7 @@ class IsolatesController extends Controller {
         }
     }
 
-    public function blastFromSilva($id) {
-        // acquire 16s seq from id
-        $seq = $this->rrnaById($id)->getOriginalContent();
+    protected function blastFromSilva($seq) {
         $ret = $this->localBlast($seq, 'silva_ssuref_nr99');
         // Note invalide json returns NULL but throughs no error
         if (empty($ret)) {
@@ -277,9 +295,7 @@ class IsolatesController extends Controller {
         return response()->json($ret);
     }
 
-    public function blastFromNcbi($id) {
-        // acquire 16s seq from id
-        $seq = $this->rrnaById($id)->getOriginalContent();
+    protected function blastFromNcbi($seq) {
         $ret = $this->localBlast($seq, '16SMicrobial');
         if (empty($ret)) {
             return response()->json([ 'message' => 'Unexpected local blast error.' ], 400);

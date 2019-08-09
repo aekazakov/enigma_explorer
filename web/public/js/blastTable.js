@@ -6,10 +6,23 @@ let createBlastObj = function(id, tColor, blastDb) {
   obj.tColor = tColor;
   obj.blastDb = blastDb;
   // This request is fast. No need to request ASA page loaded
-  obj.fetchBlast = function(id) {
+  obj.fetchBlast = function(info) {
+    // info can be id of an isolate or a sequence
+    let url, qData, type;
+    if (/^\d+$/.test(info)) {
+      url = '/api/v1/ncbi/blast/' + this.blastDb + '/' + info;
+      qData = '';
+      type = 'GET';
+    } else {
+      url = '/api/v1/ncbi/blast/' + this.blastDb;
+      qData = info;
+      type = 'POST';
+      console.log(url, qData);
+    }
     $.ajax({
-      url: '/api/v1/ncbi/blast/' + this.blastDb + '/' + id,
-      type: 'GET',
+      url: url,
+      type: type,
+      data: qData,
       success: (data) => {
         let headStr = `
           <thead>

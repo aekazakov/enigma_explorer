@@ -41,3 +41,11 @@ a {
   font-family: roboto-mono, monospace;
   text-align: center;
 }
+
+/* (microtiter) plate view */
+#plateView {
+    border-top-left-radius: 10%;
+}
+#wellDataView {
+    table-layout: fixed;
+}
