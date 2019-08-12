@@ -214,6 +214,10 @@
       // Define the canvas
       let view = $('#valuesView');
       $(view).css('height', $(view).css('width') * 0.6);
+      // re-scale timepoints
+      for (let i = 0; i < data.timepoints.length; i++) {
+        data.timepoints[i] /= 3600;
+      }
       Plotly.plot($(view)[0], [{
         x: data.timepoints,
         y: data.values
