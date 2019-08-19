@@ -24,6 +24,15 @@ let createBlastObj = function(id, tColor, blastDb) {
       type: type,
       data: qData,
       success: (data) => {
+        // check if there is any hit
+        if ('message' in data) {
+          console.log('No hits found');
+          let errorString = '<h4 class="text-info">Not hits found above E value threshold!</h4>';
+          $('#'+this.divId+'>.g-error').append(errorString);
+          $('#'+this.divId+'>.g-loading').addClass('d-none');
+          $('#'+this.divId+'>.g-hint').addClass('d-none');
+          return;
+        }
         let headStr = `
           <thead>
             <th>Isolate description</th>
@@ -92,7 +101,7 @@ let createBlastObj = function(id, tColor, blastDb) {
           $('#'+this.divId+' tbody>tr:last-child>.alignBox').append(qseq + '<br />' + midline+ '<br />' + hseq + '<br />');
         }
         // remove loading icon
-        $('#'+this.divId+'>.g-loading ').remove();
+        $('#'+this.divId+'>.g-loading ').addClass('d-none');
         // expand alignment
         $('#'+this.divId+' tbody td:last-child>a').click(function() {
           $(this).parents('tr').next('tr').toggleClass('show');
@@ -103,7 +112,7 @@ let createBlastObj = function(id, tColor, blastDb) {
         console.log('ajax failed');
         let errorString = '<p class="bg-danger">Unexpected server error encountered.</p>';
         $('#'+this.divId+'>.g-error').append(errorString);
-        $('#'+this.divId+'>.g-loading').remove();
+        $('#'+this.divId+'>.g-loading').addClass('d-none');
       }
     });
   }

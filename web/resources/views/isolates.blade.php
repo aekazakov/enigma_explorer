@@ -54,8 +54,16 @@
   <script src="/js/blastTable.js"></script>
   <script>
     $(document).ready(function() {
-      $('#submitBtn').one('click', function() {
+      $('#submitBtn').on('click', function() {
+        // remove everything already in the table
+        $('#dataView tbody').html('');
+        $('#dataView thead').remove();
+        $('#dataView .g-error').html('');
+        // show dataView if not already
         $('#dataView').addClass('show');
+        // if there was a request, loading div will be hidden
+        $('#dataView .g-loading').removeClass('d-none');
+
         // Construct request body
         let rBody = { 'seq': $('#seqText').val() };
         // empty blast table

@@ -274,8 +274,10 @@ class IsolatesController extends Controller {
         // Then perform blast
         $ret = $this->localBlast($seq, 'enigma_isolates');
         // Note invalide json returns NULL but throughs no error
-        if (empty($ret)) {
+        if ($ret === null) {
             return response()->json([ 'message' => 'Unexpected local blast error.' ], 400);
+        } else if (empty($ret)) {
+            return response()->json([ 'message' => 'No Hits found' ]);
         } else {
             return response()->json($ret);
         }
@@ -284,8 +286,10 @@ class IsolatesController extends Controller {
     protected function blastFromSilva($seq) {
         $ret = $this->localBlast($seq, 'silva_ssuref_nr99');
         // Note invalide json returns NULL but throughs no error
-        if (empty($ret)) {
+        if ($ret === null) {
             return response()->json([ 'message' => 'Unexpected local blast error.' ], 400);
+        } else if (empty($ret)) {
+            return response()->json([ 'message' => 'No Hits found' ]);
         }
 
         foreach ($ret as $hit) {
@@ -297,8 +301,10 @@ class IsolatesController extends Controller {
 
     protected function blastFromNcbi($seq) {
         $ret = $this->localBlast($seq, '16SMicrobial');
-        if (empty($ret)) {
+        if ($ret === null) {
             return response()->json([ 'message' => 'Unexpected local blast error.' ], 400);
+        } else if (empty($ret)) {
+            return response()->json([ 'message' => 'No Hits found' ]);
         }
 
         foreach ($ret as $hit) {
