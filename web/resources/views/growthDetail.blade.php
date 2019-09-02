@@ -695,8 +695,8 @@
         let [col, grd] = plotPalette(key);
         let fadedCol = colorFade('#' + col, wt.concentration, grd, 0.2)
         let trace = {
-          x: tp.slice(100,-100),
-          y: wd.values.slice(100,-100),
+          x: tp,
+          y: wd.values,
           name: nameStr,
           line: {
             color: fadedCol,
