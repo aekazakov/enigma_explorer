@@ -67,6 +67,8 @@ $router->group(['prefix' => 'api/v1'], function() use ($router) {
         $router->get('meta/id/{id}', 'GrowthController@metaById');
         // get actuall plate value by id
         $router->get('wells/id/{id}', 'GrowthController@wellDataById');
+        // get a list of plates by keyword (strain)
+        $router->get('keyword/{keyword}', 'GrowthController@metaBykeyword');
     });
 });
 
@@ -86,6 +88,10 @@ $router->get('/growthcurve', function() {
 });
 $router->get('/growthcurve/id/{id}', function($id) {
     return view('growthDetail', [ 'activeLink' => 'interactionLink', 'id' => $id ]);
+});
+$router->get('/growthsearch', function(Request $request) {
+    $keyword = $request->input('keyword');
+    return view('plateSearch', [ 'activeLink' => 'nonExistingEle', 'keyword' => $keyword]);
 });
 $router->get('/search', function(Request $request) {
     $keyword = $request->input('keyword');

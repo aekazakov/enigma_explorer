@@ -9,11 +9,28 @@
   
   <script>
     $(document).ready(function() {
-      $('#mainSearchButton').unbind();
-      $('#mainSearchButton').click(function() {
-        let id = $('#mainSearchInput').val();
-        window.location.href = '/growthcurve/id/'+id;
-      });
+      var newRedirect = () => {
+        let keyword = encodeURI($('#mainSearchInput').prop('value'));
+        // if a number, jump directly
+        if (!isNaN(parseInt(keyword))) {
+          window.location.href = '/growthcurve/id/'+keyword;
+        } else {
+          window.location.href = '/growthsearch?keyword='+keyword;
+        }
+      };
+
+      setInterval(() => {
+        $('#mainSearchButton').unbind();
+        $('#mainSearchInput').unbind();
+
+        $('#mainSearchButton').click(newRedirect);
+        $('#mainSearchInput').bind('keypress', function(event) {
+          if (event.keyCode == '13') {
+            newRedirect();
+          }
+        });
+      }, 100);
+
     });
   </script>
 @endsection

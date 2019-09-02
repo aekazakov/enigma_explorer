@@ -26,6 +26,33 @@ class GrowthController extends Controller {
         }
     }
 
+    public function metaBykeyword($keyword) {
+        $wells = DB::table('GrowthPlate')
+            ->join('GrowthWell', 'GrowthPlate.growthPlateId', '=', 'GrowthWell.growthPlateId')
+            ->join('StrainMutant', 'GrowthWell.strainMutantId', '=', 'StrainMutant.strainMutantId')
+            ->join('Strain', 'StrainMutant.strainId', '=', 'Strain.strainId')
+            ->select('GrowthPlate.growthPlateId', 'numberOfWells', 'dateCreated', 'Strain.label')
+            ->where('Strain.label', 'LIKE', '%'.$keyword.'%')
+            ->get();
+        $json = [];
+        foreach ($wells as $well) {
+            if (!array_key_exists($well->growthPlateId, $json)) {
+                $json[$well->growthPlateId] = [
+                    'growthPlateId' => $well->growthPlateId,
+                    'numberOfWells' => $well->numberOfWells,
+                    'dateCreated' => $well->dateCreated,
+                    'strain' => $well->label
+                ];
+            }
+        }
+        $json = array_values($json);
+        if (count($json) == 0) {
+            return response()->json([ 'message' => 'No plates found'], 400);
+        } else {
+            return response()->json($json);
+        }
+    }
+
     public function wellDataById($id) {
         // use innerjoin instead of leftjoin, because w/o well data is meaningless
         $wells = DB::table('GrowthPlate')

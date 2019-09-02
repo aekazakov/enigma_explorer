@@ -20,7 +20,7 @@
     <hr />
     <div class="row my-2">
       <div class="col-sm-12 col-lg-4">
-        <a href="https://sites.google.com/a/lbl.gov/enigma-intranet/home/science/field-site/field-sequence-isolates" class="btn btn-outline-info btn-lg d-block mx-auto my-2">ENIGMA Isolates Interaction</a>
+        <a href="http://mprice.dev.microbesonline.org/curves/" class="btn btn-outline-info btn-lg d-block mx-auto my-2">ENIGMA Isolates Interaction</a>
       </div>
       <div class="col-sm-12 col-lg-4">
         <a href="https://narrative.kbase.us/narrative/ws.24918.obj.1" class="btn btn-outline-info btn-lg d-block mx-auto my-2">KBase Narrative</a>

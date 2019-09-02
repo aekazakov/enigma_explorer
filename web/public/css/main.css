@@ -49,3 +49,22 @@ a {
 #wellDataView {
     table-layout: fixed;
 }
+
+/* Fix for bootstrap toggle */
+.toggle-off {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+}
+.toggle.off {
+    border-color: rgba(0, 0, 0, .25);
+}
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+/* Non-selectable class */
+.noselect {
+  user-select: none;
+  -moz-user-select: none;
+}
