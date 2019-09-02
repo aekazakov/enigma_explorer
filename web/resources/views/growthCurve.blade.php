@@ -6,6 +6,11 @@
   @component('searchBox')
     Search for a Plate
   @endcomponent
+  <div class="row">
+    <div class="col-12">
+      <p>Search for a plate by its ID or name of the strain</p>
+    </div>
+  </div>
   
   <script>
     $(document).ready(function() {
