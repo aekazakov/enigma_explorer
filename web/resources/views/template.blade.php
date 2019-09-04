@@ -48,7 +48,7 @@
       <form class="form-inline my-2 my-lg-0 col-lg-4 col-md-12" id="searchForm" action="#">
         <input style="display:none;" />
         <input name="keyword" class="typeahead form-control mr-sm-2" id="searchInput" autocomplete="off" type="search" data-provide="typeahead" placeholder="Enter keywords" aria-label="Search" />
-        <button class="btn btn-outline-primary my-2 my-sm-0" id="searchButton" type="button">Search</button>
+        <button class="btn btn-outline-info my-2 my-sm-0" id="searchButton" type="button">Search</button>
       </form>
     </div>
   </nav>
