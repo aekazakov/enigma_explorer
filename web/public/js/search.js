@@ -10,7 +10,7 @@ function emptyDataView() {
 };
 
 // Fill data view with error info
-function errorDataview(errorHint) {
+function errorDataView(errorHint) {
   $('#resNumber').html('0');
   $('#dataList').append(`
     <div class="list-group-item">

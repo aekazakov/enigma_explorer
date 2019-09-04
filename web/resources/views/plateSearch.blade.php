@@ -59,6 +59,7 @@ Search: {{ $keyword }}
       $.ajax({
         url:'/api/v1/growth/keyword/'+keyword,
         success: function(data) {
+          console.log(data.length);
           if (data.length == 0) {
             emptyDataView();
           }
@@ -70,7 +71,7 @@ Search: {{ $keyword }}
         },
         error: function(jqXHR, text, code) {
           if (jqXHR.status == 400) {
-            var errorHint = "Something went wrong :( Please check your keyword.";
+            var errorHint = "No related plates found.";
           } else {
             var errorHint = "Unknown error. Please contact admin!";
           }
