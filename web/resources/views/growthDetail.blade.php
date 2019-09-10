@@ -268,8 +268,9 @@
         `);
 
         for (let j = 0; j < nCol; j++) {
+          let loc = rowLabel+(j+1);
           let colString = `
-            <button data-locInt="${i*nCol+j+1}" data-loc="${rowLabel+(j+1)}"class="col plateCol rounded-circle border border-dark p-0 m-1"></button>
+            <button data-locInt="${i*nCol+j+1}" data-loc="${rowLabel+(j<9?'0':'')+(j+1)}"class="col plateCol rounded-circle border border-dark p-0 m-1"></button>
           `;
           $('#plateView').children('.plateRow').eq(i).append(colString);
         }
@@ -461,7 +462,8 @@
             <tr class="text-center"><td>${String.fromCharCode(65+i)}</td></tr>
           `);
           for (let j = 0; j < nCol; j++) {
-            let well = data[i*nCol+j];
+            let wellLoc = $('.plateCol').eq(i*nCol+j).attr('data-locInt');
+            let well = data[parseInt(wellLoc)-1];
             $('#conditionsView tbody>tr:last-child').append(`
               <td class="condCol border border-dark">${cellStr(well, showCond)}</td>
             `);
@@ -481,7 +483,8 @@
             <tr class="text-center"><td>${String.fromCharCode(65+i)}</td></tr>
           `);
           for (let j = 0; j < nCol; j++) {
-            let well = data[i*nCol+j];
+            let wellLoc = $('.plateCol').eq(i*nCol+j).attr('data-locInt');
+            let well = data[parseInt(wellLoc)-1];
             $('#conditionsView tbody>tr:last-child').append(`
               <td class="condCol border border-dark">${cellStr(well, showCond)}</td>
             `);
@@ -540,7 +543,8 @@
           <tr class="text-center"><td>${String.fromCharCode(65+i)}</td></tr>
         `);
         for (let j = 0; j < nCol; j++) {
-          let well = data[i*nCol+j];
+          let wellLoc = $('.plateCol').eq(i*nCol+j).attr('data-locInt');
+          let well = data[parseInt(wellLoc)-1];
           $('#heatmapView tbody>tr:last-child').append(`
             <td class="condCol border border-dark">${cellStr(well, timepoint, showNum)}</td>
           `);
@@ -586,6 +590,11 @@
         type: 'GET',
         success: (data) => {
 
+          // Change the data-locInt of each well
+          for (let i in data) {
+            let wellLoc = data[i].wellLocation;
+            $(`.plateCol[data-loc="${wellLoc}"]`).attr('data-locInt', parseInt(i)+1);
+          }
           // Trigger rendering of conditions overview
           // Change of configuration trigger re-redenring
           $('#grdToggle,#condToggle').change(function() {
