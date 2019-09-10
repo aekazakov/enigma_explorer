@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Isolates;
+//use App\Isolates;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,7 +13,7 @@ class GrowthController extends Controller {
 
     // get metadata by id
     public function metaById($id) {
-        $plates = DB::table('GrowthPlate')
+        $plates = DB::connection('mysqlGrowth')->table('GrowthPlate')
             ->leftjoin('Instrument', 'GrowthPlate.instrumentId', '=', 'Instrument.instrumentId')
             ->select('growthPlateId', 'plateType', 'numberOfWells', 'dateCreated', 'dateScanned', 'instrumentName', 'anaerobic', 'measurement')
             ->where('growthPlateId', $id)
@@ -27,7 +27,7 @@ class GrowthController extends Controller {
     }
 
     public function metaBykeyword($keyword) {
-        $wells = DB::table('GrowthPlate')
+        $wells = DB::connection('mysqlGrowth')->table('GrowthPlate')
             ->join('GrowthWell', 'GrowthPlate.growthPlateId', '=', 'GrowthWell.growthPlateId')
             ->join('StrainMutant', 'GrowthWell.strainMutantId', '=', 'StrainMutant.strainMutantId')
             ->join('Strain', 'StrainMutant.strainId', '=', 'Strain.strainId')
@@ -55,7 +55,7 @@ class GrowthController extends Controller {
 
     public function wellDataById($id) {
         // use innerjoin instead of leftjoin, because w/o well data is meaningless
-        $wells = DB::table('GrowthPlate')
+        $wells = DB::connection('mysqlGrowth')->table('GrowthPlate')
             ->join('GrowthWell', 'GrowthPlate.growthPlateId', '=', 'GrowthWell.growthPlateId')
             ->join('WellData', 'GrowthWell.growthWellId', '=', 'WellData.growthWellId')
             ->join('TreatmentInfo', 'GrowthWell.growthWellId', '=', 'TreatmentInfo.growthWellId')
@@ -90,9 +90,16 @@ class GrowthController extends Controller {
             if (!array_key_exists('treatment', $wellJson)) {
                 $wellJson['treatment'] = [];
                 $treatJson = &$wellJson['treatment'];
-                $treatJson['condition'] = $well->condition;
-                $treatJson['concentration'] = $well->concentration;
-                $treatJson['units'] = $well->units;
+                $treatJson['condition'] = [$well->condition];
+                $treatJson['concentration'] = [$well->concentration];
+                $treatJson['units'] = [$well->units];
+            } else {    // Notice one well can have more than 1 treatment
+                $treatJson = &$wellJson['treatment'];
+                if (!in_array($well->condition, $treatJson['condition'])) { // is this a new condition?
+                    $treatJson['condition'][] = $well->condition;
+                    $treatJson['concentration'][] = $well->concentration;
+                    $treatJson['units'][] = $well->units;
+                }
             }
             if (!array_key_exists('data', $wellJson)) {
                 $wellJson['data'] = [];
@@ -101,11 +108,23 @@ class GrowthController extends Controller {
                 $dataJson['values'] = [ $well->value ];
                 $dataJson['temperatures'] = [ $well->temperature ];
             } else {
-                $dataJson['timepoints'][] = $well->timepointSeconds;
-                $dataJson['values'][] = $well->value;
-                $dataJson['temperatures'][] = $well->temperature;
+                if (count($wellJson['treatment']['condition']) <= 1) {
+                    $dataJson = &$wellJson['data'];
+                    $dataJson['timepoints'][] = $well->timepointSeconds;
+                    $dataJson['values'][] = $well->value;
+                    $dataJson['temperatures'][] = $well->temperature;
+                }
             }
         }
+
+        // Tackle with multiple treatment: this is expedient
+        foreach ($json as $wl => $wd) {
+            $treatJson = &$json[$wl]['treatment'];
+            $treatJson['condition'] = implode(' | ', $treatJson['condition']);
+            $treatJson['concentration'] = $treatJson['concentration'][0];
+            $treatJson['units'] = $treatJson['units'][0];
+        }
+
         $json = array_values($json);
         // JSON structure:
         /* $wellId: {
