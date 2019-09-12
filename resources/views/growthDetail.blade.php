@@ -374,7 +374,7 @@
       $('.plateCol').eq(0).trigger('click');
 
       return plateDS;
-  };
+    };
     
     // convert between hex and rgb
     function hexToRgb(hex) {
@@ -406,6 +406,24 @@
       return rgbToHex(Math.round(grdCol.r), Math.round(grdCol.g), Math.round(grdCol.b));
     };
 
+    var wellIdentifier = function(well) {
+      /* 4 states: empty, blank, control and samples
+      if there is neither treatment nor strain, then empty
+      if there is strain but no treatment, then control
+      if there is treatment but not strain, then blank
+      if there is both treatment and strain, then sample*/
+
+      if (well.strainLabel.toLowerCase() == 'none' && well.treatment.condition.toLowerCase() == 'none') {
+        return 'Empty';
+      } else if (well.strainLabel.toLowerCase() == 'none') {
+        return 'Blank';
+      } else if (well.treatment.condition.toLowerCase() == 'none') {
+        return 'Control';
+      } else {
+        return `${well.strainLabel},${well.treatment.condition}`;
+      }
+    }
+
     var renderConditions = function(nWells, data, style='default', showCond=false) {
       let wellDef = { "24": [4,6], "48": [6,8], "96": [8,12], "384": [16,24] };
 
@@ -415,14 +433,7 @@
       // Assign the gradient map
       let grdMap = {};
       for (well of data) {
-        if (well.strainLabel == 'None') {
-          // Does not contain anything
-          continue;
-        } else if (well.treatment.condition.toLowerCase() == 'none' && well.treatment.concentration == 0) {
-          var key = "Control";
-        } else {
-          var key = well.strainLabel+', '+well.treatment.condition;
-        }
+        var key = wellIdentifier(well);
         if (!grdMap.hasOwnProperty(key)) {
           grdMap[key] = [well.treatment.concentration];
         } else {
@@ -460,11 +471,11 @@
       $('#legends').trigger('renderLegends', [colMap]);
 
       let cellStr = function(well, showCond=false) {
-        if (well.strainLabel.toLowerCase() == 'none') {
-          str = 'Empty';
-        } else if (well.treatment.concentration == 0 && well.treatment.condition.toLowerCase() =='none') {
-          str = 'Control';
-        } else if (!showCond) {
+        var key = wellIdentifier(well);
+        if (['Empty', 'Control', 'Blank'].includes(key)) {
+          return key;
+        }
+        if (!showCond) {
           str = well.treatment.concentration+' '+well.treatment.units;
         } else {
           str = well.treatment.concentration+' '+well.treatment.units+'<br/>'+
@@ -487,8 +498,7 @@
               <td class="condCol border border-dark">${cellStr(well, showCond)}</td>
             `);
             // set color for newly appended cell
-            let key = well.treatment.condition.toLowerCase() == 'none' && well.treatment.concentration == 0 && well.strainLabel.toLowerCase() != 'none' ?
-              'Control' : well.strainLabel + ', ' + well.treatment.condition;
+            let key = wellIdentifier(well) == 'Empty' ? '' : wellIdentifier(well);    // There is a colormap for empty, but not shown
             $('#conditionsView tbody>tr:last-child>td:last-child').css('background-color',
               '#'+colMap[key]);
           }
@@ -508,8 +518,7 @@
               <td class="condCol border border-dark">${cellStr(well, showCond)}</td>
             `);
             // set color for newly appended cell
-            let key = well.treatment.condition.toLowerCase() == 'none' && well.treatment.concentration == 0 && well.strainLabel.toLowerCase() != 'none' ?
-              'Control' : well.strainLabel + ', ' + well.treatment.condition;
+            let key = wellIdentifier(well) == 'Empty' ? '' : wellIdentifier(well);
             let cellCol = colMap[key];
             let limits = grdMap[key];
             let fadedCol = colorFade('#' + cellCol, well.treatment.concentration, limits)
@@ -651,14 +660,7 @@
             let condMap = {};
             for (i in data) {
               let well = data[i];
-              if (well.strainLabel.toLowerCase() == 'none') {
-                // Does not contain anything
-                continue;
-              } else if (well.treatment.condition.toLowerCase() == 'none' && well.treatment.concentration == 0) {
-                var key = "Control";
-              } else {
-                var key = well.strainLabel+', '+well.treatment.condition;
-              }
+              let key = wellIdentifier(well);
               if (!condMap.hasOwnProperty(key)) {
                 condMap[key] = [];
               }
@@ -713,15 +715,12 @@
         for (let i = 0; i < wd.timepoints.length; i++) {
           tp.push(wd.timepoints[i] / 3600);
         }
-        if (well.strainLabel.toLowerCase() == "none") {
-          var nameStr = 'Empty';
-        } else if (wt.condition.toLowerCase() == 'none' && wt.concentration == 0) {
-          var nameStr = 'Control';
+        var key = wellIdentifier(well);
+        if (!['Empty', 'Blank', 'Control'].includes(key)) {
+          var nameStr = key+','+well.treatment.concentration+well.treatment.units;
         } else {
-          var nameStr = wt.condition + ' ' + wt.concentration + ' ' + wt.units;
+          var nameStr = key;
         }
-        let key = wt.condition.toLowerCase() == 'none' && wt.concentration == 0 && well.strainLabel.toLowerCase() != 'none' ?
-          'Control' : well.strainLabel + ', ' + wt.condition;
         keys.push(nameStr);
         let [col, grd] = plotPalette(key);
         let fadedCol = colorFade('#' + col, wt.concentration, grd, 0.2)
