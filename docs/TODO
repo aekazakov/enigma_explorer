@@ -1,0 +1,68 @@
+- search box OK
+- navbar header OK
+- navbar responsive design OK
+- navbar margin OK
+- dump isolates to .sql OK
+- decide the PHP framework OK
+- migrate database to non-root user OK
+- securely connect to mysql using pymysql OK
+- fuzzy search NO NEED FOR THAT
+
+- render all pages using view OK
+
+- extract common part of pages OK
+
+- implement search title and active across diff pages OK
+
+- choose BS element for showing search result OK
+
+- search with prompts (ajax) PARTIAL OK
+
+  One takes rendering requests, the other takes api requests
+  "semi-frond-backend-seperation" OK
+
+- design the search temp page OK
+
+1. split search results into pages OK
+
+2. tweak search temperal page ok
+
+3. design detailed info page OK
+
+4. add 16s rrna into database OK
+
+5. add 16s rrna into info page OK
+
+6. if only 1 search result, go to info page directly OK
+
+7. add links to main page OK
+
+8. choose a theme image ok
+
+9. add main search box on isolate page & search page OK
+
+10. design advance search frontend page OK
+
+11. design according api OK
+
+12. edit api documentation No Need For Now
+
+13. implement advance search OK
+
+14. highlight search page OK
+
+# 2019 summer
+
+1. Design the "genus list page"  OK
+
+2. Fix python package error OK
+
+3. Work out genus & orders backend  OK
+
+4. Turn on errorlog in PHP  OK
+
+5. Implement taxa browser and batch download OK
+
+6. Get the expand, collapse and all button
+
+7. fix selection bug (browse)
