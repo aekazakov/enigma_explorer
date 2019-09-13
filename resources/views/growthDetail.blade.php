@@ -138,10 +138,10 @@
         <table class="table table-sm table-borderless">
           <tbody></tbody>
         </table>
-      </div>
-      <div class="row">
-        <div class="col-12 my-3">
-          <h5 id="timeLabel" class="text-center"></h5>
+        <div class="row">
+          <div class="col-12 my-3">
+            <h5 id="timeLabel" class="text-center"></h5>
+          </div>
         </div>
       </div>
       <div class="row border rounded my-2">
@@ -153,6 +153,16 @@
               <label class="mx-2">
                 Show values
               </label>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="row form-group">
+                <div class="col-6">
+                  <a class="btn btn-outline-success" id="hm-img-btn" role="button" href="#" download="">Download Image</a>
+                </div>
+                <div class="col-6">
+                  <a class="btn btn-outline-success" id="hm-html-btn" role="button" href="#">Copy HTML</a>
+                </div>
+              </div>
             </div>
             <div class="form-group col-12">
               <label>Time (min)</label>
@@ -191,12 +201,8 @@
         </form>
       </div>
     </div>
-    <!-- For copy to clipboard -->
-    <div class="d-none">
-      <form>
-        <input type="text" readonly id="clipInput" />
-      </form>
-    </div>
+    <!-- For downloading png -->
+    <div class="d-none" id="downloadTmp"></div>
     <!-- <div class="col-12 mx-4">
       <button type="button" role="button" id="clearPlotBtn" class="btn btn-warning w-100">Clear Plots</button>
     </div> -->
@@ -536,7 +542,27 @@
       }
 
       // update the download buttons
-      bindDownloadBtns();
+      $('#cond-img-btn').each(function() {
+        convertToImage($('#conditionsView>div')[0], this);
+        let plateId = "{{ $id }}";
+        $(this).prop('download', 'conditions-table-'+plateId);
+      });
+
+      $('#cond-html-btn').click(function() {
+        var htmlStr = $('#conditionsView>div:first-child').html();
+        $('.container').append(`
+          <input type=text id="clipInput" value="" />
+        `);
+        $('#clipInput').prop('value', htmlStr);
+        $('#clipInput').select();
+        if(document.execCommand('Copy')) {
+          console.log('copy succeed');
+        } else {
+          console.log('copy failed');
+        }
+        $('#clipInput').remove();
+        return false;
+      });
     };
 
     var renderHeatmap = function(nWells, data, timepoint, showNum = true) {
@@ -598,6 +624,7 @@
       let hours = Math.round(minutes / 60);
       minutes = Math.floor(minutes % 60 * 10) / 10;
       $('#timeLabel').html(hours+' hours, '+minutes+' minutes')
+      
 
     };
 
@@ -643,6 +670,29 @@
             let showValues = $('#valuesToggle').prop('checked');
             $('#heatmapView').trigger('render', [data, val, showValues]);
           })
+          $('#timeInput').change(function() {
+            // update the download buttons
+            $('#hm-img-btn').each(function() {
+              convertToImage($('#heatmapView>div')[0], this);
+              let plateId = "{{ $id }}";
+              $(this).prop('download', 'heatmap-table-'+plateId);
+            });
+            $('#hm-html-btn').click(function() {
+              var htmlStr = $('#heatmapView>div:first-child').html();
+              $('.container').append(`
+                <input type=text id="clipInput" value="" />
+              `);
+              $('#clipInput').prop('value', htmlStr);
+              $('#clipInput').select();
+              if(document.execCommand('Copy')) {
+                console.log('copy succeed');
+              } else {
+                console.log('copy failed');
+              }
+              $('#clipInput').remove();
+              return false;
+            });
+          });
           $('#valuesToggle').change(function() {
             $('#heatmapView').trigger('render', [data, $('#timeInput').prop('value'), $(this).prop('checked')]);
           })
@@ -775,28 +825,7 @@
           let dataPath = canvas.toDataURL('image/png');
           $(hook).attr('href', dataPath);
         });
-      }, 200);
-    };
-
-    var bindDownloadBtns = () => {
-      $('#cond-img-btn').each(function() {
-        convertToImage($('#conditionsView>div')[0], this);
-        let plateId = "{{ $id }}";
-        $(this).prop('download', 'conditions-table-'+plateId);
-      });
-
-      $('#cond-html-btn').click(function() {
-        var htmlStr = $('#conditionsView>div:first-child').html();
-        console.log(htmlStr);
-        $('#clipInput').prop('value', htmlStr);
-        $('#clipInput').select();
-        if(document.execCommand('Copy')) {
-          console.log('copy succeed');
-        } else {
-          console.log('copy failed');
-        }
-        return false;
-      });
+      }, 500);
     };
 
     $(document).ready(function() {
