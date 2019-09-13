@@ -66,7 +66,7 @@ Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities d
   }
   ```
 
-  | :-- | :-- | :-- |
+  | :--- | :--- | :--- |
   | **id** | *UInt64* | id of the isolate |
   | **isolate_id** | *String* | The ENIGMA label for the isolate |
   | **condition** | *String* | The condition in which the strain is isolated |
@@ -93,5 +93,5 @@ Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities d
   }
   ```
 
-  | :-- | :-- | :-- |
+  | :--- | :--- | :--- |
   | **message** | *String* | Error message |
