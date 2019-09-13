@@ -66,6 +66,7 @@ Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities d
   }
   ```
 
+  | Key | Type | Description |
   | :--- | :--- | :--- |
   | **id** | *UInt64* | id of the isolate |
   | **isolate_id** | *String* | The ENIGMA label for the isolate |
@@ -93,5 +94,6 @@ Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities d
   }
   ```
 
+  | Key | Type | Description |
   | :--- | :--- | :--- |
   | **message** | *String* | Error message |
