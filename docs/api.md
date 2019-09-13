@@ -182,7 +182,7 @@ Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities d
       "lab": "Chakraborty",
       "campaign": "Oak Ridge Isolates"
     },
-    ...
+    // ...
   ]
   ```
 
@@ -191,6 +191,7 @@ Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities d
   | None | *List of (IsolateMeta)* | The metadata of matched isolate. The keys are similar to `isolates/id` but `rrna` field for 16s sequence is omitted |
 
   > IsolateMeta
+
     | Key | Type | Description |
     | :--- | :--- | :--- |
     | **id** | *UInt64* | id of the isolate |
