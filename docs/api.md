@@ -191,18 +191,18 @@ Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities d
   | None | *List of (IsolateMeta)* | The metadata of matched isolate. The keys are similar to `isolates/id` but `rrna` field for 16s sequence is omitted |
 
   > IsolateMeta
-  >   | Key | Type | Description |
-  >   | :--- | :--- | :--- |
-  >   | **id** | *UInt64* | id of the isolate |
-  >   | **isolate_id** | *String* | The ENIGMA label for the isolate |
-  >   | **condition** | *String* | The condition in which the strain is isolated |
-  >   | **order** | *String* | Phylogenic order the isolate is assigned to. Notice that due to different pipelines used when collecting the data, even the isolates within the same genus can be assigned to different orders |
-  >   | **closest\_relative** | *String* | The closest relative assigned by 16s sequence similarity |
-  >   | **similarity** | *UFloat64* | 16 sequence similarity between the isolate and its closest relative, in percent |
-  >   | **date\_sampled** | *Timestamp(format="%m/%d/%y")* | The date when the isolate is sampled |
-  >   | **sample\_id** | *String* | Id of the sample |
-  >   | **lab** | *String* | The lab where the strain was isolated |
-  >   | **campaign** | *String* | In which campaign was the stain isolated |
+    | Key | Type | Description |
+    | :--- | :--- | :--- |
+    | **id** | *UInt64* | id of the isolate |
+    | **isolate_id** | *String* | The ENIGMA label for the isolate |
+    | **condition** | *String* | The condition in which the strain is isolated |
+    | **order** | *String* | Phylogenic order the isolate is assigned to. Notice that due to different pipelines used when collecting the data, even the isolates within the same genus can be assigned to different orders |
+    | **closest\_relative** | *String* | The closest relative assigned by 16s sequence similarity |
+    | **similarity** | *UFloat64* | 16 sequence similarity between the isolate and its closest relative, in percent |
+    | **date\_sampled** | *Timestamp(format="%m/%d/%y")* | The date when the isolate is sampled |
+    | **sample\_id** | *String* | Id of the sample |
+    | **lab** | *String* | The lab where the strain was isolated |
+    | **campaign** | *String* | In which campaign was the stain isolated |
 
 - Error
 
