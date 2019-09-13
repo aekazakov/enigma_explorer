@@ -46,57 +46,58 @@ No parameters required.
 
 - Return
 
-**Code:** 200
+  **Code:** 200
 
-**Content:**
+  **Content:**
 
-```json
-{
-  "id": 1,
-  "isolate_id": "FW305-130",
-  "condition": "Sediment extract to 1/25 LB, aerobic, 30°C",
-  "order": "Actinomycetales",
-  "closest_relative": "Nocardia coeliaca strain DSM 44595",
-  "similarity": 99,
-  "date_sampled": "03/02/15",
-  "sample_id": "FW305-03-02-15",
-  "lab": "Chakraborty",
-  "campaign": "Different Carbon Input Enrichment Isolates",
-  "rrna": "GCAGTCGAGCGGTAAGGCCTTTCGGGGT..."
-}
-```
+  ```json
+  {
+    "id": 1,
+    "isolate_id": "FW305-130",
+    "condition": "Sediment extract to 1/25 LB, aerobic, 30°C",
+    "order": "Actinomycetales",
+    "closest_relative": "Nocardia coeliaca strain DSM 44595",
+    "similarity": 99,
+    "date_sampled": "03/02/15",
+    "sample_id": "FW305-03-02-15",
+    "lab": "Chakraborty",
+    "campaign": "Different Carbon Input Enrichment Isolates",
+    "rrna": "GCAGTCGAGCGGTAAGGCCTTTCGGGGT..."
+  }
+  ```
 
-**id** *UInt64* id of the isolate
+  **id** *UInt64* id of the isolate
 
-**isolate_id** *String* The ENIGMA label for the isolate
+  **isolate_id** *String* The ENIGMA label for the isolate
 
-**condition** *String* The condition in which the strain is isolated
+  **condition** *String* The condition in which the strain is isolated
 
-**order** *String* Phylogenic order the isolate is assigned to. Notice that due to different pipelines used when collecting the data, even the isolates within the same genus can be assigned to different orders
+  **order** *String* Phylogenic order the isolate is assigned to. Notice that due to different pipelines used when collecting the data, even the isolates within the same genus can be assigned to different orders
 
-**closest\_relative** *String* The closest relative assigned by 16s sequence similarity
+  **closest\_relative** *String* The closest relative assigned by 16s sequence similarity
 
-**similarity** *UFloat64* 16 sequence similarity between the isolate and its closest relative, in percent
+  **similarity** *UFloat64* 16 sequence similarity between the isolate and its closest relative, in percent
 
-**date\_sampled** *Timestamp(format="%m/%d/%y")* The date when the isolate is sampled
+  **date\_sampled** *Timestamp(format="%m/%d/%y")* The date when the isolate is sampled
 
-**sample\_id** *String* Id of the sample
+  **sample\_id** *String* Id of the sample
 
-**lab** *String* The lab where the strain was isolated
+  **lab** *String* The lab where the strain was isolated
 
-**campaign** *String* In which campaign was the stain isolated
+  **campaign** *String* In which campaign was the stain isolated
 
-**rrna** *String* Full-length 16s sequence of the isolate
+  **rrna** *String* Full-length 16s sequence of the isolate
 
 - Error
 
-Example: Non-numeric id encountered
+  Example: Non-numeric id encountered
 
-**Code:** 400
-**Content**
+  **Code:** 400
 
-```json
-{
-  "message": "Bad inquery"
-}
-```
+  **Content**
+
+  ```json
+  {
+    "message": "Bad inquery"
+  }
+  ```
