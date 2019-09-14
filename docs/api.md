@@ -19,18 +19,31 @@ In general, the ENIGMA Explorer API uses HTTP POST and GET requests with JSON re
 ### API List
 
 - Isolates
+
   [/isolates/id](#isolatesid)
+
   [/isolates/isoid](#isolatesisoid)
+
   [/isolates/keyword](#isolateskeyword)
+
   [/isolates/genus](#isolatesgenus)
+
   [/isolates/count](#isolatescount)
+
   [/isolates/hint](#isolateshint)
+
   [/isolates/rrna](#isolatesrrna)
+
   [/isolates/orders](#isolatesorders)
+
   [/isolates/genera](#isolatesgenera)
+
   [/isolates/taxa](#isolatestaxa)
+
   [/isolates/multiKeywords](#isolatesmultiKeywords)
+
   [/isolates/taxa/rrna](#isolatestaxarrna)
+
   [/isolates/relativeGenome](#isolatesrelativeGenome)
 
 ### Isolates
