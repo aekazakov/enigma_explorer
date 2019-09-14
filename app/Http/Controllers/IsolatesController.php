@@ -79,6 +79,12 @@ class IsolatesController extends Controller {
 
     public function rrnaById($id) {
        $iso = Isolates::where('id', $id)->select('isolate_id', 'rrna')->first();
+       // check if the isolate itself/16s exist
+       if (is_null($iso)) {
+           return response()->json([ 'message', 'Isolate not found'], 400);    // could be wrong input
+       } else if (is_null($iso->rrna)) {
+           return response()->json([ 'message', 'No 16s seq record found of the isolate'], 404);    // missing resources
+       }
        $response = response()->make('> '.$iso->isolate_id."\n".$iso->rrna, 200);
        $response->header('Content-Type', 'text/plain')
            ->header('Content-Disposition', 'attachment;filename='.$iso->isolate_id.'.fa');

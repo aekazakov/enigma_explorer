@@ -66,3 +66,22 @@
 6. Get the expand, collapse and all button
 
 7. fix selection bug (browse)
+
+# 09/13/2019
+
+bugs:
+
+1. A bug causes download to fail, because of the conflicts of the isolates meta
+2. online blast table does not has the correct links
+3. Type ahead overlapped in around md layouts
+4. Type ahead does not accept space
+5. Download of the heatmap/conditions sometimes return empty images
+6. The search page only accepts isolates or plates, cannot do both
+
+features:
+
+1. An ad-hoc upload and rendering of the plates
+2. Use CV to create the typehead of the plates
+3. links between the enigma isolates and the plates
+4. links between the isolates and the fitness browser
+5. Additional columns of the new spreadsheet
