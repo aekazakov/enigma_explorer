@@ -216,7 +216,7 @@ class IsolatesController extends Controller {
 
         $genomeList = shell_exec($cmd);
         if (is_null($genomeList)) {
-            return response()->json(["message" => "Unexpected internal error"], 400);
+            return response()->json(["message" => "Unexpected internal error"], 404);
         } else {
             return response()->json(json_decode($genomeList));
         }

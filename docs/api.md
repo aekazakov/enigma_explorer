@@ -196,7 +196,6 @@ Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities d
       "lab": "Chakraborty",
       "campaign": "Oak Ridge Isolates"
     }
-    // ...
   ]
   ```
 
@@ -493,7 +492,7 @@ Search for isolates according to the genus assigned to the `closest_relative` of
 
   | Key | Type | Description |
   | :--- | :--- | :--- |
-  | \<Order\> | UInt64 | The name of the phylogenic order and the number of isolates belong to which |
+  | \<Order\> | UInt64 | The name of the phylogenic order and the number of isolates belonging to which |
 
 #### /isolates/genera
 
@@ -503,6 +502,236 @@ Search for isolates according to the genus assigned to the `closest_relative` of
 
   Please refer to [/isolates/orders](#isolatesorders).
 
+#### /isolates/taxa
+
+- Description
+
+  To retrieve a comprehensive and hierarchical list of the taxonomy of the ENIGMA collection.
+
+- URL Structure
+
+  `http://isolates.genomics.lbl.gov/api/v1/isolates/taxa`
+
+- Method
+
+  `GET`
+
+- Example
+
+  ```sh
+  curl -X GET http://isolates.genomics.lbl.gov/api/v1/isolates/taxa
+  ```
+
+- Parameters
+
+  No parameters required.
+
+- Return
+
+  **Code:** 200
+
+  **Content:**
+
+  ```json
+  {
+  "Actinomycetales": {
+    "genera": {
+      "Cellulomonas": 1,
+      "Cellulosimicrobium": 2,
+      "Microbacterium": 6,
+      "Nocardia": 1,
+      "Rhodococcus": 2
+    },
+    "tSpecies": 12,
+    "nGenera": 5
+  },
+  "Bacillales": {
+    "genera": {
+      "Bacillus": 168,
+      "Bacterium": 1,
+      "Brevibacillus": 10,
+      "Brevibacterium": 2,
+      "Cohnella": 1,
+      "Lysinibacillus": 26,
+      "Oceanobacillus": 1,
+      "Paenibacillus": 59,
+      "Sporosarcina": 1,
+      "Staphylococcus": 1
+    },
+    "tSpecies": 270,
+    "nGenera": 10
+  }
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | \<order\> | OrderObject | Containing the genera information |
+
+  > OrderObject
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | genera | GenusObject | Containing the isolates information |
+  | tSpecies | UInt64 | Number of isolates belonging to the order |
+  | nGenera | UInt64 | Number of genera under the order |
+
+  > GeneraObject
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | \<genus\> | UInt64 | Number of isolates belonging to the genus |
+
+#### /isolates/multikeywords
+
+- Description
+
+  Get a list of isolates, according to multiple partial or exact constraints.
+
+- URL Structure
+
+  `http://isolates.genomics.lbl.gov/api/v1/multikeywords`
+
+- Method
+
+  `POST`
+
+- Example
+
+  ```sh
+  curl -X POST http://isolates.genomics.lbl.gov/api/v1/isolates/multiKeywords \
+      --header "Content-Type: application/json" \
+      --data "{\"isoid\": \"fw305-1\", \"order\": \"Pseudomonadales\", \"isEqual\": {\"isoid\": \"false\", \"order\": \"true\", \"relative\": \"false\", \"lab\": \"false\"}}"
+  ```
+
+- Parameters
+
+  No required parameters.
+
+- Return
+
+  **Code:** 200
+
+  **Content:**
+
+  ```json
+  [
+    {
+        "id": 410,
+        "isolate_id": "FW305-117",
+        "condition": "1/10 R2A, aerobic, 30°C",
+        "order": "Pseudomonadales",
+        "closest_relative": "Pseudomonas azotoformans strain NBRC 12693",
+        "similarity": 99,
+        "date_sampled": "03/02/15",
+        "sample_id": "FW305-03-02-15",
+        "lab": "Chakraborty",
+        "campaign": "Different Carbon Input Enrichment Isolates"
+    },
+    {
+        "id": 411,
+        "isolate_id": "FW305-124",
+        "condition": "1/10 R2A, aerobic, 30°C",
+        "order": "Pseudomonadales",
+        "closest_relative": "Pseudomonas azotoformans strain NBRC 12693",
+        "similarity": 97,
+        "date_sampled": "03/02/15",
+        "sample_id": "FW305-03-02-15",
+        "lab": "Chakraborty",
+        "campaign": "Different Carbon Input Enrichment Isolates"
+    }
+  ]
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | None | List of (IsolateMeta) | The metadata of matched isolates |
+
+  > IsolateMeta
+  > Same as the object returned by [/isolates/keyword](#isolateskeyword).
+
+#### /isolates/relativeGenome
+
+- Description
+
+  Looking for relative complete genomes related to the given isolate by its id. This API will invoke the NCBI Entrez APIs, thus a longer delay is expected. Genomes are in genome id of the NCBI `nuccore` database.
+
+  Notice this functionality does not look for 16s sequence similarities, but only matches the `closest_relative` field of a certain isolate.
+
+- URL Structure
+
+  `http://isolates.genomics.lbl.gov/api/v1/isolates/relativeGenome/:id`
+
+- Method
+
+  `GET`
+
+- Example
+
+  ```sh
+  curl -X GET http://isolates.genomics.lbl.gov/api/v1/relativeGenome/3
+  ```
+
+- Parameters
+
+  No parameters required.
+
+- Return
+
+  **Code:** 200
+
+  **Content:**
+
+  ```json
+  {
+    "strain": [
+      "Bacillus anthracis CZC5 DNA",
+      "Bacillus anthracis DNA nearly",
+      "Bacillus anthracis strain PR01",
+      "Bacillus anthracis strain PR10-4",
+      "Bacillus anthracis strain PR08",
+      "Bacillus anthracis strain Parent1",
+      "Bacillus anthracis strain PR09-4",
+      "Bacillus anthracis strain PR02",
+      "Bacillus anthracis strain PR06",
+      "Bacillus anthracis strain Parent2"
+    ],
+    "id": [
+      "1478065624",
+      "1246894411",
+      "1043367819",
+      "1043366245",
+      "1043363099",
+      "1043363094",
+      "1043363021",
+      "1043362998",
+      "1043355934",
+      "1043355172"
+    ]
+  }
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+
+- Error
+
+  Example: NCBI Entrez timeout
+
+  **Code:** 404
+
+  **Content**
+
+  ```json
+  {
+    "message": "Unexpected internal error"
+  }
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **message** | *String* | Error message |
+
+<!--
 #### /path1/path2
 
 - Description
@@ -550,3 +779,4 @@ Search for isolates according to the genus assigned to the `closest_relative` of
   | Key | Type | Description |
   | :--- | :--- | :--- |
   | **message** | *String* | Error message |
+  -- >
