@@ -16,6 +16,23 @@ The ENIGMA Explorer API allows developers to query the desired isolates and grow
 
 In general, the ENIGMA Explorer API uses HTTP POST and GET requests with JSON responses and optionally with JSON arguments. We recommend using `curl` or the GUI tool [Postman](https://www.getpostman.com) for testing and debug. No authorization is required. Base URL is `http://isolates.genomics.lbl.gov/api/:ver`, in which `:ver` is the version token, currently `v1`.
 
+### API List
+
+- Isolates
+  [/isolates/id](#isolatesid)
+  [/isolates/isoid](#isolatesisoid)
+  [/isolates/keyword](#isolateskeyword)
+  [/isolates/genus](#isolatesgenus)
+  [/isolates/count](#isolatescount)
+  [/isolates/hint](#isolateshint)
+  [/isolates/rrna](#isolatesrrna)
+  [/isolates/orders](#isolatesorders)
+  [/isolates/genera](#isolatesgenera)
+  [/isolates/taxa](#isolatestaxa)
+  [/isolates/multiKeywords](#isolatesmultiKeywords)
+  [/isolates/taxa/rrna](#isolatestaxarrna)
+  [/isolates/relativeGenome](#isolatesrelativeGenome)
+
 ### Isolates
 
 Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities do not provide full genome sequences nor isolates from FEBA collections.
