@@ -46,6 +46,12 @@ In general, the ENIGMA Explorer API uses HTTP POST and GET requests with JSON re
 
   [/isolates/relativeGenome](#isolatesrelativeGenome)
 
+- ncbi
+
+  [/ncbi/genome](#ncbigenome)
+  [/ncbi/blast/rid](#ncbiblastrid)
+  [/ncbi/blast GET and POST versions](#ncbiblast)
+
 ### Isolates
 
 Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities do not provide full genome sequences nor isolates from FEBA collections.
@@ -742,6 +748,8 @@ Search for isolates according to the genus assigned to the `closest_relative` of
 
   | Key | Type | Description |
   | :--- | :--- | :--- |
+  | **strain** | *List of (String)* | Name of the strains hit |
+  | **id** | *List of (String)* | NCBI id of the genome sequence of the strains hit |
 
 - Error
 
@@ -760,6 +768,291 @@ Search for isolates according to the genus assigned to the `closest_relative` of
   | Key | Type | Description |
   | :--- | :--- | :--- |
   | **message** | *String* | Error message |
+
+### NCBI Utilities
+
+Retrieve genome sequence from NCBI. And NCBI BLAST related functionalities.
+
+#### /ncbi/genome
+
+- Description
+
+  Get the complete genome sequence from NCBI by id. This API was orignially used together with [/isolates/relativeGenome](#isolatesrelativeGenome), which returns a list of ids related to designated isolate. Instead of in JSON format, the response will trigger browser download.
+
+- URL Structure
+
+  `http://isolates.genomics.lbl.gov/api/v1/ncbi/genome/:id`
+
+- Method
+
+  `GET`
+
+- Example
+
+  ```sh
+  curl -X GET -i http://isolates.genomics.lbl.gov/api/v1/ncbi/genome/1478065624
+  ```
+
+- Parameters
+
+  No parameters required.
+
+- Return
+
+  **Code:** 200
+
+  **Header:**
+
+  ```
+  Content-Type: text/plain; charset=UTF-8
+  Content-Disposition: attachment;filename=1478065624.fa
+  ```
+
+  **Content:**
+
+  ```
+  >NZ_AP018443.1 Bacillus anthracis CZC5 DNA, complete genome
+  ATATTTTTTCTTGTTTTTTATATCCACAAACTCTTTTCGTACTTTTACACAGTATATCGTGTTGTGGACA
+  ATTTTATTCCACAAGGTATTGATTTTGTGGATAACTTTCTTAATTTCA...
+  ```
+
+- Error
+
+  Example: Sequence of designated id is not found in NCBI
+
+  **Code:** 404
+
+  **Content:**
+
+  ```json
+  {
+    "message": "Sequence corresponds to the NCBI Rid is not found";
+  }
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **message** | *String* | Error message |
+
+
+#### /ncbi/blast/rid
+
+- Description
+
+  Perform NCBI online BLAST using the 16s sequence of an isolate. The return specifies necessary parameters in JSON, most importantly the Rid of the BLAST transaction, for clients to retrieve the results.
+
+- URL Structure
+
+  `http://isolates.genomics.lbl.gov/api/v1/ncbi/blast/rid/:id`
+
+- Method
+
+  `GET`
+
+- Example
+
+  ```sh
+  curl -X GET http://isolates.genomics.lbl.gov/api/v1/ncbi/blast/rid/1
+  ```
+
+- Parameters
+
+  No parameters required.
+
+- Return
+
+  **Code:** 200
+
+  **Content:**
+
+  ```json
+  {
+    "CMD": "Get",
+    "FORMAT_TYPE": "HTML",
+    "RID": "RZP1PFFJ015",
+    "SHOW_OVERVIEW": "on"
+  }
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **CMD** | *String* | Method retuqired to retrieve BLAST results |
+  | **FORMAT_TYPE** | *String* | Show results in web pages |
+  | **RID** | *String* | Reference id of BLAST request |
+  | **SHOW_OVERVIEW** | *String* | Whether to show graphical summary |
+
+- Error
+
+  Example: The isolate has empty 16s sequence
+
+  **Code:** 400
+
+  **Content:**
+
+  ```json
+  {
+    "message": "Undefined offset: 1"
+  }
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **message** | *String* | Error message |
+
+#### /ncbi/blast
+
+- Description
+
+  Another blast functionality, yet it uses local database and BLAST binaries instead of connecting to NCBI server. Cut off of E value is 1E-10. Maximum hit is 50.
+
+- URL Structure
+
+  `http://isolates.genomics.lbl.gov/api/v1/ncbi/blast/:blastDB/:id`
+
+  `:blastDB` path currently accepts 3 phrases: "isolates" ENIGMA isolates, "ncbi" NCBI 16s micribial database and "silva" SILVA SSU Ref NR 99 database.
+
+- Method
+
+  `GET`
+
+- Example
+
+  ```sh
+  curl -X GET http://isolates.genomics.lbl.gov/api/v1/ncbi/blast/isolates/1
+  ```
+
+- Parameters
+
+  No parameters required.
+
+- Return
+
+  **Code:** 200
+
+  **Content:**
+
+  ```json
+  [
+    {
+      "start": 3,
+      "end": 1361,
+      "isoid": "FW305-5",
+      "coverage": 0.9992652461425422,
+      "title": "",
+      "align": {
+        "hseq": "AGTCGAGCGGTAAGGCCTTTCGGGGTACACGAGCGGCGAACGGGTGAGTAACACGTGGGTGATCTGC...",
+        "qseq": "AGTCGAGCGGTAAGGCCTTTCGGGGTACACGAGCGGCGAACGGGTGAGTAACACGTGGGTGATCTGC...",
+        "midline": "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||..."
+      },
+      "evalue": 0,
+      "identity": 0.9955914768552535
+    }
+  ]
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **None** | *List of (BlastObj)* | Information to describe a hit |
+
+  > BlastObj
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **start** | *UInt64* | Start of the hit on query sequence |
+  | **end** | *UInt64* | End of the hit on query sequence |
+  | **isoid** | *String* | Isolate id of the hit sequence, not empty only if the reference DB is ENIGMA isolates |
+  | **coverage** | *UFloat64* | The percentage of the hit spans the query query |
+  | **title** | *String* | Identifier of hit sequence. Left empty if reference DB is ENIGMA isolates |
+  | **align** | *AlignObj* | Details of the alignment |
+  | **evalue** | *UFloat64* | The expectation to see this hit in random sequence DB. It is the function of both the match score and the size of the DB. Refer to [BLAST Q&A](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=FAQ#expect) |
+  | **identity** | *UFloat64* | The percentage of exact match of the query sequence |
+
+  > AlignObj
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | hseq | *String* | The aligned hit sequence |
+  | qseq | *String* | The aligned query sequence |
+  | midline | *String* | Either a '|' (match), a '-' (deletion) or a ' ' (insertion) at a particular bp |
+
+  Example: No hits found
+
+  **Code:** 200
+
+  **Content:**
+
+  ```json
+  {
+    "message": "Ho Hits found"
+  }
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **message** | *String* | No hits message |
+
+- Error
+
+  Example: Unprecedented BLAST database
+
+  **Code:** 400
+
+  **Content:**
+
+  ```json
+  {
+    "message": "BLAST database not supported"
+  }
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **message** | *String* | Error message |
+
+  Example: Any error raised by BLAST binaries
+
+  **Code:** 400
+
+  **Content:**
+
+  ```json
+  {
+    "message": "Unexpected local blast error"
+  }
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **message** | *String* | Error message |
+
+
+#### /ncbi/blast
+
+- Description
+
+  Similar to the former [/ncbi/blast](#ncbiblast) API, but this one accepts full sequence through POST instead of using the 16s of isolates
+
+- URL Structure
+
+  `http://isolates.genomics.lbl.gov/api/v1/ncbi/blast/:blastDB`
+
+- Method
+
+  `POST`
+
+- Example
+
+  ```sh
+  curl -X GET http://isolates.genomics.lbl.gov/api/v1/ncbi/blast/isolates
+  ```
+
+- Parameters
+
+  No parameters required.
+
+- Return and error
+
+  As is elucidated in API [/ncbi/blast](#ncbiblast)
 
 <!--
 #### /path1/path2
@@ -780,6 +1073,9 @@ Search for isolates according to the genus assigned to the `closest_relative` of
   ```
 
 - Parameters
+
+  No parameters required.
+
 - Return
 
   **Code:** 200
@@ -798,7 +1094,7 @@ Search for isolates according to the genus assigned to the `closest_relative` of
 
   **Code:** 400
 
-  **Content**
+  **Content:**
 
   ```json
   {

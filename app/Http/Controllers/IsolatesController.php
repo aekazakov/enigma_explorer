@@ -232,6 +232,9 @@ class IsolatesController extends Controller {
             $cmd = implode(' ', [base_path("scripts/fetchGenome.py"), "-i", $id]);
         }
         $genome = shell_exec($cmd);
+        if (empty($genome)) {
+            return response()->json([ 'message' => 'Sequence corresponds to the NCBI id is not found' ], 404);
+        }
         $response = response()->make($genome, 200);
         $response->header('Content-Type', 'text/plain')
            ->header('Content-Disposition', 'attachment;filename='.$id.'.fa');
@@ -291,7 +294,7 @@ class IsolatesController extends Controller {
 
     protected function blastFromSilva($seq) {
         $ret = $this->localBlast($seq, 'silva_ssuref_nr99');
-        // Note invalide json returns NULL but throughs no error
+        // Note invalide json returns NULL but throws no error
         if ($ret === null) {
             return response()->json([ 'message' => 'Unexpected local blast error.' ], 400);
         } else if (empty($ret)) {
@@ -346,8 +349,8 @@ class IsolatesController extends Controller {
         preg_match('/<input.+name="RID".+value="(\w+)".+id="rid".+>/', $result, $matches);
         try {
             $rid = $matches[1];
-        } catch (Exception $err) {
-            return response()->json(['message' => $err->getMessage()]);
+        } catch (\Exception $err) {
+            return response()->json(['message' => $err->getMessage()], 400);
         }
         // return form data necessary for ncbi blast
         $retData = [
