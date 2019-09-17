@@ -96,11 +96,13 @@
   </div>
   <div class="row tab-content">
     <div class="tab-pane fade show active col-12 my-4" id="conditionsView" role="tabpanel">
-      <div class="overflow-auto">
-        <table class="table table-sm table-borderless">
-          <tbody></tbody>
-        </table>
-        <div class="row" id="legends"></div>
+      <div class="row overflow-auto">
+        <div class="col-12" id="conditionsView-canvas">
+          <table class="table table-sm table-borderless">
+            <tbody></tbody>
+          </table>
+          <div class="row" id="legends"></div>
+        </div>
       </div>
       <div class="row border rounded my-2">
         <form class="col-12 my-2">
@@ -125,7 +127,7 @@
                   <a class="btn btn-outline-success" id="cond-img-btn" role="button" href="#" download="Conditions_table">Download Image</a>
                 </div>
                 <div class="col-6">
-                  <a class="btn btn-outline-success" id="cond-html-btn" role="button" href="#">Copy HTML</a>
+                  <a class="btn btn-outline-success" id="cond-html-btn" role="button" href="#">Download HTML</a>
                 </div>
               </div>
             </div>
@@ -543,24 +545,19 @@
 
       // update the download buttons
       $('#cond-img-btn').each(function() {
-        convertToImage($('#conditionsView>div')[0], this);
-        let plateId = "{{ $id }}";
-        $(this).prop('download', 'conditions-table-'+plateId);
+        setTimeout(() => {
+          let imgW = $('#conditionsView table').width();
+          convertToImage($('#conditionsView-canvas')[0], this, imgW);
+          let plateId = "{{ $id }}";
+          $(this).prop('download', 'conditions-table-'+plateId);
+        }, 200);
       });
 
-      $('#cond-html-btn').click(function() {
+      $('#cond-html-btn').each(function() {
         var htmlStr = $('#conditionsView>div:first-child').html();
-        $('.container').append(`
-          <input type=text id="clipInput" value="" />
-        `);
-        $('#clipInput').prop('value', htmlStr);
-        $('#clipInput').select();
-        if(document.execCommand('Copy')) {
-          console.log('copy succeed');
-        } else {
-          console.log('copy failed');
-        }
-        $('#clipInput').remove();
+        $(this).prop('href', 'data:text/html,' + encodeURIComponent(htmlStr), '_blank');
+        let plateId = "{{ $id }}";
+        $(this).prop('download', 'conditions-table-'+plateId+'.html');
         return false;
       });
     };
@@ -819,13 +816,21 @@
       $('#curvesLink').trigger('click');
     };
 
-    var convertToImage = function(ele, hook) {
-      setTimeout(() => {
-        html2canvas(ele).then((canvas) => {
+    var convertToImage = function(ele, hook, imgW, imgH) {
+      let pos = $(ele).offset();
+      imgW = imgW === undefined ? $(ele).width() : imgW;
+      imgH = imgH === undefined ? $(ele).height() : imgH;
+      // html2canvas cannot correctly detect the offset of ele after ele is rerended, thus munally designation is demanded
+      html2canvas(ele, {
+          x: pos.left,
+          y: pos.top,
+          width: imgW * 1.05,
+          height: imgH * 1.05    // keep the edges safe
+        }).then(function(canvas) {
+          // $('.container').append(canvas);
           let dataPath = canvas.toDataURL('image/png');
           $(hook).attr('href', dataPath);
-        });
-      }, 500);
+      });
     };
 
     $(document).ready(function() {
