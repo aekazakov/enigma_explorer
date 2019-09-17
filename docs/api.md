@@ -18,7 +18,7 @@ In general, the ENIGMA Explorer API uses HTTP POST and GET requests with JSON re
 
 ### API List
 
-- Isolates
+- [Isolates](#isolates)
 
   [/isolates/id](#isolatesid)
 
@@ -46,11 +46,21 @@ In general, the ENIGMA Explorer API uses HTTP POST and GET requests with JSON re
 
   [/isolates/relativeGenome](#isolatesrelativeGenome)
 
-- ncbi
+- [NCBI utilities](#ncbiutilities)
 
   [/ncbi/genome](#ncbigenome)
+
   [/ncbi/blast/rid](#ncbiblastrid)
+
   [/ncbi/blast GET and POST versions](#ncbiblast)
+
+- [Growth curves](#growthcurves)
+
+  [/growth/meta/id](#growthmetaid)
+
+  [/growth/wells/id](#growthwellsid)
+
+  [/growth/keyword](#growthkeyword)
 
 ### Isolates
 
@@ -1043,7 +1053,9 @@ Retrieve genome sequence from NCBI. And NCBI BLAST related functionalities.
 - Example
 
   ```sh
-  curl -X GET http://isolates.genomics.lbl.gov/api/v1/ncbi/blast/isolates
+  curl -X GET http://isolates.genomics.lbl.gov/api/v1/ncbi/blast/isolates \
+    --header "Content-Type: application/json" \
+    --data "{\"seq\": \"> GW456-R21\nACACATGCAGTCGAGCGGATGAAGGGAGCTTGCTCCTGGATTCAGCGGCGGACG...\"}"
   ```
 
 - Parameters
@@ -1053,6 +1065,266 @@ Retrieve genome sequence from NCBI. And NCBI BLAST related functionalities.
 - Return and error
 
   As is elucidated in API [/ncbi/blast](#ncbiblast)
+
+### Growth curves
+
+Growth curves related functionalities
+
+#### /growth/meta/id
+
+- Description
+
+  Get the metadata of a plate by its id
+
+- URL Structure
+
+  `http://isolates.genomics.lbl.gov/api/v1/growth/meta/id/:id`
+
+- Method
+
+  `GET`
+
+- Example
+
+  ```sh
+  curl -X GET http://isolates.genomics.lbl.gov/api/v1/growth/meta/id/1
+  ```
+
+- Parameters
+
+  No parameters required.
+
+- Return
+
+  **Code:** 200
+
+  **Content:**
+
+  ```json
+  {
+    "growthPlateId": 1,
+    "plateType": "Pre-screen",
+    "numberOfWells": "96",
+    "dateCreated": "2009-03-26 18:22:33",
+    "dateScanned": "0000-00-00 00:00:00",
+    "instrumentName": "Spectramax 1",
+    "anaerobic": "No",
+    "measurement": null
+  }
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **growthPlateId** | *UInt64* | Id of the plate |
+  | **plateType** | *String* | "Pre-screen" or "Single-Mutant" |
+  | **numberOfWells** | *String* | Number of plates on a plate, typically 12, 96 or 384 |
+  | **dateCreated** | *String* | Date created |
+  | **dateScanned** | *String* | Date scanned, many have empty values |
+  | **instrumentName** | *String* | Name of the instrument |
+  | **anaerobic** | *String* | Measured anaerobically or not |
+  | **measurement** | *String* | OD 600 measurements leave null |
+
+- Error
+
+  Example: Plate of that id not found
+
+  **Code:** 400
+
+  **Content:**
+
+  ```json
+  {
+    "message": "Invalid plate id"
+  }
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **message** | *String* | Error message |
+
+#### /growth/wells/id
+
+- Description
+
+  Get all well-specific information via plate id, including treatment, media, strain, actual values of the measurement as well as the timeplints.
+
+- URL Structure
+
+  `http://isolates.genomics.lbl.gov/api/v1/growth/wells/id/:id`
+
+- Method
+
+  `GET`
+
+- Example
+
+  ```sh
+  curl -X GET http://isolates.genomics.lbl.gov/api/v1/growth/wells/id/1
+  ```
+
+- Parameters
+
+  No parameters required.
+
+- Return
+
+  **Code:** 200
+
+  **Content:**
+
+  ```json
+  [
+    {
+      "wellLocation": "A01",
+      "wellRow": "A",
+      "wellCol": "01",
+      "media": "ZRM",
+      "strainLabel": "ZM4",
+      "treatment": {
+        "condition": "Acetovanillone",
+        "concentration": 0,
+        "units": "mM"
+      },
+      "data": {
+        "timepoints": [
+          0,
+          600,
+          1200,
+          1800,
+          2400,
+          3000
+        ],
+        "values": [
+          0.1319,
+          0.1292,
+          0.1288,
+          0.1293,
+          0.1291,
+          0.1293
+        ],
+        "temperatures": [
+          27.2,
+          30,
+          30,
+          30,
+          30,
+          30
+        ]
+      }
+    }
+  ]
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **None** | *List of (WellObj)* | A list of wells |
+
+  > WellObj
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **wellLocation** | *String* | Location of that well on a plate. Notice wells in the order of the return may not be contiguous |
+  | **wellRow** | *String* | |
+  | **wellCol** | *String* | |
+  | **media** | *String* | Media used in the culture |
+  | **strainLabel** | *String* | Label of the wildtype of the strain used in the measurement |
+  | **treatment** | TreatmentObj | Including condition (typically compound, can be supernatant), concentration and units (M, %vol, etc.) |
+  | **data** | DataObj | Time series data of a well |
+
+  > DataObj
+
+  | **timepoints** | List of (UInt64) | Timepoints in seconds |
+  | **values** | List of (Float64) | Values of measurement |
+  | **temperatures** List of (UFloat64) | Temperatures |
+
+- Error
+
+  Example: Plate of the id not found
+
+  **Code:** 400
+
+  **Content:**
+
+  ```json
+  {
+    "message": "Invalid plate id for wells"
+  }
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **message** | *String* | Error message |
+
+#### /growth/keyword
+
+#### /path1/path2
+
+- Description
+
+  Get a list of plates related with the keyword. TODO: for now the keyword only searches in the `strainLabel` column, makes searching for the conditions or instruments impossible.
+
+- URL Structure
+
+  `http://isolates.genomics.lbl.gov/api/v1/growth/keyword/:keyword`
+
+- Method
+
+  `GET`
+
+- Example
+
+  ```sh
+  curl -X GET http://isolates.genomics.lbl.gov/api/v1/growth/keyword/pseudomonas
+  ```
+
+- Parameters
+
+  No parameters required.
+
+- Return
+
+  **Code:** 200
+
+  **Content:**
+
+  ```json
+  [
+    {
+      "growthPlateId": 1394,
+      "numberOfWells": "384",
+      "dateCreated": "2017-01-19 19:31:26",
+      "strain": "Pseudomonas putida KT2440"
+    },
+    {
+      "growthPlateId": 1614,
+      "numberOfWells": "384",
+      "dateCreated": "2017-06-23 22:21:21",
+      "strain": "Pseudomonas putida FW305-E2"
+    }
+  ]
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **None** | *List of (ShortWellObj)* | An exception of the well information in [/growth/wells/id](growthwellsid) API |
+
+- Error
+
+  Example: No plates found related to the keyword
+
+  **Code:** 400
+
+  **Content:**
+
+  ```json
+  {
+    "message": "No plates found"
+  }
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **message** | *String* | Error message |
 
 <!--
 #### /path1/path2

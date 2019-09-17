@@ -1,4 +1,4 @@
-# ENIGMA Isolates and Plates Browser
+# ENIGMA Explorer
 
 > Maintainer    Yujia Liu   yujialiu@lbl.gov
 
