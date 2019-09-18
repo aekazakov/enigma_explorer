@@ -9,15 +9,15 @@
 
 ENIGMA Explorer is a portal to look up for **isolates** or **growth curve plates** data, as well as providing basic interpretatons of such data. Researchers are encouraged to realize more complicated analysis via the ENIGMA Explorer APIs (see the [API docs](https://github.com/RandolphLiu/enigma_explorer/blob/master/docs/api.md)).
 
-[!screenshot-1](https://github.com/RandolphLiu/enigma_explorer/blob/master/docs/pics/ENIGMA_Explorer_screenshot_1.png)
+![screenshot-1](https://github.com/RandolphLiu/enigma_explorer/blob/master/docs/pics/ENIGMA_Explorer_screenshot_1.png)
 
-[!screenshot-2](https://github.com/RandolphLiu/enigma_explorer/blob/master/docs/pics/ENIGMA_Explorer_screenshot_2.png)
+![screenshot-2](https://github.com/RandolphLiu/enigma_explorer/blob/master/docs/pics/ENIGMA_Explorer_screenshot_2.png)
 
 # Links
 
 - [ENIGMA Explorer isolates portal](http://isolates.genomics.lbl.gov/isolates)
 
-- [ENIGMA Explorer plates portal](https://isolates.genomics.lbl.gov/growthCurve)
+- [ENIGMA Explorer plates portal](http://isolates.genomics.lbl.gov/growthCurve)
 
 - [Fitness Browser](http://fit.genomics.lbl.gov/cgi-bin/myFrontPage.cgi)
 
