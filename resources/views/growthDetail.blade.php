@@ -136,13 +136,15 @@
       </div>
     </div>
     <div class="tab-pane fade col-12 my-4" id="heatmapView" role="tabpanel">
-      <div class="overflow-auto">
-        <table class="table table-sm table-borderless">
-          <tbody></tbody>
-        </table>
-        <div class="row">
-          <div class="col-12 my-3">
-            <h5 id="timeLabel" class="text-center"></h5>
+      <div class="row overflow-auto">
+        <div class="col-12" id="heatmapView-canvas">
+          <table class="table table-sm table-borderless">
+            <tbody></tbody>
+          </table>
+          <div class="row">
+            <div class="col-12 my-3">
+              <h5 id="timeLabel" class="text-center"></h5>
+            </div>
           </div>
         </div>
       </div>
@@ -156,13 +158,14 @@
                 Show values
               </label>
             </div>
+            <div class="col-12 col-md-4"><!-- takes place --></div>
             <div class="col-12 col-md-4">
               <div class="row form-group">
                 <div class="col-6">
                   <a class="btn btn-outline-success" id="hm-img-btn" role="button" href="#" download="">Download Image</a>
                 </div>
                 <div class="col-6">
-                  <a class="btn btn-outline-success" id="hm-html-btn" role="button" href="#">Copy HTML</a>
+                  <a class="btn btn-outline-success" id="hm-html-btn" role="button" href="#">Download HTML</a>
                 </div>
               </div>
             </div>
@@ -545,19 +548,23 @@
 
       // update the download buttons
       $('#cond-img-btn').each(function() {
-        setTimeout(() => {
-          let imgW = $('#conditionsView table').width();
-          convertToImage($('#conditionsView-canvas')[0], this, imgW);
-          let plateId = "{{ $id }}";
-          $(this).prop('download', 'conditions-table-'+plateId);
-        }, 200);
+        // Set html to loading icon
+        $(this).html('<span class="fas fa-spinner mx-4"></span>');
+        let imgW = $('#conditionsView table').width();
+        convertToImage($('#conditionsView-canvas')[0], this, imgW, undefined, 'Download Image');
+        let plateId = "{{ $id }}";
+        $(this).prop('download', 'conditions-table-'+plateId);
       });
 
       $('#cond-html-btn').each(function() {
+        // Set html to loading icon
+        $(this).html('<span class="fas fa-spinner mx-4"></span>');
         var htmlStr = $('#conditionsView>div:first-child').html();
         $(this).prop('href', 'data:text/html,' + encodeURIComponent(htmlStr), '_blank');
         let plateId = "{{ $id }}";
         $(this).prop('download', 'conditions-table-'+plateId+'.html');
+        // set back
+        $(this).html('Download HTML');
         return false;
       });
     };
@@ -622,6 +629,8 @@
       minutes = Math.floor(minutes % 60 * 10) / 10;
       $('#timeLabel').html(hours+' hours, '+minutes+' minutes')
       
+      // When page is loaded, trigger timerInput change once
+      $('#timeInput').trigger('mouseup');
 
     };
 
@@ -667,29 +676,6 @@
             let showValues = $('#valuesToggle').prop('checked');
             $('#heatmapView').trigger('render', [data, val, showValues]);
           })
-          $('#timeInput').change(function() {
-            // update the download buttons
-            $('#hm-img-btn').each(function() {
-              convertToImage($('#heatmapView>div')[0], this);
-              let plateId = "{{ $id }}";
-              $(this).prop('download', 'heatmap-table-'+plateId);
-            });
-            $('#hm-html-btn').click(function() {
-              var htmlStr = $('#heatmapView>div:first-child').html();
-              $('.container').append(`
-                <input type=text id="clipInput" value="" />
-              `);
-              $('#clipInput').prop('value', htmlStr);
-              $('#clipInput').select();
-              if(document.execCommand('Copy')) {
-                console.log('copy succeed');
-              } else {
-                console.log('copy failed');
-              }
-              $('#clipInput').remove();
-              return false;
-            });
-          });
           $('#valuesToggle').change(function() {
             $('#heatmapView').trigger('render', [data, $('#timeInput').prop('value'), $(this).prop('checked')]);
           })
@@ -816,7 +802,7 @@
       $('#curvesLink').trigger('click');
     };
 
-    var convertToImage = function(ele, hook, imgW, imgH) {
+    var convertToImage = function(ele, hook, imgW, imgH, recStr) {
       let pos = $(ele).offset();
       imgW = imgW === undefined ? $(ele).width() : imgW;
       imgH = imgH === undefined ? $(ele).height() : imgH;
@@ -830,6 +816,7 @@
           // $('.container').append(canvas);
           let dataPath = canvas.toDataURL('image/png');
           $(hook).attr('href', dataPath);
+          $(hook).html(recStr);
       });
     };
 
@@ -874,6 +861,33 @@
 
       $('#clearPlotBtn').click(function() {
         Plotly.newPlot('curvesView');
+      });
+
+      // Register heatmap download btns
+      $('#timeInput').change(function() {
+        //console.log('mouse up fired');
+        // update the download buttons
+        $('#hm-img-btn').each(function() {
+          // set to loading icon
+          $(this).html('<span class="fas fa-spinner mx-4"></span>');
+          // maunally pass the width of overflown table
+          let imgW = $('#heatmapView table').width();
+          convertToImage($('#heatmapView-canvas')[0], this, imgW, undefined, "Download Image");
+          let plateId = "{{ $id }}";
+          $(this).prop('download', 'heatmap-table-'+plateId);
+        });
+        $('#hm-html-btn').each(function() {
+          // set to loading icon
+          $(this).html('<span class="fas fa-spinner mx-4"></span>');
+
+          var htmlStr = $('#heatmapView-canvas').html();
+          $(this).prop('href', 'data:text/html,' + encodeURIComponent(htmlStr), '_blank');
+          let plateId = "{{ $id }}";
+          $(this).prop('download', 'heatmap-table-'+plateId+'.html');
+          // set back
+          $(this).html('Download HTML')
+          return false;
+        });
       });
 
     });

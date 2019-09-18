@@ -48,7 +48,7 @@ let createBlastObj = function(id, tColor, blastDb) {
           hit.coverage *= 100;
           let trStr = `
             <tr>
-              <th><a class="text-dark" href="#" id="a-${hit.isoid}">${hit.isoid} ${hit.title}</th>
+              <th><a class="text-dark" href="#non-existing" id="a-${hit.isoid}">${hit.isoid} ${hit.title}</th>
               <td>${hit.identity.toFixed(4)}</td>
               <td>${hit.coverage.toFixed(4)}</td>
               <td>${hit.evalue.toFixed(2)}</td>
