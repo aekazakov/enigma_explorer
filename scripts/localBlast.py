@@ -67,8 +67,8 @@ queryLen = float(blastObj['results']['search']['query_len'])
 myout = []
 for i, hit in enumerate(blastRet) :
     # The first hit is itself
-    if i == 0 :
-        continue
+    #if i == 0 :
+    #    continue
     # upperbound
     if i > MAX_HIT :
         break
