@@ -81,9 +81,9 @@ class IsolatesController extends Controller {
        $iso = Isolates::where('id', $id)->select('isolate_id', 'rrna')->first();
        // check if the isolate itself/16s exist
        if (is_null($iso)) {
-           return response()->json([ 'message', 'Isolate not found'], 400);    // could be wrong input
+           return response()->json([ 'message' => 'Isolate not found'], 400);    // could be wrong input
        } else if (is_null($iso->rrna)) {
-           return response()->json([ 'message', 'No 16s seq record found of the isolate'], 404);    // missing resources
+           return response()->json([ 'message' => 'No 16s seq record found of the isolate'], 404);    // missing resources
        }
        $response = response()->make('> '.$iso->isolate_id."\n".$iso->rrna, 200);
        $response->header('Content-Type', 'text/plain')
@@ -243,9 +243,15 @@ class IsolatesController extends Controller {
 
     public function blastById($id, $blastDb) {
         // acquire 16s seq from id
-        $seq = $this->rrnaById($id)->getOriginalContent();
-        // return
-        return $this->blastBySeq($blastDb, new Request([ 'seq' => $seq ]));
+        $res = $this->rrnaById($id);
+        if ($res->status() == 200) {
+            $seq = $res->getOriginalContent();
+            // return
+            return $this->blastBySeq($blastDb, new Request([ 'seq' => $seq ]));
+        } else {
+            // error
+            return response()->json(['message' => 'Isolate 16s sequence cannot be found'], 400);
+        }
     }
 
     public function blastBySeq($blastDb, Request $request) {
