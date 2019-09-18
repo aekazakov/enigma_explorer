@@ -35,6 +35,10 @@
             <th><span class="badge badge-pill badge-primary">Measurement</span></th>
             <td id="measureD"></td>
           </tr>
+          <tr>
+            <th><span class="badge badge-pill badge-primary">Morgan's Plates Viewer</span></th>
+            <td><a href="http://mprice.dev.microbesonline.org/cgi-bin/Fitness/plate_overview.pl?growth_plate={{ $id }}">Link</a></td>
+          </tr>
         </tbody>
       </table>
     </div>
