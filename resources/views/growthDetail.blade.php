@@ -174,7 +174,7 @@
               </div>
             </div>
             <div class="form-group col-12">
-              <label>Time (hour)</label>
+              <label>Time</label>
               <input type="range" class="form-control-range" id="timeInput" value="0" />
             </div>
           </div>
@@ -786,7 +786,7 @@
         hovermode: false,
         dragmode: 'pan',
         xaxis: {
-          title: 'Time (min)'
+          title: 'Time (hour)'
         },
         yaxis: {
           title: 'OD 600'

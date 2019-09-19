@@ -127,14 +127,17 @@ Search: {{ $keyword }}
               </div>
             </div>
             <div class="row">
-              <div class="col-3">
+              <div class="col-md-2 col-6">
                 <p class="my-0"><i>ID:</i> ${data[entry].id}</p>
               </div>
-              <div class="col-3">
+              <div class="col-md-3 col-6">
                 <p class="my-0"><i>Order:</i> ${data[entry].order.replace(RegExp('('+keyword+')', 'i'), '<mark>$1</mark>')}</p>
               </div>
-              <div class="col-6">
+              <div class="col-md-5 col-6">
                 <p class="my-0"><i>Closest relative:</i> ${data[entry].closest_relative.replace(RegExp('('+keyword+')', 'i'), '<mark>$1</mark>')}</p>
+              </div>
+              <div class="col-md-2 col-6">
+                <p class="my-0"><i>Similarity:</i> ${data[entry].similarity}</p>
               </div>
             </div>
           </div>`;
