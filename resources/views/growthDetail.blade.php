@@ -174,7 +174,7 @@
               </div>
             </div>
             <div class="form-group col-12">
-              <label>Time (min)</label>
+              <label>Time (hour)</label>
               <input type="range" class="form-control-range" id="timeInput" value="0" />
             </div>
           </div>
