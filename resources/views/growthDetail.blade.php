@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <th><span class="badge badge-pill badge-primary">Morgan's Plates Viewer</span></th>
-            <td><a href="http://mprice.dev.microbesonline.org/cgi-bin/Fitness/plate_overview.pl?growth_plate={{ $id }}">Link</a></td>
+            <td colspan="3"><a href="http://mprice.dev.microbesonline.org/cgi-bin/Fitness/plate_overview.pl?growth_plate={{ $id }}">Link</a></td>
           </tr>
         </tbody>
       </table>
@@ -205,6 +205,9 @@
               <select id="condSelector" class="custom-select">
                 <option selected value="0">--Customized selection--</option>
               </select>
+            </div>
+            <div class="col-12 form-group">
+              <a class="btn btn-outline-success" id="curves-img-btn" role="button" href="#" download="Conditions_table">Download Image</a>
             </div>
           </div>
         </form>
@@ -800,7 +803,15 @@
         scrollZoom: true
       };
 
-      Plotly.newPlot('curvesView', plotData, layout, config);    // empty layout
+      Plotly.newPlot('curvesView', plotData, layout, config).then((gd) => {
+        $('#curves-img-btn').html('<span class="fas fa-spinner mx-4"></span>');
+        Plotly.toImage(gd, {format:'png'}).then((url) => {
+              $('#curves-img-btn').html('Download Image');
+              $('#curves-img-btn').prop("href", url);
+            }
+          );
+        }
+      );
 
       // Also switch to curves tab by clicking the link
       $('#curvesLink').trigger('click');
