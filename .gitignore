@@ -5,3 +5,4 @@ Homestead.yaml
 .env
 /public/downloads
 composer.lock
+public/pulllog
