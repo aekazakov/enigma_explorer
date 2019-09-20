@@ -191,7 +191,7 @@
           <div class="row">
             <p class="col-12">
               <strong>Hints:</strong><br />
-              Use the above plate panel to select a set of wells for plotting. Crtl for addition and Shift for substraction.<br />
+              Use the above plate panel to select a set of wells for plotting. Ctrl for addition and Shift for substraction.<br />
               Double click on a legend to show that one along.<br />
               Single click on a legend to hide the curve.<br />
               Scroll on the canvas for propotional zoom. Scoll on the axes for axis-specific zoom.<br />
