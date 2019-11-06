@@ -204,15 +204,7 @@ class IsolatesController extends Controller {
         $species = implode(' ', array_slice($relList, 0, 2));
         $strain = implode(' ', array_slice($relList, 2));
 
-        // if PYTHON user is set in env, use it, otherwise use default
-        // In order to avoid strange user-related package issues
-        if (!empty(env('PYTHON_PASSWORD', '')) || !empty(env('PYTHON_USERNAME', ''))) {
-            // Notice we are not accepting user with empty pwd
-            $cmd = implode(' ', ["echo", env('PYTHON_PASSWORD'), "|","su", env('PYTHON_USERNAME'), "-c",
-                "\"".base_path("scripts/fetchGenome.py"), "-s", "'$species'", "'$strain'"."\""]);
-        } else {
-            $cmd = implode(' ', [base_path("scripts/fetchGenome.py"), "-s", "'$species'", "'$strain'"]);
-        }   // If debug is needed, add 2>&1
+        $cmd = implode(' ', [base_path("scripts/fetchGenome.py"), "-s", "'$species'", "'$strain'"]);
 
         $genomeList = shell_exec($cmd);
         if (is_null($genomeList)) {
@@ -223,14 +215,7 @@ class IsolatesController extends Controller {
     }
 
     public function genomeByNcbiId($id) {
-        // if PYTHON user is set in env, use it, otherwise use default
-        // In order to avoid strange user-related package issues
-        if (!empty(env('PYTHON_PASSWORD', '')) || !empty(env('PYTHON_USERNAME', ''))) {
-            $cmd = implode(' ', ["echo", env('PYTHON_PASSWORD'), "|","su", env('PYTHON_USERNAME'), "-c",
-                    "\"".base_path("scripts/fetchGenome.py"), "-i", $id."\""]);
-        } else {
-            $cmd = implode(' ', [base_path("scripts/fetchGenome.py"), "-i", $id]);
-        }
+        $cmd = implode(' ', [base_path("scripts/fetchGenome.py"), "-i", $id]);
         $genome = shell_exec($cmd);
         if (empty($genome)) {
             return response()->json([ 'message' => 'Sequence corresponds to the NCBI id is not found' ], 404);
@@ -270,16 +255,7 @@ class IsolatesController extends Controller {
     }
 
     protected function localBlast($seq, $db) {
-        // Build cmd. Use python user
-        // Notice BLASTDB set in .env
-        if (!empty(env('PYTHON_PASSWORD', '')) || !empty(env('PYTHON_USERNAME', ''))) {
-            // implode() is a good idea in constructing the cmd
-            // Assume no space in $db
-            $blastCmd = "echo ".env('PYTHON_PASSWORD')." | su ".env('PYTHON_USERNAME').' -c "'
-                .base_path("scripts/localBlast.py")." $db ".'\"'.$seq.'\""';
-        } else {
-            $blastCmd = base_path("scripts/localBlast.py")." $db ".'"'.$seq.'"';
-        }
+        $blastCmd = base_path("scripts/localBlast.py")." $db ".'"'.$seq.'"';
         $blastStr = shell_exec($blastCmd);
         $blastArr = json_decode($blastStr);
         return $blastArr;

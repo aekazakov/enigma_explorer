@@ -39,6 +39,10 @@
           <th scope="row"><h5><span class="badge badge-pill badge-secondary">Campaign or Set</span></h5></th>
           <td class="align-middle" id="campaignInfo" colspan="3"></td>
         </tr>
+        <tr>
+          <th scope="row"><h5><span class="badge badge-pill badge-secondary">Morgan's Fitness Browser</span></h5></th>
+          <td class="align-middle" id="fitness-link" colspan="3">Not Available</td>
+        </tr>
       </tbody>
     </table>
     </div>
@@ -209,6 +213,11 @@
         $('#sampleidInfo').html(data.sample_id);
         $('#labInfo').html(data.lab);
         $('#campaignInfo').html(data.campaign);
+        if (data.fit_id) {
+          $('#fitness-link').html(`
+            <a href="http://fitprivate.genomics.lbl.gov/cgi-bin/org.cgi?orgId=${data.fit_id}">Link</a>
+           `);
+        }
         if (data.rrna) {
           $('#16sBox').html(`<p class="small">> ${data.isolate_id}<br />${data.rrna}</p>`);
         } else {

@@ -68,3 +68,8 @@ a {
   user-select: none;
   -moz-user-select: none;
 }
+
+/* bootstrap active style */
+.navbar-nav .nav-link.active {
+  color: #b2bec3 !important;
+}

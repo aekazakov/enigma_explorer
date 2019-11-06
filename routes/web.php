@@ -89,9 +89,12 @@ $router->get('/growthcurve', function() {
 $router->get('/growthcurve/id/{id}', function($id) {
     return view('growthDetail', [ 'activeLink' => 'interactionLink', 'id' => $id ]);
 });
+$router->get('/plateuploader', function() {
+    return view('plateUploader', [ 'activeLink' => 'interactionLink' ]);
+});
 $router->get('/growthsearch', function(Request $request) {
     $keyword = $request->input('keyword');
-    return view('plateSearch', [ 'activeLink' => 'nonExistingEle', 'keyword' => $keyword]);
+    return view('plateSearch', [ 'activeLink' => 'interactionLink', 'keyword' => $keyword]);
 });
 $router->get('/search', function(Request $request) {
     $keyword = $request->input('keyword');
@@ -101,14 +104,18 @@ $router->get('/isolates/id/{id}', function($id) {
     return view('detail', ['activeLink' => 'isolatesLink', 'id' => $id]);
 });
 $router->get('/advSearch', function() {
-    return view('advSearch', ['activeLink' => 'nonExistingEle']);
+    return view('advSearch', ['activeLink' => 'isolatesLink']);
 });
 $router->get('/browse', function() {
-    return view('browse', ['activeLink' => 'nonExistingEle']);
+    return view('browse', ['activeLink' => 'isolatesLink']);
 });
 $router->post('/advSearchList', function(Request $request) {
     return view('advSearchList', ['activeLink' => 'nonExistingEle', 'postData' => json_encode($request->all())]);
 });
 $router->get('/test', function() {
     return view('test', ['activeLink' => 'mainLink']);
+});
+// construction page
+$router->get('/construction/{original}', function($original) {
+    return view('construction', [ 'activeLink' => $original ]);
 });

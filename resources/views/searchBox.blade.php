@@ -8,10 +8,10 @@
       <button class="btn btn-outline-primary my-2 d-block mx-auto" id="mainSearchButton" type="button">Search</button>
     </div>
     <div class="col-sm-6 col-lg-2">
-      <a href="/advSearch" class="btn btn-outline-dark my-2 d-block mx-auto">Advance Search</a>
+      <a href="/advSearch" class="btn btn-outline-dark my-2 d-block mx-auto" id="adv-btn">Advance Search</a>
     </div>
     <div class="col-sm-6 col-lg-2">
-      <a href="/browse" class="btn btn-outline-success my-2 d-block mx-auto">Browse</a>
+      <a href="/browse" class="btn btn-outline-success my-2 d-block mx-auto" id="browse-btn">Browse</a>
     </div>
   </div>
 </form>

@@ -5,12 +5,14 @@
   <meta charset="utf-8" />
   <!-- Viewport Adjust to phones -->
   <meta name="viewport" content="width=device-width, initial-scale=0.7" />
+  <!-- custom styles -->
+  <link rel="stylesheet" type="text/css" href="/css/main.css" />
+  <!-- Bootstrap css -->
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="/css/loading.css" />
   <link rel="stylesheet" type="text/css" href="/css/typeaheadjs.css" />
   <link rel="stylesheet" type="text/css" href="/css/bootstrap-toggle.min.css" />
   <link type="text/css" href="/css/fontawesome-all.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="/css/main.css" />
   <!--<link href="/css/fontawesome.min.css" rel="stylesheet">-->
   <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
@@ -35,10 +37,10 @@
           <a class="nav-link" href="/growthcurve" id="interactionLink">Plates</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="communitiesLink">SynCommunities</a>
+          <a class="nav-link" href="/construction/communitiesLink" id="communitiesLink">SynCommunities</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="enrichmentLink">Enrichments</a>
+          <a class="nav-link" href="/construction/enrichmentLink" id="enrichmentLink">Enrichments</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/RandolphLiu/enigma_explorer/blob/master/docs/api.md" id="apiLink">API</a>

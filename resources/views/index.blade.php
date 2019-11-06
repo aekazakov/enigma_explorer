@@ -20,14 +20,15 @@
     <hr />
     <div class="row my-2">
       <div class="col-sm-12 col-lg-4">
-        <a href="http://mprice.dev.microbesonline.org/curves/" class="btn btn-outline-info btn-lg d-block mx-auto my-2">ENIGMA Isolates Interaction</a>
+        <a href="http://mprice.dev.microbesonline.org/curves/" class="btn btn-outline-info btn-lg d-block mx-auto my-2">Growth Curve Plate Browser</a>
       </div>
       <div class="col-sm-12 col-lg-4">
-        <a href="https://narrative.kbase.us" class="btn btn-outline-info btn-lg d-block mx-auto my-2">KBase Narrative</a>
+        <a href="https://narrative.kbase.us/narrative/41372" class="btn btn-outline-info btn-lg d-block mx-auto my-2">KBase Narrative (ENIGMA access only)</a>
       </div>
       <div class="col-sm-12 col-lg-4">
         <a href="/isolates" class="btn btn-outline-info btn-lg d-block mx-auto my-2">Search for Isolates</a>
       </div>
+    </div>
 
     <script>
       $(document).ready(function() {

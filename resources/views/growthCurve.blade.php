@@ -36,6 +36,11 @@
         });
       }, 100);
 
+      // edit the buttons
+      $('#browse-btn').html('Plate Uploader');
+      $('#browse-btn').prop('href', '/plateuploader');
+      $('#adv-btn').prop('href', '/construction/null');
+
     });
   </script>
 @endsection
