@@ -6,3 +6,4 @@ Homestead.yaml
 /public/downloads
 composer.lock
 public/pulllog
+__pycache__
