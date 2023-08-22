@@ -6,4 +6,5 @@ Homestead.yaml
 /public/downloads
 composer.lock
 public/pulllog
+/blastdb
 __pycache__

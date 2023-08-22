@@ -35,7 +35,7 @@ a {
 /* monospace font */
 @font-face {
   font-family: "roboto-mono";
-  src: url("/fonts/RobotoMono-Regular.ttf");
+  src: url("../fonts/RobotoMono-Regular.ttf");
 }
 .alignBox {
   font-family: roboto-mono, monospace;

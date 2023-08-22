@@ -1,7 +1,6 @@
 import json
 import re
 import os, io, zipfile
-#import uuid
 from collections import Counter
 from django.shortcuts import render
 from django.template import loader
@@ -15,9 +14,13 @@ from rest_framework import permissions
 from rest_framework.exceptions import PermissionDenied
 from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import JSONRenderer
+
 from .models import *
 from .serializers import IsolateSerializer, IsolateNoRnaSerializer
-from .fetchGenome import fetchG
+from .fetchGenome import fetchG, fetchS
+from .localBlast import local_blast
+from .remoteBlast import qblast
+from isolatebrowser.settings import BLASTN_PATH, ENIGMA_DB, NCBI_DB, SILVA_DB
 
 class APIErrorException(PermissionDenied):
     status_code = status.HTTP_400_BAD_REQUEST
@@ -353,7 +356,7 @@ class Download16SApiView(APIView):
         return response
 
 class IsolateByMultiKeywordsApiView(APIView):
-    # get all isolates
+    # select isolates by multiple keywords
     def post(self, request, *args, **kwargs):
         '''
         Returns list of isolates matching given keywords
@@ -411,10 +414,10 @@ class IsolateByMultiKeywordsApiView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class RelativeGenomeApiView(APIView):
-    # get all isolates
+    # get a list of relative genomes by id
     def get(self, request, id, *args, **kwargs):
         '''
-        List all the todo items for given requested user
+        Returns list of genomes matching species name of the closest relative
         '''
         isolate = Isolate.objects.get(id=id)
         species = ' '.join(isolate.closest_relative.split(' ')[:2])
@@ -427,47 +430,80 @@ class RelativeGenomeApiView(APIView):
         return Response(response_content, status=status.HTTP_200_OK)
 
 class GetGenomeByNcbiIdApiView(APIView):
-    # get all isolates
-    def get(self, request, *args, **kwargs):
+    # get a genome fasta file by NCBI id
+    def get(self, request, id, *args, **kwargs):
         '''
-        List all the todo items for given requested user
+        Returns FASTA file of a NCBI genome by genome id
         '''
-        isolates = Isolate.objects.all()
-        serializer = IsolateSerializer(isolates, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        id = str(id)
+        genome_seq = fetchS(id)
+        if genome_seq == '':
+            raise APIErrorException(detail={'message': 'Sequence corresponds to the NCBI id is not found'}, status_code=status.HTTP_404_NOT_FOUND)
+        response = HttpResponse(content_type='text/plain')
+        response['Content-Disposition'] = 'attachment; filename="' + id  + '.fa"'
+        response.write(genome_seq)
+        return response
 
 class BlastBySeqApiView(APIView):
-    # get all isolates
-    def get(self, request, *args, **kwargs):
+    # blast against local db, using seq instead of id of isolates
+    def post(self, request, blastdb, *args, **kwargs):
         '''
-        List all the todo items for given requested user
+        Runs local BLASTN for any query sequence and returns the hits
         '''
-        isolates = Isolate.objects.all()
-        serializer = IsolateSerializer(isolates, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        if blastdb == 'ncbi':
+            db_path = NCBI_DB
+        elif blastdb == 'silva':
+            db_path = SILVA_DB
+        elif blastdb == 'isolates':
+            db_path = ENIGMA_DB
+        else:
+            raise APIErrorException(detail={'message': 'BLAST database not supported'}, status_code=status.HTTP_400_BAD_REQUEST)
+        #print(self.request.data)
+        #print('Path', BLASTN_PATH)
+        #print('DB', db_path)
+        #print('Query', self.request.data['info[seq]'])
+        res = local_blast(BLASTN_PATH, db_path, self.request.data['info[seq]'])
+        #print(res)
+        if 'message' in res:
+            raise APIErrorException(detail=res, status_code=status.HTTP_400_BAD_REQUEST)
+        return Response(res, status=status.HTTP_200_OK)
 
 class BlastByIdApiView(APIView):
-    # get all isolates
-    def get(self, request, *args, **kwargs):
+    # perform local blast against isolates 16s
+    def get(self, request, blastdb, id, *args, **kwargs):
         '''
-        List all the todo items for given requested user
+        Runs local BLASTN for a 16S sequence from isolate database and returns the hits
         '''
-        isolates = Isolate.objects.all()
-        serializer = IsolateSerializer(isolates, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        if blastdb == 'ncbi':
+            db_path = NCBI_DB
+        elif blastdb == 'silva':
+            db_path = SILVA_DB
+        elif blastdb == 'isolates':
+            db_path = ENIGMA_DB
+        else:
+            raise APIErrorException(detail={'message': 'BLAST database not supported'}, status_code=status.HTTP_400_BAD_REQUEST)
+        isolate = Isolate.objects.get(id=id)
+        res = local_blast(BLASTN_PATH, db_path, '>' + isolate.isolate_id + '\n' + isolate.rrna + '\n')
+        if 'message' in res:
+            raise APIErrorException(detail=res, status_code=status.HTTP_400_BAD_REQUEST)
+        return Response(res, status=status.HTTP_200_OK)
 
 class BlastRidByIdApiView(APIView):
-    # get all isolates
-    def get(self, request, *args, **kwargs):
+    # get a ncbi blast RID along with other form data
+    def get(self, request, id, *args, **kwargs):
         '''
-        List all the todo items for given requested user
+        Runs NCBI BLASTN for a 16S sequence from isolate database and returns the hits
         '''
-        isolates = Isolate.objects.all()
-        serializer = IsolateSerializer(isolates, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        isolate = Isolate.objects.get(id=id)
+        try:
+            rid = qblast('blastn', 'nr', '>' + isolate.isolate_id + '\n' + isolate.rrna + '\n',format_type='Text',megablast=True)
+        except ValueError as e:
+            raise APIErrorException(detail={'message': str(e)}, status_code=status.HTTP_400_BAD_REQUEST)
+        res = {'CMD':'Get', 'FORMAT_TYPE':'HTML', 'RID':rid, 'SHOW_OVERVIEW':'on'}
+        return Response(res, status=status.HTTP_200_OK)
 
 class GrowthMetaByIdApiView(APIView):
-    # get all isolates
+    # get plate meta by id
     def get(self, request, *args, **kwargs):
         '''
         List all the todo items for given requested user
@@ -477,7 +513,7 @@ class GrowthMetaByIdApiView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class GrowthWellDataByIdApiView(APIView):
-    # get all isolates
+    # get actuall plate value by id
     def get(self, request, *args, **kwargs):
         '''
         List all the todo items for given requested user
@@ -487,7 +523,7 @@ class GrowthWellDataByIdApiView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 class GrowthMetaByKeywordApiView(APIView):
-    # get all isolates
+    # get a list of plates by keyword (strain)
     def get(self, request, *args, **kwargs):
         '''
         List all the todo items for given requested user

@@ -38,9 +38,9 @@ urlpatterns = [
     path('api/v1/isolates/relativeGenome/<int:id>', views.RelativeGenomeApiView.as_view(), name='IsolatesGenomeList'),
 
     path('api/v1/ncbi/genome/<int:id>', views.GetGenomeByNcbiIdApiView.as_view(), name='IsolatesGenomeByNcbiId'),
+    path('api/v1/ncbi/blast/rid/<int:id>', views.BlastRidByIdApiView.as_view(), name='BlastRidById'),
     path('api/v1/ncbi/blast/<str:blastdb>', views.BlastBySeqApiView.as_view(), name='BlastBySeqId'),
     path('api/v1/ncbi/blast/<str:blastdb>/<int:id>', views.BlastByIdApiView.as_view(), name='BlastById'),
-    path('api/v1/ncbi/blast/rid/<int:id>', views.BlastRidByIdApiView.as_view(), name='BlastRidById'),
 
     path('api/v1/growth/meta/id/<int:id>', views.GrowthMetaByIdApiView.as_view(), name='GrowthMetaById'),
     path('api/v1/growth/wells/id/<int:id>', views.GrowthWellDataByIdApiView.as_view(), name='GrowthWellDataById'),
