@@ -1,0 +1,196 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block page-title %}Advanced Search{% endblock %}
+{% block content %}
+	<form class="my-5" id="mainSearchForm" action="#">
+	  <input style="display:none;" />
+	  <div class="form-group row">
+		<div class="col-sm-12 col-lg-6" id="inputWrapper">
+		  <input name="keyword" class="typeahead form-control align-baseline my-2" id="mainSearchInput" type="search" data-provide="typeahead" autocomplete="off" placeholder="Search again?" aria-label="Search" />
+		</div>
+		<div class="col-sm-6 col-lg-2">
+		  <button class="btn btn-outline-primary my-2 d-block mx-auto" id="mainSearchButton" type="button">Search</button>
+		</div>
+		<div class="col-sm-6 col-lg-2">
+		  <a href="/advSearch" class="btn btn-outline-dark my-2 d-block mx-auto" id="adv-btn">Advance Search</a>
+		</div>
+		<div class="col-sm-6 col-lg-2">
+		  <a href="/browse" class="btn btn-outline-success my-2 d-block mx-auto" id="browse-btn">Browse</a>
+		</div>
+	  </div>
+	</form>
+
+	<script src={% static '/js/typeahead.bundle.js' %}></script>
+	<script>
+	  $(document).ready(function() {
+		// ajax form submission
+		function conditionRedirect() {
+		  var keyword = encodeURI($('#mainSearchInput').val());
+
+		  // examine number of results
+		  $.get('/api/v1/isolates/count/'+keyword, function(data) {
+			var reNum = data.count;
+			// if only 1 result, go to detail page
+			if (parseInt(reNum) == 1) {
+			  $.get('/api/v1/isolates/keyword/'+keyword,function(data) {
+				window.location.href = '/isolates/id/'+data[0].id;
+			  });
+			} else {
+			  window.location.href = '/search?keyword='+keyword;
+			}
+		  });
+		}; 
+		
+		$('#mainSearchButton').click(conditionRedirect);
+		$('#mainSearchInput').bind('keypress', function(event) {
+		  if (event.keyCode == '13') {
+			conditionRedirect();
+		  }
+		});
+
+		// search hint
+		$('#mainSearchInput').typeahead({
+			highlight: true,
+			minLength: 3
+		  }, {
+			limit: 10,
+			source: function(query, processSync, processAsync) { 
+			  return $.get('/api/v1/isolates/hint/' + encodeURI(query), function(data) {
+				return processAsync(data);
+			  });
+			}
+		  }
+		);
+		// hack to make the inputbox 100%
+		// It seems the hack will ruin hintbox
+		//$('.twitter-typeahead').attr('style', 'width:100% !important;');
+	  });
+	</script>
+  <div class="row my-2">
+    <h3>Search results</h3>
+  </div>
+  <div class="row">
+    <p><span id="resNumber"></span> <strong>Result(s)</strong></p>
+  </div>
+  <div class="row my-2">
+    <div class="col">
+      <div class="sk-rotating-plane" id="loadingIcon"></div>
+      <ul class="list-group-flush" id="dataList">
+      </ul>
+    </div>
+  </div>
+  <nav aria-label="pagination nav">
+    <ul class="pagination justify-content-center" id="pagination">
+      <li class="page-item" id="firstPage">
+        <a class="page-link" id="pageLinkFirst" href="javascript:void(0)" aria-label="previous">&laquo;</a>
+      </li>
+      <li class="page-item" id="prevPage">
+        <a class="page-link" id="pageLinkPrev" href="javascript:void(0)" aria-label="previous">&lt;</a>
+      </li>
+      <li class="page-item" id="nextPage">
+        <a class="page-link" id="pageLinkNext" href="javascript:void(0)" aria-label="previous">&gt;</a>
+      </li>
+      <li class="page-item" id="lastPage">
+        <a class="page-link" id="pageLinkLast" href="javascript:void(0)" aria-label="next">&raquo;</a>
+      </li>
+    </ul>
+  </nav>
+
+  <script src={% static '/js/search.js' %}></script>
+  <script>
+
+    // assign display numbers per page
+    const PER_PAGE = 10;
+    const MAX_PAGE = 7;
+    
+    // Set initial parameters (prob from template)
+    function initialize() {
+      // initially set page 1. Changed by FE
+      var page = 1;
+
+      // get post data
+      //var postData = JSON.parse({{ postData }});
+	  var postData = {'keywords': {{ postData|safe }}, 'csrfmiddlewaretoken': '{{ csrf_token }}'};
+      // get number of results
+      $.post('/api/v1/isolates/multiKeywords', postData, function(data) {
+		console.log(postData);
+		console.log(data);
+        var resLen = data.length;
+        $('#resNumber').html(resLen);
+        if (resLen == 0) {
+          emptyDataView();
+          return;
+        }
+      });
+
+      return [postData, page];
+    };
+
+    // Fetch list of isolates by API
+    function fetchIsolates(postData, page) {
+      $.ajax({
+        url: '/api/v1/isolates/multiKeywords',
+        type: 'POST',
+        dataType: 'json',
+        data: {'keywords': postData, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+        success: function(data) {
+          appendDataView(data, page, postData);
+          genPagination(data, page, postData);
+
+          // remove loading icon
+          $('#loadingIcon').remove();
+        },
+        error: function(jqXHR, text, code) {
+          if (jqXHR.status == 400) {
+            var errorHint = "Something went wrong :( Please check your keyword.";
+          } else {
+            var errorHint = "Unknown error. Please contact admin!";
+          }
+          errorDataView(errorHint);
+
+          // remove loading icon
+          $('#loadingIcon').remove();
+        }
+      });
+    };
+
+    // Append isolates (main data view) list
+    function appendDataView(data, page, postData) {
+      // iterate the range in current page
+      var startEntry = (page-1)*PER_PAGE;
+      var endEntry = Math.min(data.length,page*PER_PAGE);
+      for (entry = startEntry; entry < endEntry; entry++) {
+        // format html string for every data entry
+        var dataEntry = `
+          <div class="list-group-item">
+            <div class="row">
+              <div class="col">
+                <p class="my-1"><strong>
+                  <a href="/isolates/id/${data[entry].id}">${data[entry].isolate_id}</a>
+                </strong></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <p class="my-0"><i>ID:</i> ${data[entry].id}</p>
+              </div>
+              <div class="col-3">
+                <p class="my-0"><i>Order:</i> ${data[entry].order}</p>
+              </div>
+              <div class="col-6">
+                <p class="my-0"><i>Closest relative:</i> ${data[entry].closest_relative}</p>
+              </div>
+            </div>
+          </div>
+        `;
+        $('#dataList').append(dataEntry);
+      }
+    };
+
+    $(document).ready(function() {
+      var [postData, page] = initialize();
+      fetchIsolates(postData, page);
+    });
+  </script>
+{% endblock %}
+{% block activeLink %}nonExistingEle{% endblock %}

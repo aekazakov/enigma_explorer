@@ -1,0 +1,156 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block page-title %}Isolates{% endblock %}
+{% block content %}
+<form class="my-5" id="mainSearchForm" action="#">
+  <input style="display:none;" />
+  <div class="form-group row">
+    <div class="col-sm-12 col-lg-6" id="inputWrapper">
+      <input name="keyword" class="typeahead form-control align-baseline my-2" id="mainSearchInput" type="search" data-provide="typeahead" autocomplete="off" placeholder="Search for isolates" aria-label="Search" />
+    </div>
+    <div class="col-sm-6 col-lg-2">
+      <button class="btn btn-outline-primary my-2 d-block mx-auto" id="mainSearchButton" type="button">Search</button>
+    </div>
+    <div class="col-sm-6 col-lg-2">
+      <a href="/advsearch" class="btn btn-outline-dark my-2 d-block mx-auto" id="adv-btn">Advance Search</a>
+    </div>
+    <div class="col-sm-6 col-lg-2">
+      <a href="/browse" class="btn btn-outline-success my-2 d-block mx-auto" id="browse-btn">Browse</a>
+    </div>
+  </div>
+</form>
+
+<script src={% static '/js/typeahead.bundle.js' %}></script>
+<script>
+  $(document).ready(function() {
+    // ajax form submission
+    function conditionRedirect() {
+      var keyword = encodeURI($('#mainSearchInput').val());
+
+      // examine number of results
+      $.get('/api/v1/isolates/count/'+keyword, function(data) {
+        var reNum = data.count;
+        // if only 1 result, go to detail page
+        if (parseInt(reNum) == 1) {
+          $.get('/api/v1/isolates/keyword/'+keyword,function(data) {
+            window.location.href = '/isolates/id/'+data[0].id;
+          });
+        } else {
+          window.location.href = '/search?keyword='+keyword;
+        }
+      });
+    }; 
+    
+    $('#mainSearchButton').click(conditionRedirect);
+    $('#mainSearchInput').bind('keypress', function(event) {
+      if (event.keyCode == '13') {
+        conditionRedirect();
+      }
+    });
+
+    // search hint
+    $('#mainSearchInput').typeahead({
+        highlight: true,
+        minLength: 3
+      }, {
+        limit: 10,
+        source: function(query, processSync, processAsync) { 
+          return $.get('/api/v1/isolates/hint/' + encodeURI(query), function(data) {
+            return processAsync(data);
+          });
+        }
+      }
+    );
+    // hack to make the inputbox 100%
+    // It seems the hack will ruin hintbox
+    //$('.twitter-typeahead').attr('style', 'width:100% !important;');
+  });
+</script>
+
+    <div class="row my-4">
+      <div class="col"> 
+        <h1>Isolates</h1>
+      </div>
+    </div>
+    <div class="row my-4" style="font-size:1.2em;">
+      <div class="col">
+        <p>Search for isolates by isolates ID, pylogenic orders or closest relatives. Can't remember Latin? The search box accepts partial word and would give hints.</p>
+        <p>More accurate search? Hit the <em>Advance Search</em> button to start!</p>
+        <p>For questions and suggestions, please contact <a href="mailto:lmlui@lbl.gov">Lauren Lui</a></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 my-2">
+        <h3>BLAST against local ENIGMA sequences</h3>
+        <hr />
+      </div>
+      <div class="col-12">
+        <form>
+          <div class="form-group row my-2">
+            <label for="dbSelect" class="col-md-3">Choose BLAST database</label>
+            <div class="col-md-9">
+              <select id="dbSelect" class="custom-select">
+                <option value="ncbi">NCBI Bacteria and Archaea 16s rRNA</option>
+                <option value="silva">SILVA SSU</option>
+                <option selected value="isolates">ENIGMA isolates 16s rRNA</option>
+              </select>
+            </div>
+            <div class="col-md-12 my-2">
+              <textarea id="seqText" class="form-control form-control-sm col-12" rows="10"></textarea>
+            </div>
+          </div>
+          <button id="submitBtn" type="button" role="button" class="btn btn-outline-primary my-2">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="row collapse" id="dataView">
+      <div class="col-12 my-4">
+        <div class="card card-body">
+			<div id="lbTable" class="d-none">
+			  <!-- A blastTable is defined to be a component the contain 3 divs -->
+			  <!-- The loading, the table, and the error div -->
+			  <div class="g-hint my-4">
+				{{ slot }}
+			  </div>
+			  <div class="g-loading sk-wave">
+				<div class="sk-rect sk-rect1"></div>
+				<div class="sk-rect sk-rect2"></div>
+				<div class="sk-rect sk-rect3"></div>
+				<div class="sk-rect sk-rect4"></div>
+				<div class="sk-rect sk-rect5"></div>
+			  </div>
+			  <table class="table table-sm">
+				<tbody></tbody>
+			  </table>
+			  <div class="g-error"></div>
+			</div>
+        </div>
+      </div>
+    </div>
+
+  <script src={% static '/js/blastTable.js'></script>
+  <script>
+    $(document).ready(function() {
+      $('#submitBtn').on('click', function() {
+        // remove everything already in the table
+        $('#dataView tbody').html('');
+        $('#dataView thead').remove();
+        $('#dataView .g-error').html('');
+        // show dataView if not already
+        $('#dataView').addClass('show');
+        // if there was a request, loading div will be hidden
+        $('#dataView .g-loading').removeClass('d-none');
+
+        // Construct request body
+        let rBody = { 'seq': $('#seqText').val() };
+        // empty blast table
+        $('#lbTable tbody').html("");
+        // fetch new info
+        $('#lbTable').removeClass('d-none');
+        let lb = createBlastObj('lbTable', 'success', $('#dbSelect').val());
+        lb.fetchBlast(rBody);
+      });
+    });
+  </script>
+{% endblock %}
+{% block activeLink %}isolatesLink{% endblock %}
