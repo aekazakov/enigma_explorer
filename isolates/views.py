@@ -504,33 +504,80 @@ class BlastRidByIdApiView(APIView):
 
 class GrowthMetaByIdApiView(APIView):
     # get plate meta by id
-    def get(self, request, *args, **kwargs):
+    def get(self, request, id, *args, **kwargs):
         '''
-        List all the todo items for given requested user
+        get metadata by id
         '''
-        isolates = Isolate.objects.all()
-        serializer = IsolateSerializer(isolates, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        plate = GrowthPlate.objects.get(growthPlateId=id)
+        result = {'growthPlateId': plate.growthPlateId,
+                  'plateType': plate.plateType,
+                  'numberOfWells': plate.numberOfWells,
+                  'dateCreated': plate.dateCreated.strftime("%Y-%m-%d %H:%M:%S"),
+                  'dateScanned': plate.dateScanned.strftime("%Y-%m-%d %H:%M:%S"),
+                  'instrumentName': plate.instrumentId.instrumentName,
+                  'anaerobic': plate.anaerobic,
+                  'measurement': plate.measurement}
+        return Response(result, status=status.HTTP_200_OK)
 
 class GrowthWellDataByIdApiView(APIView):
     # get actuall plate value by id
-    def get(self, request, *args, **kwargs):
+    def get(self, request, id, *args, **kwargs):
         '''
-        List all the todo items for given requested user
+           in summary, we got for each well
+           growthWellId, wellLocation (wellRow, wellCol), media, strain label, treatment (condition, concentration & unit)
+           we got for each timepoint
+           timepoint(in seconds), value, temperature
         '''
-        isolates = Isolate.objects.all()
-        serializer = IsolateSerializer(isolates, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        wells = GrowthWell.objects.filter(growthPlateId__growthPlateId=id).select_related('strainMutantId__strainId', 'growthPlateId')
+        result = []
+        for well in wells:
+            res = {'wellLocation': well.wellLocation,
+                   'wellRow':well.wellRow,
+                   'wellCol':well.wellCol,
+                   'media':well.media,
+                   'strainLabel':well.strainMutantId.strainId.label,
+                   'treatment':{},
+                   'data':{}
+                   }
+            treatment = TreatmentInfo.objects.get(growthWellId=well)
+            res['treatment']['condition'] = treatment.condition
+            res['treatment']['concentration'] = treatment.concentration
+            res['treatment']['units'] = treatment.units
+            res['data']['timepoints'] = []
+            res['data']['values'] = []
+            res['data']['temperatures'] = []
+            data_points = WellData.objects.filter(growthWellId=well).values_list('timepointSeconds', 'value', 'temperature').order_by('timepointSeconds')
+            for item in data_points:
+                res['data']['timepoints'].append(item[0])
+                res['data']['values'].append(item[1])
+                res['data']['temperatures'].append(item[2])
+            result.append(res)
+        return Response(result, status=status.HTTP_200_OK)
 
 class GrowthMetaByKeywordApiView(APIView):
     # get a list of plates by keyword (strain)
-    def get(self, request, *args, **kwargs):
+    def get(self, request, keyword, *args, **kwargs):
         '''
-        List all the todo items for given requested user
+        Returns growth plate list filtered by a given keyword
         '''
-        isolates = Isolate.objects.all()
-        serializer = IsolateSerializer(isolates, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        wells = GrowthWell.objects.filter(strainMutantId__strainId__label__icontains=keyword).select_related('strainMutantId__strainId', 'growthPlateId').values_list('growthPlateId__growthPlateId', 'growthPlateId__numberOfWells', 'growthPlateId__dateCreated', 'strainMutantId__strainId__label').distinct()
+        result = []
+        '''
+        for well in wells:
+            res = {'growthPlateId': well.growthPlateId.growthPlateId,
+                   'numberOfWells': well.growthPlateId.numberOfWells,
+                   'dateCreated': well.growthPlateId.dateCreated,
+                   'strain': well.strainMutantId.strainId.label
+                   }
+        '''
+        for item in wells:
+            res = {'growthPlateId': item[0],
+                   'numberOfWells': item[1],
+                   'dateCreated': item[2].strftime("%Y-%m-%d %H:%M:%S"),
+                   'strain': item[3]
+                   }
+            result.append(res)
+        return Response(result, status=status.HTTP_200_OK)
 
         
 # Front-end views.

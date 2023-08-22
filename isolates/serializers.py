@@ -10,4 +10,11 @@ class IsolateSerializer(serializers.ModelSerializer):
 class IsolateNoRnaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Isolate
-        fields = ["id", "isolate_id", "condition", "order", "closest_relative", "similarity", "date_sampled", "sample_id", "lab", "campaign"]        
+        fields = ["id", "isolate_id", "condition", "order", "closest_relative", "similarity", "date_sampled", "sample_id", "lab", "campaign"]
+
+
+class InstrumentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Instrument
+        fields = ['instrumentName']
+
