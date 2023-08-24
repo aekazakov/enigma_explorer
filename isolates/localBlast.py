@@ -63,7 +63,7 @@ def local_blast(blastn_path, db_path, query):
         blastOut, err = p.communicate(query.strip())
 
     if p.returncode != 0:
-        my_out = {'message':'BLASTN finished with error:' + '\n'.join(err)}
+        my_out = {'message':'BLASTN finished with error:' + str(err)}
         return my_out
     #pro = subprocess.Popen(blastCmd, stdout=subprocess.PIPE, shell=True)
     #blastOut, err = pro.communicate(query.strip())    #communicate() blocks the process
