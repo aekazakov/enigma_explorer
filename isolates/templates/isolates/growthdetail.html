@@ -804,7 +804,11 @@
 
       Plotly.newPlot('curvesView', plotData, layout, config).then((gd) => {
         $('#curves-img-btn').html('<span class="fas fa-spinner mx-4"></span>');
-        Plotly.toImage(gd, {format:'png'}).then((url) => {
+		let imgW = $('#curvesView').width()
+		let imgH = $('#curvesView').height()
+		console.log(imgW);
+		console.log(imgH);
+        Plotly.toImage(gd, {format:'png', height:imgH, width:imgW}).then((url) => {
               $('#curves-img-btn').html('Download Image');
               $('#curves-img-btn').prop("href", url);
             }

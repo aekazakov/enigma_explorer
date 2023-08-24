@@ -8,7 +8,9 @@ The ENIGMA Explorer is intent on supporting the high-throughput isolation effort
 
 ## Maintainers
 
-[Yujia Liu](mailto:yujialiu@lbl.gov) and [Lauren Lui](mailto:lmlui@lbl.gov) from Arkin's Lab.
+ENIGMA Explorer was designed and built by [Yujia Liu](mailto:yujialiu@lbl.gov), [Lauren Lui](mailto:lmlui@lbl.gov) and [Torben Nielsen](mailto:torben@lbl.gov) from Arkin's Lab.
+
+Currently maintained by [Alexey Kazakov](mailto:aekazakov@lbl.gov) from [Deutschbauer's Lab](https://enigma.lbl.gov/deutschbauer-adam/).
 
 ## ENIGMA Explorer API v1
 
