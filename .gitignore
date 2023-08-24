@@ -7,4 +7,6 @@ Homestead.yaml
 composer.lock
 public/pulllog
 /blastdb
+db.sqlite3
+/isolates/migrations/*
 __pycache__
