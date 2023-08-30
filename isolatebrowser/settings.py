@@ -28,6 +28,8 @@ DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['foxtrot.lbl.gov', 'kilo.lbl.gov', '127.0.0.1']
 
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')  #sender's email-id
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  #password associated with above email-id
 
 # Application definition
 

@@ -1,6 +1,10 @@
 from django.contrib import admin
 from isolates.models import *
 
+admin.site.site_header = "ENIGMA Explorer admin"
+admin.site.site_title = "ENIGMA Explorer Admin Portal"
+admin.site.index_title = "Welcome to ENIGMA Explorer administration portal"
+
 # Register your models here.
 class IsolateAdmin(admin.ModelAdmin):
     list_display = ['isolate_id', 'order', 'closest_relative', 'sample_id']

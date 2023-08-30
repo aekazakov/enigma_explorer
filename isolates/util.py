@@ -1,5 +1,7 @@
 import MySQLdb
+from django.core.mail import mail_admins
 from isolates.models import *
+
 # invoke by exec(open('check_atacama.py').read())
 dateformat = '%Y-%m-%d'
 datetimeformat = '%Y-%m-%d %H:%M:%S'
@@ -24,35 +26,42 @@ def show_tables(db):
     result = c.fetchall()
     return result
     
-def get_growth_plate_ids(db):
-    query = "SELECT GrowthPlate.GrowthPlateId FROM GrowthPlate"
-    c=db.cursor()
-    c.execute(query)
-    result = []
-    for item in c.fetchall():
-        result.append(item[0])
-    return result
-
 def update_instruments(db):
     '''
         Checks the Instrument table at atacama for new entries and imports them into SQLite DB
         db: database handler
     '''
+    query = 'SELECT Instrument.instrumentId FROM Instrument'
+    #print(query)
+    c=db.cursor()
+    c.execute(query)
+
+    instrument_ids = []
+    for item in c.fetchall():
+        instrument_ids.append(item[0])
+
     existing_instrument_ids = set(Instrument.objects.values_list('instrumentId', flat=True))
-    query = 'SELECT * FROM Instrument'
-    print(query)
+    new_instrument_ids = [x for x in instrument_ids if x not in existing_instrument_ids]
+    if not new_instrument_ids:
+        result = 'New instruments not found'
+        return result
+    result = str(len(new_instrument_ids)) + ' new instruments found\n'
+    param = ','.join([str(x) for x in new_instrument_ids])
+    query = 'SELECT * FROM Instrument WHERE Instrument.instrumentId IN ( ' + param + ' )'
+    #print(query)
     c=db.cursor()
     c.execute(query)
     new_entries = []
     for item in c.fetchall():
         print(item)
         instrument_id = item[0]
-        if instrument_id in existing_instrument_ids:
-            continue
+        #if instrument_id in existing_instrument_ids:
+        #    continue
         if item[3] == '0000-00-00':
             start_date = datetime.date.min
         else:
-            start_date = item[3]  #datetime.datetime.strptime(item[3], dateformat)
+            start_date = item[3]
+            #datetime.datetime.strptime(item[3], dateformat)
             #start_date = start_date.date()
         if item[4] is None:
             end_date = None
@@ -60,7 +69,8 @@ def update_instruments(db):
             if item[4] == 'NULL':
                 end_date = None
             else:
-                end_date = item[4]  #datetime.datetime.strptime(item[4], dateformat)
+                end_date = item[4]
+                #datetime.datetime.strptime(item[4], dateformat)
                 #end_date = end_date.date()
         
         instrument = Instrument(
@@ -75,21 +85,31 @@ def update_instruments(db):
         new_entries.append(instrument)
     if new_entries:
         Instrument.objects.bulk_create(new_entries, batch_size=1000)
-    print('New instruments created:', len(new_entries))
-    
+        result += str(len(new_entries)) + ' new instruments created'
+    else:
+        result += 'New instruments not created'
+    return result
+
 def update_plates(db):
     '''
         Checks the GrowthPlate table at atacama for new entries and imports them into SQLite DB
         db: database handler
     '''
-    growth_plate_ids = get_growth_plate_ids(db)
-    existing_growth_plate_ids = set(GrowthPlate.objects.values_list('growthPlateId', flat=True))
-    plate_ids = [x for x in growth_plate_ids if x not in existing_growth_plate_ids]
-    if not plate_ids:
-        return
-    print(len(plate_ids), 'new growth plates found')
+    query = "SELECT GrowthPlate.GrowthPlateId FROM GrowthPlate"
+    c=db.cursor()
+    c.execute(query)
+    growth_plate_ids = []
+    for item in c.fetchall():
+        growth_plate_ids.append(item[0])
 
-    param = ','.join([str(x) for x in plate_ids])
+    existing_growth_plate_ids = set(GrowthPlate.objects.values_list('growthPlateId', flat=True))
+    new_plate_ids = [x for x in growth_plate_ids if x not in existing_growth_plate_ids]
+    if not new_plate_ids:
+        result = 'New growth plates not found'
+        return result
+    result = str(len(new_plate_ids)) + ' new growth plates found\n'
+
+    param = ','.join([str(x) for x in new_plate_ids])
     query = 'SELECT * FROM GrowthPlate WHERE GrowthPlate.growthPlateId IN ( ' + param + ' )'
     print(query)
     c=db.cursor()
@@ -102,11 +122,13 @@ def update_plates(db):
         if item[3] == '0000-00-00 00:00:00':
             date_created = datetime.date.min
         else:
-            date_created = item[3]  #datetime.datetime.strptime(item[3], datetimeformat)
+            date_created = item[3]
+            #datetime.datetime.strptime(item[3], datetimeformat)
         if item[4] == '0000-00-00 00:00:00':
             date_scanned = datetime.date.min
         else:
-            date_scanned = item[4]  #datetime.datetime.strptime(item[4], datetimeformat)
+            date_scanned = item[4]
+            #datetime.datetime.strptime(item[4], datetimeformat)
         instrument = instruments[item[5]]
         plate = GrowthPlate(
                             growthPlateId = item[0],
@@ -123,24 +145,47 @@ def update_plates(db):
         new_entries.append(plate)
     if new_entries:
         GrowthPlate.objects.bulk_create(new_entries, batch_size=1000)
-    print('New plates created:', len(new_entries))
+        result += str(len(new_entries)) + ' new growth plates created'
+    else:
+        result += 'New growth plates not created'
+        
+    growth_plate_ids = set(growth_plate_ids)
+    existing_growth_plate_ids = GrowthPlate.objects.values_list('growthPlateId', flat=True)
+    deleted_plate_ids = [x for x in existing_growth_plate_ids if x not in growth_plate_ids]
+    if deleted_plate_ids:
+        result += str(len(new_entries)) + ' growth plates to be deleted'
+        GrowthPlate.objects.filter(growthPlateId__in=deleted_plate_ids).delete()
+    return result
 
 def update_strains(db):
     '''
         Checks the Strain table at atacama for new entries and imports them into SQLite DB
         db: database handler
     '''
+    query = 'SELECT Strain.strainId FROM Strain'
+    #print(query)
+    c=db.cursor()
+    c.execute(query)
+    strain_ids = []
+    for item in c.fetchall():
+        strain_ids.append(item[0])
+
     existing_strain_ids = set(Strain.objects.values_list('strainId', flat=True))
-    query = 'SELECT * FROM Strain'
+    new_strain_ids = [x for x in strain_ids if x not in existing_strain_ids]
+    if not new_strain_ids:
+        result = 'New strains not found'
+        return result
+    result = str(len(new_strain_ids)) + ' new strains found\n'
+    param = ','.join([str(x) for x in new_strain_ids])
+    query = 'SELECT * FROM Strain WHERE Strain.strainId IN ( ' + param + ' )'
+
     print(query)
     c=db.cursor()
     c.execute(query)
     new_entries = []
     for item in c.fetchall():
         strain_id = item[0]
-        if strain_id in existing_strain_ids:
-            continue
-        print(item)
+        #print(item)
         strain = Strain(
                         strainId = strain_id,
                         label = clean_string_field(item[1]),
@@ -150,7 +195,10 @@ def update_strains(db):
         new_entries.append(strain)
     if new_entries:
         Strain.objects.bulk_create(new_entries, batch_size=1000)
-    print('New strains created:', len(new_entries))
+        result += str(len(new_entries)) + ' new strains created'
+    else:
+        result += 'New strains not created'
+    return result
 
 def update_strain_mutants(db):
     '''
@@ -167,9 +215,9 @@ def update_strain_mutants(db):
     existing_strain_mutant_ids = set(StrainMutant.objects.values_list('strainMutantId', flat=True))
     new_mutant_ids = [x for x in strain_mutant_ids if x not in existing_strain_mutant_ids]
     if not new_mutant_ids:
-        print('No new strain mutants')
-        return
-    print(len(new_mutant_ids), 'new strain mutants found')
+        result = 'New strain mutants not found'
+        return result
+    result = str(len(new_mutant_ids)) + ' new strain mutants found\n'
 
     param = ','.join([str(x) for x in new_mutant_ids])
     query = 'SELECT * FROM StrainMutant WHERE StrainMutant.strainMutantId IN ( ' + param + ' )'
@@ -197,7 +245,10 @@ def update_strain_mutants(db):
             continue
     if new_entries:
         StrainMutant.objects.bulk_create(new_entries, batch_size=1000)
-    print('New mutants created:', len(new_entries))
+        result += str(len(new_entries)) + ' new strain mutants created'
+    else:
+        result += 'New strain mutants not created'
+    return result
 
 def update_growth_wells(db):
     '''
@@ -215,9 +266,9 @@ def update_growth_wells(db):
     existing_growth_well_ids = set(GrowthWell.objects.values_list('growthWellId', flat=True))
     new_well_ids = [x for x in growth_well_ids if x not in existing_growth_well_ids]
     if not new_well_ids:
-        print('No new growth wells')
-        return
-    print(len(new_well_ids), 'new growth wells found')
+        result = 'New growth wells not found'
+        return result
+    result = str(len(new_well_ids)) + ' new growth wells found\n'
 
     param = ','.join([str(x) for x in new_well_ids])
     query = 'SELECT * FROM GrowthWell WHERE GrowthWell.growthWellId IN ( ' + param + ' )'
@@ -247,7 +298,10 @@ def update_growth_wells(db):
             continue
     if new_entries:
         GrowthWell.objects.bulk_create(new_entries, batch_size=1000)
-    print('New wells created:', len(new_entries))
+        result += str(len(new_entries)) + ' new growth wells created'
+    else:
+        result += 'New growth wells not created'
+    return result
 
 def update_treatment_info(db):
     '''
@@ -265,9 +319,9 @@ def update_treatment_info(db):
     existing_treatment_ids = set(TreatmentInfo.objects.values_list('treatmentInfoId', flat=True))
     new_treatment_ids = [x for x in treatment_ids if x not in existing_treatment_ids]
     if not new_treatment_ids:
-        print('No new treatment info')
-        return
-    print(len(new_treatment_ids), 'new treatment info found')
+        result = 'New treatment info not found'
+        return result
+    result = str(len(new_treatment_ids)) + ' new treatment info found\n'
 
     param = ','.join([str(x) for x in new_treatment_ids])
     query = 'SELECT * FROM TreatmentInfo WHERE TreatmentInfo.treatmentInfoId IN ( ' + param + ' )'
@@ -292,7 +346,10 @@ def update_treatment_info(db):
             continue
     if new_entries:
         TreatmentInfo.objects.bulk_create(new_entries, batch_size=1000)
-    print('New TreatmentInfo created:', len(new_entries))
+        result += str(len(new_entries)) + ' new treatment info created'
+    else:
+        result += 'New treatment info not created'
+    return result
 
 def import_well_data_batch(db, batch_ids, growth_wells):
     new_entries = []
@@ -327,6 +384,7 @@ def import_well_data_batch(db, batch_ids, growth_wells):
     if new_entries:
         WellData.objects.bulk_create(new_entries, batch_size=1000)
     print('New WellData created:', len(new_entries))
+    return len(new_entries)
 
     
 def update_well_data(db):
@@ -345,29 +403,72 @@ def update_well_data(db):
     existing_well_data_ids = set(WellData.objects.values_list('wellDataId', flat=True))
     new_well_data_ids = [x for x in well_data_ids if x not in existing_well_data_ids]
     if not new_well_data_ids:
-        print('No new well data')
-        return
-    print(len(new_well_data_ids), 'new well data found')
+        result = 'New well data not found'
+        return result
+    result = str(len(new_well_data_ids)) + ' new well data found\n'
     
     growth_wells = {item.growthWellId:item for item in GrowthWell.objects.all()}
     batch_size=10000
     batch_ids = []
+    new_entry_count = 0
     for well_data_id in new_well_data_ids:
         batch_ids.append(well_data_id)
         if len(batch_ids)%batch_size == 0:
-            import_well_data_batch(db, batch_ids, growth_wells)
+            new_entry_count += import_well_data_batch(db, batch_ids, growth_wells)
             batch_ids = []
-    import_well_data_batch(db, batch_ids, growth_wells)
+    new_entry_count += import_well_data_batch(db, batch_ids, growth_wells)
+    if new_entry_count > 0:
+        result += str(new_entry_count) + ' new well data created'
+    else:
+        result += 'New well data not created'
+    return result
             
 
 def update_plate_database(host='', user='', password='', db=''):
-    db=connect_growth_db(host=host, user=user, password=password, db=db)
-    print(show_tables(db))
-    update_instruments(db)
-    update_plates(db)
-    update_strains(db)
-    update_strain_mutants(db)
-    update_growth_wells(db)
-    update_treatment_info(db)
-    update_well_data(db)
+    try:
+        db=connect_growth_db(host=host, user=user, password=password, db=db)
+    except Exception as e:
+        mail_admins('Growth data update finished with error', f"Failed to connect to external database: {e}")
+        raise
+    result = []
+    #print(show_tables(db))
+    try:
+        result.append(update_instruments(db))
+    except Exception as e:
+        mail_admins('Growth data update finished with error', f"Failed to update instruments: {e}")
+        raise
+    try:
+        result.append(update_plates(db))
+    except Exception as e:
+        mail_admins('Growth data update finished with error', f"Failed to update growth plates: {e}")
+        raise
+    try:
+        result.append(update_strains(db))
+    except Exception as e:
+        mail_admins('Growth data update finished with error', f"Failed to update strains: {e}")
+        raise
+    try:
+        result.append(update_strain_mutants(db))
+    except Exception as e:
+        mail_admins('Growth data update finished with error', f"Failed to update strain mutants: {e}")
+        raise
+    try:
+        result.append(update_growth_wells(db))
+    except Exception as e:
+        mail_admins('Growth data update finished with error', f"Failed to update growth wells: {e}")
+        raise
+    try:
+        result.append(update_treatment_info(db))
+    except Exception as e:
+        mail_admins('Growth data update finished with error', f"Failed to update treatment info: {e}")
+        raise
+    try:
+        result.append(update_well_data(db))
+    except Exception as e:
+        mail_admins('Growth data update finished with error', f"Failed to update well data: {e}")
+        raise
+    subject = 'Growth data update finished'
+    message = '\n'.join(result)  #f'Test task finished successfuly at {settings.BASE_URL}'
+    print(message)
+    mail_admins(subject, message)
 
