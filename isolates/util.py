@@ -1,3 +1,4 @@
+import sys
 import MySQLdb
 from django.core.mail import mail_admins
 from isolates.models import *
@@ -35,7 +36,6 @@ def update_instruments(db):
     #print(query)
     c=db.cursor()
     c.execute(query)
-
     instrument_ids = []
     for item in c.fetchall():
         instrument_ids.append(item[0])
@@ -95,23 +95,30 @@ def update_plates(db):
         Checks the GrowthPlate table at atacama for new entries and imports them into SQLite DB
         db: database handler
     '''
+    result = ''
     query = "SELECT GrowthPlate.GrowthPlateId FROM GrowthPlate"
     c=db.cursor()
     c.execute(query)
-    growth_plate_ids = []
+    growth_plate_ids = set()
     for item in c.fetchall():
-        growth_plate_ids.append(item[0])
+        growth_plate_ids.add(item[0])
+        
+    existing_growth_plate_ids = GrowthPlate.objects.values_list('growthPlateId', flat=True)
+    deleted_plate_ids = [x for x in existing_growth_plate_ids if x not in growth_plate_ids]
+    if deleted_plate_ids:
+        GrowthPlate.objects.filter(growthPlateId__in=deleted_plate_ids).delete()
+        result += str(len(new_entries)) + ' growth plates deleted'
 
     existing_growth_plate_ids = set(GrowthPlate.objects.values_list('growthPlateId', flat=True))
     new_plate_ids = [x for x in growth_plate_ids if x not in existing_growth_plate_ids]
     if not new_plate_ids:
-        result = 'New growth plates not found'
+        result += 'New growth plates not found'
         return result
-    result = str(len(new_plate_ids)) + ' new growth plates found\n'
+    result += str(len(new_plate_ids)) + ' new growth plates found\n'
 
     param = ','.join([str(x) for x in new_plate_ids])
     query = 'SELECT * FROM GrowthPlate WHERE GrowthPlate.growthPlateId IN ( ' + param + ' )'
-    print(query)
+    #print(query)
     c=db.cursor()
     c.execute(query)
 
@@ -148,13 +155,6 @@ def update_plates(db):
         result += str(len(new_entries)) + ' new growth plates created'
     else:
         result += 'New growth plates not created'
-        
-    growth_plate_ids = set(growth_plate_ids)
-    existing_growth_plate_ids = GrowthPlate.objects.values_list('growthPlateId', flat=True)
-    deleted_plate_ids = [x for x in existing_growth_plate_ids if x not in growth_plate_ids]
-    if deleted_plate_ids:
-        result += str(len(new_entries)) + ' growth plates to be deleted'
-        GrowthPlate.objects.filter(growthPlateId__in=deleted_plate_ids).delete()
     return result
 
 def update_strains(db):
@@ -179,7 +179,7 @@ def update_strains(db):
     param = ','.join([str(x) for x in new_strain_ids])
     query = 'SELECT * FROM Strain WHERE Strain.strainId IN ( ' + param + ' )'
 
-    print(query)
+    #print(query)
     c=db.cursor()
     c.execute(query)
     new_entries = []
@@ -221,7 +221,7 @@ def update_strain_mutants(db):
 
     param = ','.join([str(x) for x in new_mutant_ids])
     query = 'SELECT * FROM StrainMutant WHERE StrainMutant.strainMutantId IN ( ' + param + ' )'
-    print(query)
+    #print(query)
     c=db.cursor()
     c.execute(query)
 
@@ -256,12 +256,12 @@ def update_growth_wells(db):
         db: database handler
     '''
     query = "SELECT GrowthWell.growthWellId FROM GrowthWell"
-    print(query)
+    #print(query)
     c=db.cursor()
     c.execute(query)
-    growth_well_ids = []
-    for item in c.fetchall():
-        growth_well_ids.append(item[0])
+    growth_well_ids = [item[0] for item in c.fetchall()]
+    #for item in c.fetchall():
+    #    growth_well_ids.append(item[0])
 
     existing_growth_well_ids = set(GrowthWell.objects.values_list('growthWellId', flat=True))
     new_well_ids = [x for x in growth_well_ids if x not in existing_growth_well_ids]
@@ -272,7 +272,7 @@ def update_growth_wells(db):
 
     param = ','.join([str(x) for x in new_well_ids])
     query = 'SELECT * FROM GrowthWell WHERE GrowthWell.growthWellId IN ( ' + param + ' )'
-    print(query)
+    #print(query)
     c=db.cursor()
     c.execute(query)
 
@@ -310,7 +310,7 @@ def update_treatment_info(db):
     '''
     query = "SELECT TreatmentInfo.treatmentInfoId FROM TreatmentInfo"
     c=db.cursor()
-    print(query)
+    #print(query)
     c.execute(query)
     treatment_ids = []
     for item in c.fetchall():
@@ -325,7 +325,7 @@ def update_treatment_info(db):
 
     param = ','.join([str(x) for x in new_treatment_ids])
     query = 'SELECT * FROM TreatmentInfo WHERE TreatmentInfo.treatmentInfoId IN ( ' + param + ' )'
-    print(query)
+    #print(query)
     c=db.cursor()
     c.execute(query)
 
@@ -394,7 +394,7 @@ def update_well_data(db):
     '''
     query = "SELECT WellData.wellDataId FROM WellData"
     c=db.cursor()
-    print(query)
+    #print(query)
     c.execute(query)
     well_data_ids = []
     for item in c.fetchall():
@@ -427,48 +427,48 @@ def update_well_data(db):
 def update_plate_database(host='', user='', password='', db=''):
     try:
         db=connect_growth_db(host=host, user=user, password=password, db=db)
-    except Exception as e:
-        mail_admins('Growth data update finished with error', f"Failed to connect to external database: {e}")
+    except Exception:
+        mail_admins('Growth data update finished with error', f"Failed to connect to external database:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     result = []
     #print(show_tables(db))
     try:
         result.append(update_instruments(db))
-    except Exception as e:
-        mail_admins('Growth data update finished with error', f"Failed to update instruments: {e}")
+    except Exception:
+        mail_admins('Growth data update finished with error', f"Failed to update instruments:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     try:
         result.append(update_plates(db))
-    except Exception as e:
-        mail_admins('Growth data update finished with error', f"Failed to update growth plates: {e}")
+    except Exception:
+        mail_admins('Growth data update finished with error', f"Failed to update growth plates:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     try:
         result.append(update_strains(db))
-    except Exception as e:
-        mail_admins('Growth data update finished with error', f"Failed to update strains: {e}")
+    except Exception:
+        mail_admins('Growth data update finished with error', f"Failed to update strains:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     try:
         result.append(update_strain_mutants(db))
-    except Exception as e:
-        mail_admins('Growth data update finished with error', f"Failed to update strain mutants: {e}")
+    except Exception:
+        mail_admins('Growth data update finished with error', f"Failed to update strain mutants:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     try:
         result.append(update_growth_wells(db))
-    except Exception as e:
-        mail_admins('Growth data update finished with error', f"Failed to update growth wells: {e}")
+    except Exception:
+        mail_admins('Growth data update finished with error', f"Failed to update growth wells:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     try:
         result.append(update_treatment_info(db))
-    except Exception as e:
-        mail_admins('Growth data update finished with error', f"Failed to update treatment info: {e}")
+    except Exception:
+        mail_admins('Growth data update finished with error', f"Failed to update treatment info:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     try:
         result.append(update_well_data(db))
-    except Exception as e:
-        mail_admins('Growth data update finished with error', f"Failed to update well data: {e}")
+    except Exception:
+        mail_admins('Growth data update finished with error', f"Failed to update well data:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     subject = 'Growth data update finished'
-    message = '\n'.join(result)  #f'Test task finished successfuly at {settings.BASE_URL}'
+    message = '\n'.join(result)
     print(message)
     mail_admins(subject, message)
 
