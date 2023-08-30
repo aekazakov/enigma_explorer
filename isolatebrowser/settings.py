@@ -28,6 +28,11 @@ DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['foxtrot.lbl.gov', 'kilo.lbl.gov', '127.0.0.1']
 
+ADMINS = [('Alexey', 'aekazakov@lbl.gov')]
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')  #sender's email-id
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  #password associated with above email-id
 
