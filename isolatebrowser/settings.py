@@ -146,7 +146,13 @@ REST_FRAMEWORK = {
     )
 }
 
+ATACAMA_HOST = config('ATACAMA_HOST')
+ATACAMA_USER = config('ATACAMA_USER')
+ATACAMA_PASSWORD = config('ATACAMA_PASSWORD')
+ATACAMA_DB = config('ATACAMA_DB')
+
 BLASTN_PATH = config('BLASTN_PATH', default='blastn')
 SILVA_DB = config('SILVA_DB', default='')
 NCBI_DB = config('NCBI_DB', default='')
 ENIGMA_DB = config('ENIGMA_DB', default='')
+

@@ -98,7 +98,7 @@ with open(strain_file, newline='') as csvfile:
         item = Strain(
                     strainId = strain_id,
                     label = clean_string_field(row[1]),
-                    taxonomyId = clean_string_field(row[2]),
+                    taxonomyId = int(row[2]),
                     taxPrefix = clean_string_field(row[3])
                     )
         strains.append(item)
