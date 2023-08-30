@@ -4,22 +4,15 @@
 {% block script-header %}
 {% endblock %}
 
-{% block title %}<div class="logo"><h2>ERROR</h2></div>{% endblock %}
+{% block page-title %}ERROR{% endblock %}
 
 {% block content %}
-    <section id="two" class="wrapper style3">
-        <div class="inner">
-	    <header class="align-center">
-		{% if exception %}
-			<div class="error box">Not found error: {{ exception }}</div>
-		{% else %}
-		    {% if searchcontext %}
-			<div class="error box">{{ searchcontext }}</div>
-		    {% endif %}
+	{% if exception %}
+		<div class="bg-danger">Not found error: {{ exception }}</div>
+	{% else %}
+		{% if searchcontext %}
+		<div class="bg-danger">{{ searchcontext }}</div>
 		{% endif %}
-	    </header>
-	</div>
-    </section>
-
+	{% endif %}
 {% endblock %}
 
