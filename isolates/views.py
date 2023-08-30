@@ -5,6 +5,7 @@ from collections import Counter
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse, JsonResponse
+from django.http import Http404
 #from django.views import View
 from django.db.models import Q
 from rest_framework.views import APIView
@@ -582,7 +583,7 @@ class GrowthMetaByKeywordApiView(APIView):
         
 # Front-end views.
 
-def handler404(request, exception):
+def handler404(request, exception=None):
     '''
         Returns 404 page
     '''

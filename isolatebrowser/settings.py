@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG')
+DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['foxtrot.lbl.gov', 'kilo.lbl.gov', '127.0.0.1']
+ALLOWED_HOSTS = ['*'] #['foxtrot.lbl.gov', 'kilo.lbl.gov', '127.0.0.1']
 
 ADMINS = [('Alexey', 'aekazakov@lbl.gov')]
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -40,16 +40,19 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  #password associated with a
 
 INSTALLED_APPS = [
     'isolates.apps.IsolatesConfig',
+    'admin_shortcuts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework'
+    'rest_framework',
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -57,7 +60,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+
+if DEBUG:
+    INSTALLED_APPS += ('corsheaders', )
+
+CORS_ORIGIN_ALLOW_ALL = DEBUG
 
 ROOT_URLCONF = 'isolatebrowser.urls'
 
@@ -79,7 +88,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'isolatebrowser.wsgi.application'
 
-
+INTERNAL_IPS = [
+                '127.0.0.1',
+                ]
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -163,3 +174,19 @@ SILVA_DB = config('SILVA_DB', default='')
 NCBI_DB = config('NCBI_DB', default='')
 ENIGMA_DB = config('ENIGMA_DB', default='')
 
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.versions.VersionsPanel',
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.settings.SettingsPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    'debug_toolbar.panels.templates.TemplatesPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.signals.SignalsPanel',
+    'debug_toolbar.panels.logging.LoggingPanel',
+    'debug_toolbar.panels.redirects.RedirectsPanel',
+]
+
+ADMIN_SHORTCUTS = []

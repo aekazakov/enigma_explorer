@@ -47,5 +47,4 @@ urlpatterns = [
     path('api/v1/growth/keyword/<str:keyword>', views.GrowthMetaByKeywordApiView.as_view(), name='GrowthMetaByKeyword'),
     
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
 handler404 = views.handler404
