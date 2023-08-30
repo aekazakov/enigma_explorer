@@ -26,7 +26,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['*'] #['foxtrot.lbl.gov', 'kilo.lbl.gov', '127.0.0.1']
+ALLOWED_HOSTS = ['foxtrot.lbl.gov', 'kilo.lbl.gov', '127.0.0.1', 'isolates.lbl.gov']
 
 ADMINS = [('Alexey', 'aekazakov@lbl.gov')]
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
