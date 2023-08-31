@@ -189,4 +189,29 @@ DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.redirects.RedirectsPanel',
 ]
 
-ADMIN_SHORTCUTS = []
+ADMIN_SHORTCUTS = [
+    {
+        'title': 'Tools',
+        'shortcuts': [
+            {
+                'title': 'Update isolates',
+                'url_name': 'admin:isolates_isolate_update-isolates',
+                'url': 'isolates/isolate/update-isolates',
+                'icon': 'truck',
+                'count': 'from Google Drive',
+            },
+            {
+                'title': 'Update growth plates',
+                'url_name': 'admin:isolates_growthplate_update-plates',
+                'url': 'isolates/growthplate/update-plates',
+                'icon': 'truck',
+                'count': 'from atacama',
+            },
+            {
+                'title': 'Add user',
+                'url_name': 'admin:auth_user_add',
+                'has_perms': 'example.utils.has_perms_to_users',
+            },
+        ]
+    },
+]

@@ -1,5 +1,9 @@
 from django.contrib import admin
+from django.shortcuts import render
+from django.urls import path
 from isolates.models import *
+from isolates.util import download_isolates_gdrive, update_plate_database
+from isolatebrowser.settings import ATACAMA_HOST,ATACAMA_USER,ATACAMA_PASSWORD,ATACAMA_DB
 
 admin.site.site_header = "ENIGMA Explorer admin"
 admin.site.site_title = "ENIGMA Explorer Admin Portal"
@@ -12,6 +16,21 @@ class IsolateAdmin(admin.ModelAdmin):
     ordering = ['isolate_id']
     search_fields = ['isolate_id', 'order', 'closest_relative', 'sample_id']
 
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path('update-isolates/', self.update_isolates),
+        ]
+        return my_urls + urls
+
+    def update_isolates(self, request):
+        context = {}
+        message = download_isolates_gdrive()
+        context['result'] = message
+        return render(
+            request, "admin/update_isolates.html", context
+        )
+    
 admin.site.register(Isolate, IsolateAdmin)
 
 
@@ -37,6 +56,21 @@ class GrowthPlateAdmin(admin.ModelAdmin):
     ordering = ['growthPlateId']
     search_fields = ['growthPlateId', 'numberOfWells', 'instrumentId__id']
     autocomplete_fields = ['instrumentId']
+
+    def get_urls(self):
+        urls = super().get_urls()
+        my_urls = [
+            path('update-plates/', self.update_plates),
+        ]
+        return my_urls + urls
+
+    def update_plates(self, request):
+        context = {}
+        message = update_plate_database(host=ATACAMA_HOST, user=ATACAMA_USER, password=ATACAMA_PASSWORD, db=ATACAMA_DB)
+        context['result'] = message
+        return render(
+            request, "admin/update_plates.html", context
+        )
 
 admin.site.register(GrowthPlate, GrowthPlateAdmin)
 

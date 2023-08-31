@@ -475,6 +475,7 @@ def update_plate_database(host='', user='', password='', db=''):
     message = '\n'.join(result)
     print(message)
     mail_admins(subject, message)
+    return message
 
 def download_isolates_gdrive():
     result= []
@@ -483,7 +484,8 @@ def download_isolates_gdrive():
         local_dst = os.path.join(BASE_DIR,'pub','enigma_isolates.xlsx')
         if os.path.exists(local_dst):
             os.remove(local_dst)
-        rcloneCmd = ['rclone', 'copyto', '-vv', remote_src, '--drive-shared-with-me', local_dst]
+        rcloneCmd = ['rclone', 'copyto', '--config', str(BASE_DIR) + '/rclone.conf', '-vv', remote_src, '--drive-shared-with-me', local_dst]
+        print(rcloneCmd)
         with Popen(rcloneCmd, stdin=PIPE, stdout=PIPE, stderr=STDOUT, bufsize=1, universal_newlines=True) as p:
             rcloneOut, err = p.communicate()
         print(rcloneOut)
@@ -507,12 +509,13 @@ def download_isolates_gdrive():
                 if strain_id == '' or strain_id is None:
                     continue
                 if strain_id in existing_strain_ids:
-                    print(strain_id, 'already in the database')
+                    #print(strain_id, 'already in the database')
                     continue
+                result.append('New isolate found: ' + strain_id)
                 for j, cell in enumerate(row[1:]):
                     if cell != '' and cell != 'None' and cell is not None:
                         isolates_imported[strain_id][xlsx_header[j]] = str(cell)
-        print(isolates_imported.keys())
+        #print(isolates_imported.keys())
         print(str(len(isolates_imported)), 'new isolates found')
         result.append(str(len(isolates_imported)) + ' new isolates found')
         fields = {'Isolation conditions/description (including temperature)':'condition',
@@ -564,7 +567,9 @@ def download_isolates_gdrive():
         print(str(len(new_items)), 'new isolates written')
         result.append(str(len(new_items)) + ' new isolates written')
     except Exception:
-        mail_admins('Isolate data update finished with error', f"{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
+        message = '\n'.join(result)
+        mail_admins('Isolate data update finished with error', f"Output:{message}\n{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
     subject = 'Growth data update finished'
     message = '\n'.join(result)
     mail_admins(subject, message)
+    return message
