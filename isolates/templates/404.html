@@ -8,7 +8,8 @@
 
 {% block content %}
 	{% if exception %}
-		<div class="bg-danger">Not found error: {{ exception }}</div>
+		<br/>
+		<div class="bg-danger">Page not found: {{ request.path }}</div>
 	{% else %}
 		{% if searchcontext %}
 		<div class="bg-danger">{{ searchcontext }}</div>
