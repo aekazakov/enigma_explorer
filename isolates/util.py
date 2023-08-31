@@ -564,6 +564,7 @@ def download_isolates_gdrive():
             new_items[isolate_id] = isolate
         if new_items:
             Isolate.objects.bulk_create(new_items.values(), batch_size=1000)
+            result.append(build_isolate_blastdb())
         print(str(len(new_items)), 'new isolates written')
         result.append(str(len(new_items)) + ' new isolates written')
     except Exception:
@@ -573,3 +574,20 @@ def download_isolates_gdrive():
     message = '\n'.join(result)
     mail_admins(subject, message)
     return message
+
+def build_isolate_blastdb():
+    script_path = os.path.join(BASE_DIR, 'blastdb', 'make_isolate_blastdb.sh')
+    with open(script_path, 'w') as outfile:
+        outfile.write('cd ' + str(os.path.join(BASE_DIR, 'blastdb')) + '\n')
+        outfile.write('ncbi-blast-2.9.0+/bin/makeblastdb -in enigma_isolates.fna -parse_seqids -blastdb_version 5 -title "enigma_isolates" -dbtype nucl -out enigma_isolates')
+    with open(os.path.join(BASE_DIR, 'blastdb', 'enigma_isolates.fna'), 'w') as outfile:
+        for item in Isolate.objects.values_list('isolate_id', 'rrna'):
+            if item[1] is not None and item[1] != '' and item[1] != 'NULL':
+                outfile.write('>' + item[0] + '\n' + item[1] + '\n')
+    cmd = ['bash', script_path]
+    with Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=STDOUT, bufsize=1, universal_newlines=True) as p:
+        out_text, err = p.communicate()
+    print(out_text)
+    return out_text
+            
+    
