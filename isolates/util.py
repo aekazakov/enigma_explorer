@@ -569,7 +569,7 @@ def download_isolates_gdrive():
     except Exception:
         message = '\n'.join(result)
         mail_admins('Isolate data update finished with error', f"Output:{message}\n{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
-    subject = 'Growth data update finished'
+    subject = 'Isolate data update finished'
     message = '\n'.join(result)
     mail_admins(subject, message)
     return message
