@@ -676,6 +676,7 @@ def adv_search_list(request):
     path('advsearchlist/', views.adv_search_list, name='advSearchList'),
     '''
     template = loader.get_template('isolates/advsearchlist.html')
+    context = {}
     if request.method == "POST":
         post_data = {}
         for key, val in request.POST.items():
