@@ -1,12 +1,10 @@
 /vendor
 /.idea
-Homestead.json
-Homestead.yaml
 .env
-/public/downloads
-composer.lock
-public/pulllog
-/blastdb
+pub/
+blastdb
 db.sqlite3
 /isolates/migrations/*
 __pycache__
+.htaccess
+isolates/static/admin

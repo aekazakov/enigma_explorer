@@ -1,7 +1,13 @@
+import os
 import sys
 import MySQLdb
+import openpyxl
+from pathlib import Path
+from collections import defaultdict
+from subprocess import Popen, PIPE, CalledProcessError, STDOUT
 from django.core.mail import mail_admins
 from isolates.models import *
+from isolatebrowser.settings import BASE_DIR
 
 # invoke by exec(open('check_atacama.py').read())
 dateformat = '%Y-%m-%d'
@@ -385,7 +391,6 @@ def import_well_data_batch(db, batch_ids, growth_wells):
         WellData.objects.bulk_create(new_entries, batch_size=1000)
     print('New WellData created:', len(new_entries))
     return len(new_entries)
-
     
 def update_well_data(db):
     '''
@@ -423,7 +428,6 @@ def update_well_data(db):
         result += 'New well data not created'
     return result
             
-
 def update_plate_database(host='', user='', password='', db=''):
     try:
         db=connect_growth_db(host=host, user=user, password=password, db=db)
@@ -472,3 +476,95 @@ def update_plate_database(host='', user='', password='', db=''):
     print(message)
     mail_admins(subject, message)
 
+def download_isolates_gdrive():
+    result= []
+    try:
+        remote_src = 'gdriveR:Shared_ENIGMA/DataManagement_ENIGMA/ENIGMA Data/ENIGMA Isolate List and Sequences/ENIGMA isolate data exported from CORAL.xlsx'
+        local_dst = os.path.join(BASE_DIR,'pub','enigma_isolates.xlsx')
+        if os.path.exists(local_dst):
+            os.remove(local_dst)
+        rcloneCmd = ['rclone', 'copyto', '-vv', remote_src, '--drive-shared-with-me', local_dst]
+        with Popen(rcloneCmd, stdin=PIPE, stdout=PIPE, stderr=STDOUT, bufsize=1, universal_newlines=True) as p:
+            rcloneOut, err = p.communicate()
+        print(rcloneOut)
+        result.append(rcloneOut)
+        if p.returncode != 0:
+            print('rClone finished with error:' + str(err))
+        if not os.path.exists(local_dst):
+            print('rClone did not report any errors, but downloaded file is missing')
+        xlsx_path = Path(local_dst)
+        wb_obj = openpyxl.load_workbook(xlsx_path)
+        sheet = wb_obj.active
+        xlsx_header = []
+        
+        existing_strain_ids = set(Isolate.objects.values_list('isolate_id', flat=True))
+        isolates_imported = defaultdict(dict)
+        for i, row in enumerate(sheet.iter_rows(values_only=True)):
+            if i == 0:
+                xlsx_header = row[1:]
+            else:
+                strain_id = row[0]
+                if strain_id == '' or strain_id is None:
+                    continue
+                if strain_id in existing_strain_ids:
+                    print(strain_id, 'already in the database')
+                    continue
+                for j, cell in enumerate(row[1:]):
+                    if cell != '' and cell != 'None' and cell is not None:
+                        isolates_imported[strain_id][xlsx_header[j]] = str(cell)
+        print(isolates_imported.keys())
+        print(str(len(isolates_imported)), 'new isolates found')
+        result.append(str(len(isolates_imported)) + ' new isolates found')
+        fields = {'Isolation conditions/description (including temperature)':'condition',
+                  'Phylogenetic Order':'order',
+                  'Closest relative in NCBI: 16S rRNA Gene Database':'closest_relative',
+                  'Similarity (%)':'similarity',
+                  'Date sampled':'date_sampled',
+                  'Well/Sample ID':'sample_id',
+                  'Lab isolated/Contact':'lab',
+                  'Campaign or Set':'campaign',
+                  'rrna':'rrna'
+                  }
+        new_items = {}
+        for isolate_id,isolate_data in isolates_imported.items():
+            if isolate_id in new_items:
+                result.append('Skipping ' + isolate_id + ' because it has been added already')
+                continue
+            if 'Taxon_ID_Order_Based_on_NCBI_16S_rRNA_BLAST' in isolate_data:
+                order = isolate_data['Taxon_ID_Order_Based_on_NCBI_16S_rRNA_BLAST']
+            else:
+                order = ''
+            if 'Description_Closest_relative_in_NCBI_16S_rRNA_Gene_Database' in isolate_data:
+                closest_relative = isolate_data['Description_Closest_relative_in_NCBI_16S_rRNA_Gene_Database']
+            else:
+                closest_relative = ''
+            if 'Sequence_Similarity_BLAST' in isolate_data:
+                similarity = float(isolate_data['Sequence_Similarity_BLAST'])
+            else:
+                similarity = 0.0
+            if 'Sequence_16S_Sequence' in isolate_data:
+                rrna = isolate_data['Sequence_16S_Sequence']
+            else:
+                rrna = ''
+            isolate = Isolate(
+                              isolate_id = isolate_id,
+                              condition = isolate_data['Isolation Condition, standardized (see column C for original description)'],
+                              order = order,
+                              closest_relative = closest_relative,
+                              similarity = similarity,
+                              date_sampled = isolate_data['Sampling Date'],
+                              sample_id = isolate_data['Environmental_Sample_ID'],
+                              lab = isolate_data['ENIGMA_Labs_and_Personnel_Contact_Person_or_Lab'],
+                              campaign = isolate_data['ENIGMA_Campaign'],
+                              rrna = rrna
+                              )
+            new_items[isolate_id] = isolate
+        if new_items:
+            Isolate.objects.bulk_create(new_items.values(), batch_size=1000)
+        print(str(len(new_items)), 'new isolates written')
+        result.append(str(len(new_items)) + ' new isolates written')
+    except Exception:
+        mail_admins('Isolate data update finished with error', f"{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
+    subject = 'Growth data update finished'
+    message = '\n'.join(result)
+    mail_admins(subject, message)
