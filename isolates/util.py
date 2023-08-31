@@ -107,7 +107,7 @@ def update_plates(db):
     deleted_plate_ids = [x for x in existing_growth_plate_ids if x not in growth_plate_ids]
     if deleted_plate_ids:
         GrowthPlate.objects.filter(growthPlateId__in=deleted_plate_ids).delete()
-        result += str(len(new_entries)) + ' growth plates deleted'
+        result += str(len(deleted_plate_ids)) + ' growth plates deleted'
 
     existing_growth_plate_ids = set(GrowthPlate.objects.values_list('growthPlateId', flat=True))
     new_plate_ids = [x for x in growth_plate_ids if x not in existing_growth_plate_ids]
