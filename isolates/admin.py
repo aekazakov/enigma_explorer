@@ -51,12 +51,21 @@ admin.site.register(Strain, StrainAdmin)
 
 
 class GrowthPlateAdmin(admin.ModelAdmin):
-    list_display = ['growthPlateId', 'numberOfWells', 'plateType', 'comment']
+    list_display = ['growthPlateId', 'numberOfWells', 'get_type', 'comment', 'get_instrument']
     list_filter = ['numberOfWells']
     ordering = ['growthPlateId']
     search_fields = ['growthPlateId', 'numberOfWells', 'instrumentId__id']
     autocomplete_fields = ['instrumentId']
+    
+    def get_instrument(self, obj):
+        return obj.instrumentId.instrumentName
+    get_instrument.admin_order_field  = 'instrumentId'  #Allows column order sorting
+    get_instrument.short_description = 'Instrument'  #Renames column head
 
+    def get_type(self, obj):
+        return obj.get_plateType_display()
+    get_type.short_description = 'Plate type'  #Renames column head
+    
     def get_urls(self):
         urls = super().get_urls()
         my_urls = [

@@ -88,7 +88,7 @@ class GrowthPlate(models.Model):
         
     @property
     def admin_name(self):
-        return str(self.growthPlateId) + ' (' + self.numberOfWells + ' wells, ' + plateType + ')'
+        return str(self.growthPlateId) + ' (' + self.numberOfWells + ' wells, ' + self.plateType + ')'
         
 
 class Strain(models.Model):
@@ -126,11 +126,17 @@ class StrainMutant(models.Model):
     nickname = models.CharField(max_length=30, blank=True, default='', db_index=True)
 
     def __str__(self):
-        return str(self.strainMutantId)
+        if self.nickname == '':
+            return str(self.strainMutantId) + ' (' + self.strainId.label + ')'
+        else:
+            return str(self.strainMutantId) + ' (' + self.strainId.label + ', ' + self.nickname + ')'
         
     @property
     def admin_name(self):
-        return str(self.strainMutantId) + ' (' + self.nickname + ')'
+        if self.nickname == '':
+            return str(self.strainMutantId) + ' (' + self.strainId.label + ')'
+        else:
+            return str(self.strainMutantId) + ' (' + self.strainId.label + ', ' + self.nickname +  ')'
 
     class Meta:
         indexes = [
@@ -206,16 +212,16 @@ class GrowthWell(models.Model):
 
     def __str__(self):
         if self.wellLocation == '':
-            return str(self.growthPlateId.growthPlateId) + ' plate:' + self.wellRow + self.wellCol
+            return 'plate ' + str(self.growthPlateId.growthPlateId) + '; well ' + self.wellRow + self.wellCol
         else:
-            return str(self.growthPlateId.growthPlateId) + ' plate:' + self.wellLocation
+            return 'plate ' + str(self.growthPlateId.growthPlateId) + '; well ' + self.wellLocation
         
     @property
     def admin_name(self):
         if self.wellLocation == '':
-            return str(self.growthPlateId.growthPlateId) + ' plate:' + self.wellRow + self.wellCol
+            return 'plate ' + str(self.growthPlateId.growthPlateId) + '; well ' + self.wellRow + self.wellCol
         else:
-            return str(self.growthPlateId.growthPlateId) + ' plate:' + self.wellLocation
+            return 'plate ' + str(self.growthPlateId.growthPlateId) + '; well ' + self.wellLocation
         
     class Meta:
         indexes = [
