@@ -1,0 +1,15 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+    <div>
+	<h2>Growth data update from atacama</h2>
+	<p>
+	Output of growth data data update:
+	</p>
+	{%if result %}
+	  <pre>{{ result }}</pre>
+	{% else %}
+	  <pre>No output returned</pre>
+	{% endif %}
+    </div>
+    <br />
+{% endblock %}

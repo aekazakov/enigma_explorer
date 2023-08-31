@@ -1,0 +1,15 @@
+{% extends 'admin/base.html' %}
+{% block content %}
+    <div>
+	<h2>Isolate data update from Google Drive spreadsheet</h2>
+	<p>
+	Output of isolate data update:
+	</p>
+	{%if result %}
+	  <pre>{{ result }}</pre>
+	{% else %}
+	  <pre>No output returned</pre>
+	{% endif %}
+    </div>
+    <br />
+{% endblock %}
