@@ -362,9 +362,14 @@
       $('#wellLocD').html(well.wellLocation);
       $('#mediaD').html(well.media);
       $('#strainD').html(well.strainLabel);
-      $('#treatmentD').html(well.treatment.condition + ' ' +
-        well.treatment.concentration + ' ' +
-        well.treatment.units);
+	  let treatments = '';
+	  for (let i = 0; i < well.treatment.condition.length; i++) {
+		treatments += well.treatment.condition[i] + ' ' + well.treatment.concentration[i] + ' ' + well.treatment.units[i] + '<br/>';
+	  }
+      $('#treatmentD').html(treatments);
+	    //well.treatment.condition[0] + ' ' +
+        //well.treatment.concentration[0] + ' ' +
+        //well.treatment.units[0]);
     }
 
     var setPlateDS = function() {
@@ -430,14 +435,14 @@
       if there is treatment but not strain, then blank
       if there is both treatment and strain, then sample*/
 
-      if (well.strainLabel.toLowerCase() == 'none' && well.treatment.condition.toLowerCase() == 'none') {
+      if (well.strainLabel.toLowerCase() == 'none' && well.treatment.condition[0].toLowerCase() == 'none') {
         return 'Empty';
       } else if (well.strainLabel.toLowerCase() == 'none') {
         return 'Blank';
-      } else if (well.treatment.condition.toLowerCase() == 'none') {
+      } else if (well.treatment.condition[0].toLowerCase() == 'none') {
         return 'Control';
       } else {
-        return `${well.strainLabel},${well.treatment.condition}`;
+        return `${well.strainLabel},${well.treatment.condition[0]}`;
       }
     }
 
@@ -452,9 +457,9 @@
       for (well of data) {
         var key = wellIdentifier(well);
         if (!grdMap.hasOwnProperty(key)) {
-          grdMap[key] = [well.treatment.concentration];
+          grdMap[key] = [well.treatment.concentration[0]];
         } else {
-          grdMap[key].push(well.treatment.concentration);
+          grdMap[key].push(well.treatment.concentration[0]);
         }
         
       }
@@ -493,10 +498,10 @@
           return key;
         }
         if (!showCond) {
-          str = well.treatment.concentration+' '+well.treatment.units;
+          str = well.treatment.concentration[0]+' '+well.treatment.units[0];
         } else {
-          str = well.treatment.concentration+' '+well.treatment.units+'<br/>'+
-            '<small>'+well.treatment.condition+'</small>';
+          str = well.treatment.concentration[0]+' '+well.treatment.units[0]+'<br/>'+
+            '<small>'+well.treatment.condition[0]+'</small>';
         }
         return str;
       };
@@ -538,7 +543,7 @@
             let key = wellIdentifier(well) == 'Empty' ? '' : wellIdentifier(well);
             let cellCol = colMap[key];
             let limits = grdMap[key];
-            let fadedCol = colorFade('#' + cellCol, well.treatment.concentration, limits)
+            let fadedCol = colorFade('#' + cellCol, well.treatment.concentration[0], limits)
             $('#conditionsView tbody>tr:last-child>td:last-child').css('background-color', fadedCol);
           }
         }
@@ -756,13 +761,13 @@
         }
         var key = wellIdentifier(well);
         if (!['Empty', 'Blank', 'Control'].includes(key)) {
-          var nameStr = key+','+well.treatment.concentration+well.treatment.units;
+          var nameStr = key+','+well.treatment.concentration[0]+well.treatment.units[0];
         } else {
           var nameStr = key;
         }
         keys.push(nameStr);
         let [col, grd] = plotPalette(key);
-        let fadedCol = colorFade('#' + col, wt.concentration, grd, 0.2)
+        let fadedCol = colorFade('#' + col, wt.concentration[0], grd, 0.2)
         let trace = {
           x: tp,
           y: wd.values,
@@ -804,8 +809,8 @@
 
       Plotly.newPlot('curvesView', plotData, layout, config).then((gd) => {
         $('#curves-img-btn').html('<span class="fas fa-spinner mx-4"></span>');
-		let imgW = $('#curvesView').width()
-		let imgH = $('#curvesView').height()
+		let imgW = $('#curvesView').width();
+		let imgH = $('#curvesView').height();
 		console.log(imgW);
 		console.log(imgH);
         Plotly.toImage(gd, {format:'png', height:imgH, width:imgW}).then((url) => {

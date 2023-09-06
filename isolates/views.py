@@ -540,10 +540,20 @@ class GrowthWellDataByIdApiView(APIView):
                    'treatment':{},
                    'data':{}
                    }
-            treatment = TreatmentInfo.objects.get(growthWellId=well)
-            res['treatment']['condition'] = treatment.condition
-            res['treatment']['concentration'] = treatment.concentration
-            res['treatment']['units'] = treatment.units
+            treatments = TreatmentInfo.objects.filter(growthWellId=well)
+            # Fix for redundant entries in growth DB
+            treatments_nr = set()
+            for treatment in treatments.iterator():
+                treatments_nr.add((treatment.condition, treatment.concentration, treatment.units))
+            treatments_nr = sorted(list(treatments_nr))
+            res['treatment']['condition'] = []
+            res['treatment']['concentration'] = []
+            res['treatment']['units'] = []
+            for item in treatments_nr:
+                res['treatment']['condition'].append(item[0])
+                res['treatment']['concentration'].append(item[1])
+                res['treatment']['units'].append(item[2])
+                
             res['data']['timepoints'] = []
             res['data']['values'] = []
             res['data']['temperatures'] = []
