@@ -442,10 +442,15 @@
       } else if (well.treatment.condition[0].toLowerCase() == 'none') {
         return 'Control';
       } else {
-        return `${well.strainLabel},${well.treatment.condition[0]}`;
+	    var str = well.strainLabel;
+	    for (i in well.treatment.condition) {
+		  str = str + ',' + well.treatment.condition[i];
+		}
+		return str;
+        //return `${well.strainLabel},${well.treatment.condition[0]}`;
       }
     }
-
+	
     var renderConditions = function(nWells, data, style='default', showCond=false) {
       let wellDef = { "24": [4,6], "48": [6,8], "96": [8,12], "384": [16,24] };
 
@@ -497,12 +502,23 @@
         if (['Empty', 'Control', 'Blank'].includes(key)) {
           return key;
         }
-        if (!showCond) {
-          str = well.treatment.concentration[0]+' '+well.treatment.units[0];
-        } else {
-          str = well.treatment.concentration[0]+' '+well.treatment.units[0]+'<br/>'+
-            '<small>'+well.treatment.condition[0]+'</small>';
-        }
+		str = '';
+	    for (i in well.treatment.concentration) {
+			if(showCond){
+			  str = str+'<small>'+well.treatment.condition[i]+'</small>'+'<br/>';
+			}
+			if (well.treatment.units[i].toLowerCase() == 'no units'){
+			  str = str + well.treatment.concentration[i] + '<br/>'
+			} else{
+			  str = str + well.treatment.concentration[i] + ' ' + well.treatment.units[i]+'<br/>';
+			}
+		//if (!showCond) {
+		//	  str = str + well.treatment.concentration[i] + ' ' + well.treatment.units[i] + '<br/>';
+		//	} else {
+		//	  str = str + well.treatment.concentration[i]+' '+well.treatment.units[i]+'<br/>'+
+		//		'<small>'+well.treatment.condition[i]+'</small>'+'<br/>';
+		//	}
+		}
         return str;
       };
 
@@ -761,7 +777,14 @@
         }
         var key = wellIdentifier(well);
         if (!['Empty', 'Blank', 'Control'].includes(key)) {
-          var nameStr = key+','+well.treatment.concentration[0]+well.treatment.units[0];
+		  var nameStr = '';
+		  for (i in well.treatment.concentration) {
+			if (well.treatment.units[i].toLowerCase() == 'no units'){
+			  nameStr = nameStr+well.treatment.condition[i]+' '+well.treatment.concentration[i]+',';
+			} else{
+			  nameStr = nameStr+well.treatment.condition[i]+' '+well.treatment.concentration[i]+well.treatment.units[i]+',';
+			}
+		  }
         } else {
           var nameStr = key;
         }
