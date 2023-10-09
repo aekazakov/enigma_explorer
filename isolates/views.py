@@ -512,7 +512,7 @@ class GrowthMetaByIdApiView(APIView):
         try:
             plate = GrowthPlate.objects.get(growthPlateId=id)
         except GrowthPlate.DoesNotExist:
-            raise Http404(id + ' not found')
+            raise Http404(str(id) + ' not found')
         result = {'growthPlateId': plate.growthPlateId,
                   'plateType': plate.plateType,
                   'numberOfWells': plate.numberOfWells,
