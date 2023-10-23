@@ -87,7 +87,7 @@ def local_blast(blastn_path, db_path, query):
                 'isoid': hit['description'][0]['id'], \
                 'title': hit['description'][0]['title'], \
                 'coverage': hit['hsps'][0]['align_len'] / max(queryLen, hit['hsps'][0]['align_len']), \
-                'identity': hit['hsps'][0]['identity'] / queryLen, \
+                'identity': hit['hsps'][0]['identity'] / hit['hsps'][0]['align_len'], # / queryLen, \
                 'start': hit['hsps'][0]['query_from'], \
                 'end': hit['hsps'][0]['query_to'], \
                 'align': { \
