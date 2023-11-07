@@ -17,7 +17,7 @@ from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import JSONRenderer
 
 from .models import *
-from .serializers import IsolateSerializer, IsolateNoRnaSerializer
+from .serializers import IsolateSerializer, IsolateNoRnaSerializer, IsolateIdSerializer
 from .fetchGenome import fetchG, fetchS
 from .localBlast import local_blast
 from .remoteBlast import qblast
@@ -34,7 +34,6 @@ class APIErrorException(PermissionDenied):
             self.status_code = status_code
 
 # API views
-
 class IsolateListApiView(APIView):
     # get all isolates
     def get(self, request, *args, **kwargs):
@@ -42,7 +41,7 @@ class IsolateListApiView(APIView):
         List all isolates in the database
         '''
         isolates = Isolate.objects.all()
-        serializer = IsolateSerializer(isolates, many=True)
+        serializer = IsolateIdSerializer(isolates, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
         
@@ -92,8 +91,21 @@ class IsolateByIdApiView(APIView):
         isolate = self.get_object(id=id)
         if isolate is None:
             raise APIErrorException(detail={'message': 'Isolate not found'}, status_code=status.HTTP_400_BAD_REQUEST)
-        serializer = IsolateSerializer(isolate, many=False)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        result = {
+            'id':isolate.id,
+            'isolate_id':isolate.isolate_id,
+            'condition':isolate.condition,
+            'order':isolate.order,
+            'closest_relative':isolate.closest_relative,
+            'similarity':isolate.similarity,
+            'rrna':isolate.rrna,
+            'metadata':[]
+        }
+        metadata = IsolateMetadata.objects.filter(isolate=isolate).values_list('display_name', 'value')
+        for item in metadata:
+            result['metadata'].append((item[0],item[1]))
+        # serializer = IsolateSerializer(isolate, many=False)
+        return Response(result, status=status.HTTP_200_OK)
 
         
 class IsolateByKeywordApiView(APIView):
@@ -103,7 +115,12 @@ class IsolateByKeywordApiView(APIView):
         Helper method to get the objects matching keyword
         '''
         try:
-            return Isolate.objects.filter(Q(isolate_id__icontains=keyword) | Q(order__icontains=keyword) | Q(closest_relative__icontains=keyword)).order_by('isolate_id')
+            return Isolate.objects.filter(
+                Q(isolate_id__icontains=keyword)
+                | Q(order__icontains=keyword) 
+                | Q(closest_relative__icontains=keyword)
+                | Q(isolatemetadata__value__icontains=keyword)
+            ).distinct().order_by('isolate_id')
         except Isolate.DoesNotExist:
             return None
             
@@ -151,7 +168,12 @@ class IsolateCountByKeywordApiView(APIView):
         Helper method to get the objects matching keyword
         '''
         try:
-            return Isolate.objects.filter(Q(isolate_id__icontains=keyword) | Q(order__icontains=keyword) | Q(closest_relative__icontains=keyword)).order_by('isolate_id')
+            return Isolate.objects.filter(
+                Q(isolate_id__icontains=keyword)
+                | Q(order__icontains=keyword)
+                | Q(closest_relative__icontains=keyword)
+                | Q(isolatemetadata__value__icontains=keyword)
+            ).distinct().order_by('isolate_id')
         except Isolate.DoesNotExist:
             return None
             

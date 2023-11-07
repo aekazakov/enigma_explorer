@@ -589,5 +589,4 @@ def build_isolate_blastdb():
         out_text, err = p.communicate()
     print(out_text)
     return out_text
-            
     

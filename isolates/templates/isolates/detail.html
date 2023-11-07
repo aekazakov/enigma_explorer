@@ -6,7 +6,7 @@
     <div class="col-sm-12">
     <div class="sk-rotating-plane" id="loadingIcon"></div>
     <h1 class="h1 my-4" id="isoidInfo"></h1>
-    <table class="table table-sm table-striped">
+    <table class="table table-sm table-striped" id="detailsTable">
       <tbody>
         <tr>
           <th scope="row"><h5><span class="badge badge-pill badge-secondary">Isolation Condition</span></h5></th>
@@ -21,22 +21,6 @@
           <td class="align-middle" id="relativeInfo"></td>
           <td><h5><span class="badge badge-pill badge-secondary">% Similarity</span></h5></td>
           <td class="align-middle" id="similarityInfo"></td>
-        </tr>
-        <tr>
-          <th scope="row"><h5><span class="badge badge-pill badge-secondary">Date Sampled</span></h5></th>
-          <td class="align-middle" id="dateInfo" colspan="3"></td>
-        </tr>
-        <tr>
-          <th scope="row"><h5><span class="badge badge-pill badge-secondary">Well/Sample ID</span></h5></th>
-          <td class="align-middle" id="sampleidInfo" colspan="3"></td>
-        </tr>
-        <tr>
-          <th scope="row"><h5><span class="badge badge-pill badge-secondary">Lab Isolated</span></h5></th>
-          <td class="align-middle" id="labInfo" colspan="3"></td>
-        </tr>
-        <tr>
-          <th scope="row"><h5><span class="badge badge-pill badge-secondary">Campaign or Set</span></h5></th>
-          <td class="align-middle" id="campaignInfo" colspan="3"></td>
         </tr>
         <tr>
           <th scope="row"><h5><span class="badge badge-pill badge-secondary">Morgan's Fitness Browser</span></h5></th>
@@ -377,10 +361,6 @@
         $('#orderInfo').html(data.order);
         $('#relativeInfo').html(data.closest_relative);
         $('#similarityInfo').html(data.similarity);
-        $('#dateInfo').html(data.date_sampled);
-        $('#sampleidInfo').html(data.sample_id);
-        $('#labInfo').html(data.lab);
-        $('#campaignInfo').html(data.campaign);
         if (data.fit_id) {
           $('#fitness-link').html(`
             <a href="http://fitprivate.genomics.lbl.gov/cgi-bin/org.cgi?orgId=${data.fit_id}">Link</a>
@@ -391,6 +371,16 @@
         } else {
           $('#16sBox').html('<p class="bg-danger">16s rRNA sequence not found</p>');
         }
+        for (item of data.metadata) {
+          let detailsTableRowString = `
+			<tr>
+			  <th scope="row"><h5><span class="badge badge-pill badge-secondary">${item[0]}</span></h5></th>
+			  <td class="align-middle" colspan="3">${item[1]}</td>
+			</tr>
+			`;
+          $("#detailsTable>tbody").append(detailsTableRowString);
+        }
+		
         // remove loading icon
         $('#loadingIcon').remove();
       }

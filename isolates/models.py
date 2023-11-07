@@ -13,10 +13,10 @@ class Isolate(models.Model):
     order = models.CharField(max_length=64)
     closest_relative = models.TextField()
     similarity = models.FloatField()
-    date_sampled = models.CharField(max_length=16)
-    sample_id = models.CharField(max_length=32)
-    lab = models.CharField(max_length=64)
-    campaign = models.CharField(max_length=128)
+    #date_sampled = models.CharField(max_length=16)
+    #sample_id = models.CharField(max_length=32)
+    #lab = models.CharField(max_length=64)
+    #campaign = models.CharField(max_length=128)
     rrna = models.TextField()
 
     def __str__(self):
@@ -26,6 +26,17 @@ class Isolate(models.Model):
     def admin_name(self):
         return self.isolate_id + ' (' + self.order + ')'
 
+class IsolateMetadata(models.Model):
+    '''
+        Stores isolate data
+    '''
+    isolate = models.ForeignKey(Isolate, on_delete=models.CASCADE)
+    param = models.CharField(max_length=128)
+    display_name = models.CharField(max_length=128)
+    value = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.param + ': ' + self.value
         
 class Instrument(models.Model):
     '''

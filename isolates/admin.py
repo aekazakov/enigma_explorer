@@ -11,10 +11,10 @@ admin.site.index_title = "Welcome to ENIGMA Explorer administration portal"
 
 # Register your models here.
 class IsolateAdmin(admin.ModelAdmin):
-    list_display = ['isolate_id', 'order', 'closest_relative', 'sample_id']
-    list_filter = ['order', 'campaign', 'lab']
+    list_display = ['isolate_id', 'order', 'closest_relative', 'condition']
+    list_filter = ['order']
     ordering = ['isolate_id']
-    search_fields = ['isolate_id', 'order', 'closest_relative', 'sample_id']
+    search_fields = ['isolate_id', 'order', 'closest_relative', 'condition']
 
     def get_urls(self):
         urls = super().get_urls()
@@ -114,3 +114,10 @@ class WellDataAdmin(admin.ModelAdmin):
     autocomplete_fields = ['growthWellId']
 admin.site.register(WellData, WellDataAdmin)
 
+class IsolateMetadataAdmin(admin.ModelAdmin):
+    list_display = ['isolate', 'param', 'display_name', 'value']
+    list_filter = ['param']
+    ordering = ['isolate']
+    search_fields = ['param', 'display_name', 'value']
+
+admin.site.register(IsolateMetadata, IsolateMetadataAdmin)
