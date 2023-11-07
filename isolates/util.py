@@ -59,11 +59,11 @@ def update_instruments(db):
     c.execute(query)
     new_entries = []
     for item in c.fetchall():
-        print(item)
+        #print(item)
         instrument_id = item[0]
         #if instrument_id in existing_instrument_ids:
         #    continue
-        if item[3] == '0000-00-00':
+        if item[3] == '0000-00-00' or item[3] is None:
             start_date = datetime.date.min
         else:
             start_date = item[3]
@@ -137,7 +137,7 @@ def update_plates(db):
         else:
             date_created = item[3]
             #datetime.datetime.strptime(item[3], datetimeformat)
-        if item[4] == '0000-00-00 00:00:00':
+        if item[4] == '0000-00-00 00:00:00' or item[4] is None:
             date_scanned = datetime.date.min
         else:
             date_scanned = item[4]

@@ -470,15 +470,15 @@
       }
 
       for (key in grdMap) {
-        let minVal = Math.min(...grdMap[key]);
-        let maxVal = Math.max(...grdMap[key]);
+        let minVal = Math.log(Math.min(...grdMap[key]));
+        let maxVal = Math.log(Math.max(...grdMap[key]));
         grdMap[key] = [ minVal, maxVal ];
       }
 
       // Assign the color map
       let colNum = Object.keys(grdMap).length;
       if (colNum <= 8) {
-        var colSeq = palette('cb-Dark2', colNum);
+        var colSeq = palette('tol', colNum);
       } else {
         var colSeq = palette('tol-rainbow', colNum);
       }
@@ -542,8 +542,8 @@
           }
         }
       } else if (style.toLowerCase() == 'gradient') {
-        //console.log('gradient render called');
-        //console.log(grdMap);
+        console.log('gradient render called');
+        console.log(grdMap);
         $('#conditionsView tbody').html('');
         for (let i = 0; i < nRow; i++) {
           $('#conditionsView tbody').append(`
@@ -559,7 +559,7 @@
             let key = wellIdentifier(well) == 'Empty' ? '' : wellIdentifier(well);
             let cellCol = colMap[key];
             let limits = grdMap[key];
-            let fadedCol = colorFade('#' + cellCol, well.treatment.concentration[0], limits)
+            let fadedCol = colorFade('#' + cellCol, Math.log(well.treatment.concentration[0]), limits)
             $('#conditionsView tbody>tr:last-child>td:last-child').css('background-color', fadedCol);
           }
         }
@@ -782,7 +782,7 @@
 			if (well.treatment.units[i].toLowerCase() == 'no units'){
 			  nameStr = nameStr+well.treatment.condition[i]+' '+well.treatment.concentration[i]+',';
 			} else{
-			  nameStr = nameStr+well.treatment.condition[i]+' '+well.treatment.concentration[i]+well.treatment.units[i]+',';
+			  nameStr = nameStr+well.treatment.concentration[i]+well.treatment.units[i]+' '+well.treatment.condition[i]+',';
 			}
 		  }
         } else {
@@ -790,7 +790,7 @@
         }
         keys.push(nameStr);
         let [col, grd] = plotPalette(key);
-        let fadedCol = colorFade('#' + col, wt.concentration[0], grd, 0.2)
+        let fadedCol = colorFade('#' + col, Math.log(wt.concentration[0]), grd, 0.2)
         let trace = {
           x: tp,
           y: wd.values,
@@ -812,7 +812,7 @@
 
       let layout = {
         showlegend: true,
-        margin: {r: 0, t: 0, l: 50, b: 50},
+        margin: {r: 0, t: 20, l: 50, b: 50},
         hovermode: false,
         dragmode: 'pan',
         xaxis: {
@@ -825,7 +825,7 @@
 
       let config = {
         responsive: true,
-        displayModeBar: false,
+        displayModeBar: true,
         showHint: false,
         scrollZoom: true
       };
