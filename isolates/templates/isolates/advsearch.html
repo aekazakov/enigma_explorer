@@ -19,15 +19,6 @@
         </div>
       </div>
       <div class="form-group row my-4">
-        <label for="isoidForm" class="text-white col-form-label col-sm-12 col-md-3 text-center">Well Number</label>
-        <div class="col-sm-9 col-md-8">
-          <input type="text" aria-label="Well Number" class="form-control" id="wellnumForm" name="wellnum" placeholder="Well Number" />
-        </div>
-        <div class="col-sm-3 col-md-1">
-          <button type="button" class="btn btn-outline-light checkButton" id="wellnumCheck" style="font-size:1.4rem;padding:0.125rem 0.7rem;"><strong>=</strong></button>
-        </div>
-      </div>
-      <div class="form-group row my-4">
         <label for="orderForm" class="text-white col-form-label col-sm-12 col-md-3 text-center">Phylogenic Order</label>
         <div class="col-sm-9 col-md-8">
           <input type="text" aria-label="Phylogenic Order" class="form-control" id="orderForm" name="order" placeholder="Phylogenic Order" />
@@ -45,15 +36,26 @@
           <button type="button" class="btn btn-outline-light checkButton" id="relativeCheck" style="font-size:1.4rem;padding:0.125rem 0.7rem;"><strong>≈</strong></button>
         </div>
       </div>
+  {%if metadata %}
+	
       <div class="form-group row my-4">
-        <label for="labForm" class="text-white col-form-label col-sm-12 col-md-3 text-center">Lab Isolated</label>
+        <label for="metaparam" class="text-white col-form-label col-sm-12 col-md-3 text-center">Metadata</label>
+		<select class="col-sm-9 col-md-8" id="metaparam" name="metaparam" size="6">
+      {% for item in metadata %}
+		  <option value="{{item}}">{{item}}</option>
+	  {% endfor %}
+		</select>
+      </div>
+      <div class="form-group row my-4">
+        <label for="metaparam" class="text-white col-form-label col-sm-12 col-md-3 text-center">&nbsp;</label>
         <div class="col-sm-9 col-md-8">
-          <input type="text" aria-label="Lab Isolated" class="form-control" id="labForm" name="lab" placeholder="Lab Isolated" />
+          <input type="text" aria-label="metadata" class="form-control" id="metadata" name="metadata" placeholder="Metadata" />
         </div>
         <div class="col-sm-3 col-md-1">
-          <button type="button" class="btn btn-outline-light checkButton" id="labCheck" style="font-size:1.4rem;padding:0.125rem 0.7rem;"><strong>≈</strong></button>
+          <button type="button" class="btn btn-outline-light checkButton" id="metadataCheck" style="font-size:1.4rem;padding:0.125rem 0.7rem;"><strong>≈</strong></button>
         </div>
       </div>
+  {% endif %}
       <button type='button' class="btn btn-info btn-lg float-right" id="submitButton" style="font-size:1.4rem;padding:0.125rem 0.7rem;">Submit</button>
     </form>
     

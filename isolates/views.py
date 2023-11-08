@@ -17,7 +17,7 @@ from rest_framework.decorators import api_view, renderer_classes
 from rest_framework.renderers import JSONRenderer
 
 from .models import *
-from .serializers import IsolateSerializer, IsolateNoRnaSerializer, IsolateIdSerializer
+from .serializers import IsolateSerializer, IsolateNoRnaSerializer
 from .fetchGenome import fetchG, fetchS
 from .localBlast import local_blast
 from .remoteBlast import qblast
@@ -41,7 +41,7 @@ class IsolateListApiView(APIView):
         List all isolates in the database
         '''
         isolates = Isolate.objects.all()
-        serializer = IsolateIdSerializer(isolates, many=True)
+        serializer = IsolateSerializer(isolates, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
         
@@ -69,8 +69,20 @@ class IsolateByIsoidApiView(APIView):
         isolate = self.get_object(isoid)
         if isolate is None:
             raise APIErrorException(detail={'message': 'Isolate not found'}, status_code=status.HTTP_400_BAD_REQUEST)
-        serializer = IsolateSerializer(isolate, many=False)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        result = {
+            'id':isolate.id,
+            'isolate_id':isolate.isolate_id,
+            'condition':isolate.condition,
+            'order':isolate.order,
+            'closest_relative':isolate.closest_relative,
+            'similarity':isolate.similarity,
+            'rrna':isolate.rrna,
+            'metadata':[]
+        }
+        metadata = IsolateMetadata.objects.filter(isolate=isolate).values_list('display_name', 'value')
+        for item in metadata:
+            result['metadata'].append((item[0],item[1]))
+        return Response(result, status=status.HTTP_200_OK)
 
         
 class IsolateByIdApiView(APIView):
@@ -104,7 +116,6 @@ class IsolateByIdApiView(APIView):
         metadata = IsolateMetadata.objects.filter(isolate=isolate).values_list('display_name', 'value')
         for item in metadata:
             result['metadata'].append((item[0],item[1]))
-        # serializer = IsolateSerializer(isolate, many=False)
         return Response(result, status=status.HTTP_200_OK)
 
         
@@ -122,7 +133,7 @@ class IsolateByKeywordApiView(APIView):
                 | Q(isolatemetadata__value__icontains=keyword)
             ).distinct().order_by('isolate_id')
         except Isolate.DoesNotExist:
-            return None
+            return Isolate.objects.none()
             
     def get(self, request, *args, **kwargs):
         '''
@@ -132,10 +143,25 @@ class IsolateByKeywordApiView(APIView):
         if len(keyword) < 3:
             raise APIErrorException(detail={'message': 'Too short query keyword'}, status_code=status.HTTP_400_BAD_REQUEST)
         isolates = self.get_objects(keyword)
-        if isolates is None:
+        if not isolates.exists():
             raise APIErrorException(detail={'message': 'Isolate not found'}, status_code=status.HTTP_400_BAD_REQUEST)
-        serializer = IsolateSerializer(isolates, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        result = []
+        for isolate in isolates:
+            result_item = {
+                'id':isolate.id,
+                'isolate_id':isolate.isolate_id,
+                'condition':isolate.condition,
+                'order':isolate.order,
+                'closest_relative':isolate.closest_relative,
+                'similarity':isolate.similarity,
+                'rrna':isolate.rrna,
+                'metadata':[]
+            }
+            metadata = IsolateMetadata.objects.filter(isolate=isolate).values_list('display_name', 'value')
+            for item in metadata:
+                result_item['metadata'].append((item[0],item[1]))
+            result.append(result_item)
+        return Response(result, status=status.HTTP_200_OK)
 
         
 class IsolateByGenusApiView(APIView):
@@ -157,8 +183,23 @@ class IsolateByGenusApiView(APIView):
         isolates = self.get_objects(genus)
         if isolates is None:
             raise APIErrorException(detail={'message': 'Isolate not found'}, status_code=status.HTTP_400_BAD_REQUEST)
-        serializer = IsolateSerializer(isolates, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        result = []
+        for isolate in isolates:
+            result_item = {
+                'id':isolate.id,
+                'isolate_id':isolate.isolate_id,
+                'condition':isolate.condition,
+                'order':isolate.order,
+                'closest_relative':isolate.closest_relative,
+                'similarity':isolate.similarity,
+                'rrna':isolate.rrna,
+                'metadata':[]
+            }
+            metadata = IsolateMetadata.objects.filter(isolate=isolate).values_list('display_name', 'value')
+            for item in metadata:
+                result_item['metadata'].append((item[0],item[1]))
+            result.append(result_item)
+        return Response(result, status=status.HTTP_200_OK)
 
         
 class IsolateCountByKeywordApiView(APIView):
@@ -401,40 +442,51 @@ class IsolateByMultiKeywordsApiView(APIView):
             print('\"' + key + '\"', val)
         print(search_options, search_params)
         
-        qObjects = []
-        for field in FIELDS:
+        search_condition = Q()
+        for field in search_options.keys():
             if field in search_params:
-                if field in search_options:
-                    if field == 'isoid':
-                        if search_options[field] == 'true':
-                            qObjects.append(Q(isolate_id=search_params[field]))
-                        else:
-                            qObjects.append(Q(isolate_id__icontains=search_params[field]))
-                    elif field == 'order':
-                        if search_options[field] == 'true':
-                            qObjects.append(Q(order=search_params[field]))
-                        else:
-                            qObjects.append(Q(order__icontains=search_params[field]))
-                    elif field == 'relative':
-                        if search_options[field] == 'true':
-                            qObjects.append(Q(closest_relative=search_params[field]))
-                        else:
-                            qObjects.append(Q(closest_relative__icontains=search_params[field]))
-                    elif field == 'wellnum':
-                        if search_options[field] == 'true':
-                            qObjects.append(Q(sample_id=search_params[field]))
-                        else:
-                            qObjects.append(Q(sample_id__icontains=search_params[field]))
-                    elif field == 'lab':
-                        if search_options[field] == 'true':
-                            qObjects.append(Q(lab=search_params[field]))
-                        else:
-                            qObjects.append(Q(lab__icontains=search_params[field]))
-            
-        isolates = Isolate.objects.filter(*qObjects).order_by('isolate_id')
+                if field == 'isoid':
+                    if search_options[field] == 'true':
+                        search_condition.add(Q(isolate_id=search_params[field]), Q.AND)
+                    else:
+                        search_condition.add(Q(isolate_id__icontains=search_params[field]), Q.AND)
+                elif field == 'order':
+                    if search_options[field] == 'true':
+                        search_condition.add(Q(order=search_params[field]), Q.AND)
+                    else:
+                        search_condition.add(Q(order__icontains=search_params[field]), Q.AND)
+                elif field == 'relative':
+                    if search_options[field] == 'true':
+                        search_condition.add(Q(closest_relative=search_params[field]), Q.AND)
+                    else:
+                        search_condition.add(Q(closest_relative__icontains=search_params[field]), Q.AND)
+                elif field == 'metadata':
+                    if search_options[field] == 'true':
+                        search_condition.add(Q(isolatemetadata__display_name=search_params['metaparam'], isolatemetadata__value=search_params[field]), Q.AND)
+                    else:
+                        search_condition.add(Q(isolatemetadata__display_name=search_params['metaparam'], isolatemetadata__value__icontains=search_params[field]), Q.AND)
+                    
+        print(search_condition)
+        isolates = Isolate.objects.filter(search_condition).order_by('isolate_id')
         print(isolates.count(), 'isolates found')
-        serializer = IsolateNoRnaSerializer(isolates, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        result = []
+        for isolate in isolates:
+            result_item = {
+                'id':isolate.id,
+                'isolate_id':isolate.isolate_id,
+                'condition':isolate.condition,
+                'order':isolate.order,
+                'closest_relative':isolate.closest_relative,
+                'similarity':isolate.similarity,
+                'metadata':[]
+            }
+            metadata = IsolateMetadata.objects.filter(isolate=isolate).values_list('display_name', 'value')
+            for item in metadata:
+                result_item['metadata'].append((item[0],item[1]))
+            result.append(result_item)
+        
+        #serializer = IsolateNoRnaSerializer(isolates, many=True)
+        return Response(result, status=status.HTTP_200_OK)
 
 class RelativeGenomeApiView(APIView):
     # get a list of relative genomes by id
@@ -695,7 +747,7 @@ def adv_search(request):
     path('advsearch/', views.adv_search, name='advSearch'),
     '''
     template = loader.get_template('isolates/advsearch.html')
-    context = {}
+    context = {'metadata':IsolateMetadata.objects.distinct().values_list('display_name', flat=True)}
     return HttpResponse(template.render(context, request))
 
 def browse(request):

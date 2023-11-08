@@ -68,6 +68,50 @@ In general, the ENIGMA Explorer API uses HTTP POST and GET requests with JSON re
 
 Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities do not provide full genome sequences nor isolates from FEBA collections.
 
+#### /isolates/
+
+- Description
+
+  Get all isolate identifiers in the database
+
+- URL Structure
+
+  `http://isolates.genomics.lbl.gov/api/v1/isolates`
+
+- Method
+
+  `GET`
+
+- Example
+
+  ```sh
+  curl -X GET http://isolates.genomics.lbl.gov/api/v1/isolates
+  ```
+
+- Parameters
+
+  No parameters required.
+
+- Return
+
+  **Code:** 200
+
+  **Content:**
+
+  ```json
+  [
+    {
+      "id": 1,
+    },
+    ...
+  ]
+  ```
+
+  | Key | Type | Description |
+  | :--- | :--- | :--- |
+  | **id** | *UInt64* | id of the isolate |
+
+
 #### /isolates/id
 
 - Description
@@ -106,11 +150,13 @@ Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities d
     "order": "Actinomycetales",
     "closest_relative": "Nocardia coeliaca strain DSM 44595",
     "similarity": 99,
-    "date_sampled": "03/02/15",
-    "sample_id": "FW305-03-02-15",
-    "lab": "Chakraborty",
-    "campaign": "Different Carbon Input Enrichment Isolates",
-    "rrna": "GCAGTCGAGCGGTAAGGCCTTTCGGGGT..."
+    "rrna": "GCAGTCGAGCGGTAAGGCCTTTCGGGGT...",
+    "metadata":
+        [
+          ["ENIGMA Campaign","100 Well Survey <ENIGMA:0000003>"],
+          ["NCBI Taxon ID Order","NCBITaxon:85006"],
+          .....
+        ]
   }
   ```
 
@@ -122,11 +168,8 @@ Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities d
   | **order** | *String* | Phylogenic order the isolate is assigned to. Notice that due to different pipelines used when collecting the data, even the isolates within the same genus can be assigned to different orders |
   | **closest\_relative** | *String* | The closest relative assigned by 16s sequence similarity |
   | **similarity** | *UFloat64* | 16 sequence similarity between the isolate and its closest relative, in percent |
-  | **date\_sampled** | *Timestamp(format="%m/%d/%y")* | The date when the isolate is sampled |
-  | **sample\_id** | *String* | Id of the sample |
-  | **lab** | *String* | The lab where the strain was isolated |
-  | **campaign** | *String* | In which campaign was the stain isolated |
   | **rrna** | *String* | Full-length 16s sequence of the isolate |
+  | **metadata** | *List* | list of key, value pairs |
 
 - Error
 
@@ -227,10 +270,6 @@ Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities d
       "order": "Bacillales",
       "closest_relative": "Bacillus acidicelar strain CBD 119",
       "similarity": 99,
-      "date_sampled": "03/02/15",
-      "sample_id": "FW305-03-02-15",
-      "lab": "Chakraborty",
-      "campaign": "Biofilm Campaign"
     },
     {
       "id": 3,
@@ -239,17 +278,13 @@ Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities d
       "order": "Bacillales",
       "closest_relative": "Bacillus anthracis str. Ames",
       "similarity": 99,
-      "date_sampled": "11/14/12",
-      "sample_id": "FW104-67-11-14-12",
-      "lab": "Chakraborty",
-      "campaign": "Oak Ridge Isolates"
     }
   ]
   ```
 
   | Key | Type | Description |
   | :--- | :--- | :--- |
-  | None | *List of (IsolateMeta)* | The metadata of matched isolate. The keys are similar to `isolates/id` but `rrna` field for 16s sequence is omitted |
+  | None | *List of (IsolateMeta)* | The metadata of matched isolate. The keys are similar to `isolates/id` but `rrna` and 'metadata' fields are omitted |
 
   > IsolateMeta
 
@@ -261,10 +296,6 @@ Retrieve the metadata and 16s rRNA sequence of ENIGMA isolates. The facilities d
   | **order** | *String* | Phylogenic order the isolate is assigned to. Notice that due to different pipelines used when collecting the data, even the isolates within the same genus can be assigned to different orders |
   | **closest\_relative** | *String* | The closest relative assigned by 16s sequence similarity |
   | **similarity** | *UFloat64* | 16 sequence similarity between the isolate and its closest relative, in percent |
-  | **date\_sampled** | *Timestamp(format="%m/%d/%y")* | The date when the isolate is sampled |
-  | **sample\_id** | *String* | Id of the sample |
-  | **lab** | *String* | The lab where the strain was isolated |
-  | **campaign** | *String* | In which campaign was the stain isolated |
 
 - Error
 
