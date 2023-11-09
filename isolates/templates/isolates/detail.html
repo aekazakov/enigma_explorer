@@ -22,10 +22,6 @@
           <td><h5><span class="badge badge-pill badge-secondary">% Similarity</span></h5></td>
           <td class="align-middle" id="similarityInfo"></td>
         </tr>
-        <tr>
-          <th scope="row"><h5><span class="badge badge-pill badge-secondary">Morgan's Fitness Browser</span></h5></th>
-          <td class="align-middle" id="fitness-link" colspan="3">Not Available</td>
-        </tr>
       </tbody>
     </table>
     </div>
@@ -361,11 +357,11 @@
         $('#orderInfo').html(data.order);
         $('#relativeInfo').html(data.closest_relative);
         $('#similarityInfo').html(data.similarity);
-        if (data.fit_id) {
-          $('#fitness-link').html(`
-            <a href="http://fitprivate.genomics.lbl.gov/cgi-bin/org.cgi?orgId=${data.fit_id}">Link</a>
-           `);
-        }
+        //if (data.fit_id) {
+        //  $('#fitness-link').html(`
+        //    <a href="http://fitprivate.genomics.lbl.gov/cgi-bin/org.cgi?orgId=${data.fit_id}">Link</a>
+        //   `);
+        //}
         if (data.rrna) {
           $('#16sBox').html(`<p class="small">> ${data.isolate_id}<br />${data.rrna}</p>`);
         } else {
