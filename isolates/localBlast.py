@@ -15,7 +15,19 @@ Environment Variables:
 
 from __future__ import print_function
 import sys, json, os
+import re
+from Bio.Seq import Seq
 from subprocess import Popen, PIPE, CalledProcessError, STDOUT
+
+def _cleanup_sequence(sequence):
+    sequence = Seq(sequence.strip())
+    sequence = str(sequence)
+    if sequence.startswith('>'):
+        # FASTA format
+        sequence_rows = str(sequence).split('\n')
+        sequence = ''.join(sequence_rows[1:])
+    sequence = re.sub('[^acgturyswkmbdhvnACGTURYSWKMBDHVN]', '', sequence, count=0, flags=0);
+    return sequence
 
 def local_blast(blastn_path, db_path, query):
     # constants
@@ -58,9 +70,10 @@ def local_blast(blastn_path, db_path, query):
     #    print("Local BLAST DB not found. Try remote", file=sys.stderr)
     #else :
     #    print("Local BLAST DB found.", file=sys.stderr)
+    query = _cleanup_sequence(query)
     blastCmd = [blastn_path, '-db', db_path, '-outfmt', '15']
     with Popen(blastCmd, stdin=PIPE, stdout=PIPE, stderr=STDOUT, bufsize=1, universal_newlines=True) as p:
-        blastOut, err = p.communicate(query.strip())
+        blastOut, err = p.communicate(query)
 
     if p.returncode != 0:
         my_out = {'message':'BLASTN finished with error:' + str(err)}
@@ -98,5 +111,5 @@ def local_blast(blastn_path, db_path, query):
                 'evalue': hit['hsps'][0]['evalue'] \
                 }
         myout.append(myobj)
-    print(json.dumps(myout))
+    #print(json.dumps(myout))
     return myout
