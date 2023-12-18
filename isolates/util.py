@@ -518,6 +518,7 @@ def download_isolates_gdrive():
         #print(isolates_imported.keys())
         print(str(len(isolates_imported)), 'new isolates found')
         result.append(str(len(isolates_imported)) + ' new isolates found')
+        '''
         fields = {'Isolation conditions/description (including temperature)':'condition',
                   'Phylogenetic Order':'order',
                   'Closest relative in NCBI: 16S rRNA Gene Database':'closest_relative',
@@ -528,6 +529,7 @@ def download_isolates_gdrive():
                   'Campaign or Set':'campaign',
                   'rrna':'rrna'
                   }
+        '''
         new_items = {}
         for isolate_id,isolate_data in isolates_imported.items():
             if isolate_id in new_items:
@@ -555,10 +557,10 @@ def download_isolates_gdrive():
                               order = order,
                               closest_relative = closest_relative,
                               similarity = similarity,
-                              date_sampled = isolate_data['Sampling Date'],
-                              sample_id = isolate_data['Environmental_Sample_ID'],
-                              lab = isolate_data['ENIGMA_Labs_and_Personnel_Contact_Person_or_Lab'],
-                              campaign = isolate_data['ENIGMA_Campaign'],
+                              #date_sampled = isolate_data['Sampling Date'],
+                              #sample_id = isolate_data['Environmental_Sample_ID'],
+                              #lab = isolate_data['ENIGMA_Labs_and_Personnel_Contact_Person_or_Lab'],
+                              #campaign = isolate_data['ENIGMA_Campaign'],
                               rrna = rrna
                               )
             new_items[isolate_id] = isolate
@@ -567,6 +569,39 @@ def download_isolates_gdrive():
             result.append(build_isolate_blastdb())
         print(str(len(new_items)), 'new isolates written')
         result.append(str(len(new_items)) + ' new isolates written')
+        
+        metadata_items = []
+        for isolate_id,isolate_data in isolates_imported.items():
+            isolate = Isolate.objects.get(isolate_id=isolate_id)
+            for key,val in isolate_data.items():
+                if key in [
+                    'Sequence_16S_Sequence',
+                    'Description_Closest_relative_in_NCBI_16S_rRNA_Gene_Database',
+                    'Taxon_ID_Order_Based_on_NCBI_16S_rRNA_BLAST',
+                    'Sequence_Similarity_BLAST'
+                ]:
+                    continue
+                if ' ' in key:
+                    display_name = ' '.join(key.split(' ')[:2])
+                    display_name.strip(', ')
+                    param = display_name.replace(' ', '_')
+                else:
+                    param = key
+                    display_name = param.replace('_', ' ')
+                if len(val) > 250:
+                    val = val[:247] + '...'
+                metadata_item = IsolateMetadata(
+                    isolate=isolate,
+                    param=param,
+                    display_name=display_name,
+                    value=val
+                )
+                metadata_items.append(metadata_item)
+            
+        if metadata_items:
+            IsolateMetadata.objects.bulk_create(metadata_items, batch_size=1000)
+        print(str(len(metadata_items)), 'new metadata items written')
+        
     except Exception:
         message = '\n'.join(result)
         mail_admins('Isolate data update finished with error', f"Output:{message}\n{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
