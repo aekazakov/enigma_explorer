@@ -93,7 +93,7 @@ def update_instruments(db):
         Instrument.objects.bulk_create(new_entries, batch_size=1000)
         result += str(len(new_entries)) + ' new instruments created'
     else:
-        result += 'New instruments not created'
+        result += 'No new instruments'
     return result
 
 def update_plates(db):
@@ -118,7 +118,7 @@ def update_plates(db):
     existing_growth_plate_ids = set(GrowthPlate.objects.values_list('growthPlateId', flat=True))
     new_plate_ids = [x for x in growth_plate_ids if x not in existing_growth_plate_ids]
     if not new_plate_ids:
-        result += 'New growth plates not found'
+        result += 'No new growth plates'
         return result
     result += str(len(new_plate_ids)) + ' new growth plates found\n'
 
@@ -160,7 +160,7 @@ def update_plates(db):
         GrowthPlate.objects.bulk_create(new_entries, batch_size=1000)
         result += str(len(new_entries)) + ' new growth plates created'
     else:
-        result += 'New growth plates not created'
+        result += 'No new growth plates'
     return result
 
 def update_strains(db):
@@ -203,7 +203,7 @@ def update_strains(db):
         Strain.objects.bulk_create(new_entries, batch_size=1000)
         result += str(len(new_entries)) + ' new strains created'
     else:
-        result += 'New strains not created'
+        result += 'No new strains'
     return result
 
 def update_strain_mutants(db):
@@ -253,7 +253,7 @@ def update_strain_mutants(db):
         StrainMutant.objects.bulk_create(new_entries, batch_size=1000)
         result += str(len(new_entries)) + ' new strain mutants created'
     else:
-        result += 'New strain mutants not created'
+        result += 'No new strain mutants'
     return result
 
 def update_growth_wells(db):
@@ -306,7 +306,7 @@ def update_growth_wells(db):
         GrowthWell.objects.bulk_create(new_entries, batch_size=1000)
         result += str(len(new_entries)) + ' new growth wells created'
     else:
-        result += 'New growth wells not created'
+        result += 'No new growth wells'
     return result
 
 def update_treatment_info(db):
@@ -354,7 +354,7 @@ def update_treatment_info(db):
         TreatmentInfo.objects.bulk_create(new_entries, batch_size=1000)
         result += str(len(new_entries)) + ' new treatment info created'
     else:
-        result += 'New treatment info not created'
+        result += 'No new treatment info'
     return result
 
 def import_well_data_batch(db, batch_ids, growth_wells):
@@ -408,7 +408,7 @@ def update_well_data(db):
     existing_well_data_ids = set(WellData.objects.values_list('wellDataId', flat=True))
     new_well_data_ids = [x for x in well_data_ids if x not in existing_well_data_ids]
     if not new_well_data_ids:
-        result = 'New well data not found'
+        result = 'No new well data'
         return result
     result = str(len(new_well_data_ids)) + ' new well data found\n'
     
@@ -425,53 +425,60 @@ def update_well_data(db):
     if new_entry_count > 0:
         result += str(new_entry_count) + ' new well data created'
     else:
-        result += 'New well data not created'
+        result += 'No new well data'
     return result
             
 def update_plate_database(host='', user='', password='', db=''):
     try:
         db=connect_growth_db(host=host, user=user, password=password, db=db)
     except Exception:
-        mail_admins('Growth data update finished with error', f"Failed to connect to external database:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
+        mail_admins('ENIGMA Explorer growth data update: DB CONNECTION ERROR', f"Failed to connect to external database:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     result = []
     #print(show_tables(db))
     try:
         result.append(update_instruments(db))
     except Exception:
-        mail_admins('Growth data update finished with error', f"Failed to update instruments:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
+        mail_admins('ENIGMA Explorer instrument data update: ERROR', f"Failed to update instruments:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     try:
         result.append(update_plates(db))
     except Exception:
-        mail_admins('Growth data update finished with error', f"Failed to update growth plates:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
+        mail_admins('ENIGMA Explorer plate data update: ERROR', f"Failed to update growth plates:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     try:
         result.append(update_strains(db))
     except Exception:
-        mail_admins('Growth data update finished with error', f"Failed to update strains:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
+        mail_admins('ENIGMA Explorer strain data update: ERROR', f"Failed to update strains:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     try:
         result.append(update_strain_mutants(db))
     except Exception:
-        mail_admins('Growth data update finished with error', f"Failed to update strain mutants:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
+        mail_admins('ENIGMA Explorer mutant data update: ERROR', f"Failed to update strain mutants:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     try:
         result.append(update_growth_wells(db))
     except Exception:
-        mail_admins('Growth data update finished with error', f"Failed to update growth wells:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
+        mail_admins('ENIGMA Explorer well data update: ERROR', f"Failed to update growth wells:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     try:
         result.append(update_treatment_info(db))
     except Exception:
-        mail_admins('Growth data update finished with error', f"Failed to update treatment info:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
+        mail_admins('ENIGMA Explorer treatment data update: ERROR', f"Failed to update treatment info:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
     try:
         result.append(update_well_data(db))
     except Exception:
-        mail_admins('Growth data update finished with error', f"Failed to update well data:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
+        mail_admins('ENIGMA Explorer growth data update: ERROR', f"Failed to update well data:{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
         raise
-    subject = 'Growth data update finished'
+    new_flag = False
+    for log_line in result:
+        if not log_line.startswith('No new'):
+            new_flag = True
+    if new_flag:
+        subject = 'ENIGMA Explorer: growth data updated'
+    else:
+        subject = 'ENIGMA Explorer: no new growth data'
     message = '\n'.join(result)
     print(message)
     mail_admins(subject, message)
@@ -484,7 +491,7 @@ def download_isolates_gdrive():
         local_dst = os.path.join(BASE_DIR,'pub','enigma_isolates.xlsx')
         if os.path.exists(local_dst):
             os.remove(local_dst)
-        rcloneCmd = ['rclone', 'copyto', '--config', str(BASE_DIR) + '/rclone.conf', '-vv', remote_src, '--drive-shared-with-me', local_dst]
+        rcloneCmd = ['rclone', 'copyto', '--config', str(BASE_DIR) + '/rclone.conf', remote_src, '--drive-shared-with-me', local_dst]
         print(rcloneCmd)
         with Popen(rcloneCmd, stdin=PIPE, stdout=PIPE, stderr=STDOUT, bufsize=1, universal_newlines=True) as p:
             rcloneOut, err = p.communicate()
@@ -601,11 +608,14 @@ def download_isolates_gdrive():
         if metadata_items:
             IsolateMetadata.objects.bulk_create(metadata_items, batch_size=1000)
         print(str(len(metadata_items)), 'new metadata items written')
+        if new_items:
+            subject = 'ENIGMA Explorer update: ' + str(len()) + ' new isolates'
+        else:
+            subject = 'ENIGMA Explorer update: no new isolates'
         
     except Exception:
         message = '\n'.join(result)
-        mail_admins('Isolate data update finished with error', f"Output:{message}\n{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
-    subject = 'Isolate data update finished'
+        mail_admins('ENIGMA Explorer isolates update: ERROR', f"Output:{message}\n{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
     message = '\n'.join(result)
     mail_admins(subject, message)
     return message
