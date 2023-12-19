@@ -49,7 +49,7 @@ def update_instruments(db):
     existing_instrument_ids = set(Instrument.objects.values_list('instrumentId', flat=True))
     new_instrument_ids = [x for x in instrument_ids if x not in existing_instrument_ids]
     if not new_instrument_ids:
-        result = 'New instruments not found'
+        result = 'No new instruments'
         return result
     result = str(len(new_instrument_ids)) + ' new instruments found\n'
     param = ','.join([str(x) for x in new_instrument_ids])
@@ -179,7 +179,7 @@ def update_strains(db):
     existing_strain_ids = set(Strain.objects.values_list('strainId', flat=True))
     new_strain_ids = [x for x in strain_ids if x not in existing_strain_ids]
     if not new_strain_ids:
-        result = 'New strains not found'
+        result = 'No new strains'
         return result
     result = str(len(new_strain_ids)) + ' new strains found\n'
     param = ','.join([str(x) for x in new_strain_ids])
@@ -221,7 +221,7 @@ def update_strain_mutants(db):
     existing_strain_mutant_ids = set(StrainMutant.objects.values_list('strainMutantId', flat=True))
     new_mutant_ids = [x for x in strain_mutant_ids if x not in existing_strain_mutant_ids]
     if not new_mutant_ids:
-        result = 'New strain mutants not found'
+        result = 'No new strain mutants'
         return result
     result = str(len(new_mutant_ids)) + ' new strain mutants found\n'
 
@@ -272,7 +272,7 @@ def update_growth_wells(db):
     existing_growth_well_ids = set(GrowthWell.objects.values_list('growthWellId', flat=True))
     new_well_ids = [x for x in growth_well_ids if x not in existing_growth_well_ids]
     if not new_well_ids:
-        result = 'New growth wells not found'
+        result = 'No new growth wells'
         return result
     result = str(len(new_well_ids)) + ' new growth wells found\n'
 
@@ -325,7 +325,7 @@ def update_treatment_info(db):
     existing_treatment_ids = set(TreatmentInfo.objects.values_list('treatmentInfoId', flat=True))
     new_treatment_ids = [x for x in treatment_ids if x not in existing_treatment_ids]
     if not new_treatment_ids:
-        result = 'New treatment info not found'
+        result = 'No new treatment info'
         return result
     result = str(len(new_treatment_ids)) + ' new treatment info found\n'
 
