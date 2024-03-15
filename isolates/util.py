@@ -609,7 +609,7 @@ def download_isolates_gdrive():
             IsolateMetadata.objects.bulk_create(metadata_items, batch_size=1000)
         print(str(len(metadata_items)), 'new metadata items written')
         if new_items:
-            subject = 'ENIGMA Explorer update: ' + str(len()) + ' new isolates'
+            subject = 'ENIGMA Explorer update: ' + str(len(new_items)) + ' new isolates'
         else:
             subject = 'ENIGMA Explorer update: no new isolates'
         
