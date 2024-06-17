@@ -522,6 +522,7 @@ def download_isolates_gdrive():
                 for j, cell in enumerate(row[1:]):
                     if cell != '' and cell != 'None' and cell is not None:
                         isolates_imported[strain_id][xlsx_header[j]] = str(cell)
+        print('Header:', xlsx_header)
         #print(isolates_imported.keys())
         print(str(len(isolates_imported)), 'new isolates found')
         result.append(str(len(isolates_imported)) + ' new isolates found')
@@ -558,9 +559,13 @@ def download_isolates_gdrive():
                 rrna = isolate_data['Sequence_16S_Sequence']
             else:
                 rrna = ''
+            if 'Isolation Condition, standardized (see column C for original description)' in isolate_data:
+                condition = isolate_data['Isolation Condition, standardized (see column C for original description)']
+            else:
+                condition = ''
             isolate = Isolate(
                               isolate_id = isolate_id,
-                              condition = isolate_data['Isolation Condition, standardized (see column C for original description)'],
+                              condition = condition,
                               order = order,
                               closest_relative = closest_relative,
                               similarity = similarity,
@@ -612,12 +617,12 @@ def download_isolates_gdrive():
             subject = 'ENIGMA Explorer update: ' + str(len(new_items)) + ' new isolates'
         else:
             subject = 'ENIGMA Explorer update: no new isolates'
+        message = '\n'.join(result)
+        mail_admins(subject, message)
         
     except Exception:
-        message = '\n'.join(result)
+        message = '\n'.join(result) + '\n\nTHERE WAS AN ERROR DURING THE UPDATE!' 
         mail_admins('ENIGMA Explorer isolates update: ERROR', f"Output:{message}\n{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
-    message = '\n'.join(result)
-    mail_admins(subject, message)
     return message
 
 def build_isolate_blastdb():
