@@ -71,6 +71,8 @@ def local_blast(blastn_path, db_path, query):
     #else :
     #    print("Local BLAST DB found.", file=sys.stderr)
     query = _cleanup_sequence(query)
+    if query == '':
+        return {'message':'Query sequence is not correct'}
     blastCmd = [blastn_path, '-db', db_path, '-outfmt', '15']
     with Popen(blastCmd, stdin=PIPE, stdout=PIPE, stderr=STDOUT, bufsize=1, universal_newlines=True) as p:
         blastOut, err = p.communicate(query)
