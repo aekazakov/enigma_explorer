@@ -462,9 +462,15 @@ class IsolateByMultiKeywordsApiView(APIView):
                         search_condition.add(Q(closest_relative__icontains=search_params[field]), Q.AND)
                 elif field == 'metadata':
                     if search_options[field] == 'true':
-                        search_condition.add(Q(isolatemetadata__display_name=search_params['metadata'], isolatemetadata__value=search_params[field]), Q.AND)
+                        if 'metaparam' in search_params:
+                            search_condition.add(Q(isolatemetadata__display_name=search_params['metaparam'], isolatemetadata__value=search_params[field]), Q.AND)
+                        else:
+                            search_condition.add(Q(isolatemetadata__value=search_params[field]), Q.AND)
                     else:
-                        search_condition.add(Q(isolatemetadata__display_name=search_params['metadata'], isolatemetadata__value__icontains=search_params[field]), Q.AND)
+                        if 'metaparam' in search_params:
+                            search_condition.add(Q(isolatemetadata__display_name=search_params['metaparam'], isolatemetadata__value__icontains=search_params[field]), Q.AND)
+                        else:
+                            search_condition.add(Q(isolatemetadata__value__icontains=search_params[field]), Q.AND)
                     
         print(search_condition)
         isolates = Isolate.objects.filter(search_condition).order_by('isolate_id')
