@@ -17,7 +17,7 @@ class Isolate(models.Model):
     #sample_id = models.CharField(max_length=32)
     #lab = models.CharField(max_length=64)
     #campaign = models.CharField(max_length=128)
-    rrna = models.TextField()
+    rrna = models.TextField(blank=True)
 
     def __str__(self):
         return self.isolate_id
