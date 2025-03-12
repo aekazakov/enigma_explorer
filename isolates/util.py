@@ -487,7 +487,7 @@ def update_plate_database(host='', user='', password='', db=''):
 def download_isolates_gdrive():
     result= []
     try:
-        remote_src = 'gdriveR:Shared_ENIGMA/DataManagement_ENIGMA/ENIGMA Data/ENIGMA Isolate List and Sequences/ENIGMA isolate data exported from CORAL.xlsx'
+        remote_src = 'gdriveR:ENIGMA Data/ENIGMA Isolate List and Sequences/ENIGMA isolate data exported from CORAL.xlsx'
         local_dst = os.path.join(BASE_DIR,'pub','enigma_isolates.xlsx')
         if os.path.exists(local_dst):
             os.remove(local_dst)
