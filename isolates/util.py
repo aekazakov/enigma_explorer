@@ -484,6 +484,43 @@ def update_plate_database(host='', user='', password='', db=''):
     mail_admins(subject, message)
     return message
 
+def check_strain_data(strain, header, data):
+    ret_val = 0
+    print('Checking', strain.isolate_id)
+    for header_item, data_item in zip(header, data):
+        if data_item is None or data_item == '' or data_item == 'None':
+            continue
+        if header_item == 'Taxon_ID_Order_Based_on_NCBI_16S_rRNA_BLAST':
+            if strain.order != data_item:
+                strain.isolate_id = data_item
+                strain.save()
+                print(strain.isolate_id, 'order changed to',  data_item)
+                ret_val = 1
+        elif header_item == 'Description_Closest_relative_in_NCBI_16S_rRNA_Gene_Database':
+            if strain.closest_relative != data_item:
+                strain.closest_relative = data_item
+                strain.save()
+                print(strain.isolate_id, 'closest_relative changed to',  data_item)
+                ret_val = 1
+        elif header_item == 'Sequence_Similarity_BLAST':
+            if strain.similarity != float(data_item):
+                strain.similarity = float(data_item)
+                strain.save()
+                print(strain.isolate_id, 'similarity changed to',  data_item)
+        elif header_item == 'Sequence_16S_Sequence':
+            if strain.rrna != data_item:
+                strain.rrna = data_item
+                strain.save()
+                print(strain.isolate_id, 'rrna changed to',  data_item)
+                ret_val = 1
+        elif header_item == 'Isolation Condition, standardized (see column C for original description)':
+            if strain.condition != data_item:
+                strain.condition = data_item
+                strain.save()
+                print(strain.isolate_id, 'condition changed to',  data_item)
+                ret_val = 1
+    return ret_val
+        
 def download_isolates_gdrive():
     result= []
     try:
@@ -506,8 +543,9 @@ def download_isolates_gdrive():
         sheet = wb_obj.active
         xlsx_header = []
         
-        existing_strain_ids = set(Isolate.objects.values_list('isolate_id', flat=True))
+        existing_strains = {item.isolate_id:item for item in Isolate.objects.all()}
         isolates_imported = defaultdict(dict)
+        updated_isolates = 0
         for i, row in enumerate(sheet.iter_rows(values_only=True)):
             if i == 0:
                 xlsx_header = row[1:]
@@ -515,8 +553,9 @@ def download_isolates_gdrive():
                 strain_id = row[0]
                 if strain_id == '' or strain_id is None:
                     continue
-                if strain_id in existing_strain_ids:
+                if strain_id in existing_strains:
                     #print(strain_id, 'already in the database')
+                    updated_isolates += check_strain_data(existing_strains[strain_id], xlsx_header, row[1:])
                     continue
                 result.append('New isolate found: ' + strain_id)
                 for j, cell in enumerate(row[1:]):
@@ -525,6 +564,7 @@ def download_isolates_gdrive():
         print('Header:', xlsx_header)
         #print(isolates_imported.keys())
         print(str(len(isolates_imported)), 'new isolates found')
+        result.append(str(updated_isolates) + ' isolates updated')
         result.append(str(len(isolates_imported)) + ' new isolates found')
         '''
         fields = {'Isolation conditions/description (including temperature)':'condition',
@@ -578,6 +618,7 @@ def download_isolates_gdrive():
             new_items[isolate_id] = isolate
         if new_items:
             Isolate.objects.bulk_create(new_items.values(), batch_size=1000)
+        if new_items or updated_isolates > 0:
             result.append(build_isolate_blastdb())
         print(str(len(new_items)), 'new isolates written')
         result.append(str(len(new_items)) + ' new isolates written')
