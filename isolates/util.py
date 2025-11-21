@@ -492,33 +492,75 @@ def check_strain_data(strain, header, data):
             continue
         if header_item == 'Taxon_ID_Order_Based_on_NCBI_16S_rRNA_BLAST':
             if strain.order != data_item:
-                strain.isolate_id = data_item
-                strain.save()
+                strain.order = data_item
+                try:
+                    strain.save()
+                except Exception:
+                    message = '\n\nTHERE WAS AN ERROR DURING THE UPDATE!' 
+                    mail_admins('ENIGMA Explorer isolates update: order update error', f"Output:{message}\n{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
                 print(strain.isolate_id, 'order changed to',  data_item)
                 ret_val = 1
         elif header_item == 'Description_Closest_relative_in_NCBI_16S_rRNA_Gene_Database':
             if strain.closest_relative != data_item:
                 strain.closest_relative = data_item
-                strain.save()
+                try:
+                    strain.save()
+                except Exception:
+                    message = '\n\nTHERE WAS AN ERROR DURING THE UPDATE!' 
+                    mail_admins('ENIGMA Explorer isolates update: closest_relative update error', f"Output:{message}\n{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
                 print(strain.isolate_id, 'closest_relative changed to',  data_item)
                 ret_val = 1
         elif header_item == 'Sequence_Similarity_BLAST':
             if strain.similarity != float(data_item):
                 strain.similarity = float(data_item)
-                strain.save()
+                try:
+                    strain.save()
+                except Exception:
+                    message = '\n\nTHERE WAS AN ERROR DURING THE UPDATE!' 
+                    mail_admins('ENIGMA Explorer isolates update: similarity update error', f"Output:{message}\n{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
                 print(strain.isolate_id, 'similarity changed to',  data_item)
         elif header_item == 'Sequence_16S_Sequence':
             if strain.rrna != data_item:
                 strain.rrna = data_item
-                strain.save()
+                try:
+                    strain.save()
+                except Exception:
+                    message = '\n\nTHERE WAS AN ERROR DURING THE UPDATE!' 
+                    mail_admins('ENIGMA Explorer isolates update: rRNA sequence update error', f"Output:{message}\n{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
                 print(strain.isolate_id, 'rrna changed to',  data_item)
                 ret_val = 1
         elif header_item == 'Isolation Condition, standardized (see column C for original description)':
             if strain.condition != data_item:
                 strain.condition = data_item
-                strain.save()
+                try:
+                    strain.save()
+                except Exception:
+                    message = '\n\nTHERE WAS AN ERROR DURING THE UPDATE!' 
+                    mail_admins('ENIGMA Explorer isolates update: condition update error', f"Output:{message}\n{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
                 print(strain.isolate_id, 'condition changed to',  data_item)
                 ret_val = 1
+        else:
+            if ' ' in header_item:
+                display_name = ' '.join(header_item.split(' ')[:2])
+                display_name.strip(', ')
+                param = display_name.replace(' ', '_')
+            else:
+                param = header_item
+                display_name = param.replace('_', ' ')
+            if len(data_item) > 250:
+                data_item = data_item[:247] + '...'
+            if IsolateMetadata.objects.filter(isolate=strain,param=param).exists():
+                metadata_item = IsolateMetadata.objects.get(isolate=strain,param=param)
+                if metadata_item.value != data_item:
+                    metadata_item.value = data_item
+                    print(strain.isolate_id, 'metadata changed to',  data_item)
+                    try:
+                        metadata_item.save()
+                    except Exception:
+                        message = '\n\nTHERE WAS AN ERROR DURING THE UPDATE!' 
+                        mail_admins('ENIGMA Explorer isolates update: metadata update error', f"Output:{message}\n{sys.exc_info()[0]}. {sys.exc_info()[1]}, {sys.exc_info()[2].tb_frame.f_code.co_filename}:{sys.exc_info()[2].tb_lineno}")
+                    ret_val = 1
+            
     return ret_val
         
 def download_isolates_gdrive():
@@ -563,6 +605,7 @@ def download_isolates_gdrive():
                         isolates_imported[strain_id][xlsx_header[j]] = str(cell)
         print('Header:', xlsx_header)
         #print(isolates_imported.keys())
+        print(str(updated_isolates) + ' isolates updated')
         print(str(len(isolates_imported)), 'new isolates found')
         result.append(str(updated_isolates) + ' isolates updated')
         result.append(str(len(isolates_imported)) + ' new isolates found')
